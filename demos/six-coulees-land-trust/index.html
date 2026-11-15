@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six Coulees Land Trust · Farms, trout streams and ridge trails of the Pell River valley</title>
+<meta name="description" content="Six Coulees Land Trust protects the farms, trout streams and ridge trails of the Pell River valley in Wisconsin's Driftless country, permanently. A Page Studio demonstration.">
+<meta property="og:title" content="Six Coulees Land Trust">
+<meta property="og:description" content="Farms, trout streams and ridge trails of the Pell River valley, protected permanently. A Page Studio demonstration.">
+<meta property="og:image" content="og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Six Coulees Land Trust: farms, trout streams and ridge trails, kept permanently, beside a contour map of protected parcels.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og.jpg">
+<meta name="theme-color" content="#EEF0E6">
+<link rel="preload" href="fonts/petrona-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/schibsted-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Petrona";src:url(fonts/petrona-var.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Petrona";src:url(fonts/petrona-italic-var.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(fonts/schibsted-grotesk-var.woff2) format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Red Hat Mono";src:url(fonts/red-hat-mono-var.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+
+:root{
+  --paper:#EEF0E6; --paper-2:#E3E6D9; --paper-3:#F6F7F1;
+  --ink:#1C251F; --ink-2:#465048; --rule:#C3C9B7; --rule-2:#9EA690;
+  --red:#A3381F; --red-2:#83301B;
+  --green:#3E6B3B; --wood:#D2DDC0;
+  --brown:#8C6A3F; --brown-l:#C9B08A;
+  --water:#2E6488;
+  --spruce:#17221B; --spruce-2:#22302A; --on-dark:#E9ECE0; --on-dark-2:#B3BDB0; --ochre:#E2BE7C;
+  --serif:"Petrona",Georgia,"Times New Roman",serif;
+  --sans:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Red Hat Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(20px,4.4vw,56px);
+  --max:1280px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);font-feature-settings:"tnum" 0;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+input,select,textarea,button{font:inherit}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.012em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--paper);padding:12px 16px;z-index:50;text-decoration:none;border-radius:2px}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--water);outline-offset:3px;border-radius:2px}
+.dark :focus-visible{outline-color:var(--ochre)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:48px;padding:0 22px;border-radius:2px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 .98rem/1 var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn-red{background:var(--red);border-color:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-2);border-color:var(--red-2);color:#fff}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.link{color:var(--red);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:600}
+.link:hover{color:var(--red-2);text-decoration-thickness:2px}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(238,240,230,.96);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
+.brand svg{width:30px;height:30px;flex:none}
+.brand b{font:600 1.18rem/1 var(--serif);letter-spacing:-.01em}
+.brand small{display:block;font:500 .66rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:4px}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:500;font-size:.95rem;border-radius:2px}
+.nav a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
+.nav .btn{margin-left:8px;min-height:44px;padding:0 18px}
+.menu-btn{display:none}
+@media (max-width:860px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px var(--pad) 18px}
+  .nav.open{display:flex}
+  .nav a{min-height:48px;border-bottom:1px solid var(--rule)}
+  .nav .btn{margin:12px 0 0}
+  .menu-btn{display:inline-flex;min-height:44px;min-width:44px;padding:0 14px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;opacity:.7;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 50%,#000 74%);mask-image:linear-gradient(90deg,transparent 0,transparent 50%,#000 74%)}
+@media (max-width:900px){.hero-art{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 52%,#000 78%);mask-image:linear-gradient(180deg,transparent 0,transparent 52%,#000 78%)}}
+.hero .wrap{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding-top:clamp(56px,9vw,120px);padding-bottom:clamp(48px,7vw,96px)}
+.hero .eyebrow{grid-column:1/-1;color:var(--ink-2);margin-bottom:28px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.hero h1{grid-column:1/span 7;font-size:clamp(2.2rem,4.45vw,4rem);line-height:1.06;font-weight:450;letter-spacing:-.02em;text-wrap:balance}
+.hero .lede{grid-column:1/span 6;margin:1.25rem 0 0;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--ink-2);max-width:44ch}
+.hero-foot{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:2.5rem;align-items:start}
+.hero-ctas{grid-column:1/span 6;display:flex;flex-wrap:wrap;gap:12px}
+.collar{grid-column:9/-1;grid-row:2;align-self:start;margin-top:.6rem;background:var(--paper-3);border:1px solid var(--rule-2);padding:18px 20px}
+.collar .mono{color:var(--ink-2);font-size:.7rem}
+.collar dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0 10px}
+.collar dt{font:500 .68rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.collar dd{margin:4px 0 0;font:500 1.7rem/1 var(--serif)}
+.collar p{font-size:.82rem;color:var(--ink-2);margin:0}
+.hero-foot{grid-column:1/span 8}
+.hero-mark{grid-column:9/-1;grid-row:3/span 2;align-self:start;justify-self:end;width:78%;height:auto;margin-top:.75rem;overflow:hidden}
+.hero-mark .stream{opacity:.6}
+.hero-mark .parcel polygon{opacity:.45;stroke-width:1.4}
+.hero-mark text{font:500 10.5px var(--mono);letter-spacing:.08em;fill:#3A433C;stroke:var(--paper);stroke-width:2px;paint-order:stroke;stroke-linejoin:round}
+@media (max-width:1100px){.collar{grid-column:8/-1}}
+@media (max-width:900px){.hero h1,.hero .lede{grid-column:1/-1}.hero-ctas{grid-column:1/-1}.collar{grid-column:1/-1;grid-row:auto;margin-top:28px}.hero-foot{grid-column:1/-1}.hero-mark{grid-column:1/-1;grid-row:auto;justify-self:start;width:100%;max-width:300px;margin-top:24px}}
+
+/* section heads */
+section{scroll-margin-top:72px}
+.sec{padding:clamp(64px,9vw,128px) 0;border-bottom:1px solid var(--rule)}
+.head{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;margin-bottom:clamp(28px,4vw,52px)}
+.head .mono{grid-column:1/span 3;color:var(--ink-2);padding-top:.7em}
+.head h2{grid-column:4/span 7;font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.06;text-wrap:balance}
+.head p{grid-column:4/span 6;margin-top:16px;color:var(--ink-2);font-size:1.05rem}
+.head-stack h2{grid-column:1/span 8;font-size:clamp(2.1rem,4.2vw,3.6rem)}
+.head-stack p{grid-column:1/span 6;margin-top:18px}
+.head-split{align-items:end}
+.head-split h2{grid-column:1/span 6}
+.head-split p{grid-column:8/span 5;margin-top:0}
+.vol-head{margin-bottom:clamp(28px,3.5vw,44px);max-width:40em}
+.vol-head h2{font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.06;margin-bottom:16px}
+.vol-head p{color:var(--ink-2);font-size:1.05rem;margin:0}
+@media (max-width:860px){.head .mono,.head h2,.head p{grid-column:1/-1!important}.head .mono{padding:0 0 12px}.head-split p{margin-top:16px}}
+
+/* record / map */
+.record-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:start}
+.record-grid>*{min-width:0}
+@media (max-width:1000px){.record-grid{grid-template-columns:minmax(0,1fr)}}
+.sheet{background:var(--paper-3);border:1px solid var(--rule-2);padding:10px}
+.sheet-collar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:4px 4px 10px;color:var(--ink-2);font-size:.66rem}
+.map{width:100%;height:auto;background:#F3F4EC}
+.c{fill:none;stroke:var(--brown-l);stroke-width:.7;stroke-linecap:round}
+.ci{fill:none;stroke:var(--brown);stroke-width:1.15;stroke-linecap:round;opacity:.8}
+.stream{fill:none;stroke:var(--water);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.stream.main{stroke-width:3.4}
+.coulee-l{font:500 9.5px var(--mono);letter-spacing:.18em;fill:var(--brown)}
+.river-l{font:italic 500 15px var(--serif);fill:var(--water);letter-spacing:.04em}
+.parcel polygon{stroke-width:1.6;stroke-linejoin:round;transition:opacity .45s ease,transform .45s ease}
+.parcel text{font:600 11px var(--mono);fill:var(--ink);text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#F3F4EC;stroke-width:3px}
+.parcel{transition:opacity .45s ease}
+.parcel.off{opacity:0}
+.parcel.new polygon{stroke-width:3}
+.t-easement polygon{fill:url(#hatch-red);stroke:var(--red)}
+.t-preserve polygon{fill:rgba(62,107,59,.30);stroke:var(--green)}
+.t-frontage polygon{fill:url(#hatch-blue);stroke:var(--water)}
+.bm text{font:500 9px var(--mono);fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin:14px 4px 2px;font-size:.86rem;list-style:none;padding:0}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend svg{width:26px;height:16px}
+
+.scrub{margin-top:18px;padding:4px}
+.scrub-row{display:flex;align-items:center;gap:14px;min-width:0}
+.scrub label{font-weight:600}
+input[type=range]{flex:1 1 0;width:100%;min-width:0;height:44px;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(90deg,var(--red) var(--p,100%),var(--rule-2) var(--p,100%))}
+input[type=range]::-moz-range-track{height:4px;background:var(--rule-2)}
+input[type=range]::-moz-range-progress{height:4px;background:var(--red)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;border-radius:2px;background:var(--paper-3);border:3px solid var(--red)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:2px;background:var(--paper-3);border:3px solid var(--red)}
+.ticks{display:flex;justify-content:space-between;color:var(--ink-2);font-size:.68rem;padding:0 2px}
+.play{min-height:44px;padding:0 16px;font-size:.9rem}
+
+.readout{border-top:3px solid var(--ink);padding-top:16px;position:sticky;top:90px}
+.readout .year{font:500 4.4rem/1 var(--serif);letter-spacing:-.03em}
+.readout dl{margin:18px 0 0;display:grid;gap:0}
+.readout dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding:10px 0}
+.readout dt{color:var(--ink-2);font-size:.92rem}
+.readout dd{margin:0;font:500 1.45rem/1 var(--serif)}
+.readout .added{margin-top:16px;font-size:.95rem;min-height:3.2em}
+@media (max-width:1000px){.readout{position:static}.readout .year{font-size:3.4rem}}
+
+details.ledger{margin-top:36px;border-top:1px solid var(--rule-2)}
+details.ledger summary{cursor:pointer;min-height:52px;display:flex;align-items:center;gap:12px;font-weight:600;list-style:none}
+details.ledger summary::-webkit-details-marker{display:none}
+details.ledger summary::before{content:"+";font:500 1.3rem/1 var(--mono);width:20px;color:var(--red)}
+details.ledger[open] summary::before{content:"\2212"}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+@media (max-width:600px){
+  .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tfoot,.tbl-wrap tr,.tbl-wrap td{display:block;width:100%}
+  .tbl-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl-wrap tr{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:2px 10px;padding:12px 0;border-bottom:1px solid var(--rule)}
+  .tbl-wrap td{border:0;padding:0}
+  .tbl-wrap td:nth-child(2){font-weight:600}
+  .tbl-wrap td:nth-child(3),.tbl-wrap td:nth-child(4){grid-column:2;color:var(--ink-2);font-size:.86rem}
+  .tbl-wrap td:nth-child(5){grid-column:3;grid-row:1;text-align:right}
+  .tbl-wrap td:nth-child(5)::after{content:" ac"}
+  .tbl-wrap td:nth-child(6){grid-column:3;grid-row:2;text-align:right;color:var(--ink-2);font-size:.86rem}
+  .tbl-wrap td:nth-child(6)::after{content:" mi stream"}
+  .tbl-wrap tfoot tr{border-top:2px solid var(--ink);border-bottom:0}
+  .tbl-wrap tfoot td{border:0}
+  .tbl-wrap tfoot td:empty{display:none}
+}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+caption{text-align:left;color:var(--ink-2);font-size:.84rem;padding:0 0 10px}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:500 .7rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+td.r,th.r{text-align:right}
+tr.later td{color:var(--ink-2)}
+tfoot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:0}
+
+/* directory */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{min-height:44px;padding:0 16px;border:1.5px solid var(--rule-2);background:transparent;border-radius:2px;font:500 .92rem var(--sans);color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip:hover{border-color:var(--ink)}
+.count{color:var(--ink-2);font-size:.9rem;margin:0 0 18px}
+.dir{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:64px 92px minmax(0,1.3fr) minmax(0,1.6fr) 150px;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row .no{font:500 .8rem var(--mono);color:var(--ink-2);padding-top:6px}
+.row .thumb{width:92px;height:72px;background:#F3F4EC;border:1px solid var(--rule)}
+.row h3{font-size:1.45rem;line-height:1.15}
+.row .kind{display:inline-block;margin-top:8px;font:500 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border:1px solid currentColor;border-radius:2px}
+.kind.k-preserve{color:var(--green)}.kind.k-easement{color:var(--red)}.kind.k-frontage{color:var(--water)}
+.row p{margin:0;font-size:.95rem}
+.row .access{margin-top:8px;font-size:.88rem;color:var(--ink-2)}
+.row .facts{font-size:.88rem;display:grid;gap:4px}
+.row .facts b{font:500 1.3rem/1 var(--serif);display:block}
+@media (max-width:900px){.row{grid-template-columns:72px minmax(0,1fr);gap:12px 18px}.row .no{display:none}.row .thumb{width:72px;height:60px;grid-row:span 2}.row .body,.row .facts{grid-column:2}.row .facts{display:flex;gap:18px;flex-wrap:wrap}}
+
+/* give (dark) */
+.dark{background:var(--spruce);color:var(--on-dark);border-bottom:0}
+.dark .head .mono,.dark .head p{color:var(--on-dark-2)}
+.give-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.give-copy{grid-column:1/span 5}
+.give-copy p{color:var(--on-dark-2)}
+.give-copy .kicker{color:var(--on-dark-2);margin-bottom:18px}
+.give-copy h2{font-size:clamp(2.1rem,4vw,3.3rem);line-height:1.04;color:var(--on-dark);margin-bottom:18px}
+.give-copy .lede{color:var(--on-dark);font-size:1.1rem;margin-bottom:22px}
+.give-copy ul{list-style:none;padding:0;margin:24px 0 0;border-top:1px solid #3A4A40}
+.give-copy li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #3A4A40;font-size:.95rem}
+.give-copy li b{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--on-dark)}
+.give-copy li span{color:var(--on-dark-2)}
+.give-copy li.on b{color:var(--ochre)}
+.panel{grid-column:7/-1;background:var(--spruce-2);border:1px solid #3A4A40;padding:clamp(20px,3vw,36px)}
+@media (max-width:900px){.give-copy,.panel{grid-column:1/-1}}
+.seg{display:inline-flex;border:1.5px solid var(--on-dark-2);border-radius:2px;margin-bottom:22px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;min-height:44px;padding:0 20px;font-weight:600;font-size:.95rem;cursor:pointer}
+.seg input:checked+span{background:var(--on-dark);color:var(--spruce)}
+.seg input:focus-visible+span{outline:3px solid var(--ochre);outline-offset:2px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:600;margin-bottom:10px;padding:0}
+.amts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.amt{position:relative}
+.amt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.amt span{display:flex;align-items:center;justify-content:center;min-height:56px;border:1.5px solid #5A6B60;border-radius:2px;font:500 1.3rem/1 var(--serif);cursor:pointer;transition:background .15s,border-color .15s}
+.amt span small{font:500 .7rem var(--sans);margin-left:2px;color:inherit}
+.amt input:checked+span{background:var(--on-dark);color:var(--spruce);border-color:var(--on-dark)}
+.amt input:focus-visible+span{outline:3px solid var(--ochre);outline-offset:2px}
+.amt span:hover{border-color:var(--on-dark)}
+.field{display:grid;gap:6px;margin-top:16px}
+.field label{font-weight:600;font-size:.92rem}
+.field .hint{font-size:.82rem;color:var(--on-dark-2)}
+.money{display:flex;align-items:center;border:1.5px solid #5A6B60;border-radius:2px;background:var(--spruce)}
+.money b{padding:0 4px 0 14px;font:500 1.2rem var(--serif);color:var(--on-dark-2)}
+input[type=text],input[type=email],select{width:100%;min-height:48px;padding:0 14px;font:400 1rem var(--sans);color:inherit;background:transparent;border:1.5px solid #5A6B60;border-radius:2px}
+.money input{border:0}
+input::placeholder{color:#8F9A8D}
+.money:focus-within{outline:3px solid var(--ochre);outline-offset:2px}
+.money input:focus-visible{outline:none}
+.err{color:#F2A58E;font-size:.88rem;font-weight:600;min-height:0}
+.invalid{border-color:#F2A58E!important}
+.tier{margin:20px 0;padding:14px 16px;border-left:3px solid var(--ochre);background:rgba(226,190,124,.08);font-size:.95rem}
+.tier b{color:var(--ochre)}
+.check{display:flex;gap:12px;align-items:flex-start;margin-top:16px;font-size:.92rem;min-height:44px;cursor:pointer}
+.check input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ochre);flex:none}
+.btn-light{background:var(--on-dark);border-color:var(--on-dark);color:var(--spruce);width:100%;margin-top:22px;min-height:54px;font-size:1.02rem}
+.btn-light:hover{background:#fff;border-color:#fff;color:var(--spruce)}
+.btn-ghost{border-color:var(--on-dark-2);color:var(--on-dark)}
+.btn-ghost:hover{background:var(--on-dark);color:var(--spruce)}
+.step[hidden]{display:none}
+.summary{display:flex;justify-content:space-between;gap:12px;padding:0 0 16px;margin-bottom:6px;border-bottom:1px solid #3A4A40}
+.summary b{font:500 1.6rem/1 var(--serif)}
+.note{font-size:.84rem;color:var(--on-dark-2);margin-top:14px}
+.dark .link{color:var(--ochre)}
+.dark .link:hover{color:#F0D7A6}
+.state{padding:4px 0}
+.state h3{font-size:1.9rem;margin-bottom:12px}
+.state p{color:var(--on-dark-2)}
+.state.err-state{border-left:3px solid #F2A58E;padding-left:16px}
+.row-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.row-btns .btn{width:auto;margin:0}
+.busy{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* volunteer */
+.vol-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start}
+@media (max-width:960px){.vol-grid{grid-template-columns:1fr}}
+.days{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.day{display:grid;grid-template-columns:88px minmax(0,1fr) 120px;gap:20px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.day .date{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.day .date b{display:block;font:500 2.2rem/1 var(--serif);letter-spacing:-.02em;color:var(--ink);margin:4px 0}
+.day h3{font-size:1.25rem;line-height:1.2}
+.day .where{font-size:.9rem;color:var(--ink-2);margin:4px 0 6px}
+.day p{font-size:.92rem;margin:0}
+.seats{font-size:.85rem;text-align:right}
+.seats .bar{height:6px;background:var(--paper-2);border:1px solid var(--rule-2);margin:8px 0 6px}
+.seats .bar i{display:block;height:100%;background:var(--green)}
+.seats.full .bar i{background:var(--red)}
+.seats.full strong{color:var(--red)}
+@media (max-width:560px){.day{grid-template-columns:64px minmax(0,1fr)}.seats{grid-column:2;text-align:left}.day .date b{font-size:1.8rem}}
+.signup{border-top:3px solid var(--ink);padding-top:16px;position:sticky;top:90px}
+.signup .sheet-label{color:var(--ink-2);margin:0 0 14px}
+@media (max-width:960px){.signup{position:static}}
+.signup h3{font-size:1.6rem;margin-bottom:6px}
+.signup .field label{color:var(--ink)}
+.signup input[type=text],.signup input[type=email],.signup select{border-color:var(--rule-2);background:var(--paper-3)}
+.signup .err{color:var(--red)}
+.signup .invalid{border-color:var(--red)!important}
+.signup .hint{color:var(--ink-2);font-size:.84rem}
+.done{border-left:3px solid var(--green);padding:6px 0 6px 16px}
+.done h3{color:var(--green)}
+
+/* finances */
+.fin-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.chain-box{grid-column:1/-1}
+.chain-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;color:var(--ink-2);margin:0;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.fin-head{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;margin-top:clamp(32px,4vw,52px)}
+.fin-head h2{grid-column:1/span 7;font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.06}
+.fin-head p{grid-column:1/span 6;margin:16px 0 0;color:var(--ink-2);font-size:1.05rem}
+@media (max-width:860px){.fin-head h2,.fin-head p{grid-column:1/-1}}
+.chain{display:grid;grid-template-columns:repeat(25,1fr);gap:10px 3px;padding:22px 0}
+.link-i{height:26px;border:3px solid var(--k);border-radius:999px;transition:opacity .2s}
+.link-i:nth-child(odd){margin:4px 0;height:18px}
+.chain.dim .link-i{opacity:.18}
+.chain.dim .link-i.hi{opacity:1}
+.chain-scale{display:flex;justify-content:space-between;color:var(--ink-2);font-size:.68rem;border-top:1px solid var(--ink);padding-top:6px}
+@media (max-width:700px){.chain{grid-template-columns:repeat(20,1fr);gap:6px 2px}.link-i{height:18px;border-width:2.5px}.link-i:nth-child(odd){height:12px;margin:3px 0}}
+.cats{grid-column:1/-1;list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px}
+.cats li{border-top:1px solid var(--rule-2);padding:16px 0 20px}
+.cats button{all:unset;display:block;cursor:pointer;width:100%;min-height:44px}
+.cats button:focus-visible{outline:3px solid var(--water);outline-offset:4px}
+.cats .ct{display:flex;align-items:baseline;gap:12px}
+.cats .ct i{width:22px;height:12px;border:2.5px solid var(--k);border-radius:999px;flex:none;transform:translateY(-2px)}
+.cats .ct b{font:500 2rem/1 var(--serif)}
+.cats .ct span{font-weight:600}
+.cats p{margin:8px 0 0 34px;font-size:.9rem;color:var(--ink-2)}
+@media (max-width:900px){.cats{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cats{grid-template-columns:1fr}}
+.fin-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;border-top:3px solid var(--ink);padding-top:20px}
+.fin-facts b{display:block;font:500 2.1rem/1.05 var(--serif)}
+.fin-facts span{font-size:.9rem;color:var(--ink-2)}
+@media (max-width:700px){.fin-facts{grid-template-columns:1fr}}
+.fin-note{grid-column:1/span 8;margin-top:28px;font-size:.88rem;color:var(--ink-2)}
+@media (max-width:900px){.fin-note{grid-column:1/-1}}
+
+/* footer */
+.foot{background:var(--paper-2);padding:56px 0 40px;font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot h2{font-size:1.2rem;margin-bottom:10px}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.foot li a:hover{text-decoration:underline}
+.demo-note{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule-2);color:var(--ink);max-width:70ch}
+.demo-note a{font-weight:600;display:inline-block;padding:10px 0;margin:-10px 0}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+@media print{
+  .top,.skip,.hero-art,.scrub,.filters,.panel,.signup,.hero-ctas,.play{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .dark{background:#fff;color:#000}.dark .head p,.give-copy p,.give-copy li span{color:#333}
+  .sec{padding:24px 0;break-inside:auto}
+  .readout{position:static}
+  details.ledger>*{display:block}
+  .give-copy{grid-column:1/-1}
+  .row,.day{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Six Coulees Land Trust, home">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 4 27 25H3Z" fill="none" stroke="#1C251F" stroke-width="1.8" stroke-linejoin="round"/><circle cx="15" cy="18" r="2.6" fill="#A3381F"/><path d="M1 28.5h28" stroke="#2E6488" stroke-width="1.8"/></svg>
+      <span><b>Six Coulees</b><small>Land Trust · Est. 1991</small></span>
+    </a>
+    <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#record">The record</a>
+      <a href="#preserves">Preserves</a>
+      <a href="#volunteer">Volunteer</a>
+      <a href="#finances">Finances</a>
+      <a class="btn btn-red" href="#give">Join or give</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="mission">
+  <svg class="hero-art" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#contours"/></svg>
+  <div class="wrap">
+    <p class="eyebrow mono"><span>Pell River valley</span><span>Driftless Wisconsin</span><span>Member-supported since 1991</span></p>
+    <h1 id="mission">We keep the farms, trout streams and ridge trails of the Pell River valley.</h1>
+    <p class="lede">Our members keep it that way: farms stay farmed, creek banks stay shaded, and the ridge trails stay open to anyone with boots.</p>
+    <div class="hero-foot">
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#give">Become a member</a>
+        <a class="btn" href="#volunteer">Find a work day</a>
+      </div>
+    </div>
+      <div class="collar">
+        <p class="mono">Protected since 1991</p>
+        <dl>
+          <div><dt>Acres</dt><dd class="num" data-sum="acres">0</dd></div>
+          <div><dt>Parcels</dt><dd class="num" data-sum="parcels">0</dd></div>
+          <div><dt>Stream mi.</dt><dd class="num" data-sum="stream">0</dd></div>
+        </dl>
+        <p><a class="link" href="#record">See the record, parcel by parcel</a></p>
+      </div>
+      <svg class="hero-mark" id="hero-mark" aria-hidden="true" focusable="false"></svg>
+  </div>
+</section>
+
+<section class="sec" id="record" aria-labelledby="record-h">
+  <div class="wrap">
+    <div class="head head-stack">
+      <h2 id="record-h">Thirty-five years, one closing at a time.</h2>
+      <p>Our first easement was signed at the Rognstad kitchen table in 1993. The newest, the Lower Pell Bottoms, closed this spring. Drag the year to watch the valley fill in between them, farm by farm and creek by creek.</p>
+    </div>
+    <div class="record-grid">
+      <div>
+        <figure class="sheet" style="margin:0">
+          <figcaption class="sheet-collar mono"><span>Six Coulees quadrangle · Wisconsin</span><span>Illustrative survey · contour interval 20 ft</span></figcaption>
+          <svg class="map" id="map" viewBox="0 0 1000 640" role="img" aria-labelledby="map-t map-d">
+            <title id="map-t">Map of protected parcels in the Pell River valley</title>
+            <desc id="map-d">A contour map of the Pell River and six tributary coulees, with each protected parcel outlined. Parcels appear as the year control advances. The full list is in the parcel ledger table below.</desc>
+            <defs>
+              <pattern id="hatch-red" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="rgba(163,56,31,.07)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#A3381F" stroke-width="1.3" opacity=".7"/></pattern>
+              <pattern id="hatch-blue" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="5" height="5" fill="rgba(46,100,136,.1)"/><line x1="0" y1="0" x2="0" y2="5" stroke="#2E6488" stroke-width="1.1" opacity=".75"/></pattern>
+            </defs>
+            <g id="contours"></g>
+            <g id="parcels"></g>
+            <g id="streams"></g>
+            <g id="labels"></g>
+          </svg>
+          <ul class="legend" aria-label="Map legend">
+            <li><svg viewBox="0 0 26 16" aria-hidden="true"><rect x="1" y="1" width="24" height="14" fill="url(#hatch-red)" stroke="#A3381F" stroke-width="1.6"/></svg>Working farm easement, private</li>
+            <li><svg viewBox="0 0 26 16" aria-hidden="true"><rect x="1" y="1" width="24" height="14" fill="rgba(62,107,59,.30)" stroke="#3E6B3B" stroke-width="1.6"/></svg>Preserve, open to the public</li>
+            <li><svg viewBox="0 0 26 16" aria-hidden="true"><rect x="1" y="1" width="24" height="14" fill="url(#hatch-blue)" stroke="#2E6488" stroke-width="1.6"/></svg>Stream frontage, angler access</li>
+          </ul>
+        </figure>
+        <div class="scrub">
+          <div class="scrub-row">
+            <label for="year">Year</label>
+            <input type="range" id="year" min="1991" max="2026" step="1" value="2026">
+            <button class="btn play" type="button" id="play">Replay</button>
+          </div>
+          <div class="ticks mono" aria-hidden="true"><span>1991</span><span>2000</span><span>2010</span><span>2020</span><span>2026</span></div>
+        </div>
+      </div>
+      <aside class="readout" aria-live="polite" aria-atomic="true" aria-label="Totals for the selected year">
+        <p class="mono" style="margin:0;color:var(--ink-2)">Protected by the end of</p>
+        <p class="year num" id="ro-year">2026</p>
+        <dl>
+          <div><dt>Acres protected</dt><dd class="num" id="ro-acres">0</dd></div>
+          <div><dt>Parcels</dt><dd class="num" id="ro-parcels">0</dd></div>
+          <div><dt>Miles of stream bank</dt><dd class="num" id="ro-stream">0</dd></div>
+          <div><dt>Miles of public trail</dt><dd class="num" id="ro-trail">0</dd></div>
+        </dl>
+        <p class="added" id="ro-added"></p>
+      </aside>
+    </div>
+    <details class="ledger">
+      <summary>Read the full parcel ledger</summary>
+      <div class="tbl-wrap">
+        <table>
+          <caption>Protected parcels by year of closing.</caption>
+          <thead><tr><th>No.</th><th>Parcel</th><th>Type</th><th>Closed</th><th class="r">Acres</th><th class="r">Stream mi.</th></tr></thead>
+          <tbody id="ledger-body"></tbody>
+          <tfoot><tr><td></td><td>Total</td><td></td><td></td><td class="r num" id="lt-acres"></td><td class="r num" id="lt-stream"></td></tr></tfoot>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" id="preserves" aria-labelledby="pres-h">
+  <div class="wrap">
+    <div class="head head-split">
+      <h2 id="pres-h">Where you can walk, where you can fish, and where you can only look.</h2>
+      <p>Most of what we protect is private farmland under easement: the family keeps farming, we hold the development rights. Please admire those from the road. The preserves and stream corridors are yours.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter parcels">
+      <button class="chip" type="button" data-f="open" aria-pressed="true">Open to visit</button>
+      <button class="chip" type="button" data-f="preserve" aria-pressed="false">Trails</button>
+      <button class="chip" type="button" data-f="frontage" aria-pressed="false">Angler access</button>
+      <button class="chip" type="button" data-f="easement" aria-pressed="false">Private farms</button>
+      <button class="chip" type="button" data-f="all" aria-pressed="false">Everything</button>
+    </div>
+    <p class="count" id="dir-count" aria-live="polite"></p>
+    <ul class="dir" id="dir"></ul>
+  </div>
+</section>
+
+<section class="sec dark" id="give" aria-labelledby="give-h">
+  <div class="wrap">
+    <div class="give-grid">
+      <div class="give-copy">
+        <p class="mono kicker">Membership</p>
+        <h2 id="give-h">An easement lasts forever.</h2>
+        <p class="lede">So does the job of keeping it. Members pay for the closings, and for the visit we make to every easement, every year, to check the deal is still being kept.</p>
+        <p>Membership is any gift of $35 or more in a year, once or spread monthly. Every member gets the printed trail map, the work-day calendar, and a vote at the annual meeting in the Halvor town hall.</p>
+        <ul id="tiers" aria-label="Membership levels">
+          <li data-min="35"><b>$35</b><span>Individual member</span></li>
+          <li data-min="60"><b>$60</b><span>Household, everyone under one roof</span></li>
+          <li data-min="150"><b>$150</b><span>Steward, plus the autumn easement tour</span></li>
+          <li data-min="500"><b>$500</b><span>Ridge Circle, plus a closing-day walk with staff</span></li>
+        </ul>
+      </div>
+      <div class="panel" id="panel">
+        <form class="step" id="step1" novalidate>
+          <div class="seg" role="radiogroup" aria-label="How often">
+            <label><input type="radio" name="freq" value="once" checked><span>Once</span></label>
+            <label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label>
+          </div>
+          <fieldset>
+            <legend id="amt-legend">Choose an amount</legend>
+            <div class="amts" id="amts"></div>
+          </fieldset>
+          <div class="field">
+            <label for="custom">Or enter your own amount</label>
+            <div class="money" id="money"><b aria-hidden="true">$</b><input type="text" id="custom" inputmode="decimal" autocomplete="off" placeholder="0" aria-describedby="custom-err custom-hint"></div>
+            <span class="hint" id="custom-hint">Minimum $5.</span>
+            <span class="err" id="custom-err" role="alert"></span>
+          </div>
+          <p class="tier" id="tier" aria-live="polite"></p>
+          <button class="btn btn-light" type="submit" id="go">Continue</button>
+          <p class="note">Demonstration only: no payment is processed.</p>
+        </form>
+
+        <form class="step" id="step2" novalidate hidden>
+          <div class="summary"><span>Your gift</span><b class="num" id="sum-amt"></b></div>
+          <div class="field"><label for="g-name">Name</label><input type="text" id="g-name" autocomplete="name" aria-describedby="g-name-err"><span class="err" id="g-name-err"></span></div>
+          <div class="field"><label for="g-email">Email, for the receipt</label><input type="email" id="g-email" autocomplete="email" aria-describedby="g-email-err"><span class="err" id="g-email-err"></span></div>
+          <label class="check"><input type="checkbox" id="fee"><span>Add <strong id="fee-amt">$0</strong> to cover the card processing fee, so the whole gift reaches the land.</span></label>
+          <button class="btn btn-light" type="submit" id="pay">Give</button>
+          <div class="row-btns"><button class="btn btn-ghost" type="button" id="back">Back</button></div>
+          <p class="note"><button type="button" class="link" id="decline-demo" style="background:none;border:0;padding:12px 0;font:inherit;cursor:pointer">Preview the declined-card state</button></p>
+        </form>
+
+        <div class="step state" id="step-ok" hidden tabindex="-1">
+          <h3>Thank you, <span id="ok-name"></span>.</h3>
+          <p id="ok-line"></p>
+          <p>We will send your membership card and the trail map within two weeks.</p>
+          <div class="row-btns"><button class="btn btn-ghost" type="button" data-restart>Start again</button></div>
+        </div>
+        <div class="step state err-state" id="step-err" hidden tabindex="-1">
+          <h3>The card was declined.</h3>
+          <p>Nothing was charged. Try another card, or call Ingrid at the office on (608) 555-0143 and she will take it by phone.</p>
+          <div class="row-btns"><button class="btn btn-light" type="button" id="retry" style="width:auto;margin:0">Try again</button><button class="btn btn-ghost" type="button" data-restart>Start over</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="volunteer" aria-labelledby="vol-h">
+  <div class="wrap">
+    <div class="vol-grid">
+      <div>
+      <div class="vol-head">
+        <h2 id="vol-h">Bring gloves.</h2>
+        <p>We bring the saws, the coffee and someone who knows the plants. Winter is brush season in the coulees: buckthorn and honeysuckle come out while the ground is hard and the leaves are off. No experience needed for any of these.</p>
+      </div>
+      <ol class="days" id="days" aria-label="Upcoming work days"></ol>
+      </div>
+      <div class="signup" id="signup">
+        <p class="mono sheet-label">Sign-up sheet · winter 2026 to 2027</p>
+        <form id="vol-form" novalidate>
+          <h3>Save a place</h3>
+          <p class="hint">We send directions and a weather call the Thursday before.</p>
+          <div class="field"><label for="v-day">Which day</label><select id="v-day" aria-describedby="v-day-err"></select><span class="err" id="v-day-err"></span></div>
+          <div class="field"><label for="v-name">Name</label><input type="text" id="v-name" autocomplete="name" aria-describedby="v-name-err"><span class="err" id="v-name-err"></span></div>
+          <div class="field"><label for="v-email">Email</label><input type="email" id="v-email" autocomplete="email" aria-describedby="v-email-err"><span class="err" id="v-email-err"></span></div>
+          <div class="field"><label for="v-party">How many of you</label><select id="v-party"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+          <button class="btn btn-red" type="submit" style="width:100%;margin-top:22px" id="v-go">Save my place</button>
+        </form>
+        <div class="done" id="vol-done" hidden tabindex="-1"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="finances" aria-labelledby="fin-h">
+  <div class="wrap">
+    <div class="fin-grid">
+      <figure class="chain-box" style="margin:0">
+        <p class="mono chain-top"><span>Annual report, fiscal 2025</span><span>One dollar of spending, one link per cent</span></p>
+        <div class="chain" id="chain" role="img" aria-label=""></div>
+        <div class="chain-scale mono" aria-hidden="true"><span>0 links</span><span>100 links · one dollar</span></div>
+      </figure>
+      <div class="fin-head">
+        <h2 id="fin-h">Where a dollar went, measured the way surveyors measure land.</h2>
+        <p>A surveyor's chain is 66 feet long and made of 100 links. Ten square chains make an acre. Last year's spending, laid out the same way.</p>
+      </div>
+      <ul class="cats" id="cats"></ul>
+      <div class="fin-facts">
+        <div><b class="num" id="ff-spent">$1.86M</b><span>Spent in fiscal 2025</span></div>
+        <div><b class="num" id="ff-mon"></b><span>Easements visited in person this year</span></div>
+        <div><b class="num">$2.4M</b><span>Stewardship endowment, held to defend easements in perpetuity</span></div>
+      </div>
+      <p class="fin-note">Audited statements and our IRS Form 990 are available from the office on request.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Six Coulees Land Trust</h2>
+        <p>The office barn, 214 Mill Street, Halvor, Wisconsin<br>(608) 555-0143 · weekdays 8 to 4</p>
+      </div>
+      <div>
+        <h2>On this page</h2>
+        <ul><li><a href="#record">The record</a></li><li><a href="#preserves">Preserves</a></li><li><a href="#volunteer">Work days</a></li></ul>
+      </div>
+      <div>
+        <h2>Support</h2>
+        <ul><li><a href="#give">Membership and gifts</a></li><li><a href="#finances">Annual report</a></li></ul>
+      </div>
+    </div>
+    <p class="demo-note">This site is a demonstration built by <a class="link" href="../../index.html">Page Studio</a>. Six Coulees Land Trust is not a real organization, the Pell River valley and every figure on this page are invented, and no donation is processed.</p>
+  </div>
+</footer>
+<noscript><p style="padding:16px;text-align:center">The map, totals and forms on this page need JavaScript. The text above still reads without it.</p></noscript>
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var $ = function(s,r){return (r||document).querySelector(s)};
+var fmt = function(n,d){return n.toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+var NS = "http://www.w3.org/2000/svg";
+function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+/* ---- The ledger: the single source for every count on the page (invented figures; see NOTES.md). ---- */
+var TYPE = {easement:"Farm easement",preserve:"Preserve",frontage:"Stream frontage"};
+var PARCELS = [
+ {n:1,name:"Rognstad Farm",type:"easement",year:1993,acres:212,stream:0.6,trail:0,coulee:"Ash Coulee",poly:[[30,215],[105,205],[108,310],[55,335],[28,285]],about:"Fourth-generation farm, once dairy, now beef and hay. Our first easement, signed at the kitchen table.",access:"Private. Visible from County Road K."},
+ {n:2,name:"Ash Creek Frontage",type:"frontage",year:1996,acres:64,stream:1.8,trail:0,coulee:"Ash Coulee",poly:[[100,105],[124,100],[152,195],[144,295],[118,300],[114,200]],about:"Spring-fed brook trout water, shaded by box elder and willow we planted in 1998.",access:"Walk-in angler access from the Ash Road pull-off. Stay inside the marked corridor."},
+ {n:3,name:"Kvale Hollow",type:"easement",year:1999,acres:320,stream:0.4,trail:0,coulee:"Ash Coulee",poly:[[160,40],[230,35],[232,150],[180,180],[158,120]],about:"Contour-strip cropland and an oak ridge the Kvales refused to subdivide.",access:"Private. No public access."},
+ {n:4,name:"Gunder Coulee Preserve",type:"preserve",year:2001,acres:388,stream:1.1,trail:4.2,coulee:"Gunder Coulee",poly:[[260,80],[370,70],[375,160],[345,250],[270,255],[245,165]],about:"Goat prairie on the south face, sugar maple on the north, and a creek between them.",access:"Open dawn to dusk. Lot on Gunder Road. Dogs on leash.",level:"Moderate, one steep pitch"},
+ {n:5,name:"Halvorsen Ridge",type:"easement",year:2004,acres:540,stream:0,trail:0,coulee:"Ridgetop",poly:[[395,60],[515,45],[525,160],[470,230],[400,215]],about:"The ridge everyone sees from town. Pasture and woodlot, kept in one piece.",access:"Private. Seen best from the Halvor overlook."},
+ {n:6,name:"Pell River Bottoms",type:"preserve",year:2008,acres:296,stream:1.4,trail:2.6,coulee:"Pell River",poly:[[395,440],[460,445],[525,430],[535,500],[470,535],[400,515]],about:"Floodplain forest, oxbow sloughs and the best spring warbler walk in the county.",access:"Open dawn to dusk. Lot off Highway 56. Wet in April.",level:"Easy, flat"},
+ {n:7,name:"Bergum Coulee Farm",type:"easement",year:2010,acres:430,stream:0.9,trail:0,coulee:"Bergum Coulee",poly:[[175,470],[240,455],[300,480],[310,590],[200,600],[170,540]],about:"Grazing operation with rotational paddocks and a restored creek crossing.",access:"Private. No public access."},
+ {n:8,name:"Larkin Creek Frontage",type:"frontage",year:2013,acres:81,stream:2.1,trail:0,coulee:"Larkin Coulee",poly:[[530,140],[555,135],[590,250],[575,350],[550,352],[560,250]],about:"Two miles of stream bank, regraded and seeded after the 2008 flood cut it to the clay.",access:"Walk-in angler access at the Larkin Road bridge and the upper stile."},
+ {n:9,name:"Larkin Valley Farm",type:"easement",year:2015,acres:615,stream:0.7,trail:0,coulee:"Larkin Coulee",poly:[[605,140],[740,120],[770,250],[720,330],[610,320],[595,240]],about:"Organic vegetables on the flats, cattle on the slopes, and a farm stand on Saturdays.",access:"Private farm. The stand on Larkin Road is open in season."},
+ {n:10,name:"Tollef Ridge Preserve",type:"preserve",year:2018,acres:742,stream:1.6,trail:6.8,coulee:"Tollef Coulee",poly:[[780,40],[930,50],[960,190],[900,300],[800,310],[770,180]],about:"Our largest preserve: oak savanna, a sandstone bluff and the long view west.",access:"Open dawn to dusk. Lot on Tollef Road. Blaze orange advised in November.",level:"Strenuous, 600 ft of climb"},
+ {n:11,name:"Haugen Farm",type:"easement",year:2020,acres:388,stream:0.8,trail:0,coulee:"Haugen Coulee",poly:[[620,530],[690,525],[780,540],[800,610],[640,612]],about:"Hay, oats and a sugarbush. The easement closed the week of the Haugens' fiftieth anniversary.",access:"Private. No public access."},
+ {n:12,name:"Pell Narrows Frontage",type:"frontage",year:2022,acres:118,stream:2.9,trail:0,coulee:"Pell River",poly:[[750,470],[840,455],[935,480],[930,530],[840,515],[760,530]],about:"Smallmouth water where the river squeezes between two bluffs. Canoe landing at the lower end.",access:"Walk-in angler and canoe access from the Narrows landing."},
+ {n:13,name:"Sandvik Orchard",type:"easement",year:2024,acres:164,stream:0,trail:0,coulee:"Pell River",poly:[[25,440],[130,430],[150,520],[90,570],[20,545]],about:"Heirloom apples on a south slope, and the cider press the whole valley uses in October.",access:"Private. The cider barn opens weekends in autumn."},
+ {n:14,name:"Lower Pell Bottoms",type:"preserve",year:2026,acres:205,stream:0.9,trail:0,coulee:"Pell River",poly:[[945,400],[995,395],[998,560],[950,560],[940,480]],about:"Closed this spring. Trail planning is under way with the township.",access:"Not yet open. Trails expected in 2027."}
+];
+var FOUNDED = 1991, NOW = 2026;
+function totals(y){
+  var t={acres:0,parcels:0,stream:0,trail:0};
+  PARCELS.forEach(function(p){if(p.year<=y){t.acres+=p.acres;t.parcels++;t.stream+=p.stream;t.trail+=p.trail}});
+  return t;
+}
+
+/* ---- Terrain: elevation from distance to streams, drawn as contours ---- */
+var STREAMS = {
+ pell:[[-10,382],[80,360],[150,395],[230,420],[300,400],[370,430],[440,470],[520,455],[600,480],[680,465],[760,500],[840,480],[920,505],[1010,490]],
+ ash:[[120,-10],[110,120],[135,200],[125,290],[150,395]],
+ gunder:[[330,-10],[350,110],[320,200],[355,300],[370,430]],
+ larkin:[[560,-10],[540,140],[575,250],[560,350],[600,480]],
+ tollef:[[820,-10],[800,170],[835,300],[840,480]],
+ bergum:[[260,650],[275,540],[250,470],[230,420]],
+ haugen:[[700,650],[690,560],[715,520],[680,465]]
+};
+function dseg(px,py,a,b){var dx=b[0]-a[0],dy=b[1]-a[1],t=((px-a[0])*dx+(py-a[1])*dy)/(dx*dx+dy*dy);t=t<0?0:t>1?1:t;var x=a[0]+t*dx-px,y=a[1]+t*dy-py;return Math.sqrt(x*x+y*y)}
+function dline(px,py,pts){var m=1e9;for(var i=0;i<pts.length-1;i++){var d=dseg(px,py,pts[i],pts[i+1]);if(d<m)m=d}return m}
+function elev(x,y){
+  var dm=dline(x,y,STREAMS.pell),da=dm;
+  for(var k in STREAMS){if(k!=="pell"){var d=dline(x,y,STREAMS[k]);if(d<da)da=d}}
+  var n=Math.sin(x*.021+.7)*Math.cos(y*.018+1.9)+.6*Math.sin((x+y)*.011+3.1)+.35*Math.sin(x*.047-y*.039+.5);
+  return 700+330*(1-Math.exp(-da/95))+140*(1-Math.exp(-dm/260))+n*26;
+}
+function contours(){
+  var S=6,W=1000,H=640,nx=Math.ceil(W/S)+1,ny=Math.ceil(H/S)+1,v=[],i,j;
+  for(j=0;j<ny;j++){v[j]=new Float32Array(nx);for(i=0;i<nx;i++)v[j][i]=elev(i*S,j*S)}
+  var EDGES={1:[[3,2]],2:[[2,1]],3:[[3,1]],4:[[0,1]],5:[[3,0],[2,1]],6:[[0,2]],7:[[3,0]],8:[[3,0]],9:[[0,2]],10:[[0,1],[3,2]],11:[[0,1]],12:[[3,1]],13:[[2,1]],14:[[3,2]]};
+  var out=[];
+  for(var L=720;L<=1300;L+=20){
+    var d=[];
+    for(j=0;j<ny-1;j++)for(i=0;i<nx-1;i++){
+      var a=v[j][i],b=v[j][i+1],c=v[j+1][i+1],e=v[j+1][i];
+      var code=(a>L?8:0)|(b>L?4:0)|(c>L?2:0)|(e>L?1:0);
+      if(!code||code===15)continue;
+      var x=i*S,y=j*S;
+      var pt=function(edge){
+        if(edge===0)return[x+S*(L-a)/(b-a),y];
+        if(edge===1)return[x+S,y+S*(L-b)/(c-b)];
+        if(edge===2)return[x+S*(L-e)/(c-e),y+S];
+        return[x,y+S*(L-a)/(e-a)];
+      };
+      EDGES[code].forEach(function(s){var p=pt(s[0]),q=pt(s[1]);d.push("M"+p[0].toFixed(1)+" "+p[1].toFixed(1)+"L"+q[0].toFixed(1)+" "+q[1].toFixed(1))});
+    }
+    if(d.length)out.push('<path class="'+(L%100===0?"ci":"c")+'" d="'+d.join("")+'"/>');
+  }
+  return out.join("");
+}
+function smooth(p){
+  var s="M"+p[0][0]+" "+p[0][1];
+  for(var i=0;i<p.length-1;i++){
+    var p0=p[i-1]||p[i],p1=p[i],p2=p[i+1],p3=p[i+2]||p2;
+    s+="C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+" "+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+" "+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+" "+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+" "+p2[0]+" "+p2[1];
+  }
+  return s;
+}
+function centroid(poly){var x=0,y=0;poly.forEach(function(p){x+=p[0];y+=p[1]});return[x/poly.length,y/poly.length]}
+
+var map=$("#map");
+$("#contours").innerHTML=contours();
+var gs=$("#streams");
+for(var k in STREAMS){el("path",{d:smooth(STREAMS[k]),"class":"stream"+(k==="pell"?" main":""),id:"s-"+k},gs)}
+var gl=$("#labels");
+var tp=el("text",{"class":"river-l",dy:"-9"},gl);var tpp=el("textPath",{href:"#s-pell",startOffset:"27%"},tp);tpp.textContent="Pell River";
+[["ASH COULEE",36,24],["GUNDER COULEE",262,30],["LARKIN COULEE",566,24],["TOLLEF COULEE",842,24],["BERGUM COULEE",160,628],["HAUGEN COULEE",712,630]].forEach(function(l){var t=el("text",{"class":"coulee-l",x:l[1],y:l[2]},gl);t.textContent=l[0]});
+var bm=el("g",{"class":"bm",transform:"translate(668 70)"},gl);
+el("path",{d:"M0-6 6 5H-6Z",fill:"none",stroke:"#1C251F","stroke-width":"1.3"},bm);
+el("text",{x:10,y:4},bm).textContent="BM "+Math.round(elev(668,70));
+
+var gp=$("#parcels"),pnodes={};
+PARCELS.forEach(function(p){
+  var g=el("g",{"class":"parcel t-"+p.type},gp);
+  el("polygon",{points:p.poly.map(function(q){return q.join(",")}).join(" ")},g);
+  var c=centroid(p.poly);el("text",{x:c[0].toFixed(0),y:c[1].toFixed(0)},g).textContent=p.n;
+  pnodes[p.n]=g;
+});
+
+/* two ledger parcels as faint survey marks beside the hero card */
+(function(){
+  var hm=$("#hero-mark");hm.setAttribute("viewBox","606 424 344 222");
+  var defs=el("defs",{},hm);
+  [["hm-h",606,0,950,0],["hm-v",0,424,0,646]].forEach(function(g){
+    var lg=el("linearGradient",{id:g[0],gradientUnits:"userSpaceOnUse",x1:g[1],y1:g[2],x2:g[3],y2:g[4]},defs);
+    [[0,0],[.16,1],[.84,1],[1,0]].forEach(function(s){el("stop",{offset:s[0],"stop-color":"#2E6488","stop-opacity":s[1]},lg)});
+  });
+  [["pell","hm-h"],["haugen","hm-v"]].forEach(function(k){el("path",{d:smooth(STREAMS[k[0]]),"class":"stream"+(k[0]==="pell"?" main":""),style:"stroke:url(#"+k[1]+")"},hm)});
+  [[12,"NO. 12 · PELL NARROWS",750,443],[11,"NO. 11 · HAUGEN FARM",620,634]].forEach(function(h){
+    var p=PARCELS[h[0]-1],g=el("g",{"class":"parcel t-"+p.type},hm);
+    el("polygon",{points:p.poly.map(function(q){return q.join(",")}).join(" ")},g);
+    el("text",{x:h[2],y:h[3]},hm).textContent=h[1];
+  });
+})();
+/* ledger table */
+var tb=$("#ledger-body");
+tb.innerHTML=PARCELS.map(function(p){return '<tr data-y="'+p.year+'"><td class="num">'+p.n+'</td><td>'+esc(p.name)+'</td><td>'+TYPE[p.type]+'</td><td class="num">'+p.year+'</td><td class="r num">'+fmt(p.acres)+'</td><td class="r num">'+fmt(p.stream,1)+'</td></tr>'}).join("");
+var all=totals(NOW);
+$("#lt-acres").textContent=fmt(all.acres);$("#lt-stream").textContent=fmt(all.stream,1);
+document.querySelectorAll("[data-sum]").forEach(function(n){var k=n.getAttribute("data-sum");n.textContent=k==="stream"?fmt(all[k],1):fmt(all[k])});
+
+/* year scrubber */
+var yr=$("#year"),rows=tb.querySelectorAll("tr");
+function render(y){
+  var t=totals(y);
+  $("#ro-year").textContent=y;
+  $("#ro-acres").textContent=fmt(t.acres);
+  $("#ro-parcels").textContent=fmt(t.parcels);
+  $("#ro-stream").textContent=fmt(t.stream,1);
+  $("#ro-trail").textContent=fmt(t.trail,1);
+  var added=PARCELS.filter(function(p){return p.year===y});
+  $("#ro-added").innerHTML=y===FOUNDED?"The trust is founded by eleven neighbors at the Halvor town hall. No land yet.":added.length?"Closed in "+y+": "+added.map(function(p){return "<strong>"+esc(p.name)+"</strong>, "+fmt(p.acres)+" acres"}).join("; ")+".":"No closings in "+y+". The work that year was raising the money for the next one.";
+  PARCELS.forEach(function(p){var g=pnodes[p.n];g.classList.toggle("off",p.year>y);g.classList.toggle("new",p.year===y)});
+  rows.forEach(function(r){r.classList.toggle("later",+r.getAttribute("data-y")>y)});
+  yr.style.setProperty("--p",((y-FOUNDED)/(NOW-FOUNDED)*100)+"%");
+  yr.setAttribute("aria-valuetext",y+": "+fmt(t.acres)+" acres in "+t.parcels+" parcels");
+}
+var anim=null;
+function stop(){if(anim){cancelAnimationFrame(anim);anim=null;$("#play").textContent="Replay"}}
+yr.addEventListener("input",function(){stop();render(+yr.value)});
+function play(){
+  stop();
+  if(RM){yr.value=NOW;render(NOW);return}
+  var t0=null,dur=5200;$("#play").textContent="Stop";
+  var step=function(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/dur);var y=Math.round(FOUNDED+(NOW-FOUNDED)*p);if(+yr.value!==y){yr.value=y;render(y)}if(p<1)anim=requestAnimationFrame(step);else stop()};
+  yr.value=FOUNDED;render(FOUNDED);anim=requestAnimationFrame(step);
+}
+$("#play").addEventListener("click",function(){if(anim)stop();else play()});
+render(NOW);
+if(!RM&&"IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play()}})},{threshold:.45});
+  io.observe(map);
+}
+/* ---- mobile menu ---- */
+var mb=$(".menu-btn"),nav=$("#nav");
+mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+nav.addEventListener("click",function(e){if(e.target.closest("a")){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&nav.classList.contains("open")){nav.classList.remove("open");mb.setAttribute("aria-expanded","false");mb.focus()}});
+
+/* ---- directory, drawn from the same ledger ---- */
+function thumb(p){
+  var xs=p.poly.map(function(q){return q[0]}),ys=p.poly.map(function(q){return q[1]});
+  var x0=Math.min.apply(0,xs),x1=Math.max.apply(0,xs),y0=Math.min.apply(0,ys),y1=Math.max.apply(0,ys);
+  var w=x1-x0,h=y1-y0,pad=Math.max(w,h)*.14;
+  var stroke=p.type==="easement"?"#A3381F":p.type==="preserve"?"#3E6B3B":"#2E6488";
+  var fill=p.type==="easement"?"url(#hatch-red)":p.type==="preserve"?"rgba(62,107,59,.30)":"url(#hatch-blue)";
+  return '<svg class="thumb" viewBox="'+(x0-pad)+' '+(y0-pad)+' '+(w+2*pad)+' '+(h+2*pad)+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><polygon points="'+p.poly.map(function(q){return q.join(",")}).join(" ")+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+(Math.max(w,h)/45).toFixed(2)+'" stroke-linejoin="round"/></svg>';
+}
+var dir=$("#dir"),chips=document.querySelectorAll(".chip");
+function showDir(f){
+  var list=PARCELS.filter(function(p){return f==="all"?true:f==="open"?p.type!=="easement":p.type===f});
+  dir.innerHTML=list.map(function(p){
+    var facts='<span><b class="num">'+fmt(p.acres)+'</b>acres</span>';
+    if(p.trail)facts+='<span><b class="num">'+fmt(p.trail,1)+'</b>trail miles</span>';
+    else if(p.stream)facts+='<span><b class="num">'+fmt(p.stream,1)+'</b>stream miles</span>';
+    return '<li class="row"><span class="no">No. '+p.n+'</span>'+thumb(p)+'<div class="body"><h3>'+esc(p.name)+'</h3><span class="kind k-'+p.type+'">'+TYPE[p.type]+' · '+p.year+'</span></div><div class="body"><p>'+esc(p.about)+'</p><p class="access">'+esc(p.access)+(p.level?" · "+esc(p.level):"")+'</p></div><div class="facts">'+facts+'</div></li>';
+  }).join("");
+  $("#dir-count").textContent="Showing "+list.length+" of "+PARCELS.length+" parcels, "+fmt(list.reduce(function(s,p){return s+p.acres},0))+" acres.";
+  chips.forEach(function(c){c.setAttribute("aria-pressed",c.getAttribute("data-f")===f)});
+}
+chips.forEach(function(c){c.addEventListener("click",function(){showDir(c.getAttribute("data-f"))})});
+showDir("open");
+
+/* ---- membership and gifts (mock: nothing is charged) ---- */
+var PRESETS={once:[35,60,150,500],monthly:[5,15,30,60]},DEF={once:60,monthly:15};
+var TIERS=[[500,"Ridge Circle"],[150,"Steward"],[60,"Household"],[35,"Individual"]];
+var st={freq:"once",amt:60,custom:false};
+var amts=$("#amts"),custom=$("#custom"),cerr=$("#custom-err"),money=$("#money"),go=$("#go");
+function money$(n){return "$"+fmt(n,n%1?2:0)}
+function drawAmts(){
+  amts.innerHTML=PRESETS[st.freq].map(function(a){return '<label class="amt"><input type="radio" name="amt" value="'+a+'"'+(!st.custom&&a===st.amt?" checked":"")+'><span>$'+a+(st.freq==="monthly"?'<small>/mo</small>':'')+'</span></label>'}).join("");
+}
+function annual(){return st.freq==="monthly"?st.amt*12:st.amt}
+function tierLine(){
+  var tier=$("#tier");
+  if(!st.amt){tier.innerHTML="Choose or enter an amount to see your membership level.";go.textContent="Continue";hiTier(0);return}
+  var a=annual(),t=TIERS.filter(function(x){return a>=x[0]})[0];
+  var per=st.freq==="monthly"?money$(st.amt)+" a month is "+money$(a)+" a year":money$(a)+" this year";
+  tier.innerHTML=t?per+". That makes you a <b>"+t[1]+"</b> member.":per+". Every gift counts; membership starts at $35 a year.";
+  go.textContent="Continue with "+money$(st.amt)+(st.freq==="monthly"?" a month":"");
+  hiTier(a);
+}
+function hiTier(a){document.querySelectorAll("#tiers li").forEach(function(li){var m=+li.getAttribute("data-min");var t=TIERS.filter(function(x){return a>=x[0]})[0];li.classList.toggle("on",!!t&&t[0]===m)})}
+function checkCustom(){
+  var raw=custom.value.trim().replace(/[$,]/g,"");
+  var bad=function(m){cerr.textContent=m;money.classList.add("invalid");custom.setAttribute("aria-invalid","true");st.amt=0;tierLine();return false};
+  cerr.textContent="";money.classList.remove("invalid");custom.removeAttribute("aria-invalid");
+  if(raw==="")return bad("Enter an amount, or pick one above.");
+  if(!/^\d+(\.\d{1,2})?$/.test(raw))return bad("Use numbers only, like 40 or 40.50.");
+  var n=+raw;
+  if(n<5)return bad("The smallest gift we can take online is $5.");
+  if(n>25000)return bad("For gifts over $25,000, or gifts of land or stock, please call Ingrid on (608) 555-0143 so we can do it properly.");
+  st.amt=n;tierLine();return true;
+}
+document.querySelectorAll('input[name=freq]').forEach(function(r){r.addEventListener("change",function(){st.freq=r.value;st.custom=false;st.amt=DEF[st.freq];custom.value="";cerr.textContent="";money.classList.remove("invalid");drawAmts();tierLine()})});
+amts.addEventListener("change",function(e){if(e.target.name==="amt"){st.custom=false;st.amt=+e.target.value;custom.value="";cerr.textContent="";money.classList.remove("invalid");custom.removeAttribute("aria-invalid");tierLine()}});
+custom.addEventListener("input",function(){st.custom=true;amts.querySelectorAll("input").forEach(function(i){i.checked=false});if(custom.value.trim())checkCustom();else{st.amt=0;cerr.textContent="";money.classList.remove("invalid");tierLine()}});
+custom.addEventListener("blur",function(){if(st.custom)checkCustom()});
+drawAmts();tierLine();
+
+var steps=["step1","step2","step-ok","step-err"];
+function show(id,focus){steps.forEach(function(s){$("#"+s).hidden=s!==id});var n=$("#"+id);if(focus){var t=n.matches("[tabindex]")?n:n.querySelector("input,button");if(t)t.focus({preventScroll:false})}}
+function fee(){return Math.round(st.amt*0.03*100)/100}
+function sumLine(){$("#sum-amt").textContent=money$(st.amt+($("#fee").checked?fee():0))+(st.freq==="monthly"?" / mo":"");$("#fee-amt").textContent=money$(fee())}
+$("#step1").addEventListener("submit",function(e){
+  e.preventDefault();
+  if(st.custom&&!checkCustom()){custom.focus();return}
+  if(!st.amt){cerr.textContent="Enter an amount, or pick one above.";custom.focus();return}
+  sumLine();$("#pay").textContent="Give "+money$(st.amt)+(st.freq==="monthly"?" a month":"");show("step2",true);
+});
+$("#fee").addEventListener("change",function(){sumLine();$("#pay").textContent="Give "+$("#sum-amt").textContent.replace(" / mo"," a month")});
+$("#back").addEventListener("click",function(){show("step1",true)});
+function fieldErr(inp,msg){var er=$("#"+inp.id+"-err");er.textContent=msg||"";inp.classList.toggle("invalid",!!msg);if(msg)inp.setAttribute("aria-invalid","true");else inp.removeAttribute("aria-invalid");return !msg}
+var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function pay(decline){
+  var n=$("#g-name"),m=$("#g-email");
+  var ok=fieldErr(n,n.value.trim()?"":"Please add your name for the receipt.");
+  ok=fieldErr(m,EMAIL.test(m.value.trim())?"":"That email does not look complete.")&&ok;
+  if(!ok&&!decline){($("#g-name").value.trim()?m:n).focus();return}
+  var b=$("#pay");b.disabled=true;b.innerHTML='<span class="busy" aria-hidden="true"></span> Checking with the processor';
+  setTimeout(function(){
+    b.disabled=false;b.textContent="Give "+$("#sum-amt").textContent.replace(" / mo"," a month");
+    if(decline){show("step-err",true);return}
+    $("#ok-name").textContent=n.value.trim().split(/\s+/)[0];
+    $("#ok-line").textContent="Your "+(st.freq==="monthly"?"monthly gift of "+$("#sum-amt").textContent.replace(" / mo",""):"gift of "+$("#sum-amt").textContent)+" would be on its way to the Pell River valley, and a receipt to "+m.value.trim()+".";
+    show("step-ok",true);
+  },RM?300:1400);
+}
+$("#step2").addEventListener("submit",function(e){e.preventDefault();pay(false)});
+$("#decline-demo").addEventListener("click",function(){pay(true)});
+$("#retry").addEventListener("click",function(){show("step2",true)});
+document.querySelectorAll("[data-restart]").forEach(function(b){b.addEventListener("click",function(){$("#step2").reset();["g-name","g-email"].forEach(function(i){fieldErr($("#"+i),"")});show("step1",true)})});
+
+/* ---- volunteer days ---- */
+var DAYS=[
+ {id:"d1",date:"2026-11-21",time:"9:00 to 12:30",task:"Buckthorn cut and stack",where:"Gunder Coulee Preserve, upper field",cap:16,taken:11,note:"Loppers, saws and gloves provided. Crew leads run the saws; volunteers drag and stack."},
+ {id:"d2",date:"2026-12-05",time:"10:00 to 1:00",task:"Prairie seed cleaning",where:"The office barn, Halvor",cap:12,taken:12,note:"Indoors, warm and seated. Sorting this year's seed for next spring's plantings."},
+ {id:"d3",date:"2027-01-16",time:"9:00 to 1:00",task:"Brush hauling for winter burn piles",where:"Tollef Ridge Preserve",cap:14,taken:5,note:"Only certified crew leads light the piles. Wear wool near the fire line, not synthetics."},
+ {id:"d4",date:"2027-02-13",time:"10:00 to 2:00",task:"Boundary sign check on snowshoes",where:"Halvorsen Ridge, with the landowner's blessing",cap:8,taken:3,note:"Snowshoes loaned. About three miles of walking, mostly on the level."},
+ {id:"d5",date:"2027-03-20",time:"9:00 to 12:00",task:"Trail steps and water bars",where:"Gunder Coulee Preserve, the steep pitch",cap:12,taken:2,note:"Heavy lifting is optional. There is always a clipboard job."}
+];
+var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],WK=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function dparts(iso){var d=new Date(iso+"T12:00:00Z");return{wk:WK[d.getUTCDay()],m:MON[d.getUTCMonth()],d:d.getUTCDate(),y:d.getUTCFullYear()}}
+function left(d){return d.cap-d.taken}
+function drawDays(){
+  $("#days").innerHTML=DAYS.map(function(d){var p=dparts(d.date),l=left(d),full=l<=0;
+    return '<li class="day"><div class="date">'+p.wk.slice(0,3)+'<b class="num">'+p.d+'</b>'+p.m+' '+p.y+'</div><div><h3>'+esc(d.task)+'</h3><p class="where">'+esc(d.where)+' · '+d.time+'</p><p>'+esc(d.note)+'</p></div><div class="seats'+(full?" full":"")+'"><strong>'+(full?"Full, waitlist open":l+" of "+d.cap+" places left")+'</strong><div class="bar" aria-hidden="true"><i style="width:'+(d.taken/d.cap*100).toFixed(0)+'%"></i></div></div></li>'}).join("");
+  var sel=$("#v-day"),cur=sel.value;
+  sel.innerHTML='<option value="">Choose a day</option>'+DAYS.map(function(d){var p=dparts(d.date);return '<option value="'+d.id+'">'+p.wk+' '+p.m+' '+p.d+', '+esc(d.task)+(left(d)<=0?" (waitlist)":"")+'</option>'}).join("");
+  sel.value=cur;
+}
+drawDays();
+$("#vol-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var s=$("#v-day"),n=$("#v-name"),m=$("#v-email"),party=+$("#v-party").value;
+  var d=DAYS.filter(function(x){return x.id===s.value})[0];
+  var ok=fieldErr(s,d?"":"Pick the day you would like.");
+  ok=fieldErr(n,n.value.trim()?"":"We need a name for the sign-in sheet.")&&ok;
+  ok=fieldErr(m,EMAIL.test(m.value.trim())?"":"That email does not look complete.")&&ok;
+  if(d&&ok&&left(d)>0&&party>left(d))ok=fieldErr(s,"Only "+left(d)+" place"+(left(d)===1?"":"s")+" left that day. Lower the number, or pick another day.");
+  if(!ok){var f=$("#vol-form .invalid");if(f)f.focus();return}
+  var p=dparts(d.date),wait=left(d)<=0;
+  if(!wait)d.taken+=party;
+  drawDays();
+  var box=$("#vol-done");
+  box.innerHTML=wait?'<h3>You are on the waitlist.</h3><p>'+esc(p.wk+" "+p.m+" "+p.d)+' is full. If a place opens we will email '+esc(m.value.trim())+' by the Thursday before.</p><button class="btn" type="button" id="v-again" style="margin-top:12px">Sign up for another day</button>'
+    :'<h3>See you '+esc(p.wk)+'.</h3><p>'+party+' place'+(party>1?"s":"")+' saved for '+esc(d.task.toLowerCase())+', '+esc(p.m+" "+p.d)+', '+d.time+'. The list now shows '+left(d)+' left.</p><button class="btn" type="button" id="v-again" style="margin-top:12px">Sign up for another day</button>';
+  $("#vol-form").hidden=true;box.hidden=false;box.focus();
+  $("#v-again").addEventListener("click",function(){$("#vol-form").reset();box.hidden=true;$("#vol-form").hidden=false;$("#v-day").focus()});
+});
+
+/* ---- where a dollar went: one link per cent ---- */
+var CHAIN=[
+ {k:"Buying land and easements",c:54,col:"#A3381F",d:"Purchase price, appraisals, surveys and closing costs on two new parcels."},
+ {k:"Stewardship and restoration",c:22,col:"#3E6B3B",d:"Annual easement visits, brush work, prairie seed and trail upkeep."},
+ {k:"Endowment set aside",c:9,col:"#8C6A3F",d:"Held so that any future owner who breaks an easement can be held to it."},
+ {k:"Programs and work days",c:6,col:"#2E6488",d:"Volunteer days, school field trips and the spring field-day calendar."},
+ {k:"Administration",c:6,col:"#465048",d:"The office barn, insurance, the audit and the accounting."},
+ {k:"Fundraising",c:3,col:"#1C251F",d:"The annual appeal, this website and the membership mailings."}
+];
+var sum=CHAIN.reduce(function(s,x){return s+x.c},0);
+var ch=$("#chain"),links="";
+CHAIN.forEach(function(x,i){for(var j=0;j<x.c;j++)links+='<i class="link-i" data-i="'+i+'" style="--k:'+x.col+'"></i>'});
+ch.innerHTML=links;
+ch.setAttribute("aria-label","One dollar as a chain of "+sum+" links: "+CHAIN.map(function(x){return x.c+" cents "+x.k.toLowerCase()}).join(", ")+".");
+$("#cats").innerHTML=CHAIN.map(function(x,i){return '<li><button type="button" data-i="'+i+'" aria-pressed="false"><span class="ct"><i style="--k:'+x.col+'" aria-hidden="true"></i><b class="num">'+x.c+'&cent;</b><span>'+esc(x.k)+'</span></span><p>'+esc(x.d)+'</p></button></li>'}).join("");
+var linkEls=ch.querySelectorAll(".link-i"),catBtns=document.querySelectorAll("#cats button"),pinned=null;
+function hi(i){ch.classList.toggle("dim",i!==null);linkEls.forEach(function(l){l.classList.toggle("hi",l.getAttribute("data-i")==i)})}
+catBtns.forEach(function(b){
+  var i=b.getAttribute("data-i");
+  b.addEventListener("mouseenter",function(){if(pinned===null)hi(i)});
+  b.addEventListener("mouseleave",function(){if(pinned===null)hi(null)});
+  b.addEventListener("click",function(){pinned=pinned===i?null:i;catBtns.forEach(function(o){o.setAttribute("aria-pressed",o.getAttribute("data-i")===pinned)});hi(pinned)});
+});
+var eas=PARCELS.filter(function(p){return p.type==="easement"}).length;
+$("#ff-mon").textContent=eas+" of "+eas;
+
+})();
+
+</script>
+</body>
+</html>

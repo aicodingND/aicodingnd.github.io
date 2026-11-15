@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ninebrick · Wood-fired kitchen, Southside Chattanooga · Reservations and private dining</title>
+<meta name="description" content="Ninebrick is a wood-fired neighborhood kitchen on Chattanooga's Southside. One fire, lit at 5:40 every morning, and a seasonal menu cooked on its way down. Book a table or the Brick Room.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ninebrick · Lit before dawn. Cooked all the way down.">
+<meta property="og:description" content="A wood-fired kitchen in Chattanooga. Reservations, the late autumn menu, and private dining in the Brick Room.">
+<meta property="og:image" content="og.svg">
+<meta name="theme-color" content="#1C1815">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231C1815'/><path d='M6 26V16a10 10 0 0 1 20 0v10' fill='none' stroke='%23F08A52' stroke-width='2.4'/><path d='M16 25c-3 0-4-2-4-4 0-3 4-5 4-8 1 3 4 5 4 8 0 2-1 4-4 4z' fill='%23F08A52'/></svg>">
+<link rel="preload" href="fonts/bricolage-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");</script>
+<style>
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-stretch:75% 100%;font-display:swap;src:url("fonts/bricolage-var.woff2") format("woff2")}
+@font-face{font-family:"Literata";font-style:normal;font-weight:200 900;font-display:swap;src:url("fonts/literata-var.woff2") format("woff2")}
+@font-face{font-family:"Literata";font-style:italic;font-weight:200 900;font-display:swap;src:url("fonts/literata-italic-var.woff2") format("woff2")}
+
+:root{
+  --lime:#EEE6D8;      /* limewash plaster, page ground */
+  --lime-2:#E3D8C5;    /* plaster in shadow, panels */
+  --soot:#221D19;      /* ink, 13.5:1 on lime */
+  --ash:#5C5249;       /* secondary ink, 6.1:1 */
+  --ember:#A3391B;     /* single accent, 5.4:1 on lime, 4.7:1 on lime-2 */
+  --ember-deep:#963318;
+  --char:#1C1815;      /* the oven at night */
+  --char-2:#28221D;
+  --cinder:#B9AD9D;    /* text on char, 8:1 */
+  --glow:#F08A52;      /* ember on char, 7.1:1 */
+  --rule:rgba(34,29,25,.18);
+  --rule-dk:rgba(238,230,216,.16);
+  --display:"Bricolage Grotesque","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --text:"Literata",Georgia,"Times New Roman",serif;
+  --gutter:clamp(20px,5vw,80px);
+  --maxw:1280px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--lime);color:var(--soot);font-family:var(--text);font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.6;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+svg{display:block}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:2px}
+.dark :focus-visible,.dark:focus-visible{outline-color:var(--glow)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--soot);color:var(--lime);padding:12px 16px;font-family:var(--display);font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.label{font-family:var(--display);font-stretch:82%;font-weight:600;font-size:.8125rem;letter-spacing:.09em;text-transform:uppercase}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--lime);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-bottom-color:var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:72px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:750;font-stretch:88%;font-size:1.5rem;letter-spacing:-.02em;min-height:44px}
+.mark svg{width:30px;height:30px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:4px}
+.nav a{font-family:var(--display);font-weight:500;font-size:.9875rem;text-decoration:none;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:2px}
+.nav a:hover{color:var(--ember)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:2px solid var(--soot);background:var(--soot);color:var(--lime);font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;border-radius:2px;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{background:var(--ember);border-color:var(--ember);color:#FFF7EE}
+.btn.ghost{background:transparent;color:var(--soot)}
+.btn.ghost:hover{background:var(--soot);color:var(--lime);border-color:var(--soot)}
+.nav .btn{margin-left:12px;min-height:44px;padding:0 18px}
+.nav .btn:hover{color:#FFF7EE}
+.navtoggle{display:none}
+@media (max-width:860px){
+  .nav{display:none;position:absolute;left:0;right:0;top:72px;background:var(--lime);border-bottom:1px solid var(--rule);flex-direction:column;align-items:stretch;padding:8px var(--gutter) 20px}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;font-size:1.125rem}
+  .nav .btn{margin:12px 0 0}
+  .navtoggle{display:inline-flex;margin-left:auto;min-height:44px;min-width:44px;align-items:center;justify-content:center;gap:8px;background:none;border:1.5px solid var(--soot);border-radius:2px;padding:0 14px;font-family:var(--display);font-weight:600;cursor:pointer}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(24px,3.4vw,48px) 0 clamp(48px,5vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:center}
+.kicker{color:var(--ember);margin-bottom:18px}
+h1{font-family:var(--display);font-weight:760;font-stretch:80%;font-size:clamp(2.75rem,1.4rem + 4.6vw,5.5rem);line-height:.95;letter-spacing:-.015em;max-width:14ch}
+.lede{margin-top:24px;max-width:36em;font-size:clamp(1.0625rem,1rem + .35vw,1.3125rem);line-height:1.55}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.oven{position:relative}
+.oven svg{width:100%;height:auto}
+.flame{transform-origin:110px 288px;transform-box:view-box}
+.oven .embers{display:none}
+.oven.resting .flame,.oven.resting .logs{display:none}
+.oven.resting .embers{display:inline}
+#curveChart.resting .area{display:none}
+.js #curveChart.resting .line,#curveChart.resting .line{stroke-dasharray:3 7;stroke-dashoffset:0;stroke-opacity:.5;stroke-width:2}
+#curveChart.resting .stage{opacity:.45}
+#curveChart .rest{fill:none;stroke:var(--lime);stroke-width:2.5;stroke-linecap:round}
+.curvenote{margin-top:14px;color:var(--cinder);font-size:.9375rem;max-width:44em}
+.curvenote[hidden]{display:none}
+.reading{margin-top:18px;border-top:2px solid var(--soot);padding-top:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:baseline}
+.reading .deg{font-family:var(--display);font-weight:700;font-stretch:78%;font-size:clamp(2.6rem,2rem + 2vw,3.6rem);line-height:1;letter-spacing:-.03em;grid-row:span 2}
+.reading .what{font-family:var(--display);font-weight:600;font-size:1.0625rem}
+.reading .when{color:var(--ash);font-size:.9375rem}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.oven{max-width:520px}}
+
+/* ---------- burn curve (signature) ---------- */
+.dark{background:var(--char);color:var(--lime)}
+.curve{padding:clamp(64px,8vw,120px) 0}
+.sechead{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+h2{font-family:var(--display);font-weight:720;font-stretch:82%;font-size:clamp(2.25rem,1.4rem + 3.4vw,4.25rem);line-height:.98;letter-spacing:-.015em}
+.sechead p{max-width:40em}
+.stackhead{max-width:44em;margin-bottom:clamp(32px,4vw,56px)}
+.stackhead p{margin-top:20px;color:var(--cinder);font-size:clamp(1.0625rem,1rem + .3vw,1.25rem)}
+.dark .sechead p,.dark .quiet{color:var(--cinder)}
+.dark .label{color:var(--glow)}
+#curveChart{width:100%;position:relative}
+#curveChart svg{width:100%;height:auto;overflow:visible}
+#curveChart .grid line{stroke:var(--rule-dk);stroke-width:1}
+#curveChart .ax{fill:var(--cinder);font-family:var(--display);font-size:13px;font-variant-numeric:tabular-nums}
+#curveChart .line{fill:none;stroke:var(--glow);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+#curveChart .area{fill:rgba(240,138,82,.09)}
+#curveChart .stage circle{fill:var(--char);stroke:var(--lime);stroke-width:2}
+#curveChart .stage text{fill:var(--lime);font-family:var(--display);font-weight:700;font-size:13px;text-anchor:middle}
+#curveChart .stage.on circle{fill:var(--glow);stroke:var(--glow)}
+#curveChart .stage.on text{fill:var(--char)}
+#curveChart .now circle{fill:var(--glow)}
+#curveChart .now line{stroke:var(--glow);stroke-dasharray:3 4}
+#curveChart .now text{fill:var(--glow);font-family:var(--display);font-weight:600;font-size:13px}
+.js #curveChart .line{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.js #curveChart.drawn .line{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--ease)}
+.curvetext{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,64px);align-items:start;margin-top:clamp(40px,5vw,72px)}
+.curvetext p{color:var(--cinder);max-width:40em}
+.chartcap{display:flex;justify-content:space-between;gap:16px;color:var(--cinder);font-family:var(--display);font-size:.875rem;font-weight:600;margin-bottom:10px}
+.stages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:40px;border-top:1px solid var(--rule-dk)}
+.stages a{display:block;text-decoration:none;padding:18px 18px 18px 0;min-height:44px;border-right:1px solid var(--rule-dk);margin-right:18px;transition:color .2s}
+.stages li:last-child a{border-right:0;margin-right:0}
+.stages .n{font-family:var(--display);font-weight:700;font-size:.875rem;color:var(--glow)}
+.stages .t{display:block;font-family:var(--display);font-weight:700;font-stretch:80%;font-size:1.875rem;line-height:1.1;margin-top:4px}
+.stages .s{display:block;color:var(--cinder);font-size:.9375rem;margin-top:2px}
+.stages a:hover .t,.stages a:focus-visible .t,.stages a.on .t{color:var(--glow)}
+@media (max-width:900px){.sechead,.curvetext{grid-template-columns:1fr}.stages{grid-template-columns:1fr 1fr}.stages a{border-right:0;margin-right:0;border-bottom:1px solid var(--rule-dk)}}
+@media (max-width:420px){.stages{grid-template-columns:1fr}}
+
+/* ---------- menu ---------- */
+.menu{padding:clamp(64px,8vw,120px) 0}
+.menuhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;padding-bottom:28px;border-bottom:2px solid var(--soot)}
+.menuhead p{color:var(--ash);max-width:34em;margin-top:14px}
+.seasons{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:22px;font-family:var(--display);font-size:.875rem;color:var(--ash)}
+.seasons li[aria-current]{color:var(--soot);font-weight:700}
+.seasons li[aria-current]::before{content:"";display:inline-block;width:8px;height:8px;background:var(--ember);border-radius:50%;margin-right:7px;vertical-align:1px}
+.key{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.875rem;color:var(--ash);max-width:30rem}
+.key li{display:flex;align-items:center;gap:7px}
+.al{display:inline-flex;align-items:center;justify-content:center;min-width:1.55em;height:1.55em;padding:0 .3em;border:1.25px solid currentColor;border-radius:2px;font-family:var(--display);font-weight:650;font-size:.6875rem;letter-spacing:.02em;line-height:1;color:var(--ash)}
+.course{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,4vw,64px);padding:clamp(36px,4vw,56px) 0;border-bottom:1px solid var(--rule);scroll-margin-top:84px}
+.course .side{position:sticky;top:96px;align-self:start}
+.course .temp{font-family:var(--display);font-weight:780;font-stretch:76%;font-size:clamp(3.5rem,2.4rem + 4vw,6.5rem);line-height:.85;letter-spacing:-.02em;color:var(--ember)}
+.course h3{font-family:var(--display);font-weight:700;font-size:1.375rem;margin-top:14px;letter-spacing:-.01em}
+.course .clock{color:var(--ash);font-size:.9375rem;margin-top:2px}
+.course .why{margin-top:14px;font-size:.9375rem;color:var(--ash);max-width:24em;font-style:italic}
+.dishes li{display:grid;grid-template-columns:minmax(0,1fr) auto 3.2ch;column-gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--rule)}
+.dishes li:first-child{border-top:0;padding-top:0}
+.dish{font-weight:600;font-size:1.0625rem;line-height:1.35}
+.desc{grid-column:1;font-style:italic;color:var(--ash);font-size:.9688rem;margin-top:3px}
+.als{grid-column:2;grid-row:1;display:flex;gap:4px;justify-self:end}
+.price{grid-column:3;grid-row:1;text-align:right;font-family:var(--display);font-weight:600;font-size:1.0625rem;font-variant-numeric:tabular-nums lining-nums}
+.veg{font-family:var(--display);font-size:.75rem;font-weight:600;color:var(--ember);letter-spacing:.06em;text-transform:uppercase;margin-left:8px;white-space:nowrap}
+.menufoot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start;padding-top:28px;color:var(--ash);font-size:.9375rem}
+.menufoot p{max-width:46em}
+@media (max-width:760px){.course{grid-template-columns:1fr}.course .side{position:static}.menufoot{grid-template-columns:1fr}}
+@media (max-width:420px){.dishes li{grid-template-columns:minmax(0,1fr) 3.2ch}.desc{grid-column:1;grid-row:2}.als{grid-column:1;grid-row:3;justify-self:start;margin-top:8px}}
+
+/* ---------- visit ---------- */
+.visit{padding:clamp(64px,8vw,112px) 0;background:var(--lime-2)}
+.visitgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);margin-top:40px}
+.hours div{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:11px 0;border-top:1px solid var(--rule)}
+.hours div:last-child{border-bottom:1px solid var(--rule)}
+.hours dt{font-family:var(--display);font-weight:600}
+.hours dd{font-variant-numeric:tabular-nums}
+.hours .today{color:var(--ember)}
+.hours .today dt::after{content:" · today";font-weight:500;font-size:.8125rem}
+.addr p+p{margin-top:14px}
+.addr a{text-underline-offset:3px;text-decoration-thickness:1px;display:inline-block;padding:10px 0}
+.addr a:hover{color:var(--ember)}
+.map svg{width:100%;height:auto;border:1.5px solid var(--soot)}
+.map figcaption{font-size:.875rem;color:var(--ash);margin-top:8px}
+@media (max-width:960px){.visitgrid{grid-template-columns:1fr 1fr}.map{grid-column:1/-1}}
+@media (max-width:600px){.visitgrid{grid-template-columns:1fr}}
+
+/* ---------- forms ---------- */
+.book{padding:clamp(64px,8vw,120px) 0}
+.formgrid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,80px);margin-top:8px}
+.aside p{color:var(--ash);margin-top:16px;max-width:26em}
+.aside .phone{font-family:var(--display);font-weight:650;font-size:1.25rem;color:var(--soot);text-decoration:none;display:inline-block;padding:8px 0}
+.aside .phone:hover{color:var(--ember)}
+form{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px 20px;align-self:start;align-content:start}
+.f{grid-column:span 6;display:flex;flex-direction:column;gap:7px;min-width:0}
+.f.half{grid-column:span 3}
+.f.third{grid-column:span 2}
+.f>label,.f>.lab,fieldset legend{font-family:var(--display);font-weight:600;font-size:.9375rem}
+.opt{font-weight:400;color:var(--ash)}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;min-height:50px;padding:12px 14px;background:#F7F2EA;border:1.5px solid #8A7E72;border-radius:2px;font-size:1rem;font-family:var(--text);color:var(--soot);transition:border-color .15s,box-shadow .15s}
+textarea{min-height:120px;resize:vertical}
+input:hover,select:hover,textarea:hover{border-color:var(--soot)}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--soot);box-shadow:0 0 0 3px rgba(163,57,27,.45)}
+[aria-invalid=true]{border-color:var(--ember)!important;background:#F8ECE4!important}
+.err{color:var(--ember-deep);font-size:.875rem;font-family:var(--display);font-weight:600;min-height:0}
+.err:empty{display:none}
+.hint{color:var(--ash);font-size:.875rem}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.party{display:flex;align-items:stretch;border:1.5px solid #8A7E72;border-radius:2px;width:max-content;background:#F7F2EA}
+.party button{width:50px;min-height:50px;background:none;border:0;font-family:var(--display);font-size:1.375rem;cursor:pointer}
+.party button:hover:not(:disabled){background:var(--lime-2)}
+.party button:disabled{color:#6A5F55;cursor:not-allowed;background:repeating-linear-gradient(135deg,transparent 0 5px,rgba(34,29,25,.07) 5px 6px)}
+.party output{min-width:4.5ch;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.25rem;border-inline:1.5px solid #8A7E72;font-variant-numeric:tabular-nums}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-top:9px}
+.slot input{position:absolute;opacity:0;pointer-events:none}
+.slot span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.5px solid #8A7E72;border-radius:2px;background:#F7F2EA;font-family:var(--display);font-weight:600;font-variant-numeric:tabular-nums;cursor:pointer;line-height:1.15;transition:background .15s,border-color .15s}
+.slot small{font-weight:500;font-size:.6875rem;letter-spacing:.04em;color:var(--ash)}
+.slot span:hover{border-color:var(--soot)}
+.slot input:checked+span{background:var(--soot);border-color:var(--soot);color:var(--lime)}
+.slot input:checked+span small{color:var(--cinder)}
+.slot input:focus-visible+span{outline:3px solid var(--ember);outline-offset:2px}
+.slot.full span{background:transparent;border-style:dashed;color:#6E6359;cursor:pointer}
+.slot.full span b{font-weight:600;text-decoration:line-through;text-decoration-thickness:1.5px}
+.slot.full input:checked+span{background:var(--lime-2);color:var(--soot);border-style:solid;border-color:var(--soot)}
+.slot.full input:checked+span small{color:var(--ash)}
+fieldset.off .slots{opacity:.4}
+fieldset.off .slot span{cursor:not-allowed}
+.slotnote{grid-column:1/-1;color:var(--ash);font-size:.875rem;padding:14px;border:1.5px dashed #8A7E72;text-align:left}
+.callout{grid-column:span 6;padding:16px 18px;border-left:4px solid var(--ember);background:var(--lime-2);font-size:.9688rem}
+.callout a{color:var(--ember-deep);font-weight:600;text-underline-offset:3px}
+.callout[hidden]{display:none}
+.inl{color:var(--ember-deep);font-weight:600;text-underline-offset:3px;display:inline-block;padding:10px 0;margin:-10px 0}
+.submitrow{grid-column:span 6;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding-top:6px}
+.submitrow .hint{max-width:30em}
+.btn[aria-busy=true]{pointer-events:none;background:var(--ash);border-color:var(--ash)}
+.spin{width:16px;height:16px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite;display:none}
+.btn[aria-busy=true] .spin{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.done{grid-column:span 6;border:2px solid var(--soot);padding:clamp(24px,3vw,36px);background:#F7F2EA}
+.done .label{color:var(--ember)}
+.done h3{font-family:var(--display);font-weight:720;font-stretch:84%;font-size:clamp(1.75rem,1.3rem + 1.6vw,2.5rem);line-height:1.05;letter-spacing:-.02em;margin-top:10px}
+.done dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:20px 0;font-size:1rem}
+.done dt{font-family:var(--display);font-weight:600;color:var(--ash)}
+.done .demo{color:var(--ash);font-size:.9375rem;border-top:1px solid var(--rule);padding-top:14px;margin-top:4px}
+.done .btn{margin-top:18px}
+@media (max-width:860px){.formgrid{grid-template-columns:1fr}}
+@media (max-width:560px){.f.half,.f.third{grid-column:span 6}}
+
+/* ---------- private dining ---------- */
+.pd{padding:clamp(64px,8vw,120px) 0}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin:8px 0 clamp(48px,6vw,80px)}
+.room{border-top:2px solid var(--lime);padding-top:22px;display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:20px}
+.room h3{font-family:var(--display);font-weight:700;font-size:1.625rem;letter-spacing:-.01em}
+.room p{color:var(--cinder);margin-top:10px;max-width:30em}
+.room dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:16px;font-size:.9375rem}
+.room dt{font-family:var(--display);font-weight:600;color:var(--glow)}
+.room dd{font-variant-numeric:tabular-nums}
+.room svg{width:150px;height:auto}
+.pd form{background:var(--lime);color:var(--soot);padding:clamp(24px,4vw,48px);border-radius:2px}
+.pd .formgrid{align-items:start}
+.pd .aside p{color:var(--cinder)}
+.pd .aside .phone{color:var(--lime)}
+.pd .aside .phone:hover{color:var(--glow)}
+.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:9px}
+.choice+.choice span{margin-left:-1.5px}
+form [hidden]{display:none!important}
+@media (max-width:560px){.choices{grid-template-columns:1fr}.choice+.choice span{margin-left:0;margin-top:-1.5px}.choice span{justify-content:flex-start;text-align:left;padding:0 16px}}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;height:100%;min-height:52px;padding:8px 12px;border:1.5px solid #8A7E72;border-radius:2px;background:#F7F2EA;font-family:var(--display);font-weight:600;cursor:pointer}
+.choice input:checked+span{background:var(--soot);color:var(--lime);border-color:var(--soot);z-index:1}
+.choice input:focus-visible+span{outline:3px solid var(--ember);outline-offset:2px}
+.pd form :focus-visible,.pd form input:focus-visible+span{outline-color:var(--ember)}
+@media (max-width:860px){.rooms{grid-template-columns:1fr}}
+@media (max-width:460px){.room{grid-template-columns:1fr}.room svg{width:130px}}
+
+/* ---------- footer ---------- */
+.foot{background:var(--char);color:var(--cinder);padding:56px 0 40px;border-top:1px solid var(--rule-dk)}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:32px}
+.foot .mark{color:var(--lime)}
+.foot p{font-size:.9375rem;margin-top:12px;max-width:34em}
+.foot a{color:var(--lime);text-underline-offset:3px;display:inline-block;padding:10px 0}
+.foot a:hover{color:var(--glow)}
+.foot .demo{grid-column:1/-1;border-top:1px solid var(--rule-dk);padding-top:22px;font-size:.9375rem}
+@media (max-width:760px){.foot .wrap{grid-template-columns:1fr}}
+
+/* ---------- motion ---------- */
+.js [data-rise]{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js [data-rise].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .js [data-rise]{opacity:1;transform:none}
+  .js #curveChart .line{stroke-dashoffset:0}
+}
+
+/* ---------- print: the menu, as a menu ---------- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .top,.hero,.curve,.visit .map,.book,.pd,.foot .wrap>*:not(.demo),.menufoot .btn,.skip{display:none!important}
+  .menu{padding:0}
+  .course{break-inside:avoid;padding:10pt 0;grid-template-columns:30% 70%}
+  .course .side{position:static}
+  .course .temp{font-size:28pt;color:#000}
+  .desc,.al,.course .clock,.course .why{color:#333}
+  .visit{background:#fff;padding:12pt 0}
+  .foot{background:#fff;color:#000;padding:0}
+  .foot .demo{border:0}
+  .js [data-rise]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Ninebrick, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V16a11 11 0 0 1 22 0v11" fill="none" stroke="#221D19" stroke-width="2.4"/><path d="M16 26c-3.2 0-4.4-2.1-4.4-4.2 0-3.2 4.4-5.2 4.4-8.6 1 3.4 4.4 5.4 4.4 8.6 0 2.1-1.2 4.2-4.4 4.2z" fill="#A3391B"/><path d="M3 27h26" stroke="#221D19" stroke-width="2.4"/></svg>
+      Ninebrick
+    </a>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav">Sections</button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#visit">Hours and location</a>
+      <a href="#private">Private dining</a>
+      <a class="btn" href="#reserve">Reserve a table</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <p class="label kicker">Wood-fired kitchen · Southside, Chattanooga</p>
+      <h1 id="h1">Lit before dawn. Cooked all the way down.</h1>
+      <p class="lede">We light one oven at 5:40 every morning and cook the whole menu as it rises and falls: bread at first heat, vegetables on the roasting floor, braises when the door goes on, flatbreads at the service fire, and dessert on whatever warmth is left overnight.</p>
+      <div class="ctas">
+        <a class="btn" href="#reserve">Reserve a table</a>
+        <a class="btn ghost" href="#private">Book the Brick Room</a>
+      </div>
+    </div>
+    <figure class="oven" data-rise>
+      <svg viewBox="0 0 520 400" role="img" aria-labelledby="ovenT">
+        <title id="ovenT">Section drawing of the Ninebrick oven: a two-course firebrick dome over a floor nine bricks wide, a flue over the entry, and the fire kept against the back wall.</title>
+        <defs>
+          <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" stroke="#221D19" stroke-opacity=".32" stroke-width="1"/></pattern>
+          <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r=".9" fill="#221D19" fill-opacity=".45"/></pattern>
+        </defs>
+        <g fill="none" stroke="#221D19" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M38.0 290.0 L38.2 283.8 L38.7 277.5 L39.6 271.3 L40.8 265.1 L42.3 259.0 L44.2 252.9 L46.4 246.9 L49.0 241.0 L51.9 235.1 L55.1 229.4 L58.6 223.8 L62.4 218.2 L66.6 212.9 L71.0 207.6 L75.7 202.5 L80.7 197.6 L86.0 192.8 L91.5 188.2 L97.3 183.8 L103.3 179.6 L109.5 175.5 L116.0 171.7 L122.6 168.1 L129.5 164.7 L136.5 161.6 L143.8 158.7 L151.1 156.0 L158.6 153.5 L166.3 151.3 L174.0 149.4 L181.9 147.7 L189.8 146.3 L197.8 145.1 L205.9 144.2 L214.0 143.5 L222.1 143.1 L230.3 143.0 L238.5 143.1 L246.6 143.6 L254.7 144.2 L262.8 145.2 L270.8 146.4 L278.7 147.8 L286.6 149.5 L294.3 151.5 L301.9 153.7 L309.4 156.2 L316.8 158.9 L324.0 161.8 L331.0 165.0 L337.9 168.4 L344.5 172.0 L351.0 175.8 L357.2 179.9 L363.2 184.1 L368.9 188.5 L374.4 193.2 L379.7 197.9 L384.7 202.9 L389.4 208.0" stroke-width="1.6"/>
+          <path d="M49.0 290.0 L49.2 284.1 L49.7 278.3 L50.5 272.5 L51.7 266.7 L53.2 260.9 L55.0 255.3 L57.2 249.6 L59.6 244.1 L62.4 238.6 L65.5 233.2 L68.9 228.0 L72.6 222.8 L76.6 217.8 L80.9 212.9 L85.5 208.1 L90.3 203.5 L95.4 199.1 L100.7 194.8 L106.3 190.7 L112.1 186.8 L118.1 183.1 L124.3 179.6 L130.7 176.3 L137.4 173.2 L144.1 170.3 L151.1 167.6 L158.2 165.2 L165.4 163.0 L172.7 161.0 L180.2 159.3 L187.7 157.8 L195.3 156.5 L203.0 155.5 L210.7 154.8 L218.5 154.3 L226.3 154.0 L234.1 154.0 L241.9 154.3 L249.6 154.8 L257.3 155.6 L265.0 156.6 L272.6 157.8 L280.2 159.3 L287.6 161.1 L294.9 163.1 L302.2 165.3 L309.2 167.7 L316.2 170.4 L322.9 173.3 L329.5 176.4 L336.0 179.7 L342.2 183.3 L348.2 187.0 L354.0 190.9 L359.5 195.0 L364.9 199.3 L369.9 203.7 L374.7 208.3 L379.3 213.1 L383.6 218.0" stroke-width=".9" stroke-opacity=".7"/>
+          <path d="M60.0 290.0 L60.2 284.5 L60.6 279.1 L61.5 273.7 L62.6 268.3 L64.0 262.9 L65.8 257.6 L67.9 252.3 L70.3 247.2 L73.0 242.1 L76.0 237.1 L79.3 232.2 L82.9 227.4 L86.7 222.7 L90.8 218.2 L95.2 213.8 L99.9 209.5 L104.8 205.4 L110.0 201.5 L115.3 197.7 L120.9 194.1 L126.7 190.7 L132.7 187.5 L138.9 184.5 L145.3 181.6 L151.8 179.0 L158.5 176.6 L165.3 174.4 L172.2 172.4 L179.2 170.7 L186.4 169.2 L193.6 167.9 L200.9 166.8 L208.2 166.0 L215.6 165.4 L223.0 165.1 L230.5 165.0 L237.9 165.1 L245.3 165.5 L252.7 166.1 L260.0 167.0 L267.3 168.0 L274.5 169.4 L281.7 170.9 L288.7 172.7 L295.6 174.7 L302.4 176.9 L309.0 179.3 L315.5 182.0 L321.9 184.8 L328.0 187.9 L334.0 191.1 L339.8 194.6 L345.4 198.2 L350.7 202.0 L355.8 205.9 L360.7 210.1 L365.3 214.3 L369.7 218.8 L373.8 223.3 L377.6 228.0" stroke-width="1.6"/>
+          <path d="M60.0 290.0L49.0 290.0M61.3 274.8L50.3 273.4M49.3 281.7L38.4 281.0M65.0 259.8L54.4 257.1M52.0 265.2L41.2 263.2M71.3 245.2L61.0 241.3M57.4 249.1L46.9 245.8M79.9 231.3L70.2 226.2M65.3 233.6L55.3 229.0M90.7 218.3L81.7 212.0M75.7 218.9L66.3 213.2M103.7 206.4L95.5 199.0M88.3 205.3L79.7 198.5M118.5 195.7L111.3 187.4M103.1 193.0L95.4 185.2M134.9 186.4L128.8 177.3M119.8 182.1L113.1 173.4M152.8 178.6L147.8 168.8M138.1 172.8L132.6 163.3M171.9 172.5L168.1 162.2M157.8 165.3L153.4 155.2M191.8 168.2L189.3 157.5M178.6 159.6L175.5 149.1M212.2 165.7L211.1 154.7M200.1 155.9L198.3 145.0M233.0 165.0L233.2 154.0M222.1 154.1L221.6 143.1M253.7 166.2L255.2 155.3M244.2 154.4L245.1 143.5M274.0 169.3L276.8 158.6M266.1 156.7L268.3 146.0M293.7 174.1L297.8 163.9M287.4 161.0L290.9 150.6M312.4 180.7L317.8 171.1M307.9 167.2L312.7 157.3M329.9 188.9L336.4 180.0M327.3 175.3L333.2 166.0M345.9 198.6L353.4 190.5M345.1 185.1L352.1 176.6M360.2 209.7L368.7 202.6M361.3 196.4L369.3 188.8" stroke-width=".9" stroke-opacity=".7"/>
+          <path d="M377.6 228H430M452 228H486V208H452M430 208H389.4" stroke-width="1.6"/>
+          <path d="M430 208V64M452 208V64M420 56h42M424 56v-8h34v8" stroke-width="1.6"/>
+          <path d="M28 290H500" stroke-width="2"/>
+        </g>
+        <g fill="none" stroke="#221D19" stroke-width=".9" stroke-opacity=".8"><rect x="60.0" y="290" width="37.8" height="14"/><rect x="97.8" y="290" width="37.8" height="14"/><rect x="135.6" y="290" width="37.8" height="14"/><rect x="173.3" y="290" width="37.8" height="14"/><rect x="211.1" y="290" width="37.8" height="14"/><rect x="248.9" y="290" width="37.8" height="14"/><rect x="286.7" y="290" width="37.8" height="14"/><rect x="324.4" y="290" width="37.8" height="14"/><rect x="362.2" y="290" width="37.8" height="14"/></g>
+        <rect x="42" y="304" width="458" height="18" fill="url(#dots)" stroke="#221D19" stroke-width=".9"/>
+        <rect x="28" y="322" width="472" height="38" fill="url(#hatch)" stroke="#221D19" stroke-width="1.2"/>
+        <path d="M8 360H512" stroke="#221D19" stroke-width="1.6"/>
+        <g class="flame" id="flame">
+          <path d="M120 176C176 120 290 128 338 188" fill="none" stroke="#A3391B" stroke-width="1.4" stroke-dasharray="5 5"/>
+          <path d="M330 176l9 13-15 1" fill="none" stroke="#A3391B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M80 276C64 230 86 196 112 172C104 204 122 214 134 196C146 178 144 166 156 156C164 196 150 236 132 276Z" fill="#A3391B" fill-opacity=".14" stroke="#A3391B" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M96 276C88 248 98 230 112 216C112 236 124 240 130 228C136 246 132 262 124 276Z" fill="none" stroke="#A3391B" stroke-width="1.2" stroke-linejoin="round"/>
+        </g>
+        <g class="logs" fill="none" stroke="#221D19" stroke-width="1.3"><circle cx="92" cy="280" r="10"/><circle cx="92" cy="280" r="4"/><circle cx="116" cy="281" r="9"/><circle cx="116" cy="281" r="3.5"/><circle cx="104" cy="263" r="8"/><circle cx="104" cy="263" r="3"/></g>
+        <g class="embers" id="embers"><path d="M64 290C74 274 132 270 158 290Z" fill="#221D19" fill-opacity=".08" stroke="#221D19" stroke-width="1.2"/><g fill="#A3391B"><circle cx="86" cy="284" r="3"/><circle cx="104" cy="281" r="3.5"/><circle cx="122" cy="284" r="2.6"/><circle cx="138" cy="286" r="2.2"/></g></g>
+        <g font-family="Bricolage Grotesque, sans-serif" font-size="15" font-weight="600" fill="#221D19">
+          <text x="468" y="72">Flue</text><path d="M454 67h10" stroke="#221D19"/>
+          <text x="8" y="40">Dome: two courses</text><text x="8" y="58">of firebrick</text><path d="M58 64L118 150" stroke="#221D19"/><circle cx="118" cy="150" r="2.5"/>
+          <text x="186" y="252" id="fireLab">Fire kept to the back wall</text><path d="M182 247L146 240" stroke="#221D19"/><circle cx="146" cy="240" r="2.5"/>
+          <text x="236" y="284" fill="#A3391B" font-weight="700" id="ovenTag">760° at the floor</text>
+          <text x="238" y="390">Floor: nine bricks across</text><path d="M230 297V384" stroke="#221D19"/><circle cx="230" cy="297" r="2.5"/>
+        </g>
+      </svg>
+      <figcaption class="reading" aria-live="polite">
+        <span class="deg num" id="nowTemp">760°</span>
+        <span class="what" id="nowWhat">The service fire. Flatbreads are going in.</span>
+        <span class="when" id="nowWhen">An estimate from our usual day, Chattanooga time.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="curve dark" id="curve" aria-labelledby="h-curve">
+  <div class="wrap">
+    <p class="chartcap" aria-hidden="true"><span>Oven floor, degrees Fahrenheit</span><span>One day, from lighting to the next dawn</span></p>
+    <div id="curveChart" role="img" aria-label="Line chart of oven temperature over 24 hours. Lit at 5:40 a.m., it peaks near 880 degrees Fahrenheit at 7:15 a.m., falls to about 640 by 10 a.m. and 460 by 1:30 p.m., is restoked to about 760 for dinner service from 5 to 10 p.m., then cools overnight to about 210 by dawn."></div>
+    <p class="curvenote" id="curveNote" hidden>Mondays the oven rests with us. The dotted line is a usual day; the solid one is the heat the bricks are giving back today.</p>
+    <ol class="stages" id="stages">
+      <li><a href="#c-first" data-stage="1"><span class="n">1 · 7:15 a.m.</span><span class="t num">880°</span><span class="s">First heat: bread</span></a></li>
+      <li><a href="#c-roast" data-stage="2"><span class="n">2 · 10:00 a.m.</span><span class="t num">640°</span><span class="s">Roasting floor: to start</span></a></li>
+      <li><a href="#c-door" data-stage="3"><span class="n">3 · 1:30 p.m.</span><span class="t num">460°</span><span class="s">Door on: the long cook</span></a></li>
+      <li><a href="#c-service" data-stage="4"><span class="n">4 · 5 to 10 p.m.</span><span class="t num">760°</span><span class="s">Service fire: to order</span></a></li>
+      <li><a href="#c-last" data-stage="5"><span class="n">5 · Overnight</span><span class="t num">210°</span><span class="s">Last heat: dessert</span></a></li>
+    </ol>
+    <div class="curvetext">
+      <h2 id="h-curve">One fire. Five heats. One menu.</h2>
+      <p>A wood oven never holds a single temperature. It climbs for two hours after lighting, falls slowly through the afternoon, is built back up for dinner, and gives off heat all night after the coals come out. Every dish we serve was planned for a point on this line. The marker shows where the oven is about now.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu" aria-labelledby="h-menu">
+  <div class="wrap">
+    <div class="menuhead">
+      <div>
+        <p class="label" style="color:var(--ember)">Tonight's menu</p>
+        <h2 id="h-menu" style="margin-top:14px">Late autumn</h2>
+        <p>Printed from Tuesday, November 4. The board changes a dish or two a week as the market does; the whole menu turns over four times a year.</p>
+        <ol class="seasons" aria-label="This year's menus">
+          <li>Early spring · Mar 3</li><li>Summer · Jun 9</li><li>Early autumn · Sep 8</li><li aria-current="true">Late autumn · Nov 4</li><li>Winter · from Dec 16</li>
+        </ol>
+      </div>
+      <ul class="key" aria-label="Allergen key">
+        <li><span class="al" aria-hidden="true">G</span>Gluten</li><li><span class="al" aria-hidden="true">D</span>Dairy</li><li><span class="al" aria-hidden="true">E</span>Egg</li><li><span class="al" aria-hidden="true">N</span>Tree nuts</li><li><span class="al" aria-hidden="true">F</span>Fish</li><li><span class="al" aria-hidden="true">Se</span>Sesame</li><li><span class="al" aria-hidden="true">So</span>Soy</li>
+      </ul>
+    </div>
+<section class="course" id="c-first" aria-labelledby="h-first" data-stage="1">
+<div class="side"><p class="temp num" aria-hidden="true">880°</p><h3 id="h-first"><span class="sr">1. 880 degrees Fahrenheit. </span>First heat</h3><p class="clock">7:15 a.m., about two hours after lighting</p><p class="why">The oven is at its hottest and the floor is clean. Bread goes in before anything else touches it.</p></div>
+<ul class="dishes">
+<li><p class="dish">Levain, half loaf</p><span class="als" aria-hidden="true"><span class="al">G</span><span class="al">D</span></span><p class="price"><span class="sr">$</span>7</p><p class="desc">cultured butter, flaky salt<span class="sr">. Contains gluten, dairy.</span></p></li>
+<li><p class="dish">Rye and sorghum loaf</p><span class="als" aria-hidden="true"><span class="al">G</span></span><p class="price"><span class="sr">$</span>8</p><p class="desc">whipped lardo, pickled shallot<span class="sr">. Contains gluten.</span></p></li>
+</ul>
+</section>
+<section class="course" id="c-roast" aria-labelledby="h-roast" data-stage="2">
+<div class="side"><p class="temp num" aria-hidden="true">640°</p><h3 id="h-roast"><span class="sr">2. 640 degrees Fahrenheit. </span>Roasting floor</h3><p class="clock">10:00 a.m., coals pushed to the back</p><p class="why">Vegetables roast whole, in their skins, at the edge of the coals. They are served at room temperature or warmed at the mouth.</p></div>
+<ul class="dishes">
+<li><p class="dish">Beets roasted in the coals<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">D</span><span class="al">N</span></span><p class="price"><span class="sr">$</span>13</p><p class="desc">buttermilk, toasted walnut, dill<span class="sr">. Contains dairy, tree nuts.</span></p></li>
+<li><p class="dish">Delicata squash, whole<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">D</span></span><p class="price"><span class="sr">$</span>14</p><p class="desc">brown butter, sage, aged Tennessee cheddar<span class="sr">. Contains dairy.</span></p></li>
+<li><p class="dish">Chicories and charred pear<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">D</span><span class="al">N</span></span><p class="price"><span class="sr">$</span>13</p><p class="desc">blue cheese, pecan, cider vinegar<span class="sr">. Contains dairy, tree nuts.</span></p></li>
+</ul>
+</section>
+<section class="course" id="c-door" aria-labelledby="h-door" data-stage="3">
+<div class="side"><p class="temp num" aria-hidden="true">460°</p><h3 id="h-door"><span class="sr">3. 460 degrees Fahrenheit. </span>Door on</h3><p class="clock">1:30 p.m., fire let down, iron door set in place</p><p class="why">The braises go in sealed and come out at five. Nothing here is rushed, and nothing here is reheated in a microwave.</p></div>
+<ul class="dishes">
+<li><p class="dish">Short rib, seven hours</p><span class="als" aria-hidden="true"><span class="al">D</span></span><p class="price"><span class="sr">$</span>34</p><p class="desc">horseradish cream, oven-dried tomato<span class="sr">. Contains dairy.</span></p></li>
+<li><p class="dish">Pork shoulder cooked in milk</p><span class="als" aria-hidden="true"><span class="al">D</span></span><p class="price"><span class="sr">$</span>29</p><p class="desc">fennel, lemon peel, stone-ground polenta<span class="sr">. Contains dairy.</span></p></li>
+</ul>
+</section>
+<section class="course" id="c-service" aria-labelledby="h-service" data-stage="4">
+<div class="side"><p class="temp num" aria-hidden="true">760°</p><h3 id="h-service"><span class="sr">4. 760 degrees Fahrenheit. </span>Service fire</h3><p class="clock">5:00 to 10:00 p.m., restoked for dinner</p><p class="why">The fire is built back up for service. Everything here is cooked to order on the oven floor, in four to twelve minutes.</p></div>
+<ul class="dishes">
+<li><p class="dish">Flatbread, smoked mushrooms<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">G</span><span class="al">D</span></span><p class="price"><span class="sr">$</span>18</p><p class="desc">fontina, thyme, wildflower honey<span class="sr">. Contains gluten, dairy.</span></p></li>
+<li><p class="dish">Flatbread, sausage and greens</p><span class="als" aria-hidden="true"><span class="al">G</span><span class="al">D</span></span><p class="price"><span class="sr">$</span>19</p><p class="desc">house fennel sausage, chili, ricotta<span class="sr">. Contains gluten, dairy.</span></p></li>
+<li><p class="dish">Whole rainbow trout</p><span class="als" aria-hidden="true"><span class="al">F</span><span class="al">D</span></span><p class="price"><span class="sr">$</span>31</p><p class="desc">brown butter, capers, charred lemon<span class="sr">. Contains fish, dairy.</span></p></li>
+<li><p class="dish">Half chicken</p><span class="als" aria-hidden="true"><span class="al">G</span></span><p class="price"><span class="sr">$</span>30</p><p class="desc">bread salad, schmaltz, pickled grapes<span class="sr">. Contains gluten.</span></p></li>
+<li><p class="dish">Sweet potato from the embers<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">Se</span><span class="al">So</span></span><p class="price"><span class="sr">$</span>12</p><p class="desc">sorghum, chili crisp, sesame<span class="sr">. Contains sesame, soy.</span></p></li>
+</ul>
+</section>
+<section class="course" id="c-last" aria-labelledby="h-last" data-stage="5">
+<div class="side"><p class="temp num" aria-hidden="true">210°</p><h3 id="h-last"><span class="sr">5. 210 degrees Fahrenheit. </span>Last heat</h3><p class="clock">Overnight, after the coals are pulled</p><p class="why">What the oven gives back while we sleep. Desserts set slowly here, and tomorrow's beans start.</p></div>
+<ul class="dishes">
+<li><p class="dish">Apple baked overnight<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">G</span><span class="al">D</span></span><p class="price"><span class="sr">$</span>11</p><p class="desc">oat crumble, crème fraîche<span class="sr">. Contains gluten, dairy.</span></p></li>
+<li><p class="dish">Sorghum meringue<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">E</span><span class="al">D</span><span class="al">N</span></span><p class="price"><span class="sr">$</span>12</p><p class="desc">roasted pear, chestnut cream<span class="sr">. Contains egg, dairy, tree nuts.</span></p></li>
+<li><p class="dish">Chocolate pot, set in the last of the oven<span class="veg">Vegetarian</span></p><span class="als" aria-hidden="true"><span class="al">D</span><span class="al">E</span><span class="al">G</span></span><p class="price"><span class="sr">$</span>12</p><p class="desc">smoked salt, shortbread<span class="sr">. Contains dairy, egg, gluten.</span></p></li>
+</ul>
+</section>    <div class="menufoot">
+      <p>Every dish passes over the same oven floor, which is also where the bread is baked, so we cannot promise any dish is free of gluten. Tell us about allergies when you book and again at the table; the kitchen will walk you through what can change. Prices in US dollars. A 20% service charge is added for parties of seven or more and goes to the whole team.</p>
+      <button class="btn ghost" type="button" id="printMenu">Print this menu</button>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="h-visit">
+  <div class="wrap">
+    <h2 id="h-visit">Find the chimney.</h2>
+    <div class="visitgrid">
+      <dl class="hours" id="hours">
+        <div data-day="2"><dt>Tuesday</dt><dd>5:00 to 10:00 p.m.</dd></div>
+        <div data-day="3"><dt>Wednesday</dt><dd>5:00 to 10:00 p.m.</dd></div>
+        <div data-day="4"><dt>Thursday</dt><dd>5:00 to 10:00 p.m.</dd></div>
+        <div data-day="5"><dt>Friday</dt><dd>5:00 to 11:00 p.m.</dd></div>
+        <div data-day="6"><dt>Saturday</dt><dd>5:00 to 11:00 p.m.</dd></div>
+        <div data-day="0"><dt>Sunday</dt><dd>11:00 a.m. to 2:30 p.m., then 5:00 to 9:00 p.m.</dd></div>
+        <div data-day="1"><dt>Monday</dt><dd>Closed to the public. Open for <a class="inl" href="#private">whole-house bookings</a>.</dd></div>
+      </dl>
+      <div class="addr">
+        <p><strong>1408 Kiln Alley</strong><br>Southside, Chattanooga, TN 37408</p>
+        <p>Twelve seats at the oven counter and the four-tops along the front windows are kept for walk-ins every night. Come early or put your name down and have a drink at the bar.</p>
+        <p>Street parking on Kiln Alley after 5 p.m.; the lot behind the old freight depot is free on weeknights. The free electric shuttle stops at the corner.</p>
+        <p><a href="tel:+14235550147">(423) 555-0147</a><br><a href="mailto:tables@ninebrick.example">tables@ninebrick.example</a></p>
+      </div>
+      <figure class="map">
+        <svg viewBox="0 0 480 320" role="img" aria-labelledby="mapT">
+          <title id="mapT">Drawn street map. Ninebrick sits on Kiln Alley, one block east of Main Street and just south of the rail line.</title>
+          <rect width="480" height="320" fill="#EEE6D8"/>
+          <g fill="#E3D8C5" stroke="#B9AD9D"><rect x="20" y="96" width="120" height="70"/><rect x="186" y="96" width="110" height="70"/><rect x="342" y="96" width="118" height="70"/><rect x="20" y="206" width="120" height="94"/><rect x="186" y="206" width="110" height="94"/><rect x="342" y="206" width="118" height="94"/></g>
+          <g stroke="#221D19" stroke-width="2"><path d="M0 52h480M0 186h480"/><path d="M163 40v280M319 40v280" stroke-width="1.4" stroke-dasharray="1 0"/></g>
+          <path d="M0 26h480" stroke="#221D19" stroke-width="3"/><path d="M0 26h480" stroke="#EEE6D8" stroke-width="1.4" stroke-dasharray="6 8"/>
+          <g font-family="Bricolage Grotesque, sans-serif" font-size="13" fill="#221D19" font-weight="600">
+            <text x="12" y="18">Rail line</text>
+            <text x="12" y="76">Main Street</text>
+            <text x="12" y="200" dy="0">Tannery Way</text>
+            <text x="157" y="300" transform="rotate(-90 157 300)">Furnace St</text>
+            <text x="313" y="300" transform="rotate(-90 313 300)">Kiln Alley</text>
+          </g>
+          <rect x="327" y="226" width="22" height="22" fill="#A3391B"/>
+          <text x="356" y="242" font-family="Bricolage Grotesque, sans-serif" font-size="14" font-weight="700" fill="#221D19">Ninebrick</text>
+          <text x="241" y="128" text-anchor="middle" font-family="Literata, serif" font-size="12" font-style="italic" fill="#5C5249">old freight<tspan x="241" dy="15">depot lot</tspan></text>
+        </svg>
+        <figcaption>Not to scale, and the alley is quieter than it looks.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="reserve" aria-labelledby="h-reserve">
+  <div class="wrap">
+    <div class="formgrid">
+      <div class="aside">
+        <p class="label" style="color:var(--ember)">Reservations</p>
+        <h2 id="h-reserve" style="margin-top:14px">Book a table.</h2>
+        <p>We open the book 30 days ahead, at 10 a.m. Tables are held for two hours, which is about how long the menu takes when you let it.</p>
+        <p>Parties of nine or more, and anything you want to close the doors for, go through <a class="inl" href="#private">private dining</a>.</p>
+        <p>Running late, or need to change it? Call us. A person answers from 2 p.m.<br><a class="phone" href="tel:+14235550147">(423) 555-0147</a></p>
+      </div>
+      <form id="rform" novalidate>
+        <div class="f half">
+          <label for="rdate">Date</label>
+          <input type="date" id="rdate" name="date" required aria-describedby="rdate-e rdate-h">
+          <span class="hint" id="rdate-h">Tuesday to Sunday. The book opens 30 days ahead.</span>
+          <span class="err" id="rdate-e" role="alert"></span>
+        </div>
+        <div class="f half">
+          <span class="lab" id="party-l">Party size</span>
+          <div class="party" role="group" aria-labelledby="party-l">
+            <button type="button" id="pminus" aria-label="One fewer guest">&minus;</button>
+            <output id="pcount" aria-live="polite" aria-label="Guests">2</output>
+            <button type="button" id="pplus" aria-label="One more guest">+</button>
+          </div>
+          <span class="hint">Up to eight online.</span>
+        </div>
+        <p class="callout" id="bigparty" hidden>Nine or more is a party, and a good one. Those tables are set by hand: <a href="#private">send a private dining inquiry</a> and we will reply within a day.</p>
+        <fieldset class="f" id="timeset" aria-describedby="rtime-e">
+          <legend>Time</legend>
+          <div class="slots" id="slots"><p class="slotnote">Pick a date to see open times.</p></div>
+          <span class="err" id="rtime-e" role="alert"></span>
+        </fieldset>
+        <div class="f half">
+          <label for="rname">Name for the booking</label>
+          <input type="text" id="rname" name="name" autocomplete="name" required aria-describedby="rname-e">
+          <span class="err" id="rname-e" role="alert"></span>
+        </div>
+        <div class="f half">
+          <label for="rphone">Mobile</label>
+          <input type="tel" id="rphone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="rphone-e rphone-h">
+          <span class="hint" id="rphone-h">We text a reminder the day before.</span>
+          <span class="err" id="rphone-e" role="alert"></span>
+        </div>
+        <div class="f">
+          <label for="remail">Email <span class="opt">(optional)</span></label>
+          <input type="email" id="remail" name="email" autocomplete="email" aria-describedby="remail-e">
+          <span class="err" id="remail-e" role="alert"></span>
+        </div>
+        <div class="f">
+          <label for="rnotes">Allergies, occasions, a high chair <span class="opt">(optional)</span></label>
+          <textarea id="rnotes" name="notes" rows="3"></textarea>
+        </div>
+        <div class="submitrow">
+          <button class="btn" type="submit" id="rsubmit"><span class="spin" aria-hidden="true"></span><span class="bl">Hold this table</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="pd dark" id="private" aria-labelledby="h-private">
+  <div class="wrap">
+    <div class="stackhead">
+      <h2 id="h-private">A long table by the fire.</h2>
+      <p>Rehearsal dinners, retirements, the team that finally shipped. We cook a family-style menu from the same oven, sent out on boards and platters, and we set the room the way you want to sit.</p>
+    </div>
+    <div class="rooms">
+      <article class="room">
+        <div>
+          <h3>The Brick Room</h3>
+          <p>Behind the oven wall, with a window onto the fire. One oak table that seats fourteen, or three rounds for twenty. Its own door to Kiln Alley.</p>
+          <dl><dt>Seats</dt><dd>14 at one table, 20 at rounds</dd><dt>Minimum</dt><dd>$1,400 Tue to Thu, $2,000 Fri to Sun</dd><dt>Menus</dt><dd>Family style from $85 a guest</dd></dl>
+        </div>
+        <svg viewBox="0 0 150 150" role="img" aria-label="Plan of the Brick Room: one long table with fourteen seats beside the oven wall."><rect x="4" y="4" width="142" height="142" fill="none" stroke="#B9AD9D" stroke-width="1.5"/><rect x="4" y="4" width="142" height="16" fill="#F08A52" fill-opacity=".85"/><rect x="45" y="36" width="60" height="96" fill="none" stroke="#EEE6D8" stroke-width="1.5"/><g fill="#EEE6D8" id="seatsA"></g></svg>
+      </article>
+      <article class="room">
+        <div>
+          <h3>The whole house, on Mondays</h3>
+          <p>We are closed to the public on Mondays, which makes Monday the easiest night to have all of it: the counter, the dining room, the bar and the oven, with the full team cooking for you.</p>
+          <dl><dt>Seats</dt><dd>64 seated, 90 standing</dd><dt>Minimum</dt><dd>$6,500 food and drink</dd><dt>Menus</dt><dd>Family style or a standing supper</dd></dl>
+        </div>
+        <svg viewBox="0 0 150 150" role="img" aria-label="Plan of the whole restaurant: oven counter, bar and dining room tables."><rect x="4" y="4" width="142" height="142" fill="none" stroke="#B9AD9D" stroke-width="1.5"/><rect x="4" y="4" width="60" height="16" fill="#F08A52" fill-opacity=".85"/><rect x="10" y="28" width="48" height="8" fill="none" stroke="#EEE6D8" stroke-width="1.5"/><rect x="128" y="28" width="10" height="70" fill="none" stroke="#EEE6D8" stroke-width="1.5"/><g fill="none" stroke="#EEE6D8" stroke-width="1.5" id="tablesB"></g></svg>
+      </article>
+    </div>
+    <div class="formgrid">
+      <div class="aside">
+        <h3 style="font-family:var(--display);font-weight:700;font-size:1.625rem">Tell us about the night.</h3>
+        <p>Dana Whitlock plans every private event here. She reads each inquiry herself and replies within one business day with dates, a draft menu and a quote.</p>
+        <p>Rather talk it through?<br><a class="phone" href="tel:+14235550148">(423) 555-0148</a></p>
+      </div>
+      <form id="pform" novalidate>
+        <fieldset class="f">
+          <legend>Which room</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="room" value="The Brick Room" checked><span>The Brick Room</span></label>
+            <label class="choice"><input type="radio" name="room" value="The whole house"><span>The whole house</span></label>
+            <label class="choice"><input type="radio" name="room" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+        <div class="f third">
+          <label for="pdate">Preferred date</label>
+          <input type="date" id="pdate" name="date" required aria-describedby="pdate-e">
+          <span class="err" id="pdate-e" role="alert"></span>
+        </div>
+        <div class="f third">
+          <label for="pguests">Guests</label>
+          <input type="text" id="pguests" name="guests" inputmode="numeric" required aria-describedby="pguests-e">
+          <span class="err" id="pguests-e" role="alert"></span>
+        </div>
+        <div class="f third">
+          <label for="pkind">Occasion</label>
+          <select id="pkind" name="kind"><option>Celebration</option><option>Rehearsal dinner</option><option>Company dinner</option><option>Something else</option></select>
+        </div>
+        <div class="f half">
+          <label for="pname">Your name</label>
+          <input type="text" id="pname" name="name" autocomplete="name" required aria-describedby="pname-e">
+          <span class="err" id="pname-e" role="alert"></span>
+        </div>
+        <div class="f half">
+          <label for="pemail">Email</label>
+          <input type="email" id="pemail" name="email" autocomplete="email" required aria-describedby="pemail-e">
+          <span class="err" id="pemail-e" role="alert"></span>
+        </div>
+        <div class="f">
+          <label for="pmsg">Anything we should know <span class="opt">(optional)</span></label>
+          <textarea id="pmsg" name="msg" rows="4" placeholder="A toast at nine, a cake from your aunt, two guests who don't eat pork."></textarea>
+        </div>
+        <div class="submitrow">
+          <button class="btn" type="submit" id="psubmit"><span class="spin" aria-hidden="true"></span><span class="bl">Send to Dana</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="mark" href="#main">Ninebrick</a>
+      <p>A wood-fired kitchen at 1408 Kiln Alley, Chattanooga. One oven, lit at 5:40 every morning.</p>
+    </div>
+    <div><p class="label" style="color:var(--glow)">Book</p><p><a href="#reserve">Reserve a table</a><br><a href="#private">Private dining</a></p></div>
+    <div><p class="label" style="color:var(--glow)">Read</p><p><a href="#menu">Tonight's menu</a><br><a href="#visit">Hours and location</a></p></div>
+    <p class="demo">This is a demonstration site designed and built by <a href="../../index.html">Page Studio</a>. Ninebrick is not a real restaurant: the menu, address, phone numbers and people are invented, and no form on this page sends anything.</p>
+  </div>
+</footer>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var SVGNS="http://www.w3.org/2000/svg";
+function el(n,a,p){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function $(id){return document.getElementById(id)}
+
+/* ---- Chattanooga time ---- */
+function nowET(){
+  /* QA override: ?now=YYYY-MM-DDTHH:MM, read as Chattanooga wall-clock time */
+  var q=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(new URLSearchParams(location.search).get("now")||"");
+  if(q){var o={y:+q[1],m:+q[2],d:+q[3],h:+q[4],min:+q[5]};o.wd=new Date(Date.UTC(o.y,o.m-1,o.d)).getUTCDay();return o}
+  var p={};new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23",weekday:"short"}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+  var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday];
+  return {y:+p.year,m:+p.month,d:+p.day,h:+p.hour,min:+p.minute,wd:wd};
+}
+var NOW=nowET();
+
+/* ---- the burn curve: hours since midnight (past 24 = next morning), degrees F ---- */
+var PTS=[[5.667,190],[6.5,420],[7.25,880],[8.5,780],[10,640],[12,540],[13.5,460],[15.5,400],[16.5,430],[17.5,740],[19,760],[21,740],[22.5,700],[23.5,470],[26,330],[28.5,215],[29.667,190]];
+var STAGES=[[7.25,1],[10,2],[13.5,3],[19,4],[28.5,5]];
+function tempAt(t){for(var i=1;i<PTS.length;i++){if(t<=PTS[i][0]){var a=PTS[i-1],b=PTS[i],f=(t-a[0])/(b[0]-a[0]);f=f*f*(3-2*f);return a[1]+(b[1]-a[1])*f}}return PTS[PTS.length-1][1]}
+var nowH=NOW.h+NOW.min/60; var T=nowH<5.667?nowH+24:nowH;
+function phrase(t){
+  if(t<6.9)return"Lit at 5:40. The fire is still climbing.";
+  if(t<9)return"First heat. The bread is in.";
+  if(t<12.5)return"The roasting floor. Squash and beets are in the coals.";
+  if(t<16.3)return"Door on. The braises are sealed in.";
+  if(t<17.3)return"Building the fire back up for dinner.";
+  if(t<22.5)return"The service fire. Flatbreads are going in.";
+  return"Last heat. The coals are out and dessert is setting.";
+}
+function clock(h){h=h%24;var hh=Math.floor(h),mm=Math.round((h-hh)*60);if(mm===60){hh++;mm=0}var ap=hh<12||hh===24?"a.m.":"p.m.";var d=hh%12||12;return d+":"+(mm<10?"0":"")+mm+" "+ap}
+/* Monday's oven day (Mon 5:40 a.m. to Tue 5:40 a.m.) is a rest day: no fire is lit */
+var REST=(NOW.wd===1&&nowH>=5.667)||(NOW.wd===2&&nowH<5.667);
+function restAt(t){return 90+100*Math.exp(-(t-5.667)/9)}   /* bricks giving back Sunday's heat */
+var nowT=Math.round((REST?restAt(T):tempAt(T))/10)*10;
+$("nowTemp").textContent=nowT+"°";
+if(REST){
+  var left=(29.667-T),hrs=Math.max(1,Math.round(left));
+  $("nowWhat").textContent="Resting. We are closed Mondays, and the oven gets the day off.";
+  $("nowWhen").textContent="About now, "+clock(nowH)+" in Chattanooga. The bricks are still warm from Sunday. The fire is next lit "+(NOW.wd===2?"this morning at 5:40, in about "+hrs+(hrs===1?" hour.":" hours."):"Tuesday at 5:40 a.m.");
+  document.querySelector(".oven").classList.add("resting");
+  $("curveNote").hidden=false;
+  var cc=$("curveChart");cc.setAttribute("aria-label",cc.getAttribute("aria-label")+" Today is the Monday rest day: no fire is lit, the bricks are cooling from Sunday at about "+nowT+" degrees, and the fire is next lit Tuesday at 5:40 a.m.");
+}else{
+  $("nowWhat").textContent=phrase(T);
+  $("nowWhen").textContent="About now, "+clock(nowH)+" in Chattanooga. An estimate from our usual day.";
+}
+/* after 10:30 p.m. the coals are pulled: draw embers, not a flame */
+if(!REST&&T>=22.5)document.querySelector(".oven").classList.add("resting");
+var banked=REST||T>=22.5;
+$("ovenTag").textContent=REST?"about "+nowT+"°, resting":nowT+"° at the floor";
+$("fireLab").textContent=banked?"Coals banked at the back":"Fire kept to the back wall";
+var fl=$("flame"); if(fl&&!REST){fl.style.transform="scale("+(0.45+0.6*(nowT-190)/690).toFixed(3)+")"}
+
+/* ---- hero drawing details ---- */
+var nine=$("nine"); if(nine){for(var i=0;i<9;i++)el("rect",{x:28+i*38.2,y:340,width:35,height:26},nine)}
+
+/* ---- chart ---- */
+var box=$("curveChart"),drawn=false;
+function render(){
+  var W=Math.max(300,box.clientWidth),H=W<560?280:Math.min(420,W*.36),L=W<560?40:52,R=W<560?10:20,Tp=40,B=34;
+  box.innerHTML="";
+  var s=el("svg",{viewBox:"0 0 "+W+" "+H,width:W,height:H,"aria-hidden":"true",focusable:"false"},box);
+  var x=function(t){return L+(t-5.667)/24*(W-L-R)},y=function(v){return Tp+(1-v/1000)*(H-Tp-B)};
+  var g=el("g",{"class":"grid"},s);
+  [200,400,600,800,1000].forEach(function(v){el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v)},g);var tx=el("text",{"class":"ax",x:L-8,y:y(v)+4,"text-anchor":"end"},s);tx.textContent=v+"°"});
+  var ticks=W<560?[6,12,18,24]:[6,9,12,15,18,21,24,27];
+  ticks.forEach(function(t){var tx=el("text",{"class":"ax",x:x(t),y:H-10,"text-anchor":"middle"},s);var h=t%24;tx.textContent=h===0?"midnight":h===12?"noon":(h%12)+(h<12?" a.m.":" p.m.")});
+  var d="",n=96;for(var i=0;i<=n;i++){var t=5.667+24*i/n;d+=(i?"L":"M")+x(t).toFixed(1)+" "+y(tempAt(t)).toFixed(1)}
+  el("path",{"class":"area",d:d+"L"+x(29.667)+" "+y(0)+"L"+x(5.667)+" "+y(0)+"Z"},s);
+  var line=el("path",{"class":"line",d:d},s);
+  var len=line.getTotalLength();box.style.setProperty("--len",len);
+  box.classList.toggle("resting",REST);
+  if(REST){var rd="";for(var j=0;j<=n;j++){var rt=5.667+24*j/n;rd+=(j?"L":"M")+x(rt).toFixed(1)+" "+y(restAt(rt)).toFixed(1)}el("path",{"class":"rest",d:rd},s)}
+  var nx=x(T),ny=y(REST?restAt(T):tempAt(T)),ng=el("g",{"class":"now"},s);
+  el("line",{x1:nx,x2:nx,y1:Tp-10,y2:y(0)},ng);el("circle",{cx:nx,cy:ny,r:6},ng);
+  var lab=el("text",{x:nx+(nx>W-130?-8:8),y:Tp-14,"text-anchor":nx>W-130?"end":"start"},ng);lab.textContent=REST?"Now: resting, about "+nowT+"°":"Now, about "+nowT+"°";
+  STAGES.forEach(function(st){var sg=el("g",{"class":"stage","data-stage":st[1]},s);var cx=x(st[0]),cy=y(tempAt(st[0]));el("circle",{cx:cx,cy:cy,r:11},sg);var tx=el("text",{x:cx,y:cy+4.5},sg);tx.textContent=st[1]});
+  if(drawn||RM)box.classList.add("drawn");
+}
+if(box){
+  render();var rw;window.addEventListener("resize",function(){clearTimeout(rw);rw=setTimeout(function(){drawn=true;render()},120)});
+  if(!RM&&"IntersectionObserver"in window){box.classList.remove("drawn");new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){requestAnimationFrame(function(){box.classList.add("drawn");drawn=true});o.disconnect()}})},{threshold:.35}).observe(box)}else{drawn=true;box.classList.add("drawn")}
+}
+function light(n){document.querySelectorAll("#curveChart .stage,#stages a").forEach(function(e){e.classList.toggle("on",e.getAttribute("data-stage")===String(n))})}
+document.querySelectorAll("#stages a").forEach(function(a){["mouseenter","focus"].forEach(function(ev){a.addEventListener(ev,function(){light(a.dataset.stage)})});["mouseleave","blur"].forEach(function(ev){a.addEventListener(ev,function(){light(0)})})});
+
+/* ---- plans ---- */
+var sa=$("seatsA");if(sa){for(var i=0;i<6;i++){el("circle",{cx:36,cy:46+i*15.5,r:4.5},sa);el("circle",{cx:114,cy:46+i*15.5,r:4.5},sa)}el("circle",{cx:75,cy:28,r:4.5},sa);el("circle",{cx:75,cy:140,r:4.5},sa)}
+var tb=$("tablesB");if(tb){[[24,60],[60,60],[96,60],[24,96],[60,96],[96,96],[24,128],[60,128],[96,128]].forEach(function(p){el("rect",{x:p[0]-9,y:p[1]-9,width:18,height:18},tb)})}
+
+/* ---- header ---- */
+var top=$("top");function sc(){top.classList.toggle("scrolled",window.scrollY>8)}sc();window.addEventListener("scroll",sc,{passive:true});
+var tg=document.querySelector(".navtoggle"),nav=$("nav");
+tg.addEventListener("click",function(){var o=tg.getAttribute("aria-expanded")==="true";tg.setAttribute("aria-expanded",String(!o));nav.classList.toggle("open",!o)});
+nav.addEventListener("click",function(e){if(e.target.closest("a")){tg.setAttribute("aria-expanded","false");nav.classList.remove("open")}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&nav.classList.contains("open")){tg.setAttribute("aria-expanded","false");nav.classList.remove("open");tg.focus()}});
+
+/* ---- hours: today ---- */
+var hd=document.querySelector('#hours [data-day="'+NOW.wd+'"]');if(hd)hd.classList.add("today");
+
+/* ---- reveals ---- */
+if(!RM&&"IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});document.querySelectorAll("[data-rise]").forEach(function(e){io.observe(e)})}else{document.querySelectorAll("[data-rise]").forEach(function(e){e.classList.add("in")})}
+
+$("printMenu").addEventListener("click",function(){window.print()});
+
+/* ---- dates ---- */
+function iso(y,m,d){return y+"-"+(m<10?"0":"")+m+"-"+(d<10?"0":"")+d}
+function parse(v){var a=v.split("-");return new Date(+a[0],+a[1]-1,+a[2])}
+var today=new Date(NOW.y,NOW.m-1,NOW.d),maxD=new Date(NOW.y,NOW.m-1,NOW.d+30);
+function isoD(dt){return iso(dt.getFullYear(),dt.getMonth()+1,dt.getDate())}
+function longD(dt){return dt.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}
+function setErr(input,errEl,msg){errEl.textContent=msg||"";if(input)input.setAttribute("aria-invalid",msg?"true":"false");return !msg}
+
+/* ---- reservation ---- */
+var rf=$("rform"),rdate=$("rdate"),slots=$("slots"),party=2,rsub=$("rsubmit");
+rdate.min=isoD(today);rdate.max=isoD(maxD);
+function pset(n){party=Math.max(1,Math.min(9,n));$("pcount").textContent=party===9?"9+":party;$("pminus").disabled=party<=1;$("pplus").disabled=party>=9;$("bigparty").hidden=party<9;var tf=$("timeset"),big=party>=9;tf.disabled=big;tf.inert=big;tf.classList.toggle("off",big);tf.querySelectorAll("input").forEach(function(i){i.disabled=big});rsub.disabled=party>=9;rsub.setAttribute("aria-disabled",String(party>=9))}
+$("pminus").addEventListener("click",function(){pset(party-1)});$("pplus").addEventListener("click",function(){pset(party+1)});pset(2);
+function dateMsg(v){if(!v)return"Choose a date.";var dt=parse(v);if(dt<today)return"That date has already passed.";if(dt>maxD)return"The book opens 30 days ahead. That date opens on "+longD(new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()-30))+".";if(dt.getDay()===1)return"We are closed to the public on Mondays. Tuesday has room.";return""}
+function times(wd){var a=[],i;if(wd===0){for(i=11;i<=13.5;i+=.5)a.push(i);for(i=17;i<=20;i+=.5)a.push(i)}else{var last=(wd===5||wd===6)?21.5:21;for(i=17;i<=last;i+=.5)a.push(i)}return a}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function fmtT(h){var hh=Math.floor(h),mm=h%1?"30":"00";return(hh%12||12)+":"+mm}
+function drawSlots(){
+  var v=rdate.value,m=dateMsg(v);setErr(rdate,$("rdate-e"),v?m:"");
+  slots.innerHTML="";
+  if(!v||m){var p=document.createElement("p");p.className="slotnote";p.textContent=v?"Pick another date to see open times.":"Pick a date to see open times.";slots.appendChild(p);return}
+  var dt=parse(v),wd=dt.getDay();
+  times(wd).forEach(function(h,i){
+    var k=hash(v+":"+h+":"+party)%7,full=(wd===6&&h>=18.5&&h<=20)||k===0,few=!full&&k===1;
+    var lab=document.createElement("label");lab.className="slot"+(full?" full":"");
+    var inp=document.createElement("input");inp.type="radio";inp.name="time";inp.value=h;inp.dataset.full=full?"1":"";inp.disabled=party>=9;
+    var sp=document.createElement("span");sp.innerHTML="<b>"+fmtT(h)+"</b><small>"+(h<12?"a.m.":"p.m.")+(full?" · waitlist":few?" · 1 left":"")+"</small>";
+    lab.appendChild(inp);lab.appendChild(sp);slots.appendChild(lab);
+  });
+}
+rdate.addEventListener("change",drawSlots);rdate.addEventListener("input",drawSlots);
+$("pminus").addEventListener("click",function(){if(rdate.value)drawSlots()});$("pplus").addEventListener("click",function(){if(rdate.value)drawSlots()});
+slots.addEventListener("change",function(e){var full=e.target.dataset.full==="1";rsub.querySelector(".bl").textContent=full?"Join the waitlist":"Hold this table";setErr(null,$("rtime-e"),"")});
+function vRes(){
+  var ok=true,first=null;function chk(inp,e,msg){var r=setErr(inp,e,msg);if(!r&&!first)first=inp||e;ok=ok&&r}
+  chk(rdate,$("rdate-e"),dateMsg(rdate.value));
+  var t=rf.querySelector("input[name=time]:checked");chk(null,$("rtime-e"),!rdate.value||dateMsg(rdate.value)?"":(t?"":"Choose a time."));if(!t&&!first&&!dateMsg(rdate.value)){first=slots.querySelector("input")}
+  var nm=$("rname");chk(nm,$("rname-e"),nm.value.trim()?"":"Who is the table under?");
+  var ph=$("rphone");chk(ph,$("rphone-e"),ph.value.replace(/\D/g,"").length>=10?"":"A ten-digit mobile number, so we can text a reminder.");
+  var em=$("remail");chk(em,$("remail-e"),!em.value||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)?"":"That email looks incomplete.");
+  if(first&&first.focus)first.focus();return ok;
+}
+["rname","rphone","remail"].forEach(function(id){$(id).addEventListener("input",function(){if($(id).getAttribute("aria-invalid")==="true")setErr($(id),$(id+"-e"),"")})});
+function busy(btn,on,label){btn.setAttribute("aria-busy",String(on));if(label)btn.querySelector(".bl").textContent=label}
+function done(form,html,again){
+  var box=document.createElement("div");box.className="done";box.setAttribute("tabindex","-1");box.innerHTML=html;
+  var b=document.createElement("button");b.type="button";b.className="btn ghost";b.textContent=again;box.appendChild(b);
+  Array.prototype.forEach.call(form.children,function(c){c.hidden=true});form.appendChild(box);box.focus();
+  b.addEventListener("click",function(){box.remove();Array.prototype.forEach.call(form.children,function(c){c.hidden=c.id==="bigparty"?party<9:false});if(form===rf)pset(party);var f=form.querySelector("input:not([type=radio]),input");if(f)f.focus()});
+}
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+rf.addEventListener("submit",function(e){
+  e.preventDefault();if(party>=9||!vRes())return;
+  var t=rf.querySelector("input[name=time]:checked"),wait=t.dataset.full==="1",h=+t.value;
+  busy(rsub,true,"Checking the book");
+  setTimeout(function(){
+    busy(rsub,false,"Hold this table");
+    var when=longD(parse(rdate.value))+", "+fmtT(h)+(h<12?" a.m.":" p.m.");
+    done(rf,'<p class="label">'+(wait?"On the waitlist":"Table held")+'</p><h3>'+(wait?"You are on the list for "+esc(when):"See you "+esc(when)).replace(/\.?$/,".")+'</h3><dl><dt>Party</dt><dd>'+party+(party===1?" guest":" guests")+'</dd><dt>Name</dt><dd>'+esc($("rname").value.trim())+'</dd><dt>Reminder</dt><dd>Text to '+esc($("rphone").value.trim())+' the day before</dd></dl><p>'+(wait?"If a table opens we text you and hold it for 20 minutes. Most nights the waitlist clears by 7.":"We hold the table for 15 minutes past the time. Reply to the reminder text to change or cancel.")+'</p>',"Make another booking");
+  },RM?300:1100);
+});
+
+/* ---- private dining ---- */
+var pf=$("pform"),pdate=$("pdate");pdate.min=isoD(today);
+function vPd(){
+  var ok=true,first=null;function chk(inp,msg){var r=setErr(inp,$(inp.id+"-e"),msg);if(!r&&!first)first=inp;ok=ok&&r}
+  var room=pf.querySelector("input[name=room]:checked").value;
+  chk(pdate,!pdate.value?"Choose a date, even a rough one.":parse(pdate.value)<today?"That date has already passed.":(room==="The whole house"&&parse(pdate.value).getDay()!==1)?"The whole house is booked on Mondays. Pick a Monday, or choose the Brick Room.":"");
+  var g=parseInt($("pguests").value,10),cap=room==="The Brick Room"?20:90;
+  chk($("pguests"),!g||g<2?"How many guests, roughly?":g>cap?(room==="The Brick Room"?"The Brick Room seats up to 20. The whole house takes 64 seated or 90 standing.":"The house holds 90 standing at most."):"");
+  chk($("pname"),$("pname").value.trim()?"":"Who should Dana ask for?");
+  chk($("pemail"),/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("pemail").value)?"":"An email address, so Dana can send the quote.");
+  if(first)first.focus();return ok;
+}
+["pdate","pguests","pname","pemail"].forEach(function(id){$(id).addEventListener("input",function(){if($(id).getAttribute("aria-invalid")==="true")setErr($(id),$(id+"-e"),"")})});
+pf.addEventListener("submit",function(e){
+  e.preventDefault();if(!vPd())return;var b=$("psubmit");busy(b,true,"Sending");
+  setTimeout(function(){busy(b,false,"Send to Dana");
+    var room=pf.querySelector("input[name=room]:checked").value;
+    done(pf,'<p class="label">Inquiry received</p><h3>Thank you. Dana has it.</h3><dl><dt>Room</dt><dd>'+esc(room)+'</dd><dt>Date</dt><dd>'+esc(longD(parse(pdate.value)))+'</dd><dt>Guests</dt><dd>'+esc($("pguests").value)+'</dd><dt>Occasion</dt><dd>'+esc($("pkind").value)+'</dd></dl><p>Expect a reply at '+esc($("pemail").value)+' within one business day, with open dates, a draft menu and a quote.</p>',"Send another inquiry");
+  },RM?300:1100);
+});
+})();
+</script>
+</body>
+</html>

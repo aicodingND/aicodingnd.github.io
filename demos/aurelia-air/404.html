@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off the flight plan · Aurelia Private Travel</title>
+<meta name="description" content="This page is not on the manifest. Return to the studio, or speak to the Flight Team.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B1020">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230B1020'/><path d='M16 6 L19 20 L16 18 L13 20 Z' fill='none' stroke='%23C9A35E' stroke-width='1.4'/><circle cx='16' cy='24' r='1.4' fill='%23C9A35E'/></svg>">
+<script>document.documentElement.className+=" js";</script>
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:300 700;font-display:swap;src:url("fonts/fraunces-var.woff2") format("woff2")}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:400 600;font-display:swap;src:url("fonts/fraunces-italic-var.woff2") format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:300 600;font-display:swap;src:url("fonts/archivo-var.woff2") format("woff2")}
+@font-face{font-family:"Fraunces Fallback";src:local("Georgia"),local("Times New Roman");size-adjust:104%;ascent-override:92%;descent-override:24%;line-gap-override:0%}
+@font-face{font-family:"Archivo Fallback";src:local("Helvetica Neue"),local("Arial");size-adjust:96%;ascent-override:92%;descent-override:24%;line-gap-override:0%}
+:root{
+  --ink:#0B1020; --ink-2:#10162B; --porcelain:#F3EFE6;
+  --champagne:#C9A35E; --champagne-glow:#E3CE9F; --champagne-text:#D8B978;
+  --mist:#8B93AC;
+  --display:"Fraunces","Fraunces Fallback",Georgia,serif;
+  --body:"Archivo","Archivo Fallback",-apple-system,system-ui,sans-serif;
+  --step--1:.8rem; --step-0:1rem; --step-1:1.25rem; --step-2:1.563rem; --step-3:1.953rem;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem;
+  --gutter:clamp(20px,5vw,92px); --ease:cubic-bezier(.22,.61,.36,1);
+  --line-dk:rgba(201,163,94,.22);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;background:var(--ink);color:var(--porcelain);font-family:var(--body);font-weight:350;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+svg{display:block;max-width:100%}
+::selection{background:var(--champagne);color:var(--ink)}
+:focus-visible{outline:2px solid var(--champagne);outline-offset:3px;border-radius:1px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--porcelain);color:var(--ink);padding:.7em 1.1em;z-index:60;font-weight:500;border-radius:2px}
+.skip:focus{left:10px;top:10px}
+.bar{border-bottom:1px solid var(--line-dk)}
+.bar .in{max-width:1100px;margin-inline:auto;padding:16px var(--gutter);display:flex;align-items:center;gap:.5em;font-family:var(--display);font-optical-sizing:auto;font-weight:440;font-size:var(--step-1)}
+.bar .in svg{width:18px;height:22px}
+svg .craft{stroke:var(--champagne);stroke-width:1.1;fill:none;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+svg .craft-soft{stroke:var(--mist);stroke-width:.9;fill:none;vector-effect:non-scaling-stroke;opacity:.7}
+svg .craft-glow{stroke:var(--champagne-glow);stroke-width:.8;fill:none;vector-effect:non-scaling-stroke;opacity:.55}
+svg .craft-fill{fill:var(--champagne)}
+svg .craft-txt{font-family:var(--body);font-size:11px;fill:var(--mist);letter-spacing:.06em}
+main{flex:1;display:flex;align-items:center;background:radial-gradient(60% 50% at 50% 0%,var(--ink-2),var(--ink) 70%)}
+.wrap{max-width:760px;margin-inline:auto;padding:clamp(56px,12vh,140px) var(--gutter);text-align:center}
+.code{font-family:var(--display);font-optical-sizing:auto;font-weight:340;font-size:clamp(4rem,2rem + 14vw,11rem);line-height:.9;letter-spacing:-.03em;color:var(--porcelain);font-variation-settings:"opsz" 144,"wght" 360}
+.code .key{color:var(--champagne-glow)}
+.art{margin:var(--s4) auto var(--s5);max-width:340px}
+.title{font-family:var(--display);font-optical-sizing:auto;font-weight:380;font-size:clamp(1.5rem,1.1rem + 2vw,var(--step-3));letter-spacing:-.01em;color:var(--porcelain);margin:0}
+.copy{margin:var(--s3) auto 0;max-width:30em;font-size:var(--step-1);line-height:1.55;color:var(--mist)}
+.row{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s3) var(--s4);justify-content:center;align-items:center}
+.cta{display:inline-flex;align-items:center;gap:.5em;font-weight:500;letter-spacing:.02em;padding:.9em 1.5em;background:var(--champagne);color:var(--ink);border-radius:2px;min-height:50px;transition:background .2s,box-shadow .3s var(--ease)}
+.cta:hover{background:var(--champagne-glow);box-shadow:0 10px 34px -18px rgba(201,163,94,.7)}
+.cta .arr{transition:transform .2s var(--ease)}
+.cta:hover .arr{transform:translateX(3px)}
+.ghost{color:var(--porcelain);border-bottom:1px solid var(--line-dk);padding-bottom:3px;transition:border-color .2s}
+.ghost:hover{border-color:var(--champagne)}
+.foot{border-top:1px solid var(--line-dk)}
+.foot .in{max-width:1100px;margin-inline:auto;padding:var(--s4) var(--gutter);display:flex;flex-wrap:wrap;gap:.5em 1.4em;justify-content:space-between;font-size:var(--step--1);letter-spacing:.1em;color:var(--mist)}
+.foot .reg{text-transform:uppercase;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="in"><svg viewBox="0 0 22 26" aria-hidden="true"><path class="craft" d="M11 2 L14.4 18 L11 15.4 L7.6 18 Z"/><circle class="craft-fill" cx="11" cy="22.5" r="1.5"/></svg>Aurelia</div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <p class="code">4<span class="key">0</span>4</p>
+    <div class="art">
+      <svg viewBox="0 0 340 120" role="img" aria-label="A fine-line aircraft leaving the frame on a dotted arc">
+        <path class="craft-soft" d="M10 96 Q150 40 230 52" stroke-dasharray="2 7"/>
+        <g transform="translate(238 50)">
+          <path class="craft" d="M-40 6 C-10 2 30 0 70 0 C84 -1 92 -3 96 -6 C100 -9 102 -2 96 3 C84 7 60 8 30 9 L-20 10 C-32 10 -40 8 -40 6 Z"/>
+          <path class="craft" d="M48 2 L18 -16"/>
+          <path class="craft-glow" d="M48 4 L18 24"/>
+          <path class="craft" d="M94 -5 L102 -16"/>
+        </g>
+        <circle class="craft-fill" cx="10" cy="96" r="3"/>
+        <text class="craft-txt" x="6" y="116">last known position</text>
+      </svg>
+    </div>
+    <h1 class="title">This page is off the flight plan.</h1>
+    <p class="copy">The address you followed is not on our manifest. Nothing is lost. The studio is one step back, and the Flight Team is always at the desk.</p>
+    <div class="row">
+      <a class="cta" href="index.html"><span>Return to the studio <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+      <a class="ghost" href="index.html#inquire">Speak to the Flight Team</a>
+    </div>
+  </div>
+</main>
+<footer class="foot">
+  <div class="in">
+    <span class="reg">Aurelia Private Travel</span>
+    <span>The quiet hours are yours.</span>
+    <span class="reg">Error 404</span>
+  </div>
+</footer>
+</body>
+</html>

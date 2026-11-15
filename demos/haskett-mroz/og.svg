@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Haskett &amp; Mroz, CPAs and Advisors. Accountants for the people who sign the front of the paycheck.</title>
+  <rect width="1200" height="630" fill="#F2EEE2"/>
+  <g stroke="#2D5A45" stroke-opacity=".14"><path d="M0 110H1200M0 170H1200M0 230H1200M0 290H1200M0 350H1200M0 410H1200M0 470H1200M0 530H1200"/></g>
+  <path d="M96 0V630" stroke="#A2301B" stroke-opacity=".55" stroke-width="2"/>
+  <text x="140" y="92" font-family="Public Sans, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="2.4" fill="#56625B">HASKETT &amp; MROZ · CPAs &amp; ADVISORS · MILWAUKEE</text>
+  <g font-family="Libre Caslon Text, Georgia, serif" font-size="74" fill="#18231E" letter-spacing="-1.5">
+    <text x="140" y="214">Accountants for the people</text>
+    <text x="140" y="300">who sign the <tspan fill="#A2301B" font-style="italic">front</tspan> of the</text>
+    <text x="140" y="386">paycheck.</text>
+  </g>
+  <g font-family="Public Sans, Helvetica, Arial, sans-serif" font-size="26" fill="#3B4842">
+    <text x="140" y="500">Fixed fees, written down first.</text>
+    <text x="140" y="540">The first meeting costs nothing.</text>
+  </g>
+  <g font-family="Libre Caslon Text, Georgia, serif" text-anchor="end">
+    <text x="1080" y="500" font-size="22" fill="#56625B">First meeting</text>
+    <text x="1080" y="556" font-size="48" fill="#A2301B">$0</text>
+  </g>
+  <path d="M1010 572H1080M1010 579H1080" stroke="#18231E" stroke-width="2"/>
+</svg>

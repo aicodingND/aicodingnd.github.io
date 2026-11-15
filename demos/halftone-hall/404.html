@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misprint · Halftone Hall</title>
+<meta name="description" content="This page came off the press wrong. Head back to the show calendar.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F2ECDF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23F2ECDF'/><circle cx='14' cy='15' r='9' fill='%232B4BA8'/><circle cx='18' cy='17' r='9' fill='%23D8432A' style='mix-blend-mode:multiply'/></svg>">
+<style>
+@font-face{font-family:"Big Shoulders";font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/big-shoulders-var.woff2") format("woff2")}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url("fonts/instrument-sans-var.woff2") format("woff2")}
+:root{--paper:#F2ECDF;--ink:#1A1916;--muted:#5C574D;--red:#D8432A;--red-text:#B0331C;--blue:#2B4BA8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font:400 1rem/1.55 "Instrument Sans",system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+main{flex:1;max-width:90rem;width:100%;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem)}
+.slug{max-width:none;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:0 0 2rem;padding-bottom:.6rem;border-bottom:1px solid rgba(26,25,22,.22);font-size:.875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slug a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;margin:-12px 0}
+h1{margin:0;font:900 clamp(10rem,38vw,30rem)/.8 "Big Shoulders","Arial Narrow",sans-serif;position:relative;letter-spacing:-.01em}
+h1 .b{color:var(--blue);display:block}
+h1 .r{position:absolute;inset:0;color:var(--red);transform:translate(-12px,-9px)}
+.copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;margin-top:2rem;align-items:end}
+h2{margin:0;font:800 clamp(2.5rem,6vw,4.5rem)/.9 "Big Shoulders","Arial Narrow",sans-serif;text-transform:uppercase}
+p{max-width:30rem;font-size:1.125rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.25rem;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none}
+.btn:hover{box-shadow:3px 3px 0 var(--red)}
+.btn.g{background:transparent;color:var(--ink)}
+footer{border-top:2px solid var(--ink);padding:1rem clamp(1.5rem,4vw,3.5rem);font-size:.875rem;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem}
+footer a{color:var(--ink);font-weight:600;display:inline-flex;align-items:center;min-height:44px}
+footer p{margin:0;font-size:.875rem;max-width:none;align-self:center}
+@media (max-width:700px){.copy{grid-template-columns:1fr}h1 .r{transform:translate(-6px,-5px)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <p class="slug"><a href="index.html">Halftone Hall</a><span>Pressroom note</span></p>
+  <h1><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Page not found, error 404</span><span class="b" aria-hidden="true">404</span><span class="r" aria-hidden="true">404</span></h1>
+  <div class="copy">
+    <div>
+      <h2>Misprint</h2>
+      <p>This page came off the press out of register and we pulled it from the stack. The show you were after is probably still on the bill.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="index.html#shows">See the calendar</a>
+      <a class="btn g" href="index.html#visit">Doors, bags and access</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>Halftone Hall is a fictional venue. This is a demonstration by Page Studio, not a real business.</p>
+  <a href="../../index.html">Back to Page Studio</a>
+</footer>
+</body>
+</html>

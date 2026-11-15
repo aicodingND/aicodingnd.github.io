@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Base URL: swap https://aicodingnd.github.io when a real domain lands (see index.html head note). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://aicodingnd.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/aurelia-air/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/aurelia-air/case/transatlantic-access.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/ninebrick/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/haskett-mroz/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/halftone-hall/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/kettle-and-sedge/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aicodingnd.github.io/demos/six-coulees-land-trust/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

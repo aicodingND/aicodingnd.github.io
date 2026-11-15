@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kettle &amp; Sedge · Native landscape design-build, Twin Cities</title>
+<meta name="description" content="Kettle & Sedge designs and builds native landscapes across Minneapolis and Saint Paul: rain gardens, lawn conversions, shade woodlands and shoreline buffers. It starts with a 90-minute paid site consultation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kettle &amp; Sedge · Gardens that get better after we leave">
+<meta property="og:description" content="Native landscape design-build for the Twin Cities. Book a 90-minute site consultation.">
+<meta property="og:image" content="og.svg">
+<meta name="theme-color" content="#EDF2EC">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23EDF2EC'/><ellipse cx='16' cy='19' rx='11' ry='7' fill='none' stroke='%2314261B' stroke-width='1.6'/><path d='M16 19V6M16 14l-5-6M16 14l5-6' stroke='%235B3A8E' stroke-width='1.6' fill='none'/></svg>">
+<link rel="preload" href="fonts/gelasio-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className+=" js";</script>
+<style>
+@font-face{font-family:"Gelasio";font-style:normal;font-weight:400 700;font-display:swap;src:url("fonts/gelasio-var.woff2") format("woff2")}
+@font-face{font-family:"Gelasio";font-style:italic;font-weight:400 700;font-display:swap;src:url("fonts/gelasio-italic-var.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/hanken-grotesk-var.woff2") format("woff2")}
+@font-face{font-family:"Gelasio Fallback";src:local("Georgia");size-adjust:98%;ascent-override:96%;descent-override:26%}
+@font-face{font-family:"Hanken Fallback";src:local("Helvetica Neue"),local("Arial");size-adjust:100%;ascent-override:94%;descent-override:25%}
+
+:root{
+  --paper:#EDF2EC; --paper-2:#E1E9DF; --paper-3:#CCD8C9;
+  --ink:#14261B; --ink-2:#30453A; --ink-3:#4A5F51;
+  --bloom:#5B3A8E;          /* blazing star in August: the one accent */
+  --bloom-2:#7A55B5;        /* bloom for drawn marks only (not text) */
+  --sage:#6A8B6E;          /* drawing linework */
+  --water:#4F7484;         /* contours and water, linework only */
+  --night:#14261B; --night-2:#1E3427;
+  --on-night:#E4EEE4; --on-night-2:#A9BFAE; --bloom-on-night:#CDB6F2;
+  --line:rgba(20,38,27,.16); --line-2:rgba(20,38,27,.32);
+  --serif:"Gelasio","Gelasio Fallback",Georgia,serif;
+  --sans:"Hanken Grotesk","Hanken Fallback",-apple-system,system-ui,sans-serif;
+  --r:6px; --gut:clamp(20px,4.6vw,72px); --maxw:1320px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:clamp(1rem,.97rem + .15vw,1.0625rem);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,p,figure,dl,dd,blockquote{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--bloom);color:var(--paper)}
+:focus-visible{outline:2px solid var(--bloom);outline-offset:3px;border-radius:2px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--ink);color:var(--paper);padding:12px 16px;font-weight:600;text-decoration:none}
+.skip:focus{left:8px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+/* type */
+.kick{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,1.3rem + 3.9vw,4.7rem);line-height:1.02;letter-spacing:-.024em}
+.h2.wide{max-width:none}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.3rem + 2.6vw,3.5rem);line-height:1.02;letter-spacing:-.018em;max-width:16ch}
+.h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.15;letter-spacing:-.01em}
+.lede{font-size:clamp(1.06rem,1rem + .35vw,1.25rem);line-height:1.55;color:var(--ink-2);max-width:36em}
+.meta{font-size:.875rem;color:var(--ink-3);letter-spacing:.01em}
+.tnum{font-variant-numeric:tabular-nums lining-nums}
+.prose p+p{margin-top:1em}
+
+/* sheet header: the title-block strip that opens each section */
+.tb{display:grid;grid-template-columns:auto auto 1fr;gap:14px;align-items:center;margin-bottom:clamp(36px,5vw,64px);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.tb b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--ink);color:var(--ink);font-weight:700;letter-spacing:0;font-size:.78rem;font-variant-numeric:tabular-nums}
+.tb .rule{height:1px;background:var(--line-2)}
+section{padding-block:clamp(72px,9vw,128px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:48px;padding:.8em 1.35em;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:var(--r);font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s var(--ease)}
+.btn:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn:active{transform:translateY(1px)}
+.btn .price{font-weight:500;opacity:.82;padding-left:.6em;border-left:1px solid currentColor}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tlink{font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.24em;text-decoration-color:var(--ink-3);position:relative}
+.tlink:hover{text-decoration-color:var(--ink);text-decoration-thickness:2px}
+.tlink::after{content:"";position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(237,242,236,.96);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line-2)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.brand svg{width:34px;height:34px}
+.brand span{white-space:nowrap;font-family:var(--serif);font-weight:600;font-size:1.28rem;letter-spacing:-.01em}
+.brand span i{font-style:normal;font-weight:400;color:var(--ink-3)}
+.nav ul{display:flex;gap:4px;align-items:center}
+.nav ul a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink-2)}
+.nav ul a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:.3em}
+.nav ul a.btn{color:var(--paper)}
+.nav ul a.btn:hover{color:var(--paper)}
+.nav .btn{min-height:44px;padding:.55em 1.1em;font-size:.95rem;white-space:nowrap}
+@media (max-width:400px){.nav .wrap{gap:12px}.brand span{font-size:1.15rem}.nav .btn{padding:.5em .95em;font-size:.9rem}}
+.secbtn{display:none;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--ink);border-radius:var(--r);background:transparent;font-weight:600;font-size:.95rem;cursor:pointer}
+.secbtn svg{width:12px;height:8px;transition:transform .2s}
+.secbtn[aria-expanded=true] svg{transform:rotate(180deg)}
+.secmenu{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line-2);box-shadow:0 18px 30px -24px rgba(20,38,27,.5)}
+.secmenu ul{display:block;padding:8px var(--gut) 16px}
+.secmenu li a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid var(--line);text-decoration:none;font-weight:500;font-size:1.05rem}
+.secmenu li:last-child a{border-bottom:0}
+@media (max-width:900px){.nav ul.primary li:not(.keep){display:none}.secbtn{display:inline-flex}.navr{display:flex;gap:8px;align-items:center}}
+@media (min-width:901px){.secmenu{display:none!important}}
+@media (max-width:480px){.nav ul.primary .keep{display:none}}
+
+/* hero */
+.hero{padding-top:clamp(36px,5vw,72px);padding-bottom:clamp(56px,7vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:start}
+.hero-copy{padding-top:clamp(8px,3vw,48px)}
+.hero-copy .kick{margin-bottom:22px;display:block}
+.hero-copy .lede{margin-top:26px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:34px}
+.hero-facts{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:start;gap:8px 32px;border-top:1px solid var(--line-2);padding-top:18px}
+.hero-facts dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-3)}
+.hero-facts dd{font-family:var(--serif);font-size:1.18rem;font-weight:500;line-height:1.2}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr}.hero-copy{padding-top:0}}
+@media (max-width:480px){.hero-facts{grid-template-columns:1fr 1fr;gap:12px 20px}.hero-facts dd{font-size:1.15rem}}
+
+/* the drawing board (signature) */
+.board{background:#F8FBF6;border:1px solid var(--line-2);box-shadow:0 1px 0 var(--line),0 24px 48px -36px rgba(20,38,27,.45)}
+.board-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid var(--line-2);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.board-head b{color:var(--ink)}
+.board .plan{width:100%;height:auto}
+.board-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 24px;align-items:center;padding:14px 16px 16px;border-top:1px solid var(--line-2)}
+.years{display:flex;border:1px solid var(--ink);border-radius:var(--r);padding:3px;width:max-content;max-width:100%}
+.years input{position:absolute;opacity:0;width:1px;height:1px}
+.years label{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:4px;font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.years input:checked+label{background:var(--ink);color:var(--paper)}
+.years input:focus-visible+label{outline:2px solid var(--bloom);outline-offset:2px}
+.years label:hover{background:var(--paper-2)}
+.years input:checked+label:hover{color:var(--paper)}
+.readout{font-size:.9375rem;color:var(--ink-2);min-height:3.2em;max-width:44ch}
+.readout b{font-family:var(--serif);font-size:1.1rem;color:var(--ink);font-weight:600}
+.cover{text-align:right}
+.cover dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-3)}
+.cover dd{font-family:var(--serif);font-size:2rem;font-weight:500;line-height:1}
+.cover dd small{font-size:.875rem;color:var(--ink-3);font-family:var(--sans);font-weight:500}
+.key{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 18px;padding:14px 16px;border-top:1px solid var(--line);font-size:.875rem;color:var(--ink-2)}
+.key li{display:flex;gap:8px;align-items:baseline}
+.key b{display:inline-grid;place-items:center;flex:none;width:20px;height:20px;border:1px solid var(--ink);border-radius:50%;font-size:.72rem;color:var(--ink)}
+.key i{font-style:italic;font-family:var(--serif)}
+@media (max-width:620px){.board-foot{grid-template-columns:1fr}.cover{text-align:left}.key{grid-template-columns:1fr 1fr}.years label{padding:0 10px;font-size:.875rem}}
+
+/* svg drawing language, shared by every plan */
+.plan text,.sheetplan text,.areamap text{font-family:var(--sans)}
+.lb{font-size:13.5px;font-weight:600;letter-spacing:.12em;fill:var(--ink-2)}
+.lb.sm{font-size:13px;letter-spacing:.08em}
+.lb.big{font-size:14.5px;fill:var(--ink)}
+.ground{fill:#F8FBF6}
+.bld{stroke:var(--ink);stroke-width:1.4}
+.ht{stroke:var(--ink-3);stroke-width:.8}
+.tagbg{fill:#F8FBF6}.tagst{fill:var(--paper-3)}.zbg{fill:#E1E9E0}.z2bg{fill:#F0F4EE}
+.stoop{fill:var(--paper-2);stroke:var(--ink);stroke-width:1}
+.drive{fill:var(--paper-2);stroke:var(--ink);stroke-width:1}
+.walkpub{fill:var(--paper-3)}
+.street{fill:var(--paper-3)}
+.curb{stroke:var(--ink);stroke-width:2}
+.lawnx{fill:#E6EEE3}
+.pline{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:16 4 3 4}
+.ghost{fill:none;stroke:var(--sage);stroke-width:1.2;stroke-dasharray:3 6}
+.ghostlb{fill:var(--ink-2)}
+.st{fill:var(--sage)}
+.wv{fill:none;stroke:var(--water);stroke-width:.8;opacity:.7}
+.gv{fill:var(--ink-3)}
+.meadow{opacity:.18;transition:opacity 1.2s var(--ease)}
+.meadow.on{opacity:.9}
+.rg path,.rgc{stroke:var(--water);stroke-width:1.2}
+.ct0{stroke-dasharray:8 4}.ct1{stroke-dasharray:4 4}
+.dsp{fill:none;stroke:var(--water);stroke-width:1.4}
+.stone{fill:var(--paper-3);stroke:var(--ink);stroke-width:1}
+.boulder{fill:var(--paper-3);stroke:var(--ink);stroke-width:1}
+.gravel{stroke:var(--paper-3);stroke-width:22;stroke-linecap:round}
+.gravelx{stroke:var(--ink-3);stroke-width:.8;stroke-dasharray:1 5;stroke-linecap:round}
+.water{stroke:none}
+.shore{fill:none;stroke:var(--water);stroke-width:1.6}
+.dock{fill:var(--paper-2);stroke:var(--ink);stroke-width:1}
+.dim{stroke:var(--ink-3);stroke-width:.8;stroke-dasharray:2 3}
+.pl{transform-box:fill-box;transform-origin:center;transition:transform 1.3s var(--ease)}
+.pl path,.pl circle{vector-effect:non-scaling-stroke}
+.cnp{fill:rgba(106,139,110,.12);stroke:var(--ink);stroke-width:1.2}
+.cnp2{fill:none;stroke:var(--sage);stroke-width:.8;stroke-dasharray:2 3}
+.tk{stroke:var(--ink);stroke-width:1.2}
+.sh{fill:rgba(106,139,110,.16);stroke:var(--ink);stroke-width:1}
+.sp{stroke:var(--sage);stroke-width:.9}
+.gr{stroke:var(--ink-2);stroke-width:.9;stroke-linecap:round}
+.fb{fill:#F8FBF6;stroke:var(--ink-2);stroke-width:.9;transition:fill 1.2s}
+.fd{fill:var(--ink-2);transition:fill 1.2s}
+.fs{stroke:var(--ink-2);stroke-width:1.1;stroke-linecap:round;transition:stroke 1.2s}
+.ir{stroke:var(--water);stroke-width:1.1;stroke-linecap:round}
+.co .ld{stroke:var(--ink);stroke-width:.8}
+.cc{fill:#F8FBF6;stroke:var(--ink);stroke-width:1}
+.ct{font-size:13px;font-weight:700;text-anchor:middle;fill:var(--ink)}
+.sbf{fill:var(--ink)}.sbe{fill:#F8FBF6;stroke:var(--ink);stroke-width:1}
+.nac{fill:#F8FBF6;stroke:var(--ink);stroke-width:1}.naf{fill:var(--ink)}
+/* growth states: data-year on the board */
+[data-year="0"] .pl.tree{transform:scale(.16)} [data-year="0"] .pl.tree.small{transform:scale(.3)}
+[data-year="0"] .pl.shrub{transform:scale(.34)} [data-year="0"] .pl.grass{transform:scale(.36)}
+[data-year="0"] .pl.forb{transform:scale(.42)} [data-year="0"] .pl.wet{transform:scale(.4)}
+[data-year="1"] .pl.tree{transform:scale(.24)} [data-year="1"] .pl.tree.small{transform:scale(.5)}
+[data-year="1"] .pl.shrub{transform:scale(.6)} [data-year="1"] .pl.grass{transform:scale(.62)}
+[data-year="1"] .pl.forb{transform:scale(.64)} [data-year="1"] .pl.wet{transform:scale(.7)}
+[data-year="3"] .pl.tree{transform:scale(.4)} [data-year="3"] .pl.tree.small{transform:scale(.92)}
+[data-year="1"] .meadow{opacity:.45} [data-year="3"] .meadow{opacity:.9}
+.ls{fill:#F8FBF6;stroke:var(--ink-2);stroke-width:.9;transition:fill 1.2s,stroke 1.2s}
+.lt{stroke:var(--ink-2);stroke-width:.9;transition:stroke 1.2s}
+[data-year="3"] .fb,.sheetplan .fb{fill:#DCE8D6}
+[data-year="3"] .ls,.sheetplan .ls{fill:var(--bloom-2);stroke:var(--bloom)} [data-year="3"] .lt,.sheetplan .lt{stroke:var(--bloom-2)}
+.key .lk{grid-column:1/-1;padding-top:8px;border-top:1px solid var(--line)}
+.key .lk svg{flex:none;width:22px;height:22px}
+.key .lk strong{font-weight:600;color:var(--ink)}
+
+/* lane: what we do, what we do not */
+.lane{padding-top:clamp(24px,4vw,56px)}
+.lane-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px)}
+.lane-list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.lane-list h3{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:4px}
+.lane-list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.lane-list .no li{color:var(--ink-2)}
+.lane-list .no li::before{content:"No ";font-weight:700;color:var(--ink)}
+@media (max-width:860px){.lane-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.lane-list{grid-template-columns:1fr;gap:28px}}
+</style>
+<style>
+/* process: stage text hangs from its own segment of the time bar */
+.proc{padding-top:clamp(40px,6vw,96px)}
+.proc .h2{margin-bottom:clamp(40px,5vw,64px)}
+/* the bar keeps the true 2:5:4:12; the text row below gets readable floors */
+.tlbar{display:grid;grid-template-columns:2fr 5fr 4fr 12fr;margin-bottom:22px}
+.tlbar i{display:block;height:12px;background:var(--ink);border-right:3px solid var(--paper)}
+.tlbar i.go{background:repeating-linear-gradient(90deg,var(--ink) 0 26px,transparent 26px 34px);border-right:0}
+.tl{display:grid;grid-template-columns:minmax(184px,2fr) minmax(200px,5fr) minmax(184px,4fr) minmax(0,12fr)}
+@media (min-width:1001px){.tl .stage .seg{display:none}}
+.stage{position:relative;padding-right:16px;padding-bottom:8px}
+.stage::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line-2)}
+.stage .dur{display:block;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px}
+.stage .seg{display:block;height:12px;background:var(--ink);margin:0 0 24px -14px;border-right:3px solid var(--paper)}
+.s1 .seg{margin-left:0}
+.s4 .seg{background:repeating-linear-gradient(90deg,var(--ink) 0 26px,transparent 26px 34px);border-right:0}
+.stage>*:not(.seg){padding-left:14px}
+.stage .h3{margin:0 0 2px}
+.stage .sub{font-weight:600;font-size:.9375rem;color:var(--ink);margin-bottom:12px}
+.stage p:not(.sub){font-size:1rem;color:var(--ink-2)}
+.stage ul{margin-top:16px;font-size:.9375rem;color:var(--ink-2)}
+.stage ul li{padding:8px 0;border-top:1px solid var(--line)}
+.s4 ul{columns:2;column-gap:32px}
+.s4 ul li{break-inside:avoid}
+.ruler-note{margin-top:28px;font-size:.875rem;color:var(--ink-3);max-width:62em}
+@media (max-width:1000px){
+  .tlbar{display:none}
+  .tl{grid-template-columns:1fr}
+  .stage{padding:0 0 36px 30px}
+  .stage::before{display:none}
+  .stage .seg{position:absolute;left:0;top:0;bottom:0;width:8px;height:auto;margin:0;border-right:0;border-bottom:4px solid var(--paper)}
+  .s4 .seg{background:repeating-linear-gradient(180deg,var(--ink) 0 26px,transparent 26px 34px);border-bottom:0}
+  .stage>*:not(.seg){padding-left:0}
+  .s4 ul{columns:1}
+}
+
+/* calendar */
+.cal-sec{background:var(--paper-2)}
+.cal-top{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:40px}
+.now-note{border-left:3px solid var(--ink);padding:6px 0 6px 18px}
+.now-note .kick{display:block;margin-bottom:6px}
+.now-note p{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
+.cal{--col:minmax(0,1fr);position:relative}
+.cal-months,.cal-row{display:grid;grid-template-columns:minmax(180px,15rem) repeat(24,var(--col));align-items:center}
+.cal-months{border-bottom:2px solid var(--ink);padding-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.cal-months span{grid-column:span 2;padding-left:6px}
+.cal-months span.cur{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.cal-months span i{font-style:normal}
+.cal-row{border-bottom:1px solid var(--line-2);min-height:64px;position:relative}
+.cal-row .lab{grid-column:1;padding:12px 16px 12px 0}
+.cal-row .lab b{display:block;font-weight:600;font-size:.98rem}
+.cal-row .lab span{display:block;font-size:.875rem;color:var(--ink-3)}
+.cal-row .bar{grid-row:1;height:14px;border-radius:7px;background:var(--ink);align-self:center}
+.cal-row .bar{grid-column:var(--s)/var(--e)}
+.cal-row .bar.soft{background:transparent;border:1.5px dashed var(--ink-2)}
+.cal-row .bar.bloom{background:var(--bloom)}
+.cal-grid{position:absolute;inset:0 0 0 0;display:grid;grid-template-columns:minmax(180px,15rem) repeat(12,minmax(0,1fr));pointer-events:none}
+.cal-grid i{border-left:1px solid var(--line)}
+.cal-grid i:first-child{border:0}
+.cal-now{position:absolute;top:var(--nt,0px);bottom:0;width:0;border-left:2px solid var(--ink);pointer-events:none}
+.cal-now::before{content:"";position:absolute;top:0;left:-6px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.cal-cap{margin-top:28px;max-width:46em;color:var(--ink-2)}
+.cal-legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px;font-size:.875rem;color:var(--ink-2)}
+.cal-legend span{display:inline-flex;align-items:center;gap:8px}
+.cal-legend i{display:inline-block;width:28px;height:10px;border-radius:5px;background:var(--ink)}
+.cal-legend i.soft{background:transparent;border:1.5px dashed var(--ink-2)}
+.cal-legend i.bloom{background:var(--bloom)}
+.cal-legend i.now{width:2px;height:16px;border-radius:0;background:var(--ink)}
+@media (max-width:860px){
+  .cal-top{grid-template-columns:1fr}
+  .cal-months,.cal-row,.cal-grid{grid-template-columns:repeat(24,minmax(0,1fr))}
+  .cal-months{padding-top:0}
+  .cal-row{grid-template-rows:auto 22px;padding-bottom:12px}
+  .cal-row .lab{grid-column:1/-1;grid-row:1;padding:12px 0 6px;position:relative;z-index:2;background:var(--paper-2)}
+  .cal-row .bar{grid-row:2;grid-column:calc(var(--s) - 1)/calc(var(--e) - 1)}
+  .cal .lg{display:none}
+  .cal-months span{padding-left:2px;font-size:.75rem;letter-spacing:0;text-align:left}
+  .cal-months span i{display:none}
+  .cal-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+  .cal-grid i:first-child{border-left:1px solid var(--line)}
+}
+
+/* gallery of drawn sheets */
+.work-head .lede{margin-top:18px;max-width:34em;font-family:var(--serif);color:var(--ink);font-size:clamp(1.15rem,1rem + .5vw,1.4rem)}
+.work-head{display:block;margin-bottom:clamp(36px,5vw,64px)}
+.sheets{align-items:start;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(28px,3vw,44px) clamp(20px,2.4vw,36px)}
+.sheet{grid-column:span 6;background:#F8FBF6;border:1px solid var(--line-2)}
+.sheet:nth-child(1){grid-column:1/8}
+.sheet:nth-child(2){grid-column:8/13;margin-top:clamp(0px,8vw,120px)}
+.sheet:nth-child(3){grid-column:1/6}
+.sheet:nth-child(4){grid-column:6/13;margin-top:clamp(0px,-4vw,0px)}
+.sheet svg{width:100%;height:auto;border-bottom:1px solid var(--line-2)}
+.sheet figcaption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;padding:16px 18px 18px}
+.sheet .no{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.sheet h3{grid-column:1/-1}
+.sheet p{grid-column:1/-1;font-size:.95rem;color:var(--ink-2);max-width:52ch}
+.sheet dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:2px 28px;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+.sheet dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-3)}
+.sheet dd{font-weight:600;font-size:.95rem}
+@media (max-width:900px){.sheet:nth-child(n){grid-column:1/-1;margin-top:0}.work-head{grid-template-columns:1fr}}
+@media (max-width:520px){.sheet dl{grid-template-columns:1fr 1fr}}
+
+/* consultation offer (dark sheet) */
+.offer{background:var(--night);color:var(--on-night)}
+.offer .tb{color:var(--on-night-2)}
+.offer .tb b{color:var(--on-night);border-color:var(--on-night)}
+.offer .tb .rule{background:rgba(228,238,228,.18)}
+.offer .kick{color:var(--on-night-2)}
+.offer-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,88px)}
+.offer .lede{color:var(--on-night-2)}
+.price-tag{margin-top:36px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.price-tag strong{font-family:var(--serif);font-size:clamp(3.6rem,2.6rem + 3vw,5.4rem);font-weight:500;line-height:1;letter-spacing:-.02em}
+.price-tag span{color:var(--on-night-2);max-width:24ch;font-size:.95rem}
+.offer-list{border-top:1px solid rgba(228,238,228,.28)}
+.offer-list li{padding:20px 0;border-bottom:1px solid rgba(228,238,228,.16)}
+.offer-list b{display:block;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+.offer-list p{color:var(--on-night-2);font-size:.95rem}
+.offer .btn{background:var(--on-night);color:var(--ink);border-color:var(--on-night);margin-top:32px}
+.offer .btn:hover{background:var(--on-night-2);border-color:var(--on-night-2)}
+.offer :focus-visible{outline-color:var(--bloom-on-night)}
+.fine{margin-top:18px;font-size:.875rem;color:var(--on-night-2);max-width:46ch}
+@media (max-width:900px){.offer-grid{grid-template-columns:1fr}}
+
+/* service area */
+.area-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start}
+.areamap{width:100%;height:auto;background:#F8FBF6;border:1px solid var(--line-2)}
+.mapbg{fill:#F8FBF6}
+.zone1{fill:rgba(106,139,110,.16);stroke:var(--ink);stroke-width:1.4}
+.zone2{fill:rgba(106,139,110,.06);stroke:var(--ink-2);stroke-width:1.2;stroke-dasharray:6 5}
+.river{fill:none;stroke:var(--water);stroke-width:5;stroke-linecap:round;opacity:.55}
+.riverlb{fill:#36566A}
+.zl{fill:var(--ink)}
+.city{fill:var(--ink)}.city.t2{fill:#F8FBF6;stroke:var(--ink);stroke-width:1.4}
+.tiers{border-top:2px solid var(--ink)}
+.tiers li{padding:18px 0;border-bottom:1px solid var(--line-2)}
+.tiers .t{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.tiers .t b{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.tiers .t span{font-weight:700;white-space:nowrap}
+.tiers p{font-size:.92rem;color:var(--ink-2);margin-top:4px}
+@media (max-width:900px){.area-grid{grid-template-columns:1fr}}
+
+/* form */
+.req{background:var(--paper);border-top:1px solid var(--line-2)}
+.req-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,88px);align-items:start}
+.req-aside p{color:var(--ink-2);margin-top:16px}
+.req-aside .direct{margin-top:28px;padding-top:18px;border-top:1px solid var(--line-2);font-size:.95rem}
+.req-aside .direct a{display:inline-flex;align-items:center;min-height:44px}
+form.cf{background:#F8FBF6;border:1px solid var(--line-2);padding:clamp(20px,3vw,40px)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+.fgrid .full{grid-column:1/-1}
+.field label,.field legend{display:block;font-weight:600;font-size:.92rem;margin-bottom:8px;padding:0}
+.field .opt{font-weight:400;color:var(--ink-3)}
+.field input[type=text],.field input[type=email],.field input[type=tel],.field select,.field textarea{width:100%;min-height:48px;padding:11px 14px;background-color:#FBFDFA;border:1px solid var(--ink-3);border-radius:var(--r);font-size:1rem;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.field textarea{min-height:120px;resize:vertical;line-height:1.5}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2314261B' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(91,58,142,.35)}
+.field input[aria-invalid=true],.field select[aria-invalid=true],.field textarea[aria-invalid=true]{border-color:var(--bloom);border-width:2px;background-color:#F5F0FB}
+.field .hint{font-size:.875rem;color:var(--ink-3);margin-top:6px}
+.field .err{display:none;font-size:.875rem;font-weight:600;color:var(--bloom);margin-top:6px}
+.field.bad .err{display:block}
+.field .note{display:none;font-size:.85rem;color:var(--ink-2);margin-top:8px;padding:10px 12px;border-left:3px solid var(--water);background:rgba(79,116,132,.08)}
+.field .note.show{display:block}
+fieldset.field{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips label{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--ink-3);border-radius:var(--r);font-weight:500;font-size:.92rem;margin:0;cursor:pointer;background:#FBFDFA;transition:background .15s,border-color .15s}
+.chips label:hover{border-color:var(--ink)}
+.chips input:checked+label{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips input:focus-visible+label{outline:2px solid var(--bloom);outline-offset:2px}
+.field.bad .chips label{border-color:var(--bloom)}
+.f-actions{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin-top:30px;padding-top:24px;border-top:1px solid var(--line-2)}
+.f-actions .btn[aria-busy=true]{background:var(--ink-2);border-color:var(--ink-2);cursor:progress}
+.f-actions .btn[aria-busy=true] .spin{display:inline-block}
+.spin{display:none;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.f-actions .meta{max-width:40ch}
+.demo-toggle[hidden]{display:none}
+.demo-toggle{display:flex;align-items:center;gap:10px;min-height:44px;font-size:.875rem;color:var(--ink-3);cursor:pointer;margin-left:auto}
+.demo-toggle input{width:18px;height:18px;accent-color:var(--bloom)}
+.summary{display:none;border:2px solid var(--bloom);background:#F5F0FB;padding:16px 18px;margin-bottom:24px}
+.summary.show{display:block}
+.summary h3{font-size:1rem;font-weight:700;color:var(--bloom);font-family:var(--sans)}
+.summary ul{margin-top:8px;padding-left:1.1em;list-style:disc;font-size:.92rem}
+.summary a{min-height:28px;display:inline-block}
+.done{display:none;background:#F8FBF6;border:1px solid var(--line-2);padding:clamp(24px,3vw,44px)}
+.done.show{display:block}
+.done .h3{font-size:1.9rem;margin:8px 0 12px}
+.done dl{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line-2);font-size:.95rem}
+.done dt{font-weight:600;color:var(--ink-3)}
+.done ol{margin-top:20px;counter-reset:d}
+.done ol li{padding:10px 0;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink-2)}
+.done ol li b{color:var(--ink)}
+.done .btn{margin-top:24px}
+.failbox{display:none;border:2px solid var(--bloom);background:#F5F0FB;padding:16px 18px;margin-top:20px}
+.failbox.show{display:block}
+.failbox b{color:var(--bloom)}
+@media (max-width:900px){.req-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}.demo-toggle{margin-left:0}}
+
+/* faq */
+.faq-grid{display:block}
+.faq .h2{max-width:none;margin-bottom:clamp(28px,4vw,48px)}
+.faq-list{max-width:760px;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line-2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:64px;padding:12px 0;font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translate(-3px,-3px);transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.faq summary:hover{text-decoration:underline;text-underline-offset:.2em}
+.faq .a{padding:0 0 22px;color:var(--ink-2);max-width:62ch}
+
+/* footer */
+.foot{background:var(--night);color:var(--on-night-2);padding-block:56px 40px;font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(2,minmax(0,3fr));gap:32px}
+.foot .brand span{color:var(--on-night)}
+.foot .brand span i{color:var(--on-night-2)}
+.foot h2{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--on-night);margin-bottom:10px}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:var(--on-night-2)}
+.foot li a:hover{color:var(--on-night)}
+.foot :focus-visible{outline-color:var(--bloom-on-night)}
+.demo-line{margin-top:40px;padding-top:20px;border-top:1px solid rgba(228,238,228,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.demo-line a{color:var(--on-night);font-weight:600;text-underline-offset:.22em;display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .js .rv{opacity:1;transform:none}
+}
+
+@media print{
+  .nav,.skip,.req,.hero-cta,.years,.demo-toggle,.offer .btn{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  section{padding-block:24pt;break-inside:avoid-page}
+  .offer,.foot,.cal-sec{background:#fff!important;color:#000!important}
+  .offer *,.foot *{color:#000!important}
+  .board,.sheet{box-shadow:none;break-inside:avoid}
+  .js .rv{opacity:1!important;transform:none!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Kettle and Sedge, back to top">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><ellipse cx="17" cy="22" rx="14" ry="8.5" fill="none" stroke="#14261B" stroke-width="1.4"/><ellipse cx="17" cy="22" rx="8.5" ry="4.8" fill="none" stroke="#4F7484" stroke-width="1.2" stroke-dasharray="3 2"/><path d="M17 22V5M17 15l-6-8M17 15l6-8M17 19l-9-6M17 19l9-6" fill="none" stroke="#5B3A8E" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span>Kettle <i>&amp;</i> Sedge</span>
+    </a>
+    <div class="navr">
+    <button class="secbtn" type="button" aria-expanded="false" aria-controls="secmenu">Sections <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <nav aria-label="Primary">
+      <ul class="primary">
+        <li><a href="#process">Process</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#area">Service area</a></li>
+        <li class="keep"><a class="btn" href="#request">Book a consult</a></li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+  <div class="secmenu" id="secmenu" hidden>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#request"><b>Book a site consultation</b></a></li>
+        <li><a href="#process">How a project runs</a></li>
+        <li><a href="#calendar">The planting calendar</a></li>
+        <li><a href="#work">Four plans</a></li>
+        <li><a href="#consult">The site consultation</a></li>
+        <li><a href="#area">Service area</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero" data-year="0" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kick">Native landscape design-build, Twin Cities</span>
+      <h1 class="h1" id="h1">Gardens that get better after we leave.</h1>
+      <p class="lede">Kettle &amp; Sedge designs and builds native landscapes in Minneapolis, Saint Paul and the first-ring suburbs: rain gardens, lawn conversions, shade woodlands and lakeshore buffers. Every project starts the same way, with ninety minutes in your yard and a notebook.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#request">Book a site consultation <span class="price tnum">$275</span></a>
+        <a class="tlink" href="#process">How a project runs</a>
+      </div>
+      <dl class="hero-facts">
+        <div><dt>Zone</dt><dd>USDA 4b to 5a</dd></div>
+        <div><dt>Plant list</dt><dd>Native to Minnesota</dd></div>
+        <div><dt>Crew</dt><dd>Six, year round</dd></div>
+      </dl>
+    </div>
+
+    <figure class="board" id="board" data-year="0" aria-labelledby="board-cap">
+      <div class="board-head"><span><b>Sheet L-1</b> · Standish front yard, Minneapolis</span><span>Scale in feet</span></div>
+      <svg class="plan" viewBox="0 0 800 640" role="img" aria-labelledby="hp-t hp-d" xmlns="http://www.w3.org/2000/svg">
+<title id="hp-t">Planting plan for a Standish front yard, Minneapolis</title>
+<desc id="hp-d">A drawn site plan of a 50-foot-wide front yard. The house sits at the top, the driveway on the right, the public sidewalk at the bottom. A curving stepping-stone walk runs from the front stoop to the sidewalk. A rain garden takes roof water from a downspout on the left. A young bur oak stands right of center with a dashed circle showing its mature canopy. The rest of the lawn is replaced by a short-grass prairie planting.</desc>
+<defs>
+<pattern id="hph" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" class="ht"/></pattern>
+<pattern id="hps" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" class="st"/><circle cx="8" cy="8" r=".9" class="st"/></pattern>
+<pattern id="hpw" width="18" height="9" patternUnits="userSpaceOnUse"><path d="M0 6 q4.5 -4 9 0 t9 0" class="wv"/></pattern>
+<pattern id="hpg" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" class="gv"/><circle cx="4.5" cy="4.2" r=".5" class="gv"/></pattern>
+</defs>
+<clipPath id="hpclip"><rect x="30" y="30" width="740" height="560"/></clipPath>
+<rect x="30" y="30" width="740" height="560" class="ground"/>
+<path class="meadow" fill="url(#hps)" d="M30 172H560V590H30Z"/>
+<path d="M30 30H470V172H30Z" fill="url(#hph)" class="bld"/>
+<rect x="44" y="48" width="170" height="26" class="tagbg"/><text x="52" y="66" class="lb">HOUSE, EXISTING</text>
+<rect x="232" y="172" width="70" height="30" class="stoop"/>
+<path d="M560 30H690V590H560Z" class="drive"/>
+<text transform="translate(632 420) rotate(-90)" class="lb" text-anchor="middle">DRIVE, EXISTING CONCRETE</text>
+<path d="M0 598H800V630H0Z" class="walkpub"/><text x="520" y="619" class="lb" text-anchor="middle">PUBLIC SIDEWALK</text>
+<rect x="30" y="30" width="740" height="560" class="pline"/>
+<text x="764" y="584" class="lb sm" text-anchor="end">P/L</text>
+<g clip-path="url(#hpclip)"><circle cx="430" cy="410" r="300" class="ghost"/></g>
+<text x="742" y="214" class="lb sm ghostlb" text-anchor="end">BUR OAK AT MATURITY,</text><text x="742" y="230" class="lb sm ghostlb" text-anchor="end">ABOUT 60 FT ACROSS</text>
+<g class="rg">
+<path d="M233.7 345 C234.7 359.1 232.4 377.6 221.8 389 C211.1 400.3 188.8 408.5 169.9 413.2 C151 417.9 127.2 421 108.3 417.1 C89.4 413.2 66.3 401.8 56.7 389.8 C47 377.8 48.4 358.9 50.4 345 C52.4 331.1 59.2 319.3 68.6 306.6 C77.9 293.9 89.8 273.6 106.6 268.9 C123.4 264.3 150.9 272.8 169.1 278.7 C187.3 284.6 205 293.2 215.7 304.3 C226.5 315.3 232.7 330.9 233.7 345Z" class="ct0" fill="none"/>
+<path d="M205.6 345 C206.3 354.9 204.7 367.8 197.2 375.8 C189.8 383.7 174.2 389.4 161 392.7 C147.7 396 131 398.2 117.8 395.5 C104.6 392.8 88.4 384.8 81.7 376.4 C74.9 368 75.9 354.7 77.3 345 C78.7 335.3 83.4 327 90 318.1 C96.5 309.2 104.9 295 116.6 291.7 C128.3 288.5 147.6 294.5 160.4 298.6 C173.1 302.7 185.5 308.8 193 316.5 C200.6 324.2 204.9 335.1 205.6 345Z" class="ct1" fill="none"/>
+<path d="M179.4 345 C179.8 350.9 178.8 358.7 174.3 363.5 C169.9 368.2 160.5 371.7 152.6 373.6 C144.6 375.6 134.6 376.9 126.7 375.3 C118.8 373.7 109 368.9 105 363.8 C100.9 358.8 101.5 350.8 102.4 345 C103.2 339.2 106.1 334.2 110 328.9 C113.9 323.5 118.9 315 126 313 C133 311.1 144.6 314.7 152.2 317.1 C159.9 319.6 167.3 323.3 171.8 327.9 C176.3 332.5 178.9 339.1 179.4 345Z" class="ct2" fill="url(#hpw)"/>
+</g>
+<path d="M46 172 C52 220 74 250 98 284" class="dsp"/><path d="M90 276 L99 287 L101 273" class="dsp"/>
+<rect x="241.8" y="216" width="32.6" height="19.9" rx="7" transform="rotate(204.5 258.1 226)" class="stone"/>
+<rect x="228.4" y="253.9" width="30.6" height="22.2" rx="7" transform="rotate(196.2 243.7 265.1)" class="stone"/>
+<rect x="217.5" y="291.4" width="30.5" height="22" rx="7" transform="rotate(186.7 232.8 302.4)" class="stone"/>
+<rect x="208.7" y="328.4" width="33.5" height="19.4" rx="7" transform="rotate(182.6 225.4 338.1)" class="stone"/>
+<rect x="204.8" y="360.1" width="33.4" height="24" rx="7" transform="rotate(177.6 221.5 372.1)" class="stone"/>
+<rect x="205.3" y="393" width="31.8" height="22.8" rx="7" transform="rotate(184.6 221.2 404.4)" class="stone"/>
+<rect x="207.1" y="424.3" width="34.6" height="21.4" rx="7" transform="rotate(178.2 224.4 435)" class="stone"/>
+<rect x="215.9" y="451.9" width="30.4" height="24.2" rx="7" transform="rotate(159.8 231.1 463.9)" class="stone"/>
+<rect x="225.7" y="481.3" width="31.2" height="19.7" rx="7" transform="rotate(152.5 241.3 491.1)" class="stone"/>
+<rect x="236.8" y="506.6" width="36.5" height="20.1" rx="7" transform="rotate(149.1 255.1 516.7)" class="stone"/>
+<rect x="254.8" y="529.9" width="35.1" height="21.2" rx="7" transform="rotate(141.1 272.3 540.5)" class="stone"/>
+<rect x="277.9" y="552.9" width="30.5" height="19.4" rx="7" transform="rotate(128.6 293.1 562.6)" class="stone"/>
+<rect x="299.7" y="572.2" width="35.4" height="21.6" rx="7" transform="rotate(123.9 317.4 583)" class="stone"/>
+<g class="plants"><g class="pl tree"><path d="M540.5 406.5 A34.2 34.2 0 0 1 528.9 460.4 A30.6 30.6 0 0 1 499 499.6 A41.1 41.1 0 0 1 438.2 526.1 A32.7 32.7 0 0 1 387.1 513 A31.3 31.3 0 0 1 345.8 483.9 A30.1 30.1 0 0 1 323.7 440.7 A34.4 34.4 0 0 1 315.1 385.8 A39.9 39.9 0 0 1 346 329.4 A33.7 33.7 0 0 1 394.3 304.5 A29.6 29.6 0 0 1 441.2 295.6 A37.9 37.9 0 0 1 499 315.8 A35.1 35.1 0 0 1 530 363.2 A27.6 27.6 0 0 1 540.5 406.5Z" class="cnp"/><circle cx="430" cy="410" r="64.9" class="cnp2"/><path d="M425 410h10M430 405v10" class="tk"/></g><g class="pl tree small"><path d="M549 235.8 A12.3 12.3 0 0 1 546.2 255.4 A12.9 12.9 0 0 1 532.3 271 A15.8 15.8 0 0 1 508.1 278.9 A12 12 0 0 1 488.9 277.8 A11.5 11.5 0 0 1 473.7 266.9 A15.2 15.2 0 0 1 461.8 245.5 A13.1 13.1 0 0 1 463.3 224.5 A11.3 11.3 0 0 1 471.8 208.4 A14.1 14.1 0 0 1 488.8 193.2 A13.8 13.8 0 0 1 510.9 191.1 A12.7 12.7 0 0 1 530.1 198.5 A12.3 12.3 0 0 1 542.7 213.9 A14.2 14.2 0 0 1 549 235.8Z" class="cnp"/><circle cx="505" cy="236" r="25.3" class="cnp2"/><path d="M500 236h10M505 231v10" class="tk"/></g><g class="pl shrub"><circle cx="236" cy="300" r="24" class="sh"/><path d="M243.1 301.4L256 304.1" class="sp"/><path d="M240 306L247.3 317" class="sp"/><path d="M234.6 307.1L231.9 320" class="sp"/><path d="M230 304L219 311.3" class="sp"/><path d="M228.9 298.6L216 295.9" class="sp"/><path d="M232 294L224.7 283" class="sp"/><path d="M237.4 292.9L240.1 280" class="sp"/><path d="M242 296L253 288.7" class="sp"/></g><g class="pl shrub"><circle cx="250" cy="372" r="24" class="sh"/><path d="M257.1 373.4L270 376.1" class="sp"/><path d="M254 378L261.3 389" class="sp"/><path d="M248.6 379.1L245.9 392" class="sp"/><path d="M244 376L233 383.3" class="sp"/><path d="M242.9 370.6L230 367.9" class="sp"/><path d="M246 366L238.7 355" class="sp"/><path d="M251.4 364.9L254.1 352" class="sp"/><path d="M256 368L267 360.7" class="sp"/></g><g class="pl shrub"><circle cx="70" cy="488" r="24" class="sh"/><path d="M77.1 489.4L90 492.1" class="sp"/><path d="M74 494L81.3 505" class="sp"/><path d="M68.6 495.1L65.9 508" class="sp"/><path d="M64 492L53 499.3" class="sp"/><path d="M62.9 486.6L50 483.9" class="sp"/><path d="M66 482L58.7 471" class="sp"/><path d="M71.4 480.9L74.1 468" class="sp"/><path d="M76 484L87 476.7" class="sp"/></g><g class="pl wet"><path d="M108.2 336.4L103.9 323.1M108.2 336.4L108.2 322M108.2 336.4L112.5 323.1" class="ir"/></g><g class="pl wet"><path d="M124.9 384.9L120.6 371.6M124.9 384.9L124.9 370.5M124.9 384.9L129.2 371.6" class="ir"/></g><g class="pl wet"><path d="M131.4 331.3L127.1 318M131.4 331.3L131.4 316.9M131.4 331.3L135.8 318" class="ir"/></g><g class="pl wet"><path d="M104.4 337.1L100.1 323.8M104.4 337.1L104.4 322.7M104.4 337.1L108.7 323.8" class="ir"/></g><g class="pl wet"><path d="M173.2 325.8L168.9 312.5M173.2 325.8L173.2 311.4M173.2 325.8L177.6 312.5" class="ir"/></g><g class="pl wet"><path d="M127.1 389.6L122.8 376.3M127.1 389.6L127.1 375.2M127.1 389.6L131.5 376.3" class="ir"/></g><g class="pl wet"><path d="M166.2 368.2L161.9 354.9M166.2 368.2L166.2 353.8M166.2 368.2L170.5 354.9" class="ir"/></g><g class="pl wet"><path d="M141 334.5L136.6 321.3M141 334.5L141 320.1M141 334.5L145.3 321.3" class="ir"/></g><g class="pl wet"><path d="M129.1 351L124.8 337.7M129.1 351L129.1 336.6M129.1 351L133.5 337.7" class="ir"/></g><g class="pl wet"><path d="M116.4 319.4L112 306.1M116.4 319.4L116.4 305M116.4 319.4L120.7 306.1" class="ir"/></g><g class="pl wet"><path d="M93.9 333.5L89.5 320.2M93.9 333.5L93.9 319.1M93.9 333.5L98.2 320.2" class="ir"/></g><g class="pl grass"><path d="M283.9 253.4L294.2 252.6M283.9 253.4L291.2 260.1M283.9 253.4L286 264.1M283.9 253.4L277.7 260.7M283.9 253.4L276.3 255.6M283.9 253.4L274.6 249.2M283.9 253.4L280.4 243.1M283.9 253.4L284.7 244.3M283.9 253.4L290.2 248.8" class="gr"/></g><g class="pl grass"><path d="M212.8 250.1L221.2 250M212.8 250.1L219.6 254.3M212.8 250.1L213.4 258.3M212.8 250.1L209 258.5M212.8 250.1L205 251.7M212.8 250.1L203.5 247M212.8 250.1L208.9 240M212.8 250.1L215.6 241.8M212.8 250.1L219.6 244.1" class="gr"/></g><g class="pl grass"><path d="M271.4 290.1L282.7 291.8M271.4 290.1L278.5 294.5M271.4 290.1L273.8 298.3M271.4 290.1L266.5 298.7M271.4 290.1L264.5 293.4M271.4 290.1L262.8 287.2M271.4 290.1L266 280.1M271.4 290.1L273.8 280.7M271.4 290.1L279.6 283.8" class="gr"/></g><g class="pl grass"><path d="M262.5 324.6L273.5 322.6M262.5 324.6L270.2 332.6M262.5 324.6L263 333.8M262.5 324.6L258.8 331.8M262.5 324.6L254.9 326.9M262.5 324.6L254.2 323.1M262.5 324.6L257 317.5M262.5 324.6L262.5 316.9M262.5 324.6L267.9 318.6" class="gr"/></g><g class="pl grass"><path d="M257.1 357L264.9 356.5M257.1 357L263.7 364.5M257.1 357L259.8 365.2M257.1 357L253 365.1M257.1 357L247.4 362.2M257.1 357L249 352M257.1 357L253 350M257.1 357L257.2 348M257.1 357L264.7 349.2" class="gr"/></g><g class="pl grass"><path d="M254.9 387.2L262.7 386.1M254.9 387.2L261.2 394.7M254.9 387.2L258 396.5M254.9 387.2L251.8 396.4M254.9 387.2L244.1 388.9M254.9 387.2L247 383.6M254.9 387.2L250.4 380.2M254.9 387.2L257.7 377.8M254.9 387.2L262.4 382.2" class="gr"/></g><g class="pl grass"><path d="M256 415.2L266.8 414M256 415.2L262.9 423.8M256 415.2L256.6 426M256 415.2L251.1 422.2M256 415.2L247.5 418.3M256 415.2L248.3 414M256 415.2L251 408.1M256 415.2L258.9 404.2M256 415.2L264.5 407.8" class="gr"/></g><g class="pl grass"><path d="M190.6 439.3L201.8 441.5M190.6 439.3L197.5 444.4M190.6 439.3L193 447.4M190.6 439.3L186.6 448.6M190.6 439.3L179.9 441.3M190.6 439.3L181 435.9M190.6 439.3L187.5 431.9M190.6 439.3L193.3 428.4M190.6 439.3L199.4 433.4" class="gr"/></g><g class="pl grass"><path d="M260.2 441.2L268.6 441.1M260.2 441.2L266.4 447.7M260.2 441.2L260.8 452.6M260.2 441.2L255.9 449.4M260.2 441.2L249.9 443M260.2 441.2L252.2 439.4M260.2 441.2L253.3 432.4M260.2 441.2L262.6 433.3M260.2 441.2L269.9 435" class="gr"/></g><g class="pl grass"><path d="M198.3 472.9L207.3 473.5M198.3 472.9L204.5 478.3M198.3 472.9L202.4 483.6M198.3 472.9L192.9 481M198.3 472.9L189.1 474.5M198.3 472.9L188.7 467.7M198.3 472.9L193.1 466M198.3 472.9L199.1 464.3M198.3 472.9L205.1 467.6" class="gr"/></g><g class="pl grass"><path d="M267.4 465.3L275.6 465.1M267.4 465.3L273.3 472.2M267.4 465.3L269.3 475.1M267.4 465.3L261.5 472.6M267.4 465.3L257.9 467.1M267.4 465.3L258.3 461.9M267.4 465.3L261.2 458.3M267.4 465.3L267.8 457.6M267.4 465.3L274.4 460.8" class="gr"/></g><g class="pl grass"><path d="M210.2 504.8L220.7 504.7M210.2 504.8L216.9 510.7M210.2 504.8L211.8 514.5M210.2 504.8L205.3 511.3M210.2 504.8L202 507.6M210.2 504.8L199.9 502.1M210.2 504.8L205.3 496.3M210.2 504.8L213.3 494M210.2 504.8L217.7 498.2" class="gr"/></g><g class="pl grass"><path d="M277.6 487.8L287.3 487.9M277.6 487.8L284.3 494.5M277.6 487.8L279.1 497.3M277.6 487.8L270.9 495.8M277.6 487.8L266.5 490.1M277.6 487.8L268.1 485.4M277.6 487.8L273.9 477.6M277.6 487.8L277.8 479.7M277.6 487.8L283.6 482.6" class="gr"/></g><g class="pl grass"><path d="M226.3 534.8L234.2 533.9M226.3 534.8L234 542.2M226.3 534.8L226.4 543M226.3 534.8L220.4 543.1M226.3 534.8L216.5 540M226.3 534.8L218.9 530.4M226.3 534.8L223.2 526.1M226.3 534.8L228.2 523.4M226.3 534.8L233.3 530.3" class="gr"/></g><g class="pl grass"><path d="M290.9 509L300.6 508.7M290.9 509L297.7 514M290.9 509L293.4 519.1M290.9 509L287.7 518.3M290.9 509L283.6 511.8M290.9 509L281.2 506.1M290.9 509L286.9 502.1M290.9 509L294.7 498.9M290.9 509L297.9 505" class="gr"/></g><g class="pl grass"><path d="M246.4 562.5L254.2 561.8M246.4 562.5L252.5 568.8M246.4 562.5L249.4 571.4M246.4 562.5L239.5 570.9M246.4 562.5L239 566.1M246.4 562.5L237.8 557.6M246.4 562.5L243 555.2M246.4 562.5L246.4 552.2M246.4 562.5L252.4 557.2" class="gr"/></g><g class="pl grass"><path d="M307.4 528.8L317.4 530.6M307.4 528.8L312.9 534.7M307.4 528.8L307.7 536.8M307.4 528.8L301.5 536.3M307.4 528.8L298.4 532.8M307.4 528.8L299.8 524.5M307.4 528.8L301.3 521.2M307.4 528.8L308 520.7M307.4 528.8L312.7 523" class="gr"/></g><g class="pl grass"><path d="M327.4 547.6L336.2 546.5M327.4 547.6L336 553.8M327.4 547.6L329.9 556.9M327.4 547.6L323.9 555.9M327.4 547.6L320 552M327.4 547.6L317 546M327.4 547.6L323.3 540.2M327.4 547.6L329.2 536.4M327.4 547.6L334.5 539.4" class="gr"/></g><g class="pl forb"><circle cx="263.2" cy="385.1" r="6.5" class="fb"/><circle cx="263.2" cy="385.1" r="2.7" class="fd"/></g><g class="pl forb"><path d="M457.1 346.2L470.1 346.2M460.4 340.5L466.9 351.8M466.9 340.5L460.4 351.8" class="fs"/></g><g class="pl forb"><circle cx="300.3" cy="458.7" r="6.5" class="fb"/><circle cx="302.6" cy="461" r="1.3" class="fd"/><circle cx="298" cy="461" r="1.3" class="fd"/><circle cx="298" cy="456.4" r="1.3" class="fd"/><circle cx="302.6" cy="456.4" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="537.3" cy="326.9" r="3.6" class="ls"/><path d="M541.8 326.9L544.7 326.9" class="lt"/><path d="M540.5 330.1L542.5 332.2" class="lt"/><path d="M537.3 331.5L537.3 334.4" class="lt"/><path d="M534 330.1L532 332.2" class="lt"/><path d="M532.7 326.9L529.8 326.9" class="lt"/><path d="M534 323.7L532 321.6" class="lt"/><path d="M537.3 322.4L537.3 319.4" class="lt"/><path d="M540.5 323.7L542.5 321.6" class="lt"/></g><g class="pl forb"><path d="M456 466L469 466M459.2 460.3L465.7 471.6M465.7 460.3L459.2 471.6" class="fs"/></g><g class="pl forb"><circle cx="364.7" cy="350.6" r="6.5" class="fb"/><circle cx="367" cy="352.9" r="1.3" class="fd"/><circle cx="362.4" cy="352.9" r="1.3" class="fd"/><circle cx="362.4" cy="348.3" r="1.3" class="fd"/><circle cx="367" cy="348.3" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="221.1" cy="216.8" r="6.5" class="fb"/><circle cx="221.1" cy="216.8" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="112.6" cy="223" r="3.6" class="ls"/><path d="M117.2 223L120.1 223" class="lt"/><path d="M115.9 226.2L117.9 228.3" class="lt"/><path d="M112.6 227.6L112.6 230.5" class="lt"/><path d="M109.4 226.2L107.4 228.3" class="lt"/><path d="M108.1 223L105.2 223" class="lt"/><path d="M109.4 219.8L107.4 217.7" class="lt"/><path d="M112.6 218.5L112.6 215.5" class="lt"/><path d="M115.9 219.8L117.9 217.7" class="lt"/></g><g class="pl forb"><circle cx="417" cy="293.6" r="6.5" class="fb"/><circle cx="419.3" cy="295.9" r="1.3" class="fd"/><circle cx="414.7" cy="295.9" r="1.3" class="fd"/><circle cx="414.7" cy="291.3" r="1.3" class="fd"/><circle cx="419.3" cy="291.3" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="467" cy="528.5" r="6.5" class="fb"/><circle cx="467" cy="528.5" r="2.7" class="fd"/></g><g class="pl forb"><path d="M375.4 303.7L388.4 303.7M378.7 298.1L385.2 309.3M385.2 298.1L378.7 309.3" class="fs"/></g><g class="pl forb liat"><circle cx="276.8" cy="256.2" r="3.6" class="ls"/><path d="M281.4 256.2L284.3 256.2" class="lt"/><path d="M280 259.4L282.1 261.5" class="lt"/><path d="M276.8 260.7L276.8 263.7" class="lt"/><path d="M273.6 259.4L271.5 261.5" class="lt"/><path d="M272.3 256.2L269.3 256.2" class="lt"/><path d="M273.6 253L271.5 250.9" class="lt"/><path d="M276.8 251.6L276.8 248.7" class="lt"/><path d="M280 253L282.1 250.9" class="lt"/></g><g class="pl forb"><circle cx="270" cy="296.6" r="6.5" class="fb"/><circle cx="270" cy="296.6" r="2.7" class="fd"/></g><g class="pl forb"><path d="M520.5 567.5L533.5 567.5M523.7 561.9L530.2 573.2M530.2 561.9L523.7 573.2" class="fs"/></g><g class="pl forb"><circle cx="320.4" cy="289.4" r="6.5" class="fb"/><circle cx="322.7" cy="291.7" r="1.3" class="fd"/><circle cx="318.1" cy="291.7" r="1.3" class="fd"/><circle cx="318.1" cy="287.1" r="1.3" class="fd"/><circle cx="322.7" cy="287.1" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="298.4" cy="272.8" r="3.6" class="ls"/><path d="M302.9 272.8L305.9 272.8" class="lt"/><path d="M301.6 276L303.7 278.1" class="lt"/><path d="M298.4 277.3L298.4 280.2" class="lt"/><path d="M295.2 276L293.1 278.1" class="lt"/><path d="M293.8 272.8L290.9 272.8" class="lt"/><path d="M295.2 269.6L293.1 267.5" class="lt"/><path d="M298.4 268.2L298.4 265.3" class="lt"/><path d="M301.6 269.6L303.7 267.5" class="lt"/></g><g class="pl forb"><path d="M292.9 197.9L305.9 197.9M296.1 192.3L302.6 203.5M302.6 192.3L296.1 203.5" class="fs"/></g><g class="pl forb"><circle cx="179.6" cy="230.3" r="6.5" class="fb"/><circle cx="181.9" cy="232.6" r="1.3" class="fd"/><circle cx="177.3" cy="232.6" r="1.3" class="fd"/><circle cx="177.3" cy="228" r="1.3" class="fd"/><circle cx="181.9" cy="228" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="375.5" cy="469.5" r="6.5" class="fb"/><circle cx="375.5" cy="469.5" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="210.4" cy="572.2" r="3.6" class="ls"/><path d="M215 572.2L217.9 572.2" class="lt"/><path d="M213.6 575.4L215.7 577.5" class="lt"/><path d="M210.4 576.7L210.4 579.6" class="lt"/><path d="M207.2 575.4L205.1 577.5" class="lt"/><path d="M205.9 572.2L202.9 572.2" class="lt"/><path d="M207.2 568.9L205.1 566.9" class="lt"/><path d="M210.4 567.6L210.4 564.7" class="lt"/><path d="M213.6 568.9L215.7 566.9" class="lt"/></g><g class="pl forb"><circle cx="122.4" cy="472.6" r="6.5" class="fb"/><circle cx="124.7" cy="474.9" r="1.3" class="fd"/><circle cx="120.1" cy="474.9" r="1.3" class="fd"/><circle cx="120.1" cy="470.3" r="1.3" class="fd"/><circle cx="124.7" cy="470.3" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="368.3" cy="212.7" r="6.5" class="fb"/><circle cx="368.3" cy="212.7" r="2.7" class="fd"/></g><g class="pl forb"><path d="M446 249.2L459 249.2M449.2 243.6L455.7 254.8M455.7 243.6L449.2 254.8" class="fs"/></g><g class="pl forb liat"><circle cx="308.8" cy="388.7" r="3.6" class="ls"/><path d="M313.4 388.7L316.3 388.7" class="lt"/><path d="M312 391.9L314.1 394" class="lt"/><path d="M308.8 393.2L308.8 396.1" class="lt"/><path d="M305.6 391.9L303.5 394" class="lt"/><path d="M304.3 388.7L301.4 388.7" class="lt"/><path d="M305.6 385.5L303.5 383.4" class="lt"/><path d="M308.8 384.1L308.8 381.2" class="lt"/><path d="M312 385.5L314.1 383.4" class="lt"/></g><g class="pl forb"><circle cx="459.6" cy="419.1" r="6.5" class="fb"/><circle cx="459.6" cy="419.1" r="2.7" class="fd"/></g><g class="pl forb"><path d="M486.1 456.9L499.1 456.9M489.4 451.2L495.9 462.5M495.9 451.2L489.4 462.5" class="fs"/></g><g class="pl forb"><circle cx="63.5" cy="246.8" r="6.5" class="fb"/><circle cx="65.8" cy="249.1" r="1.3" class="fd"/><circle cx="61.2" cy="249.1" r="1.3" class="fd"/><circle cx="61.2" cy="244.5" r="1.3" class="fd"/><circle cx="65.8" cy="244.5" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="360.6" cy="435.2" r="3.6" class="ls"/><path d="M365.2 435.2L368.1 435.2" class="lt"/><path d="M363.8 438.4L365.9 440.5" class="lt"/><path d="M360.6 439.8L360.6 442.7" class="lt"/><path d="M357.4 438.4L355.3 440.5" class="lt"/><path d="M356.1 435.2L353.2 435.2" class="lt"/><path d="M357.4 432L355.3 429.9" class="lt"/><path d="M360.6 430.7L360.6 427.7" class="lt"/><path d="M363.8 432L365.9 429.9" class="lt"/></g><g class="pl forb"><path d="M380.5 382.9L393.5 382.9M383.7 377.3L390.2 388.5M390.2 377.3L383.7 388.5" class="fs"/></g><g class="pl forb"><circle cx="49.7" cy="500.7" r="6.5" class="fb"/><circle cx="51.9" cy="503" r="1.3" class="fd"/><circle cx="47.4" cy="503" r="1.3" class="fd"/><circle cx="47.4" cy="498.4" r="1.3" class="fd"/><circle cx="51.9" cy="498.4" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="420.6" cy="388.1" r="6.5" class="fb"/><circle cx="420.6" cy="388.1" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="80.9" cy="477.5" r="3.6" class="ls"/><path d="M85.4 477.5L88.4 477.5" class="lt"/><path d="M84.1 480.7L86.2 482.7" class="lt"/><path d="M80.9 482L80.9 484.9" class="lt"/><path d="M77.7 480.7L75.6 482.7" class="lt"/><path d="M76.3 477.5L73.4 477.5" class="lt"/><path d="M77.7 474.2L75.6 472.2" class="lt"/><path d="M80.9 472.9L80.9 470" class="lt"/><path d="M84.1 474.2L86.2 472.2" class="lt"/></g><g class="pl forb"><circle cx="180.2" cy="474.6" r="6.5" class="fb"/><circle cx="182.5" cy="476.9" r="1.3" class="fd"/><circle cx="177.9" cy="476.9" r="1.3" class="fd"/><circle cx="177.9" cy="472.3" r="1.3" class="fd"/><circle cx="182.5" cy="472.3" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="150.2" cy="478.6" r="6.5" class="fb"/><circle cx="150.2" cy="478.6" r="2.7" class="fd"/></g><g class="pl forb"><path d="M527.4 384.7L540.4 384.7M530.7 379.1L537.2 390.3M537.2 379.1L530.7 390.3" class="fs"/></g><g class="pl forb liat"><circle cx="54.2" cy="219.2" r="3.6" class="ls"/><path d="M58.8 219.2L61.7 219.2" class="lt"/><path d="M57.4 222.4L59.5 224.5" class="lt"/><path d="M54.2 223.7L54.2 226.6" class="lt"/><path d="M51 222.4L48.9 224.5" class="lt"/><path d="M49.7 219.2L46.7 219.2" class="lt"/><path d="M51 216L48.9 213.9" class="lt"/><path d="M54.2 214.6L54.2 211.7" class="lt"/><path d="M57.4 216L59.5 213.9" class="lt"/></g><g class="pl forb"><circle cx="107" cy="537.4" r="6.5" class="fb"/><circle cx="107" cy="537.4" r="2.7" class="fd"/></g><g class="pl forb"><path d="M140.7 569.6L153.7 569.6M144 564L150.5 575.3M150.5 564L144 575.3" class="fs"/></g><g class="pl forb"><circle cx="514.3" cy="202.7" r="6.5" class="fb"/><circle cx="516.6" cy="205" r="1.3" class="fd"/><circle cx="512" cy="205" r="1.3" class="fd"/><circle cx="512" cy="200.4" r="1.3" class="fd"/><circle cx="516.6" cy="200.4" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="518.9" cy="276.5" r="3.6" class="ls"/><path d="M523.5 276.5L526.4 276.5" class="lt"/><path d="M522.1 279.7L524.2 281.8" class="lt"/><path d="M518.9 281L518.9 284" class="lt"/><path d="M515.7 279.7L513.6 281.8" class="lt"/><path d="M514.4 276.5L511.4 276.5" class="lt"/><path d="M515.7 273.3L513.6 271.2" class="lt"/><path d="M518.9 271.9L518.9 269" class="lt"/><path d="M522.1 273.3L524.2 271.2" class="lt"/></g><g class="pl forb"><path d="M331.1 250.1L344.1 250.1M334.3 244.5L340.8 255.8M340.8 244.5L334.3 255.8" class="fs"/></g><g class="pl forb"><circle cx="114" cy="509.3" r="6.5" class="fb"/><circle cx="116.3" cy="511.6" r="1.3" class="fd"/><circle cx="111.7" cy="511.6" r="1.3" class="fd"/><circle cx="111.7" cy="507" r="1.3" class="fd"/><circle cx="116.3" cy="507" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="495.1" cy="381.7" r="6.5" class="fb"/><circle cx="495.1" cy="381.7" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="198.4" cy="249.8" r="3.6" class="ls"/><path d="M202.9 249.8L205.8 249.8" class="lt"/><path d="M201.6 253L203.7 255" class="lt"/><path d="M198.4 254.3L198.4 257.2" class="lt"/><path d="M195.2 253L193.1 255" class="lt"/><path d="M193.8 249.8L190.9 249.8" class="lt"/><path d="M195.2 246.5L193.1 244.5" class="lt"/><path d="M198.4 245.2L198.4 242.3" class="lt"/><path d="M201.6 246.5L203.7 244.5" class="lt"/></g><g class="pl forb"><circle cx="466.4" cy="196.7" r="6.5" class="fb"/><circle cx="468.7" cy="199" r="1.3" class="fd"/><circle cx="464.1" cy="199" r="1.3" class="fd"/><circle cx="464.1" cy="194.4" r="1.3" class="fd"/><circle cx="468.7" cy="194.4" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="421.9" cy="516.5" r="6.5" class="fb"/><circle cx="421.9" cy="516.5" r="2.7" class="fd"/></g><g class="pl forb"><path d="M396.6 540.4L409.6 540.4M399.8 534.8L406.3 546M406.3 534.8L399.8 546" class="fs"/></g><g class="pl forb liat"><circle cx="243.7" cy="577.5" r="3.6" class="ls"/><path d="M248.2 577.5L251.1 577.5" class="lt"/><path d="M246.9 580.8L248.9 582.8" class="lt"/><path d="M243.7 582.1L243.7 585" class="lt"/><path d="M240.4 580.8L238.4 582.8" class="lt"/><path d="M239.1 577.5L236.2 577.5" class="lt"/><path d="M240.4 574.3L238.4 572.3" class="lt"/><path d="M243.7 573L243.7 570.1" class="lt"/><path d="M246.9 574.3L248.9 572.3" class="lt"/></g><g class="pl forb"><circle cx="341.4" cy="333.8" r="6.5" class="fb"/><circle cx="341.4" cy="333.8" r="2.7" class="fd"/></g><g class="pl forb"><path d="M457.2 305.1L470.2 305.1M460.4 299.5L466.9 310.7M466.9 299.5L460.4 310.7" class="fs"/></g><g class="pl forb"><circle cx="524.2" cy="533.8" r="6.5" class="fb"/><circle cx="526.5" cy="536.1" r="1.3" class="fd"/><circle cx="521.9" cy="536.1" r="1.3" class="fd"/><circle cx="521.9" cy="531.5" r="1.3" class="fd"/><circle cx="526.5" cy="531.5" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="272.5" cy="483.5" r="3.6" class="ls"/><path d="M277.1 483.5L280 483.5" class="lt"/><path d="M275.7 486.7L277.8 488.8" class="lt"/><path d="M272.5 488.1L272.5 491" class="lt"/><path d="M269.3 486.7L267.2 488.8" class="lt"/><path d="M268 483.5L265.1 483.5" class="lt"/><path d="M269.3 480.3L267.2 478.2" class="lt"/><path d="M272.5 479L272.5 476" class="lt"/><path d="M275.7 480.3L277.8 478.2" class="lt"/></g><g class="pl forb"><path d="M65.9 550L78.9 550M69.1 544.4L75.6 555.7M75.6 544.4L69.1 555.7" class="fs"/></g><g class="pl forb"><circle cx="416" cy="568.9" r="6.5" class="fb"/><circle cx="418.3" cy="571.2" r="1.3" class="fd"/><circle cx="413.7" cy="571.2" r="1.3" class="fd"/><circle cx="413.7" cy="566.6" r="1.3" class="fd"/><circle cx="418.3" cy="566.6" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="177.6" cy="446.6" r="6.5" class="fb"/><circle cx="177.6" cy="446.6" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="157.6" cy="542.2" r="3.6" class="ls"/><path d="M162.1 542.2L165 542.2" class="lt"/><path d="M160.8 545.4L162.9 547.5" class="lt"/><path d="M157.6 546.7L157.6 549.7" class="lt"/><path d="M154.4 545.4L152.3 547.5" class="lt"/><path d="M153 542.2L150.1 542.2" class="lt"/><path d="M154.4 539L152.3 536.9" class="lt"/><path d="M157.6 537.6L157.6 534.7" class="lt"/><path d="M160.8 539L162.9 536.9" class="lt"/></g><g class="pl forb"><circle cx="253.6" cy="354.1" r="6.5" class="fb"/><circle cx="255.9" cy="356.4" r="1.3" class="fd"/><circle cx="251.3" cy="356.4" r="1.3" class="fd"/><circle cx="251.3" cy="351.8" r="1.3" class="fd"/><circle cx="255.9" cy="351.8" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="309" cy="340" r="6.5" class="fb"/><circle cx="309" cy="340" r="2.7" class="fd"/></g><g class="pl forb"><path d="M355.1 525.6L368.1 525.6M358.3 520L364.8 531.2M364.8 520L358.3 531.2" class="fs"/></g><g class="pl forb liat"><circle cx="283.7" cy="420.3" r="3.6" class="ls"/><path d="M288.2 420.3L291.2 420.3" class="lt"/><path d="M286.9 423.5L289 425.6" class="lt"/><path d="M283.7 424.9L283.7 427.8" class="lt"/><path d="M280.5 423.5L278.4 425.6" class="lt"/><path d="M279.1 420.3L276.2 420.3" class="lt"/><path d="M280.5 417.1L278.4 415" class="lt"/><path d="M283.7 415.8L283.7 412.8" class="lt"/><path d="M286.9 417.1L289 415" class="lt"/></g><g class="pl forb"><circle cx="474" cy="567.4" r="6.5" class="fb"/><circle cx="474" cy="567.4" r="2.7" class="fd"/></g><g class="pl forb"><path d="M400.9 443.3L413.9 443.3M404.2 437.7L410.7 448.9M410.7 437.7L404.2 448.9" class="fs"/></g><g class="pl forb"><circle cx="395.9" cy="238.8" r="6.5" class="fb"/><circle cx="398.2" cy="241.1" r="1.3" class="fd"/><circle cx="393.6" cy="241.1" r="1.3" class="fd"/><circle cx="393.6" cy="236.5" r="1.3" class="fd"/><circle cx="398.2" cy="236.5" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="159.3" cy="425.6" r="3.6" class="ls"/><path d="M163.9 425.6L166.8 425.6" class="lt"/><path d="M162.6 428.8L164.6 430.9" class="lt"/><path d="M159.3 430.2L159.3 433.1" class="lt"/><path d="M156.1 428.8L154.1 430.9" class="lt"/><path d="M154.8 425.6L151.9 425.6" class="lt"/><path d="M156.1 422.4L154.1 420.3" class="lt"/><path d="M159.3 421.1L159.3 418.1" class="lt"/><path d="M162.6 422.4L164.6 420.3" class="lt"/></g><g class="pl forb"><path d="M196.7 509.2L209.7 509.2M200 503.6L206.5 514.9M206.5 503.6L200 514.9" class="fs"/></g><g class="pl forb"><circle cx="533.1" cy="250.2" r="6.5" class="fb"/><circle cx="535.4" cy="252.5" r="1.3" class="fd"/><circle cx="530.8" cy="252.5" r="1.3" class="fd"/><circle cx="530.8" cy="247.9" r="1.3" class="fd"/><circle cx="535.4" cy="247.9" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="514.1" cy="481.1" r="6.5" class="fb"/><circle cx="514.1" cy="481.1" r="2.7" class="fd"/></g><g class="pl forb liat"><circle cx="63.9" cy="449.8" r="3.6" class="ls"/><path d="M68.4 449.8L71.4 449.8" class="lt"/><path d="M67.1 453L69.2 455.1" class="lt"/><path d="M63.9 454.4L63.9 457.3" class="lt"/><path d="M60.7 453L58.6 455.1" class="lt"/><path d="M59.3 449.8L56.4 449.8" class="lt"/><path d="M60.7 446.6L58.6 444.5" class="lt"/><path d="M63.9 445.3L63.9 442.3" class="lt"/><path d="M67.1 446.6L69.2 444.5" class="lt"/></g><g class="pl forb"><circle cx="49.4" cy="302.9" r="6.5" class="fb"/><circle cx="51.7" cy="305.2" r="1.3" class="fd"/><circle cx="47.1" cy="305.2" r="1.3" class="fd"/><circle cx="47.1" cy="300.6" r="1.3" class="fd"/><circle cx="51.7" cy="300.6" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="109.6" cy="564.4" r="6.5" class="fb"/><circle cx="109.6" cy="564.4" r="2.7" class="fd"/></g><g class="pl forb"><path d="M222.9 538.7L235.9 538.7M226.1 533L232.6 544.3M232.6 533L226.1 544.3" class="fs"/></g><g class="pl forb liat"><circle cx="495.5" cy="325.5" r="3.6" class="ls"/><path d="M500 325.5L503 325.5" class="lt"/><path d="M498.7 328.7L500.8 330.8" class="lt"/><path d="M495.5 330.1L495.5 333" class="lt"/><path d="M492.3 328.7L490.2 330.8" class="lt"/><path d="M490.9 325.5L488 325.5" class="lt"/><path d="M492.3 322.3L490.2 320.2" class="lt"/><path d="M495.5 321L495.5 318" class="lt"/><path d="M498.7 322.3L500.8 320.2" class="lt"/></g><g class="pl forb"><circle cx="183.6" cy="561.8" r="6.5" class="fb"/><circle cx="183.6" cy="561.8" r="2.7" class="fd"/></g><g class="pl forb"><path d="M348.8 296.1L361.8 296.1M352 290.5L358.5 301.8M358.5 290.5L352 301.8" class="fs"/></g></g>
+<rect x="52" y="182" width="206" height="19" class="tagbg"/><text x="56" y="196" class="lb sm" text-anchor="start">DOWNSPOUT, 340 SF ROOF</text>
+<rect x="42" y="254" width="107" height="19" class="tagbg"/><text x="46" y="268" class="lb sm" text-anchor="start">RAIN GARDEN</text>
+<rect x="376" y="564" width="224" height="19" class="tagbg"/><text x="380" y="578" class="lb sm" text-anchor="start">STONE STEPS, 24 IN. O.C.</text>
+<g class="co"><path d="M430 410L500 520" class="ld"/><circle cx="500" cy="520" r="12.5" class="cc"/><text x="500" y="524.5" class="ct">A</text></g>
+<g class="co"><path d="M505 236L540 196" class="ld"/><circle cx="540" cy="196" r="12.5" class="cc"/><text x="540" y="200.5" class="ct">B</text></g>
+<g class="co"><path d="M236 300L290 262" class="ld"/><circle cx="290" cy="262" r="12.5" class="cc"/><text x="290" y="266.5" class="ct">C</text></g>
+<g class="co"><path d="M150 340L196 232" class="ld"/><circle cx="196" cy="232" r="12.5" class="cc"/><text x="196" y="236.5" class="ct">D</text></g>
+<g class="co"><path d="M314 450L372 470" class="ld"/><circle cx="372" cy="470" r="12.5" class="cc"/><text x="372" y="474.5" class="ct">E</text></g>
+<g class="co"><path d="M470 300L420 252" class="ld"/><circle cx="420" cy="252" r="12.5" class="cc"/><text x="420" y="256.5" class="ct">F</text></g>
+<g class="co"><path d="M308.8 388.7L352.8 358.7" class="ld"/><circle cx="352.8" cy="358.7" r="12.5" class="cc"/><text x="352.8" y="363.2" class="ct">G</text></g>
+<g class="sb"><rect x="40" y="604" width="74" height="5" class="sbf"/><rect x="114" y="604" width="74" height="5" class="sbe"/><rect x="188" y="604" width="148" height="5" class="sbf"/><text x="40" y="622" class="lb sm" text-anchor="middle">0</text><text x="114" y="622" class="lb sm" text-anchor="middle">5</text><text x="188" y="622" class="lb sm" text-anchor="middle">10</text><text x="336" y="622" class="lb sm" text-anchor="middle">20</text></g>
+<text x="356" y="622" class="lb sm">FEET</text>
+<g class="na" transform="translate(735 62) scale(0.95)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g>
+</svg>
+      <div class="board-foot">
+        <div>
+          <div class="years" role="radiogroup" aria-label="Show the planting at">
+            <input type="radio" name="yr" id="yr0" value="0" checked><label for="yr0">Planting day</label>
+            <input type="radio" name="yr" id="yr1" value="1"><label for="yr1">Year one</label>
+            <input type="radio" name="yr" id="yr3" value="3"><label for="yr3">Year three</label>
+          </div>
+          <p class="readout" id="readout" aria-live="polite"><b>Planting day.</b> Plugs go in 18 inches apart. It looks like not much. That is correct.</p>
+        </div>
+        <dl class="cover"><dt>Typical ground cover</dt><dd class="tnum"><span id="cov">15</span><small>%</small></dd></dl>
+      </div>
+      <ol class="key" aria-label="Plant key">
+        <li><b>A</b><span>Bur oak, <i>Quercus macrocarpa</i></span></li>
+        <li><b>B</b><span>Serviceberry, <i>Amelanchier laevis</i></span></li>
+        <li><b>C</b><span>Red osier dogwood</span></li>
+        <li><b>D</b><span>Blue flag iris, in the basin</span></li>
+        <li><b>E</b><span>Prairie dropseed, along the walk</span></li>
+        <li><b>F</b><span>Bergamot, coneflower, milkweed</span></li>
+        <li class="lk"><b>G</b><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="4.5" fill="#7A55B5" stroke="#5B3A8E" stroke-width="1"/><path d="M11 3.5v2.5M11 16v2.5M3.5 11h2.5M16 11h2.5M5.7 5.7l1.8 1.8M14.5 14.5l1.8 1.8M16.3 5.7l-1.8 1.8M7.5 14.5l-1.8 1.8" stroke="#7A55B5" stroke-width="1.2"/></svg><span><strong>Blazing star</strong>, <i>Liatris aspera</i>. The violet on every plan is this flower, blooming in August of year three.</span></li>
+      </ol>
+      <figcaption id="board-cap" class="sr">A planting plan you can step through from planting day to year three.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="lane" aria-labelledby="lane-h">
+  <div class="wrap">
+    <div class="lane-grid">
+      <div class="rv">
+        <h2 class="h2" id="lane-h">A narrow lane, on purpose.</h2>
+        <p class="lede" style="margin-top:20px">We plant what was here before the lawn, and we build the stone, soil and water work that lets it live. That is the whole job. Doing one thing is how we can promise it will still look right in year five.</p>
+      </div>
+      <div class="lane-list rv">
+        <div>
+          <h3>We do</h3>
+          <ul>
+            <li>Lawn-to-prairie conversions</li>
+            <li>Rain gardens and downspout work</li>
+            <li>Boulevard plantings</li>
+            <li>Shade gardens under mature trees</li>
+            <li>Lakeshore and pond buffers</li>
+            <li>Stone steps, paths and low walls</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>We do not</h3>
+          <ul>
+            <li>weekly mowing</li>
+            <li>sod or irrigation systems</li>
+            <li>broadcast spraying</li>
+            <li>non-native ornamentals</li>
+            <li>decks, sheds or pergolas</li>
+            <li>projects we cannot visit twice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="proc" aria-labelledby="proc-h">
+  <div class="wrap">
+    <h2 class="h2 wide rv" id="proc-h">Four stages. The last one takes three summers.</h2>
+    <div class="tlbar rv" aria-hidden="true"><i></i><i></i><i></i><i class="go"></i></div>
+    <ol class="tl rv">
+      <li class="stage s1">
+        <span class="dur">1 day</span><span class="seg" aria-hidden="true"></span>
+        <h3 class="h3">Consult</h3>
+        <p class="sub">90 minutes on site</p>
+        <p>A walk, two test holes, a budget talk.</p>
+        <ul><li>Notes in 5 days</li><li>$275, credited</li></ul>
+      </li>
+      <li class="stage s2">
+        <span class="dur">3 to 6 weeks</span><span class="seg" aria-hidden="true"></span>
+        <h3 class="h3">Plan</h3>
+        <p class="sub">Drawings, plant schedule, fixed bid</p>
+        <p>A drawn plan set like the one above, a plant schedule with counts and sizes, and a fixed bid. One round of revisions is included, and we mean a real one.</p>
+        <ul><li>Design fee from $1,800</li><li>Utility locate through Gopher State One Call</li><li>Watershed and city checks</li></ul>
+      </li>
+      <li class="stage s3">
+        <span class="dur">1 to 4 weeks</span><span class="seg" aria-hidden="true"></span>
+        <h3 class="h3">Build</h3>
+        <p class="sub">On site, one crew lead</p>
+        <p>Stone and soil work first, planting last. We plant in two windows only, late spring and late summer, because that is when plugs root fastest.</p>
+        <ul><li>Same crew lead start to finish</li><li>Daily photo note by text</li></ul>
+      </li>
+      <li class="stage s4">
+        <span class="dur">3 growing seasons, and it keeps going</span><span class="seg" aria-hidden="true"></span>
+        <h3 class="h3">Establish</h3>
+        <p class="sub">Sleep, creep, leap</p>
+        <p>Native plantings follow an old rule: the first year they sleep, the second they creep, the third they leap. Year one looks thin above ground while roots go down three feet. We stay on it the whole time.</p>
+        <ul><li>Two visits in year one are included: June and September</li><li>Weeding and cutback visits in years two and three, priced per visit</li><li>Any plug that fails in its first season is replaced at no charge</li></ul>
+      </li>
+    </ol>
+    <p class="ruler-note">The bar is drawn closer to real time than most firms draw it, and it is still generous to the first three stages. At true scale the consult would be a hairline. A large lakeshore buffer can run the Plan stage to ten weeks when a permit is involved.</p>
+  </div>
+</section>
+
+<section id="calendar" class="cal-sec" aria-labelledby="cal-h">
+  <div class="wrap">
+    <div class="cal-top">
+      <div class="rv">
+        <h2 class="h2" id="cal-h">The ground keeps its own calendar.</h2>
+      </div>
+      <div class="now-note rv" aria-live="polite">
+        <span class="kick" id="now-k">Right now</span>
+        <p id="now-p">Book a winter design slot now. Dormant seeding wraps when the snow stays.</p>
+      </div>
+    </div>
+    <div class="cal" id="cal">
+      <div class="cal-grid" aria-hidden="true"><i class="lg"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cal-months" aria-hidden="true"><b class="lg"></b><span>J<i>an</i></span><span>F<i>eb</i></span><span>M<i>ar</i></span><span>A<i>pr</i></span><span>M<i>ay</i></span><span>J<i>un</i></span><span>J<i>ul</i></span><span>A<i>ug</i></span><span>S<i>ep</i></span><span>O<i>ct</i></span><span>N<i>ov</i></span><span>D<i>ec</i></span></div>
+      <ul>
+        <li class="cal-row"><div class="lab"><b>Site consultations</b><span>On site April to November. Winter by video, because snow hides the yard.</span></div><i class="bar soft" style="--s:2;--e:8"></i><i class="bar" style="--s:8;--e:24"></i><i class="bar soft" style="--s:24;--e:26"></i></li>
+        <li class="cal-row"><div class="lab"><b>Design and plan drawing</b><span>All year. January to March is the best time to start.</span></div><i class="bar" style="--s:2;--e:8"></i><i class="bar soft" style="--s:8;--e:26"></i></li>
+        <li class="cal-row"><div class="lab"><b>Stone, soil and grading</b><span>Mid April to mid November, ground permitting.</span></div><i class="bar" style="--s:9;--e:23"></i></li>
+        <li class="cal-row"><div class="lab"><b>Planting plugs and pots</b><span>Mid May to June, then late August to early October.</span></div><i class="bar bloom" style="--s:11;--e:14"></i><i class="bar bloom" style="--s:17;--e:21"></i></li>
+        <li class="cal-row"><div class="lab"><b>Dormant seeding</b><span>Late November into December, after the soil is cold.</span></div><i class="bar bloom" style="--s:23;--e:25"></i></li>
+        <li class="cal-row"><div class="lab"><b>Spring cutback</b><span>April, once days stay in the 50s. Stems stand all winter for nesting bees.</span></div><i class="bar" style="--s:8;--e:10"></i></li>
+        <li class="cal-row"><div class="lab"><b>Watering, year one</b><span>Mid May through September. We set the schedule, you run the hose.</span></div><i class="bar soft" style="--s:11;--e:20"></i></li>
+        <li class="cal-row"><div class="lab"><b>Included check-in visits</b><span>June and September of year one.</span></div><i class="bar" style="--s:12;--e:14"></i><i class="bar" style="--s:18;--e:20"></i></li>
+      </ul>
+      <span class="cal-now" id="cal-now" hidden></span>
+    </div>
+    <div class="cal-legend" aria-hidden="true"><span><i></i>Field work</span><span><i class="bloom"></i>Planting and seeding (blazing star violet)</span><span><i class="soft"></i>Remote or light</span><span><i class="now"></i>Today</span></div>
+    <p class="cal-cap">We work around frozen soil, not the other way round. This is the year as we actually schedule it. Dates shift a week or two with the weather, and we tell you when they do.</p>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="work-head">
+      <h2 class="h2 wide rv" id="work-h">We show the drawing first.</h2>
+      <p class="lede rv">A photo of a meadow in August tells you very little about what you are buying. The plan tells you everything: where the water goes, what is kept, what is planted and how far apart. Here are four.</p>
+    </div>
+    <div class="sheets">
+      <figure class="sheet rv">
+        <svg class="sheetplan" viewBox="0 0 480 340" role="img" aria-labelledby="g1-t g1-d" xmlns="http://www.w3.org/2000/svg"><title id="g1-t">Rain garden in Hamline-Midway, Saint Paul</title><desc id="g1-d">A side yard plan. A downspout from the house feeds a kidney-shaped rain garden drawn as three contour lines, planted with blue flag iris in the basin and sedges around the rim, with a stone overflow on the low side.</desc><defs>
+<pattern id="g1h" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" class="ht"/></pattern>
+<pattern id="g1s" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" class="st"/><circle cx="8" cy="8" r=".9" class="st"/></pattern>
+<pattern id="g1w" width="18" height="9" patternUnits="userSpaceOnUse"><path d="M0 6 q4.5 -4 9 0 t9 0" class="wv"/></pattern>
+<pattern id="g1g" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" class="gv"/><circle cx="4.5" cy="4.2" r=".5" class="gv"/></pattern>
+</defs><rect x="10" y="10" width="460" height="320" class="ground"/><path d="M10 10H250V120H10Z" fill="url(#g1h)" class="bld"/><text x="24" y="34" class="lb">HOUSE</text><path d="M250 10H470V40H250Z" class="drive"/><path d="M232 120 C250 160 262 170 280 186" class="dsp"/><path d="M272 180 L282 188 L282 176" class="dsp"/><path d="M430.5 226 C431.9 237.9 416.8 252.4 404.4 263.7 C392 275.1 375.4 290.2 356 294.1 C336.5 298.1 309 291.9 287.6 287.4 C266.1 283 237.4 277.8 227.1 267.6 C216.7 257.3 223.8 239.2 225.3 226 C226.8 212.8 225.1 197.7 236 188.4 C246.9 179.2 271.9 173.1 290.6 170.4 C309.4 167.7 330.9 168.6 348.4 172.2 C365.9 175.9 382.1 183.2 395.8 192.1 C409.4 201.1 429 214.1 430.5 226Z" class="rgc ct0" fill="none"/><path d="M397.3 226 C398.4 234.4 387.8 244.5 379.1 252.4 C370.4 260.4 358.8 270.9 345.2 273.7 C331.5 276.5 312.3 272.1 297.3 269 C282.3 265.9 262.2 262.3 254.9 255.1 C247.7 247.9 252.7 235.2 253.7 226 C254.7 216.8 253.6 206.2 261.2 199.7 C268.8 193.2 286.3 189 299.4 187.1 C312.6 185.2 327.6 185.8 339.9 188.4 C352.1 190.9 363.4 196 373 202.3 C382.6 208.6 396.3 217.6 397.3 226Z" class="rgc ct1" fill="none"/><path d="M366.4 226 C367 231 360.7 237.1 355.5 241.9 C350.2 246.6 343.3 253 335.1 254.6 C326.9 256.3 315.4 253.7 306.4 251.8 C297.4 249.9 285.3 247.8 281 243.5 C276.6 239.2 279.6 231.5 280.2 226 C280.8 220.5 280.1 214.1 284.7 210.2 C289.3 206.3 299.8 203.8 307.7 202.6 C315.5 201.5 324.6 201.9 331.9 203.4 C339.3 204.9 346.1 208 351.8 211.8 C357.6 215.5 365.8 221 366.4 226Z" class="rgc ct2" fill="url(#g1w)"/><path d="M430 236 l24 6 l-6 18 l-22 -4z" class="boulder"/><path d="M416 250 l18 10 l-10 12 l-14 -8z" class="boulder"/><rect x="332" y="308" width="134" height="19" class="tagbg"/><text x="462" y="322" class="lb sm" text-anchor="end">STONE OVERFLOW</text><g class="plants"><g class="pl wet"><path d="M341.1 252.8L337.3 240.9M341.1 252.8L341.1 240M341.1 252.8L345 240.9" class="ir"/></g><g class="pl wet"><path d="M297.1 214.9L293.3 203M297.1 214.9L297.1 202.1M297.1 214.9L301 203" class="ir"/></g><g class="pl wet"><path d="M329.4 257.5L325.6 245.7M329.4 257.5L329.4 244.7M329.4 257.5L333.3 245.7" class="ir"/></g><g class="pl wet"><path d="M332.7 210.2L328.9 198.4M332.7 210.2L332.7 197.4M332.7 210.2L336.5 198.4" class="ir"/></g><g class="pl wet"><path d="M295.8 230.3L291.9 218.5M295.8 230.3L295.8 217.5M295.8 230.3L299.6 218.5" class="ir"/></g><g class="pl wet"><path d="M350.4 231.2L346.6 219.4M350.4 231.2L350.4 218.4M350.4 231.2L354.2 219.4" class="ir"/></g><g class="pl wet"><path d="M308.7 226.7L304.9 214.8M308.7 226.7L308.7 213.9M308.7 226.7L312.5 214.8" class="ir"/></g><g class="pl wet"><path d="M326.5 216.6L322.7 204.7M326.5 216.6L326.5 203.8M326.5 216.6L330.4 204.7" class="ir"/></g><g class="pl wet"><path d="M321.1 237.1L317.3 225.3M321.1 237.1L321.1 224.3M321.1 237.1L325 225.3" class="ir"/></g><g class="pl wet"><path d="M362.9 230.4L359.1 218.6M362.9 230.4L362.9 217.6M362.9 230.4L366.7 218.6" class="ir"/></g><g class="pl wet"><path d="M347.7 213.8L343.9 201.9M347.7 213.8L347.7 201M347.7 213.8L351.5 201.9" class="ir"/></g><g class="pl wet"><path d="M348 234.5L344.1 222.7M348 234.5L348 221.7M348 234.5L351.8 222.7" class="ir"/></g><g class="pl wet"><path d="M303 231L299.2 219.1M303 231L303 218.2M303 231L306.8 219.1" class="ir"/></g><g class="pl wet"><path d="M348.9 225.3L345.1 213.4M348.9 225.3L348.9 212.5M348.9 225.3L352.8 213.4" class="ir"/></g><g class="pl wet"><path d="M345.4 253.8L341.6 241.9M345.4 253.8L345.4 241M345.4 253.8L349.2 241.9" class="ir"/></g><g class="pl wet"><path d="M354 251.7L350.2 239.9M354 251.7L354 238.9M354 251.7L357.9 239.9" class="ir"/></g><g class="pl grass"><path d="M438 226L446 225.8M438 226L444.3 230.6M438 226L439.9 232.1M438 226L433.6 231.5M438 226L431.2 227.6M438 226L430.2 221.3M438 226L434.4 218.1M438 226L439.8 217.6M438 226L443.2 220.1" class="gr"/></g><g class="pl grass"><path d="M433.2 247.4L440.1 248.3M433.2 247.4L439.1 254.3M433.2 247.4L434.8 254.7M433.2 247.4L429.6 254M433.2 247.4L425.8 248.5M433.2 247.4L426.7 246.4M433.2 247.4L429.2 238.9M433.2 247.4L434.6 239.7M433.2 247.4L440 242" class="gr"/></g><g class="pl grass"><path d="M419.3 267.1L427.4 266.2M419.3 267.1L425.5 272.5M419.3 267.1L421.3 273.6M419.3 267.1L415.2 275.3M419.3 267.1L411.8 270.4M419.3 267.1L412.9 265.3M419.3 267.1L413.6 260.3M419.3 267.1L421.4 259.9M419.3 267.1L426.1 262.2" class="gr"/></g><g class="pl grass"><path d="M397.3 283.4L406.5 284.9M397.3 283.4L404.7 289.2M397.3 283.4L397.2 291.6M397.3 283.4L392.4 289.6M397.3 283.4L390.8 286.2M397.3 283.4L391.3 280.2M397.3 283.4L391.6 276.7M397.3 283.4L399.5 275.9M397.3 283.4L402.7 280" class="gr"/></g><g class="pl grass"><path d="M369 295.1L376.2 294.4M369 295.1L374.4 299.4M369 295.1L371.5 302.1M369 295.1L363.1 302.4M369 295.1L361.5 297.1M369 295.1L360 292.8M369 295.1L364.8 287.6M369 295.1L368.9 288.2M369 295.1L376.5 290.4" class="gr"/></g><g class="pl grass"><path d="M336.8 301.2L344.9 302.5M336.8 301.2L343.2 306.3M336.8 301.2L337 308.5M336.8 301.2L333.1 307.4M336.8 301.2L330.6 302.7M336.8 301.2L328.3 297.4M336.8 301.2L331.4 295.1M336.8 301.2L338.9 292.5M336.8 301.2L342.4 296.8" class="gr"/></g><g class="pl grass"><path d="M303.2 301.2L312.5 300.9M303.2 301.2L307.6 306.3M303.2 301.2L305.4 307.5M303.2 301.2L300.7 308.5M303.2 301.2L295.2 305.5M303.2 301.2L297.1 298.5M303.2 301.2L299.6 294.8M303.2 301.2L304.4 294.3M303.2 301.2L307.8 296.1" class="gr"/></g><g class="pl grass"><path d="M271 295.1L279.5 294.7M271 295.1L275.8 299.4M271 295.1L271.8 304.1M271 295.1L265.8 302.2M271 295.1L264.3 299.2M271 295.1L262.4 293.6M271 295.1L265.8 288.4M271 295.1L271.6 286.7M271 295.1L275.6 290.6" class="gr"/></g><g class="pl grass"><path d="M242.7 283.4L250 283.1M242.7 283.4L247.5 288.9M242.7 283.4L244.1 291.3M242.7 283.4L238.5 288.5M242.7 283.4L235.2 285.8M242.7 283.4L234.3 279.4M242.7 283.4L237.9 276.4M242.7 283.4L244.2 275.5M242.7 283.4L248.4 276.6" class="gr"/></g><g class="pl grass"><path d="M220.7 267.1L228 268.5M220.7 267.1L228.4 272.6M220.7 267.1L222.9 273.3M220.7 267.1L217.7 275.4M220.7 267.1L213.3 269M220.7 267.1L214.9 264.6M220.7 267.1L217.3 260.2M220.7 267.1L222.1 259.7M220.7 267.1L225.9 262.4" class="gr"/></g><g class="pl grass"><path d="M206.8 247.4L214.3 246M206.8 247.4L213.8 252.2M206.8 247.4L207.2 256M206.8 247.4L203.4 253.6M206.8 247.4L199.5 250.4M206.8 247.4L198.2 243.8M206.8 247.4L201.8 241.4M206.8 247.4L208.2 239M206.8 247.4L214.3 242.9" class="gr"/></g><g class="pl grass"><path d="M202 226L210.7 226.4M202 226L208.5 232.2M202 226L202.8 234.4M202 226L198.2 234.4M202 226L194.4 229.2M202 226L193.7 221.7M202 226L200 220M202 226L202.7 218.8M202 226L207 221.4" class="gr"/></g><g class="pl grass"><path d="M206.8 204.6L213.3 204.7M206.8 204.6L214.3 210M206.8 204.6L207.4 212.3M206.8 204.6L203.4 213.3M206.8 204.6L200.1 206.4M206.8 204.6L198.8 202.3M206.8 204.6L203.7 198.2M206.8 204.6L209.3 197.7M206.8 204.6L213 198.2" class="gr"/></g><g class="pl grass"><path d="M220.7 184.9L229.1 183.7M220.7 184.9L227.6 189.4M220.7 184.9L222.7 192.1M220.7 184.9L215.7 190.9M220.7 184.9L213.1 187.9M220.7 184.9L214.1 183.1M220.7 184.9L216.9 178.9M220.7 184.9L221.2 175.6M220.7 184.9L226.3 178.1" class="gr"/></g><g class="pl grass"><path d="M242.7 168.6L251.1 170M242.7 168.6L249.6 172.4M242.7 168.6L245.6 176.3M242.7 168.6L238.7 174.4M242.7 168.6L235.9 172.7M242.7 168.6L235.6 167.2M242.7 168.6L238 160.8M242.7 168.6L243.5 161.9M242.7 168.6L250.2 163.7" class="gr"/></g><g class="pl grass"><path d="M271 156.9L277.4 156.9M271 156.9L277.3 161M271 156.9L272.1 163.8M271 156.9L265.6 164M271 156.9L262 158.5M271 156.9L262.9 155.6M271 156.9L265.2 149.8M271 156.9L273.3 148.5M271 156.9L275.4 152.1" class="gr"/></g><g class="pl grass"><path d="M303.2 150.8L311.4 151.8M303.2 150.8L308.9 156.1M303.2 150.8L303.6 158.1M303.2 150.8L300.1 157.5M303.2 150.8L295.7 154.2M303.2 150.8L297.5 147.6M303.2 150.8L298.1 144.7M303.2 150.8L304.9 144.1M303.2 150.8L307.8 146.2" class="gr"/></g><g class="pl grass"><path d="M336.8 150.8L344.5 149.3M336.8 150.8L342.8 156.6M336.8 150.8L338.8 157.1M336.8 150.8L331.7 156.9M336.8 150.8L328.9 154M336.8 150.8L329.6 147.4M336.8 150.8L331.1 143.9M336.8 150.8L337.2 144.4M336.8 150.8L342.6 145.3" class="gr"/></g><g class="pl grass"><path d="M369 156.9L375.9 157.2M369 156.9L374.6 162.4M369 156.9L371.8 165.4M369 156.9L363.5 164.2M369 156.9L362.3 158.8M369 156.9L360.8 152.8M369 156.9L364.5 148.9M369 156.9L371.7 149.8M369 156.9L377 152.3" class="gr"/></g><g class="pl grass"><path d="M397.3 168.6L403.6 169.3M397.3 168.6L403.9 173.5M397.3 168.6L398.4 177.2M397.3 168.6L393.5 174.2M397.3 168.6L389.4 170M397.3 168.6L391.2 165.2M397.3 168.6L394.7 160.9M397.3 168.6L399.7 160.3M397.3 168.6L403.6 164.7" class="gr"/></g><g class="pl grass"><path d="M419.3 184.9L426.7 183.7M419.3 184.9L426 189.2M419.3 184.9L419.6 192.3M419.3 184.9L416.9 190.9M419.3 184.9L411.7 187.9M419.3 184.9L411 183.6M419.3 184.9L415.3 179.6M419.3 184.9L422 177.4M419.3 184.9L426.1 180.8" class="gr"/></g><g class="pl grass"><path d="M433.2 204.6L440.2 203.5M433.2 204.6L439.8 209.7M433.2 204.6L433.8 213.2M433.2 204.6L429.3 210.5M433.2 204.6L426.3 207.3M433.2 204.6L426.5 202.2M433.2 204.6L429.4 197.8M433.2 204.6L433.1 195.7M433.2 204.6L440.2 199.2" class="gr"/></g><g class="pl shrub"><circle cx="120" cy="230" r="30" class="sh"/><path d="M128.8 231.8L145 235.1" class="sp"/><path d="M125 237.5L134.1 251.3" class="sp"/><path d="M118.2 238.8L114.9 255" class="sp"/><path d="M112.5 235L98.7 244.1" class="sp"/><path d="M111.2 228.2L95 224.9" class="sp"/><path d="M115 222.5L105.9 208.7" class="sp"/><path d="M121.8 221.2L125.1 205" class="sp"/><path d="M127.5 225L141.3 215.9" class="sp"/></g><g class="pl shrub"><circle cx="80" cy="286" r="22" class="sh"/><path d="M86.5 287.3L98.3 289.7" class="sp"/><path d="M83.6 291.5L90.3 301.6" class="sp"/><path d="M78.7 292.5L76.3 304.3" class="sp"/><path d="M74.5 289.6L64.4 296.3" class="sp"/><path d="M73.5 284.7L61.7 282.3" class="sp"/><path d="M76.4 280.5L69.7 270.4" class="sp"/><path d="M81.3 279.5L83.7 267.7" class="sp"/><path d="M85.5 282.4L95.6 275.7" class="sp"/></g></g><rect x="133.5" y="302" width="161" height="19" class="tagbg"/><text x="214" y="316" class="lb sm" text-anchor="middle">BASIN, 8 IN. DEEP</text><rect x="10" y="10" width="460" height="320" class="pline"/><g class="na" transform="translate(446 66) scale(0.7)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g></svg>
+        <figcaption>
+          <span class="no">Plan 1 · Saint Paul</span>
+          <h3 class="h3">Hamline-Midway rain garden</h3>
+          <p>A side yard that sent a whole roof's worth of water into the neighbor's basement. Now the downspout feeds an eight-inch basin with a stone overflow, and the neighbor sends cookies.</p>
+          <dl><div><dt>Area</dt><dd class="tnum">310 sf</dd></div><div><dt>Plants</dt><dd class="tnum">146</dd></div><div><dt>On site</dt><dd class="tnum">4 days</dd></div><div><dt>Built</dt><dd class="tnum">2023</dd></div></dl>
+        </figcaption>
+      </figure>
+      <figure class="sheet rv">
+        <svg class="sheetplan" viewBox="0 0 480 340" role="img" aria-labelledby="g2-t g2-d" xmlns="http://www.w3.org/2000/svg"><title id="g2-t">Boulevard prairie in Longfellow, Minneapolis</title><desc id="g2-d">A long strip between the public sidewalk and the curb, planted in bands of prairie dropseed and short flowering natives, kept low for 18 inches along the curb so car doors open and sightlines stay clear.</desc><defs>
+<pattern id="g2h" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" class="ht"/></pattern>
+<pattern id="g2s" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" class="st"/><circle cx="8" cy="8" r=".9" class="st"/></pattern>
+<pattern id="g2w" width="18" height="9" patternUnits="userSpaceOnUse"><path d="M0 6 q4.5 -4 9 0 t9 0" class="wv"/></pattern>
+<pattern id="g2g" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" class="gv"/><circle cx="4.5" cy="4.2" r=".5" class="gv"/></pattern>
+</defs><rect x="10" y="10" width="460" height="320" class="ground"/><path d="M10 10H470V96H10Z" class="lawnx"/><text x="24" y="40" class="lb">FRONT YARD, PLANTED 2023</text><path d="M10 96H470V130H10Z" class="walkpub"/><text x="240" y="118" class="lb sm" text-anchor="middle">PUBLIC SIDEWALK</text><path d="M10 130H470V262H10Z" fill="url(#g2s)" class="meadow on"/><path d="M10 262H470V330H10Z" class="street"/><text x="24" y="284" class="lb sm">STREET</text><path d="M10 262H470" class="curb"/><g class="plants"><g class="pl grass"><path d="M25.5 148.4L34.7 149.5M25.5 148.4L31.9 155M25.5 148.4L28.2 155.7M25.5 148.4L20.1 154.8M25.5 148.4L18.9 149.7M25.5 148.4L18.8 146.1M25.5 148.4L21.5 141.3M25.5 148.4L25.3 141.4M25.5 148.4L32 141.9" class="gr"/></g><g class="pl grass"><path d="M55.2 142.6L61.9 143.4M55.2 142.6L60.1 147.1M55.2 142.6L58.5 151M55.2 142.6L52.4 149M55.2 142.6L46.3 144M55.2 142.6L46.2 140.2M55.2 142.6L51.1 135.2M55.2 142.6L55.7 133.3M55.2 142.6L62.8 137.2" class="gr"/></g><g class="pl grass"><path d="M84.7 144L91.5 143.6M84.7 144L90.2 147.4M84.7 144L86.8 151.9M84.7 144L82 152M84.7 144L78.1 146.9M84.7 144L77.8 140.4M84.7 144L80.3 137.5M84.7 144L86.4 137.7M84.7 144L90.3 140.9" class="gr"/></g><g class="pl grass"><path d="M111 149.4L119.6 147.8M111 149.4L117.5 154.3M111 149.4L113.3 155.5M111 149.4L107.4 158M111 149.4L103.3 153.4M111 149.4L103 144.8M111 149.4L106.9 143.3M111 149.4L112.6 140.9M111 149.4L116.7 142.9" class="gr"/></g><g class="pl grass"><path d="M139.6 149.6L148.7 147.9M139.6 149.6L145.9 153.4M139.6 149.6L140.8 158.7M139.6 149.6L135.5 157.9M139.6 149.6L132.7 152M139.6 149.6L133 147.7M139.6 149.6L135.2 144.4M139.6 149.6L141.9 140.5M139.6 149.6L143.9 144.8" class="gr"/></g><g class="pl grass"><path d="M169.8 146.3L176.9 146.1M169.8 146.3L176.4 152.3M169.8 146.3L171.3 153.8M169.8 146.3L166.7 155M169.8 146.3L163.1 150.3M169.8 146.3L163.9 143.2M169.8 146.3L166 137.9M169.8 146.3L171.8 137.8M169.8 146.3L174.9 140.5" class="gr"/></g><g class="pl grass"><path d="M187.8 149.4L195.5 148.8M187.8 149.4L193.4 156.5M187.8 149.4L187.7 157.2M187.8 149.4L183.5 156.9M187.8 149.4L181 152M187.8 149.4L181.4 147.4M187.8 149.4L182.7 141.5M187.8 149.4L190.7 141.7M187.8 149.4L193.4 144.7" class="gr"/></g><g class="pl grass"><path d="M215.1 143.7L224 144.7M215.1 143.7L222.1 149M215.1 143.7L215.6 152.2M215.1 143.7L210.2 151M215.1 143.7L207.2 147.1M215.1 143.7L207.5 141.7M215.1 143.7L211.6 136M215.1 143.7L215.9 134.5M215.1 143.7L221.6 138.9" class="gr"/></g><g class="pl grass"><path d="M242.1 146.5L250.5 145.6M242.1 146.5L249 152.1M242.1 146.5L243.2 155.2M242.1 146.5L238.4 153.9M242.1 146.5L233.5 148.7M242.1 146.5L233.6 143.9M242.1 146.5L239 138.6M242.1 146.5L245.5 137.8M242.1 146.5L248.3 141.4" class="gr"/></g><g class="pl grass"><path d="M272 149.4L279.7 150.7M272 149.4L278.1 155.4M272 149.4L272.6 156.2M272 149.4L267.2 155.9M272 149.4L264.7 151.5M272 149.4L263.9 146M272 149.4L268.1 141.7M272 149.4L271.9 142.6M272 149.4L278.3 143.9" class="gr"/></g><g class="pl grass"><path d="M300.6 147.9L307.1 148.2M300.6 147.9L306.1 152.3M300.6 147.9L303 154.2M300.6 147.9L297.6 154M300.6 147.9L294.9 150.8M300.6 147.9L293.5 145.4M300.6 147.9L296.9 140.6M300.6 147.9L301.3 138.7M300.6 147.9L305.4 141.9" class="gr"/></g><g class="pl grass"><path d="M329.3 145.1L338.2 143.7M329.3 145.1L334.5 149M329.3 145.1L330.2 151.6M329.3 145.1L325.5 151.4M329.3 145.1L320.5 148M329.3 145.1L322.6 141.6M329.3 145.1L326.1 137.4M329.3 145.1L330.2 138.4M329.3 145.1L335.7 140.2" class="gr"/></g><g class="pl grass"><path d="M365.5 150.7L372.9 151M365.5 150.7L369.6 155.4M365.5 150.7L368.1 158.3M365.5 150.7L361.8 156.4M365.5 150.7L356.8 153.3M365.5 150.7L358.2 148.4M365.5 150.7L361.2 144.9M365.5 150.7L368.2 143.7M365.5 150.7L373.5 146.2" class="gr"/></g><g class="pl grass"><path d="M389.1 143.6L396.9 145.1M389.1 143.6L394.9 148.1M389.1 143.6L389 151.4M389.1 143.6L385.8 150.7M389.1 143.6L381.9 147.6M389.1 143.6L382.3 141.3M389.1 143.6L385.6 135.4M389.1 143.6L389 135.6M389.1 143.6L395.7 137" class="gr"/></g><g class="pl grass"><path d="M419.4 143.5L426.1 142.8M419.4 143.5L423.9 149.1M419.4 143.5L420.4 151.2M419.4 143.5L414.9 150.3M419.4 143.5L412.9 145.1M419.4 143.5L412.9 140.3M419.4 143.5L415.8 137M419.4 143.5L420.1 135.5M419.4 143.5L425 138.6" class="gr"/></g><g class="pl grass"><path d="M446.9 146.9L453.9 145.6M446.9 146.9L454.1 152.7M446.9 146.9L447.1 154.9M446.9 146.9L444.1 155.2M446.9 146.9L439.4 149.9M446.9 146.9L439.4 143.4M446.9 146.9L442.3 139M446.9 146.9L447.9 139.4M446.9 146.9L452.8 143.2" class="gr"/></g><g class="pl grass"><path d="M21.6 177.3L30.4 175.8M21.6 177.3L27 182.7M21.6 177.3L23.8 185.8M21.6 177.3L17.3 182.5M21.6 177.3L14 180.1M21.6 177.3L14.7 174.8M21.6 177.3L16.5 170.9M21.6 177.3L23.5 171.1M21.6 177.3L27.7 170.9" class="gr"/></g><g class="pl grass"><path d="M55.5 175.6L63.9 174M55.5 175.6L61.4 183M55.5 175.6L56.1 182.1M55.5 175.6L51.2 181.2M55.5 175.6L46.6 178.3M55.5 175.6L49.4 172.8M55.5 175.6L50.3 168.1M55.5 175.6L55.8 167.4M55.5 175.6L60.6 171.1" class="gr"/></g><g class="pl grass"><path d="M81.5 169.4L88.9 168.3M81.5 169.4L87.1 172.7M81.5 169.4L82.7 178M81.5 169.4L77.3 174.7M81.5 169.4L74.7 172.1M81.5 169.4L74.2 166.5M81.5 169.4L78.9 162.4M81.5 169.4L81.4 160.9M81.5 169.4L87 163.3" class="gr"/></g><g class="pl grass"><path d="M108.1 178.1L116.3 178.3M108.1 178.1L114.7 182.7M108.1 178.1L110.4 186.4M108.1 178.1L104.7 183.9M108.1 178.1L101.4 181.4M108.1 178.1L101.9 175.2M108.1 178.1L104.5 170.5M108.1 178.1L108.1 169.7M108.1 178.1L112.4 173" class="gr"/></g><g class="pl grass"><path d="M137.1 171.4L144.9 172.6M137.1 171.4L144.3 176.6M137.1 171.4L140.2 179.4M137.1 171.4L134.8 177.8M137.1 171.4L128.8 172.8M137.1 171.4L130.7 169.8M137.1 171.4L134.4 163.5M137.1 171.4L139.1 165M137.1 171.4L143 166.9" class="gr"/></g><g class="pl grass"><path d="M160.8 172.3L168.2 172.7M160.8 172.3L166.2 176.4M160.8 172.3L161.2 180.7M160.8 172.3L156.2 178.5M160.8 172.3L153.1 174M160.8 172.3L153.3 169.3M160.8 172.3L157.7 165.5M160.8 172.3L160.9 165.9M160.8 172.3L165.2 167.6" class="gr"/></g><g class="pl grass"><path d="M196.7 173.8L202.9 174.5M196.7 173.8L203.7 179.6M196.7 173.8L197.6 181.4M196.7 173.8L193.4 179.6M196.7 173.8L190.7 177M196.7 173.8L189.5 171.6M196.7 173.8L194.2 167.5M196.7 173.8L197.2 166.7M196.7 173.8L201.5 168.5" class="gr"/></g><g class="pl grass"><path d="M216.8 173.8L225.9 172.1M216.8 173.8L224.2 179.4M216.8 173.8L217.7 182.2M216.8 173.8L212.3 181.9M216.8 173.8L209.5 177.9M216.8 173.8L208.7 171.6M216.8 173.8L214 167.6M216.8 173.8L217.2 167.5M216.8 173.8L221.4 169.1" class="gr"/></g><g class="pl grass"><path d="M246.8 178.7L254.1 178.3M246.8 178.7L252.4 183.3M246.8 178.7L247.5 187.3M246.8 178.7L244.1 185.3M246.8 178.7L237.9 181.3M246.8 178.7L239.8 175.7M246.8 178.7L244.7 172.8M246.8 178.7L246.8 170M246.8 178.7L251.6 174.4" class="gr"/></g><g class="pl grass"><path d="M276.6 178.9L284 179M276.6 178.9L282.2 182.2M276.6 178.9L276.7 186.7M276.6 178.9L272.4 183.9M276.6 178.9L270.8 181.7M276.6 178.9L270.4 176.9M276.6 178.9L272.2 172.7M276.6 178.9L277.2 172.5M276.6 178.9L282.5 171.7" class="gr"/></g><g class="pl grass"><path d="M300.2 174.1L308.1 173.8M300.2 174.1L306.4 177.8M300.2 174.1L302.8 181.7M300.2 174.1L294.9 180.4M300.2 174.1L293.3 175.5M300.2 174.1L292.2 172.8M300.2 174.1L296.1 167.1M300.2 174.1L301.2 165.9M300.2 174.1L307.7 168.8" class="gr"/></g><g class="pl grass"><path d="M329.7 173.5L336.6 174.4M329.7 173.5L335.9 177.3M329.7 173.5L332.6 181.7M329.7 173.5L325.3 179.3M329.7 173.5L323.9 176.6M329.7 173.5L323.3 171.9M329.7 173.5L325.4 166.6M329.7 173.5L330.2 167M329.7 173.5L334.9 169.8" class="gr"/></g><g class="pl grass"><path d="M356.4 171.9L363 171.5M356.4 171.9L362.1 176.4M356.4 171.9L357 179.9M356.4 171.9L351.1 178.4M356.4 171.9L348.5 173.8M356.4 171.9L348 169M356.4 171.9L352.3 163.5M356.4 171.9L358.6 163.7M356.4 171.9L362.6 165.6" class="gr"/></g><g class="pl grass"><path d="M386.6 170.3L393.3 169.1M386.6 170.3L393.5 175.1M386.6 170.3L388.3 176.6M386.6 170.3L381.8 176.8M386.6 170.3L381 173.6M386.6 170.3L379.3 168.8M386.6 170.3L383.1 161.7M386.6 170.3L388.1 163.4M386.6 170.3L392.2 165.4" class="gr"/></g><g class="pl grass"><path d="M414 169.1L422.9 169.4M414 169.1L418.6 173.8M414 169.1L415.1 175.9M414 169.1L409.6 175.5M414 169.1L405.3 170.6M414 169.1L406.8 167.7M414 169.1L411.3 161.9M414 169.1L415.1 161.5M414 169.1L421.6 164" class="gr"/></g><g class="pl grass"><path d="M444.4 178.7L451 179M444.4 178.7L449.6 184.3M444.4 178.7L447.6 187.5M444.4 178.7L441.7 186.4M444.4 178.7L435.9 181.9M444.4 178.7L437.7 176.6M444.4 178.7L440.4 173M444.4 178.7L445.9 171.4M444.4 178.7L450.2 174.7" class="gr"/></g><g class="pl grass"><path d="M22.2 199.5L31 201.2M22.2 199.5L27.7 205.6M22.2 199.5L23.7 206.1M22.2 199.5L17.4 205.7M22.2 199.5L16.3 203M22.2 199.5L13.8 197.9M22.2 199.5L19.8 193M22.2 199.5L24.3 192.5M22.2 199.5L29.5 194.2" class="gr"/></g><g class="pl grass"><path d="M53.5 205L59.8 204.7M53.5 205L59.7 210.3M53.5 205L55.7 212.2M53.5 205L50.7 210.8M53.5 205L46.6 208.1M53.5 205L45.4 202.2M53.5 205L48.5 197.1M53.5 205L56.2 196.2M53.5 205L60.3 200.1" class="gr"/></g><g class="pl grass"><path d="M80.4 205L88.6 204.5M80.4 205L86.1 210.5M80.4 205L82.1 211.3M80.4 205L77.8 211.9M80.4 205L72.2 207.7M80.4 205L73.9 201.9M80.4 205L78 198.3M80.4 205L82.1 198.7M80.4 205L87.4 200.3" class="gr"/></g><g class="pl grass"><path d="M113.5 206L122.4 206.6M113.5 206L119.3 211.8M113.5 206L115.8 213.6M113.5 206L109 211.4M113.5 206L105.6 207.2M113.5 206L107.5 204.1M113.5 206L109.8 200.2M113.5 206L115.6 197.1M113.5 206L120.6 201.8" class="gr"/></g><g class="pl grass"><path d="M134.6 198.1L142.7 198.7M134.6 198.1L139.9 203.4M134.6 198.1L134.8 205.1M134.6 198.1L131.6 204.5M134.6 198.1L125.9 200.8M134.6 198.1L126.5 196.3M134.6 198.1L131.8 191.7M134.6 198.1L134.6 190M134.6 198.1L142.3 193.2" class="gr"/></g><g class="pl grass"><path d="M166.7 201.2L174.7 200.9M166.7 201.2L171.5 206.7M166.7 201.2L168.9 209.1M166.7 201.2L162.2 206.4M166.7 201.2L161 204.6M166.7 201.2L159.1 198.2M166.7 201.2L162.6 195.7M166.7 201.2L168.5 193M166.7 201.2L173.7 196.2" class="gr"/></g><g class="pl grass"><path d="M186.7 201.8L196 203.1M186.7 201.8L194 207.1M186.7 201.8L187.8 211M186.7 201.8L183.3 209.6M186.7 201.8L179.1 203.5M186.7 201.8L180 200.5M186.7 201.8L182.7 196.6M186.7 201.8L187 193.6M186.7 201.8L192.4 195.3" class="gr"/></g><g class="pl grass"><path d="M222.8 205.2L231.3 206.2M222.8 205.2L228.9 212.3M222.8 205.2L224 214.4M222.8 205.2L220.5 211.4M222.8 205.2L216.8 208.6M222.8 205.2L215.4 202.9M222.8 205.2L219.1 197.4M222.8 205.2L222.9 197.6M222.8 205.2L228.6 200.5" class="gr"/></g><g class="pl grass"><path d="M243.4 203L251.9 202.5M243.4 203L250.6 209M243.4 203L243.4 209.5M243.4 203L238.4 209.9M243.4 203L237.4 205.8M243.4 203L236.4 200.5M243.4 203L239.6 194.6M243.4 203L244.3 195.8M243.4 203L249.9 197.5" class="gr"/></g><g class="pl grass"><path d="M279.5 202.8L286.8 202.2M279.5 202.8L284.8 208.7M279.5 202.8L282.1 209.9M279.5 202.8L276.1 210.4M279.5 202.8L273.3 206.3M279.5 202.8L271.8 201.3M279.5 202.8L276.9 195.2M279.5 202.8L280.7 193.6M279.5 202.8L284.3 197.1" class="gr"/></g><g class="pl grass"><path d="M307.7 197.1L315.1 197.8M307.7 197.1L313.9 200.5M307.7 197.1L309.2 204.4M307.7 197.1L304.5 202.6M307.7 197.1L299.3 201.2M307.7 197.1L300.4 194.6M307.7 197.1L303.2 191.5M307.7 197.1L310.7 189.1M307.7 197.1L312.7 192.9" class="gr"/></g><g class="pl grass"><path d="M330.7 204.8L338.9 204.6M330.7 204.8L336.2 211.1M330.7 204.8L331.5 211.2M330.7 204.8L327.9 213M330.7 204.8L322.3 208.2M330.7 204.8L322.6 200.5M330.7 204.8L325.6 196.8M330.7 204.8L333.2 196M330.7 204.8L336.6 198.3" class="gr"/></g><g class="pl grass"><path d="M359.1 206.7L365.9 208.1M359.1 206.7L364.7 211.1M359.1 206.7L360.4 213.8M359.1 206.7L355.3 212.3M359.1 206.7L352.2 210.3M359.1 206.7L351.7 205.4M359.1 206.7L355.8 198.2M359.1 206.7L359.4 200.4M359.1 206.7L366.9 201.7" class="gr"/></g><g class="pl grass"><path d="M389.2 198.4L398.3 197.4M389.2 198.4L393.3 203.3M389.2 198.4L391.5 205.7M389.2 198.4L385.6 206.2M389.2 198.4L381.1 201.8M389.2 198.4L381.4 196.7M389.2 198.4L386.4 190.3M389.2 198.4L389.3 191.7M389.2 198.4L395.2 193.9" class="gr"/></g><g class="pl grass"><path d="M414.4 201.8L423.8 202.1M414.4 201.8L421.1 206.3M414.4 201.8L416.6 209.5M414.4 201.8L410.5 207.3M414.4 201.8L406.4 204.8M414.4 201.8L405.8 200.5M414.4 201.8L410.3 195.1M414.4 201.8L416.3 193.2M414.4 201.8L419.5 195.7" class="gr"/></g><g class="pl grass"><path d="M438.5 200.9L444.8 200.5M438.5 200.9L444.8 205.3M438.5 200.9L439.5 210M438.5 200.9L434.8 208M438.5 200.9L429.5 203.3M438.5 200.9L430.3 196.1M438.5 200.9L434.6 195.2M438.5 200.9L440.7 194.7M438.5 200.9L444.9 195.2" class="gr"/></g><g class="pl forb liat"><circle cx="252.4" cy="227.8" r="2.8" class="ls"/><path d="M255.9 227.8L258.2 227.8" class="lt"/><path d="M254.9 230.2L256.5 231.8" class="lt"/><path d="M252.4 231.3L252.4 233.5" class="lt"/><path d="M249.9 230.2L248.4 231.8" class="lt"/><path d="M248.9 227.8L246.7 227.8" class="lt"/><path d="M249.9 225.3L248.4 223.7" class="lt"/><path d="M252.4 224.3L252.4 222" class="lt"/><path d="M254.9 225.3L256.5 223.7" class="lt"/></g><g class="pl forb"><circle cx="423.4" cy="226" r="5" class="fb"/><circle cx="423.4" cy="226" r="2.1" class="fd"/></g><g class="pl forb"><path d="M257.3 236.6L267.3 236.6M259.8 232.3L264.8 240.9M264.8 232.3L259.8 240.9" class="fs"/></g><g class="pl forb"><circle cx="83.6" cy="227" r="5" class="fb"/><circle cx="85.4" cy="228.8" r="1.3" class="fd"/><circle cx="81.9" cy="228.8" r="1.3" class="fd"/><circle cx="81.9" cy="225.3" r="1.3" class="fd"/><circle cx="85.4" cy="225.3" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="237.5" cy="231.3" r="2.8" class="ls"/><path d="M241 231.3L243.3 231.3" class="lt"/><path d="M240 233.8L241.6 235.4" class="lt"/><path d="M237.5 234.8L237.5 237.1" class="lt"/><path d="M235.1 233.8L233.5 235.4" class="lt"/><path d="M234 231.3L231.8 231.3" class="lt"/><path d="M235.1 228.8L233.5 227.3" class="lt"/><path d="M237.5 227.8L237.5 225.6" class="lt"/><path d="M240 228.8L241.6 227.3" class="lt"/></g><g class="pl forb"><path d="M108.6 229.1L118.6 229.1M111.1 224.7L116.1 233.4M116.1 224.7L111.1 233.4" class="fs"/></g><g class="pl forb"><circle cx="49.8" cy="221.8" r="5" class="fb"/><circle cx="51.6" cy="223.5" r="1.3" class="fd"/><circle cx="48.1" cy="223.5" r="1.3" class="fd"/><circle cx="48.1" cy="220" r="1.3" class="fd"/><circle cx="51.6" cy="220" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="171.8" cy="222.9" r="5" class="fb"/><circle cx="171.8" cy="222.9" r="2.1" class="fd"/></g><g class="pl forb liat"><circle cx="442" cy="225.3" r="2.8" class="ls"/><path d="M445.5 225.3L447.7 225.3" class="lt"/><path d="M444.4 227.7L446 229.3" class="lt"/><path d="M442 228.8L442 231" class="lt"/><path d="M439.5 227.7L437.9 229.3" class="lt"/><path d="M438.5 225.3L436.2 225.3" class="lt"/><path d="M439.5 222.8L437.9 221.2" class="lt"/><path d="M442 221.8L442 219.5" class="lt"/><path d="M444.4 222.8L446 221.2" class="lt"/></g><g class="pl forb"><circle cx="143.1" cy="235.7" r="5" class="fb"/><circle cx="144.9" cy="237.4" r="1.3" class="fd"/><circle cx="141.4" cy="237.4" r="1.3" class="fd"/><circle cx="141.4" cy="233.9" r="1.3" class="fd"/><circle cx="144.9" cy="233.9" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="344.2" cy="225.2" r="5" class="fb"/><circle cx="344.2" cy="225.2" r="2.1" class="fd"/></g><g class="pl forb"><path d="M377.2 232.5L387.2 232.5M379.7 228.2L384.7 236.8M384.7 228.2L379.7 236.8" class="fs"/></g><g class="pl forb liat"><circle cx="191.9" cy="232.6" r="2.8" class="ls"/><path d="M195.4 232.6L197.6 232.6" class="lt"/><path d="M194.4 235.1L195.9 236.6" class="lt"/><path d="M191.9 236.1L191.9 238.3" class="lt"/><path d="M189.4 235.1L187.8 236.6" class="lt"/><path d="M188.4 232.6L186.1 232.6" class="lt"/><path d="M189.4 230.1L187.8 228.5" class="lt"/><path d="M191.9 229.1L191.9 226.8" class="lt"/><path d="M194.4 230.1L195.9 228.5" class="lt"/></g><g class="pl forb"><circle cx="130.1" cy="225.3" r="5" class="fb"/><circle cx="130.1" cy="225.3" r="2.1" class="fd"/></g><g class="pl forb"><path d="M397.7 228.8L407.7 228.8M400.2 224.4L405.2 233.1M405.2 224.4L400.2 233.1" class="fs"/></g><g class="pl forb"><circle cx="411.6" cy="223.5" r="5" class="fb"/><circle cx="413.4" cy="225.3" r="1.3" class="fd"/><circle cx="409.9" cy="225.3" r="1.3" class="fd"/><circle cx="409.9" cy="221.8" r="1.3" class="fd"/><circle cx="413.4" cy="221.8" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="83.3" cy="221" r="2.8" class="ls"/><path d="M86.8 221L89.1 221" class="lt"/><path d="M85.8 223.5L87.4 225.1" class="lt"/><path d="M83.3 224.5L83.3 226.8" class="lt"/><path d="M80.8 223.5L79.2 225.1" class="lt"/><path d="M79.8 221L77.6 221" class="lt"/><path d="M80.8 218.6L79.2 217" class="lt"/><path d="M83.3 217.5L83.3 215.3" class="lt"/><path d="M85.8 218.6L87.4 217" class="lt"/></g><g class="pl forb"><path d="M338.6 231.2L348.6 231.2M341.1 226.9L346.1 235.6M346.1 226.9L341.1 235.6" class="fs"/></g><g class="pl forb"><circle cx="28.2" cy="220.9" r="5" class="fb"/><circle cx="29.9" cy="222.6" r="1.3" class="fd"/><circle cx="26.4" cy="222.6" r="1.3" class="fd"/><circle cx="26.4" cy="219.1" r="1.3" class="fd"/><circle cx="29.9" cy="219.1" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="380" cy="229.9" r="5" class="fb"/><circle cx="380" cy="229.9" r="2.1" class="fd"/></g><g class="pl forb liat"><circle cx="400.4" cy="220.8" r="2.8" class="ls"/><path d="M403.9 220.8L406.2 220.8" class="lt"/><path d="M402.9 223.3L404.5 224.9" class="lt"/><path d="M400.4 224.3L400.4 226.5" class="lt"/><path d="M397.9 223.3L396.3 224.9" class="lt"/><path d="M396.9 220.8L394.7 220.8" class="lt"/><path d="M397.9 218.3L396.3 216.7" class="lt"/><path d="M400.4 217.3L400.4 215" class="lt"/><path d="M402.9 218.3L404.5 216.7" class="lt"/></g><g class="pl forb"><circle cx="278.4" cy="222.3" r="5" class="fb"/><circle cx="280.2" cy="224.1" r="1.3" class="fd"/><circle cx="276.6" cy="224.1" r="1.3" class="fd"/><circle cx="276.6" cy="220.6" r="1.3" class="fd"/><circle cx="280.2" cy="220.6" r="1.3" class="fd"/></g><g class="pl forb"><circle cx="335.5" cy="232.2" r="5" class="fb"/><circle cx="335.5" cy="232.2" r="2.1" class="fd"/></g><g class="pl forb"><path d="M283.4 224.4L293.4 224.4M285.9 220.1L290.9 228.8M290.9 220.1L285.9 228.8" class="fs"/></g><g class="pl forb liat"><circle cx="434" cy="222.2" r="2.8" class="ls"/><path d="M437.5 222.2L439.7 222.2" class="lt"/><path d="M436.5 224.7L438 226.3" class="lt"/><path d="M434 225.7L434 228" class="lt"/><path d="M431.5 224.7L429.9 226.3" class="lt"/><path d="M430.5 222.2L428.2 222.2" class="lt"/><path d="M431.5 219.7L429.9 218.2" class="lt"/><path d="M434 218.7L434 216.5" class="lt"/><path d="M436.5 219.7L438 218.2" class="lt"/></g><g class="pl forb"><circle cx="51.7" cy="233.7" r="5" class="fb"/><circle cx="51.7" cy="233.7" r="2.1" class="fd"/></g><g class="pl forb"><path d="M59.1 221.3L69.1 221.3M61.6 217L66.6 225.7M66.6 217L61.6 225.7" class="fs"/></g><g class="pl forb"><circle cx="222.8" cy="233" r="5" class="fb"/><circle cx="224.6" cy="234.7" r="1.3" class="fd"/><circle cx="221.1" cy="234.7" r="1.3" class="fd"/><circle cx="221.1" cy="231.2" r="1.3" class="fd"/><circle cx="224.6" cy="231.2" r="1.3" class="fd"/></g><g class="pl forb liat"><circle cx="409.4" cy="234.4" r="2.8" class="ls"/><path d="M412.9 234.4L415.1 234.4" class="lt"/><path d="M411.8 236.9L413.4 238.5" class="lt"/><path d="M409.4 237.9L409.4 240.2" class="lt"/><path d="M406.9 236.9L405.3 238.5" class="lt"/><path d="M405.9 234.4L403.6 234.4" class="lt"/><path d="M406.9 231.9L405.3 230.4" class="lt"/><path d="M409.4 230.9L409.4 228.7" class="lt"/><path d="M411.8 231.9L413.4 230.4" class="lt"/></g><g class="pl forb"><path d="M49 232.9L59 232.9M51.5 228.5L56.5 237.2M56.5 228.5L51.5 237.2" class="fs"/></g><g class="pl forb"><circle cx="110" cy="156" r="5" class="fb"/><circle cx="110" cy="156" r="2.1" class="fd"/></g><g class="pl forb"><circle cx="250" cy="156" r="5" class="fb"/><circle cx="250" cy="156" r="2.1" class="fd"/></g><g class="pl forb"><circle cx="390" cy="156" r="5" class="fb"/><circle cx="390" cy="156" r="2.1" class="fd"/></g></g><path d="M10 246H470" class="dim"/><rect x="251" y="270" width="215" height="19" class="tagst"/><text x="462" y="284" class="lb sm" text-anchor="end">KEEP 18 IN. LOW AT CURB</text><rect x="10" y="10" width="460" height="320" class="pline"/><g class="na" transform="translate(446 66) scale(0.7)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g></svg>
+        <figcaption>
+          <span class="no">Plan 2 · Minneapolis</span>
+          <h3 class="h3">Longfellow boulevard prairie</h3>
+          <p>The strip between sidewalk and curb, the hardest ground in the city. Kept low at the curb so car doors open, tall enough at the walk to stop the shortcut dogs.</p>
+          <dl><div><dt>Area</dt><dd class="tnum">420 sf</dd></div><div><dt>Plants</dt><dd class="tnum">380</dd></div><div><dt>On site</dt><dd class="tnum">3 days</dd></div><div><dt>Built</dt><dd class="tnum">2024</dd></div></dl>
+        </figcaption>
+      </figure>
+      <figure class="sheet rv">
+        <svg class="sheetplan" viewBox="0 0 480 340" role="img" aria-labelledby="g3-t g3-d" xmlns="http://www.w3.org/2000/svg"><title id="g3-t">Shade woodland in Edina</title><desc id="g3-d">A back yard under two existing sugar maples, drawn as large dashed canopy circles. A crushed granite path curves through a carpet of Pennsylvania sedge with clusters of ferns and wild ginger.</desc><defs>
+<pattern id="g3h" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" class="ht"/></pattern>
+<pattern id="g3s" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" class="st"/><circle cx="8" cy="8" r=".9" class="st"/></pattern>
+<pattern id="g3w" width="18" height="9" patternUnits="userSpaceOnUse"><path d="M0 6 q4.5 -4 9 0 t9 0" class="wv"/></pattern>
+<pattern id="g3g" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" class="gv"/><circle cx="4.5" cy="4.2" r=".5" class="gv"/></pattern>
+</defs><rect x="10" y="10" width="460" height="320" class="ground"/><path d="M10 10H470V330H10Z" fill="url(#g3s)" class="meadow on shade"/><circle cx="140" cy="120" r="120" class="ghost on"/><circle cx="360" cy="230" r="140" class="ghost on"/><path d="M60 300 C80 210 200 200 240 170 S380 80 440 60" class="gravel" fill="none"/><path d="M60 300 C80 210 200 200 240 170 S380 80 440 60" class="gravelx" fill="none"/><g class="plants"><g class="pl tree"><path d="M164.3 118.6 A8.1 8.1 0 0 1 162.7 131.5 A7 7 0 0 1 154.7 139.4 A7.6 7.6 0 0 1 143.9 145.3 A7.4 7.4 0 0 1 132 144.2 A8.4 8.4 0 0 1 121.4 135.8 A7.1 7.1 0 0 1 115.7 125.9 A7.4 7.4 0 0 1 114.7 114 A7 7 0 0 1 121.1 104.8 A8.8 8.8 0 0 1 132.4 96.3 A6 6 0 0 1 142.1 95.3 A7.9 7.9 0 0 1 154.4 98.4 A7.3 7.3 0 0 1 161.3 107.8 A6.9 6.9 0 0 1 164.3 118.6Z" class="cnp"/><circle cx="140" cy="120" r="14.3" class="cnp2"/><path d="M135 120h10M140 115v10" class="tk"/></g><g class="pl tree"><path d="M388.3 228.6 A9.1 9.1 0 0 1 386.7 243.2 A9.2 9.2 0 0 1 376.7 254.2 A7.8 7.8 0 0 1 364.9 258.6 A10.1 10.1 0 0 1 348.6 256.7 A8.9 8.9 0 0 1 336.7 248.5 A7.4 7.4 0 0 1 333 237.1 A9.1 9.1 0 0 1 332.9 222.4 A7 7 0 0 1 336.9 211.8 A10.5 10.5 0 0 1 350.6 201.9 A8.9 8.9 0 0 1 364.9 202.1 A6.6 6.6 0 0 1 374.8 206.1 A10.2 10.2 0 0 1 385.6 218.4 A6.5 6.5 0 0 1 388.3 228.6Z" class="cnp"/><circle cx="360" cy="230" r="16.5" class="cnp2"/><path d="M355 230h10M360 225v10" class="tk"/></g><g class="pl grass"><path d="M135.9 224.1L142.9 224.6M135.9 224.1L140.5 227.1M135.9 224.1L137.6 229.3M135.9 224.1L132.9 228.4M135.9 224.1L130.8 225.9M135.9 224.1L130.1 222.5M135.9 224.1L133.5 218.2M135.9 224.1L135.8 218.5M135.9 224.1L140.6 218.9" class="gr"/></g><g class="pl grass"><path d="M373.8 259.4L380.5 260.2M373.8 259.4L378.2 264.6M373.8 259.4L375.7 266.1M373.8 259.4L370.5 265.2M373.8 259.4L368.2 261.3M373.8 259.4L368.1 257.6M373.8 259.4L370.9 255.1M373.8 259.4L375.8 252.8M373.8 259.4L379.6 256.2" class="gr"/></g><g class="pl grass"><path d="M263.4 242.5L269.9 241.6M263.4 242.5L267.6 245.9M263.4 242.5L265.2 248.5M263.4 242.5L260.9 248M263.4 242.5L257.8 244.3M263.4 242.5L257.4 241.3M263.4 242.5L260.2 238.1M263.4 242.5L263.7 236.7M263.4 242.5L267.6 237.6" class="gr"/></g><g class="pl grass"><path d="M436 137.8L443.1 138.4M436 137.8L440.5 140.4M436 137.8L436.3 144.7M436 137.8L433.1 142.2M436 137.8L429.5 140.4M436 137.8L430 134.5M436 137.8L431.8 132.2M436 137.8L436.8 131.2M436 137.8L440.8 132.4" class="gr"/></g><g class="pl grass"><path d="M284.7 235L291.1 234.3M284.7 235L289.4 239.3M284.7 235L286.2 241.5M284.7 235L282.2 240.1M284.7 235L278.9 238.1M284.7 235L279.4 234M284.7 235L280.6 230.1M284.7 235L285.9 228.9M284.7 235L288.5 230.4" class="gr"/></g><g class="pl grass"><path d="M172.2 51.1L179.4 49.6M172.2 51.1L177 54M172.2 51.1L173.9 57.2M172.2 51.1L170.1 56.7M172.2 51.1L165.8 53.8M172.2 51.1L166.5 50.2M172.2 51.1L168.6 44.8M172.2 51.1L173.3 45.1M172.2 51.1L176.7 47.7" class="gr"/></g><g class="pl grass"><path d="M37.7 170.4L44.3 171.5M37.7 170.4L43.1 174.1M37.7 170.4L37.9 175.9M37.7 170.4L34.7 175.3M37.7 170.4L32.7 172.8M37.7 170.4L32.1 169.1M37.7 170.4L33.9 165.9M37.7 170.4L37.8 163.6M37.7 170.4L41.6 167.4" class="gr"/></g><g class="pl grass"><path d="M358.3 79.6L364.6 79.6M358.3 79.6L362.8 82.9M358.3 79.6L359.3 84.7M358.3 79.6L355.1 83.7M358.3 79.6L353 80.8M358.3 79.6L352.7 78M358.3 79.6L354.9 75.7M358.3 79.6L359 73.7M358.3 79.6L364.6 75.8" class="gr"/></g><g class="pl grass"><path d="M42.8 180.2L49.6 179.2M42.8 180.2L48.6 184.4M42.8 180.2L43.6 185.4M42.8 180.2L41.1 185.5M42.8 180.2L37.7 181.3M42.8 180.2L37.3 178.3M42.8 180.2L39 174.5M42.8 180.2L43.2 173.6M42.8 180.2L48.6 176" class="gr"/></g><g class="pl grass"><path d="M248.6 292.8L254.9 292.6M248.6 292.8L253.7 297.5M248.6 292.8L248.7 298M248.6 292.8L246.3 298.5M248.6 292.8L242.5 294.1M248.6 292.8L241.6 290.8M248.6 292.8L245.7 288.6M248.6 292.8L248.6 287.8M248.6 292.8L252.8 289.8" class="gr"/></g><g class="pl grass"><path d="M333.4 277L340.1 278.3M333.4 277L338.4 281M333.4 277L333.6 283.6M333.4 277L330.5 283.1M333.4 277L328.4 279.7M333.4 277L328.2 273.8M333.4 277L329.4 271.4M333.4 277L334.1 272.1M333.4 277L336.9 272.7" class="gr"/></g><g class="pl grass"><path d="M167.4 297.7L174.4 297M167.4 297.7L171.4 302.1M167.4 297.7L167.2 304.4M167.4 297.7L164.7 302.5M167.4 297.7L160.8 300.2M167.4 297.7L162.4 295.8M167.4 297.7L164.1 292.6M167.4 297.7L167.7 291.4M167.4 297.7L171.8 292.3" class="gr"/></g><g class="pl grass"><path d="M101.2 54L106.9 54.2M101.2 54L105.2 58.6M101.2 54L102.4 60.9M101.2 54L98.5 60.2M101.2 54L95.5 55.7M101.2 54L96.9 51.5M101.2 54L99.3 49.2M101.2 54L102.8 49M101.2 54L105.1 49.3" class="gr"/></g><g class="pl grass"><path d="M424 99.2L430.4 99.1M424 99.2L429.1 102.6M424 99.2L426.1 104.8M424 99.2L420.6 103.8M424 99.2L419.5 101.4M424 99.2L418.6 96.7M424 99.2L421.6 92.9M424 99.2L424.1 92M424 99.2L429.9 95.7" class="gr"/></g><g class="pl grass"><path d="M383.1 223L389.6 223.5M383.1 223L387.2 226.7M383.1 223L385.2 229.3M383.1 223L380.4 227.2M383.1 223L377 224.8M383.1 223L376.7 220.6M383.1 223L381 217.5M383.1 223L384.9 217.1M383.1 223L387.8 219.3" class="gr"/></g><g class="pl grass"><path d="M427.1 153.8L432.7 154.8M427.1 153.8L432.2 158.7M427.1 153.8L427.6 159.6M427.1 153.8L424.9 159.5M427.1 153.8L420.7 156.4M427.1 153.8L420.5 150.5M427.1 153.8L424 148.7M427.1 153.8L428.4 147.2M427.1 153.8L430.6 149.6" class="gr"/></g><g class="pl grass"><path d="M87 118.8L94.2 118.2M87 118.8L93 122.7M87 118.8L88.4 124M87 118.8L83.6 122.7M87 118.8L82.4 121.3M87 118.8L81.2 117.8M87 118.8L83.8 114.5M87 118.8L86.9 112.2M87 118.8L90.5 114.6" class="gr"/></g><g class="pl grass"><path d="M268.3 282L274.9 282.4M268.3 282L273.2 286.8M268.3 282L268.4 287.3M268.3 282L266.1 288M268.3 282L262.5 284.1M268.3 282L263.5 279.6M268.3 282L265.7 276.6M268.3 282L269.1 276.5M268.3 282L272.7 277.5" class="gr"/></g><g class="pl grass"><path d="M263.3 288.8L269.9 288.2M263.3 288.8L268.9 292.1M263.3 288.8L265.5 295.4M263.3 288.8L259.7 293M263.3 288.8L258 290M263.3 288.8L258.4 287.4M263.3 288.8L260.6 284.4M263.3 288.8L264.9 282.7M263.3 288.8L268.3 284.3" class="gr"/></g><g class="pl grass"><path d="M124.8 120.9L129.7 120.6M124.8 120.9L128.2 124.7M124.8 120.9L127.1 127.3M124.8 120.9L121.2 125.6M124.8 120.9L119.9 122.8M124.8 120.9L118.7 119.9M124.8 120.9L121.7 116.6M124.8 120.9L126.4 116.2M124.8 120.9L129.7 116.2" class="gr"/></g><g class="pl grass"><path d="M346.6 55.2L352.8 55.8M346.6 55.2L351.9 60.1M346.6 55.2L346.9 61.6M346.6 55.2L343 60.2M346.6 55.2L340.1 57.5M346.6 55.2L341.2 53M346.6 55.2L342.1 50.1M346.6 55.2L347.2 49.3M346.6 55.2L351 50.8" class="gr"/></g><g class="pl grass"><path d="M197.2 267.5L203.5 267.8M197.2 267.5L201.3 271.9M197.2 267.5L198.3 274.2M197.2 267.5L193.3 273M197.2 267.5L191.1 268.7M197.2 267.5L192.2 265.6M197.2 267.5L193.7 262.7M197.2 267.5L198.4 260.5M197.2 267.5L200.9 263.1" class="gr"/></g><g class="pl grass"><path d="M343.7 158L349 158.8M343.7 158L347.9 162.3M343.7 158L344.5 163M343.7 158L340.5 164.1M343.7 158L337.7 159.6M343.7 158L339 156.5M343.7 158L341.2 152.6M343.7 158L345.4 151.8M343.7 158L349 153.3" class="gr"/></g><g class="pl grass"><path d="M81.1 304L88.3 302.8M81.1 304L85.5 308.1M81.1 304L81.1 310.2M81.1 304L78.5 308.4M81.1 304L74.8 305.5M81.1 304L76.1 302.8M81.1 304L77.3 297.9M81.1 304L83 298.3M81.1 304L85.5 298.7" class="gr"/></g><g class="pl grass"><path d="M111.3 237.4L118.6 237.4M111.3 237.4L117.1 241.1M111.3 237.4L111.8 242.4M111.3 237.4L108.4 242.2M111.3 237.4L104.3 239.4M111.3 237.4L105.7 235M111.3 237.4L108.8 232.6M111.3 237.4L112.2 232.3M111.3 237.4L115.5 234.5" class="gr"/></g><g class="pl grass"><path d="M251.7 76.4L256.7 76.6M251.7 76.4L257.3 79.6M251.7 76.4L252.3 83.5M251.7 76.4L247.5 82.5M251.7 76.4L246 79.5M251.7 76.4L246.8 74.3M251.7 76.4L248.3 72.1M251.7 76.4L252.9 69.7M251.7 76.4L256.8 72.8" class="gr"/></g><g class="pl grass"><path d="M57.5 234.8L62.8 234.8M57.5 234.8L61.5 238.5M57.5 234.8L59 240.6M57.5 234.8L54.5 239M57.5 234.8L52.4 236.8M57.5 234.8L51.2 232M57.5 234.8L53.6 229.4M57.5 234.8L58.3 229.4M57.5 234.8L61.9 230.4" class="gr"/></g><g class="pl grass"><path d="M372.5 199.7L379.2 198.4M372.5 199.7L377 203.7M372.5 199.7L374.2 205.5M372.5 199.7L369.4 204.3M372.5 199.7L366.3 203.1M372.5 199.7L367.7 198.1M372.5 199.7L370.7 194.9M372.5 199.7L373.3 193.4M372.5 199.7L378.3 195.5" class="gr"/></g><g class="pl grass"><path d="M100 190.3L106 191.2M100 190.3L104.3 194.5M100 190.3L100.7 197.5M100 190.3L97 196.3M100 190.3L93.5 193.1M100 190.3L93.7 187.2M100 190.3L97.7 184.4M100 190.3L101.8 185.3M100 190.3L104 187.1" class="gr"/></g><g class="pl grass"><path d="M275.9 224.6L282.8 224M275.9 224.6L280.2 227.9M275.9 224.6L277.8 230.7M275.9 224.6L273.6 229.1M275.9 224.6L269.3 227.6M275.9 224.6L269.7 222.4M275.9 224.6L273.3 220.3M275.9 224.6L277.1 219.3M275.9 224.6L280.2 219.8" class="gr"/></g><g class="pl grass"><path d="M315.9 27.1L320.7 28M315.9 27.1L320.7 30.2M315.9 27.1L316.2 33.8M315.9 27.1L312.4 32M315.9 27.1L310.7 28.1M315.9 27.1L311.5 24.6M315.9 27.1L311.7 21.8M315.9 27.1L317.7 20.8M315.9 27.1L320.8 22.1" class="gr"/></g><g class="pl grass"><path d="M246.5 84.2L253.7 83.1M246.5 84.2L251.2 86.9M246.5 84.2L248.1 91.1M246.5 84.2L242.3 89.8M246.5 84.2L241.8 85.7M246.5 84.2L241.7 81.9M246.5 84.2L244.1 77.4M246.5 84.2L246.5 77.5M246.5 84.2L250.1 80.5" class="gr"/></g><g class="pl grass"><path d="M401.9 153.2L408.2 152.7M401.9 153.2L407.1 156.2M401.9 153.2L402.7 160.2M401.9 153.2L399.4 159.8M401.9 153.2L397.2 155.8M401.9 153.2L396.8 151.7M401.9 153.2L397.8 148.2M401.9 153.2L402.7 147.9M401.9 153.2L405.9 149.9" class="gr"/></g><g class="pl grass"><path d="M318.3 305.5L324.3 305.5M318.3 305.5L322.9 309.1M318.3 305.5L319.4 310.8M318.3 305.5L315.5 311.5M318.3 305.5L313.6 307.3M318.3 305.5L311.5 304.1M318.3 305.5L314.5 299.8M318.3 305.5L319.7 299.3M318.3 305.5L322.9 301.2" class="gr"/></g><g class="pl grass"><path d="M203.2 174.8L208.3 175.7M203.2 174.8L209.2 178.8M203.2 174.8L203.3 181.7M203.2 174.8L200 178.9M203.2 174.8L198.2 176.2M203.2 174.8L198 172.1M203.2 174.8L200.1 169.5M203.2 174.8L203.6 168.6M203.2 174.8L208.3 171.7" class="gr"/></g><g class="pl grass"><path d="M213.6 131.1L219.2 130.4M213.6 131.1L218.5 136.4M213.6 131.1L214.8 136.5M213.6 131.1L210.5 137.3M213.6 131.1L208.8 133.3M213.6 131.1L208.7 129.7M213.6 131.1L210.2 126.7M213.6 131.1L215.3 124.1M213.6 131.1L217.5 127" class="gr"/></g><g class="pl grass"><path d="M277.6 32.7L283.8 31.7M277.6 32.7L282 36.3M277.6 32.7L278.6 37.5M277.6 32.7L275.3 37.5M277.6 32.7L273 34.9M277.6 32.7L273.2 30.4M277.6 32.7L274.7 28.2M277.6 32.7L277.9 25.9M277.6 32.7L283.9 29.1" class="gr"/></g><g class="pl grass"><path d="M167 182.2L172.1 182M167 182.2L172.1 186.1M167 182.2L168.5 188.8M167 182.2L164.3 187.1M167 182.2L160.9 183.4M167 182.2L160.2 180.4M167 182.2L163.8 176.7M167 182.2L168.2 175.2M167 182.2L172 178.8" class="gr"/></g><g class="pl grass"><path d="M181.8 249.5L188.1 250.3M181.8 249.5L185.9 254.1M181.8 249.5L183 255M181.8 249.5L179.6 254.3M181.8 249.5L175.7 250.6M181.8 249.5L176.5 248.5M181.8 249.5L178.2 243.6M181.8 249.5L183.9 243.1M181.8 249.5L186 245.3" class="gr"/></g><g class="pl grass"><path d="M433.3 137.2L438.3 137.5M433.3 137.2L438 141.1M433.3 137.2L433.4 144.4M433.3 137.2L429.9 141.8M433.3 137.2L426.3 138.6M433.3 137.2L427.4 136.1M433.3 137.2L430.6 132.2M433.3 137.2L433.8 130.4M433.3 137.2L437.6 132.6" class="gr"/></g><g class="pl shrub fern"><circle cx="32.6" cy="158.8" r="9" class="sh"/><path d="M35.3 159.4L40.1 160.4" class="sp"/><path d="M34.1 161.1L36.8 165.2" class="sp"/><path d="M32.1 161.5L31.1 166.3" class="sp"/><path d="M30.4 160.3L26.2 163.1" class="sp"/><path d="M30 158.3L25.1 157.3" class="sp"/><path d="M31.1 156.6L28.4 152.5" class="sp"/><path d="M33.2 156.2L34.1 151.3" class="sp"/><path d="M34.9 157.4L39 154.6" class="sp"/></g><g class="pl shrub fern"><circle cx="440.6" cy="25.1" r="9" class="sh"/><path d="M443.2 25.6L448.1 26.6" class="sp"/><path d="M442.1 27.3L444.8 31.5" class="sp"/><path d="M440.1 27.7L439.1 32.6" class="sp"/><path d="M438.4 26.6L434.2 29.3" class="sp"/><path d="M438 24.6L433.1 23.6" class="sp"/><path d="M439.1 22.8L436.4 18.7" class="sp"/><path d="M441.1 22.4L442.1 17.6" class="sp"/><path d="M442.9 23.6L447 20.9" class="sp"/></g><g class="pl shrub fern"><circle cx="70.5" cy="287" r="9" class="sh"/><path d="M73.1 287.5L78 288.5" class="sp"/><path d="M72 289.3L74.7 293.4" class="sp"/><path d="M70 289.7L69 294.5" class="sp"/><path d="M68.2 288.5L64.1 291.2" class="sp"/><path d="M67.8 286.5L63 285.5" class="sp"/><path d="M69 284.8L66.3 280.6" class="sp"/><path d="M71 284.4L72 279.5" class="sp"/><path d="M72.7 285.5L76.9 282.8" class="sp"/></g><g class="pl shrub fern"><circle cx="419" cy="171.7" r="9" class="sh"/><path d="M421.7 172.3L426.5 173.2" class="sp"/><path d="M420.5 174L423.3 178.1" class="sp"/><path d="M418.5 174.4L417.5 179.2" class="sp"/><path d="M416.8 173.2L412.7 176" class="sp"/><path d="M416.4 171.2L411.5 170.2" class="sp"/><path d="M417.5 169.5L414.8 165.4" class="sp"/><path d="M419.6 169.1L420.6 164.2" class="sp"/><path d="M421.3 170.2L425.4 167.5" class="sp"/></g><g class="pl shrub fern"><circle cx="151.4" cy="111.1" r="9" class="sh"/><path d="M154.1 111.6L158.9 112.6" class="sp"/><path d="M152.9 113.3L155.7 117.4" class="sp"/><path d="M150.9 113.7L149.9 118.6" class="sp"/><path d="M149.2 112.5L145.1 115.3" class="sp"/><path d="M148.8 110.5L143.9 109.5" class="sp"/><path d="M150 108.8L147.2 104.7" class="sp"/><path d="M152 108.4L153 103.6" class="sp"/><path d="M153.7 109.6L157.8 106.8" class="sp"/></g><g class="pl shrub fern"><circle cx="340.9" cy="193.5" r="9" class="sh"/><path d="M343.6 194L348.4 195" class="sp"/><path d="M342.4 195.7L345.1 199.9" class="sp"/><path d="M340.4 196.1L339.4 201" class="sp"/><path d="M338.7 195L334.5 197.7" class="sp"/><path d="M338.3 192.9L333.4 192" class="sp"/><path d="M339.4 191.2L336.7 187.1" class="sp"/><path d="M341.5 190.8L342.4 186" class="sp"/><path d="M343.2 192L347.3 189.3" class="sp"/></g><g class="pl shrub fern"><circle cx="216.9" cy="225.8" r="9" class="sh"/><path d="M219.5 226.3L224.4 227.3" class="sp"/><path d="M218.4 228.1L221.1 232.2" class="sp"/><path d="M216.3 228.5L215.3 233.3" class="sp"/><path d="M214.6 227.3L210.5 230" class="sp"/><path d="M214.2 225.3L209.4 224.3" class="sp"/><path d="M215.4 223.6L212.6 219.4" class="sp"/><path d="M217.4 223.2L218.4 218.3" class="sp"/><path d="M219.1 224.3L223.2 221.6" class="sp"/></g><g class="pl shrub fern"><circle cx="66.9" cy="137.6" r="9" class="sh"/><path d="M69.5 138.1L74.4 139.1" class="sp"/><path d="M68.4 139.8L71.1 144" class="sp"/><path d="M66.3 140.2L65.3 145.1" class="sp"/><path d="M64.6 139.1L60.5 141.8" class="sp"/><path d="M64.2 137L59.4 136.1" class="sp"/><path d="M65.4 135.3L62.6 131.2" class="sp"/><path d="M67.4 134.9L68.4 130.1" class="sp"/><path d="M69.1 136.1L73.2 133.4" class="sp"/></g><g class="pl shrub fern"><circle cx="403.4" cy="290.4" r="9" class="sh"/><path d="M406.1 290.9L410.9 291.9" class="sp"/><path d="M404.9 292.6L407.7 296.7" class="sp"/><path d="M402.9 293L401.9 297.9" class="sp"/><path d="M401.2 291.9L397.1 294.6" class="sp"/><path d="M400.8 289.8L395.9 288.8" class="sp"/><path d="M401.9 288.1L399.2 284" class="sp"/><path d="M404 287.7L405 282.9" class="sp"/><path d="M405.7 288.9L409.8 286.1" class="sp"/></g><g class="pl shrub fern"><circle cx="233.9" cy="252.4" r="9" class="sh"/><path d="M236.5 253L241.4 253.9" class="sp"/><path d="M235.4 254.7L238.1 258.8" class="sp"/><path d="M233.3 255.1L232.3 259.9" class="sp"/><path d="M231.6 253.9L227.5 256.6" class="sp"/><path d="M231.2 251.9L226.4 250.9" class="sp"/><path d="M232.4 250.2L229.6 246" class="sp"/><path d="M234.4 249.8L235.4 244.9" class="sp"/><path d="M236.1 250.9L240.2 248.2" class="sp"/></g><g class="pl shrub fern"><circle cx="406.1" cy="176.3" r="9" class="sh"/><path d="M408.8 176.8L413.6 177.8" class="sp"/><path d="M407.6 178.5L410.4 182.7" class="sp"/><path d="M405.6 178.9L404.6 183.8" class="sp"/><path d="M403.9 177.8L399.8 180.5" class="sp"/><path d="M403.5 175.8L398.6 174.8" class="sp"/><path d="M404.6 174L401.9 169.9" class="sp"/><path d="M406.7 173.6L407.7 168.8" class="sp"/><path d="M408.4 174.8L412.5 172.1" class="sp"/></g><g class="pl shrub fern"><circle cx="85.7" cy="54.4" r="9" class="sh"/><path d="M88.4 55L93.2 55.9" class="sp"/><path d="M87.2 56.7L89.9 60.8" class="sp"/><path d="M85.2 57.1L84.2 61.9" class="sp"/><path d="M83.5 55.9L79.3 58.7" class="sp"/><path d="M83.1 53.9L78.2 52.9" class="sp"/><path d="M84.2 52.2L81.5 48.1" class="sp"/><path d="M86.3 51.8L87.2 46.9" class="sp"/><path d="M88 52.9L92.1 50.2" class="sp"/></g><g class="pl shrub fern"><circle cx="313.9" cy="123.7" r="9" class="sh"/><path d="M316.6 124.2L321.4 125.2" class="sp"/><path d="M315.4 125.9L318.2 130.1" class="sp"/><path d="M313.4 126.3L312.4 131.2" class="sp"/><path d="M311.7 125.2L307.6 127.9" class="sp"/><path d="M311.3 123.1L306.4 122.2" class="sp"/><path d="M312.5 121.4L309.7 117.3" class="sp"/><path d="M314.5 121L315.5 116.2" class="sp"/><path d="M316.2 122.2L320.3 119.5" class="sp"/></g><g class="pl shrub fern"><circle cx="251.4" cy="36.3" r="9" class="sh"/><path d="M254.1 36.9L258.9 37.8" class="sp"/><path d="M252.9 38.6L255.7 42.7" class="sp"/><path d="M250.9 39L249.9 43.8" class="sp"/><path d="M249.2 37.8L245.1 40.6" class="sp"/><path d="M248.8 35.8L243.9 34.8" class="sp"/><path d="M249.9 34.1L247.2 29.9" class="sp"/><path d="M252 33.7L253 28.8" class="sp"/><path d="M253.7 34.8L257.8 32.1" class="sp"/></g></g><rect x="20" y="304" width="251" height="19" class="tagbg"/><text x="24" y="318" class="lb sm" text-anchor="start">EXISTING SUGAR MAPLES, KEPT</text><rect x="274" y="20" width="188" height="19" class="tagbg"/><text x="458" y="34" class="lb sm" text-anchor="end">CRUSHED GRANITE PATH</text><rect x="10" y="10" width="460" height="320" class="pline"/><g class="na" transform="translate(446 296) scale(0.7)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g></svg>
+        <figcaption>
+          <span class="no">Plan 3 · Edina</span>
+          <h3 class="h3">Woodland under two maples</h3>
+          <p>Grass gave up under these trees years ago. Pennsylvania sedge, wild ginger and ferns do not mind the shade, and the path means nobody walks on the roots.</p>
+          <dl><div><dt>Area</dt><dd>1,150 sf</dd></div><div><dt>Plants</dt><dd class="tnum">920</dd></div><div><dt>On site</dt><dd class="tnum">7 days</dd></div><div><dt>Built</dt><dd class="tnum">2022</dd></div></dl>
+        </figcaption>
+      </figure>
+      <figure class="sheet rv">
+        <svg class="sheetplan" viewBox="0 0 480 340" role="img" aria-labelledby="g4-t g4-d" xmlns="http://www.w3.org/2000/svg"><title id="g4-t">Lakeshore buffer in Minnetonka</title><desc id="g4-d">A lakeside back yard. A band of native grasses and flowers 25 feet deep sits between the kept lawn and the water, with sedges and rushes at the shoreline and stone steps leading through the buffer to the dock.</desc><defs>
+<pattern id="g4h" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" class="ht"/></pattern>
+<pattern id="g4s" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".9" class="st"/><circle cx="8" cy="8" r=".9" class="st"/></pattern>
+<pattern id="g4w" width="18" height="9" patternUnits="userSpaceOnUse"><path d="M0 6 q4.5 -4 9 0 t9 0" class="wv"/></pattern>
+<pattern id="g4g" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" class="gv"/><circle cx="4.5" cy="4.2" r=".5" class="gv"/></pattern>
+</defs><rect x="10" y="10" width="460" height="320" class="ground"/><path d="M10 10H470V70H10Z" fill="url(#g4h)" class="bld"/><text x="24" y="44" class="lb">HOUSE</text><path d="M10 70H470V150H10Z" class="lawnx"/><text x="24" y="100" class="lb sm">MOWN LAWN, KEPT FOR PLAY</text><path d="M10 150 C120 140 300 162 470 148 V262 C320 276 160 252 10 266Z" fill="url(#g4s)" class="meadow on"/><path d="M10 266 C160 252 320 276 470 262 V330H10Z" fill="url(#g4w)" class="water"/><path d="M10 266 C160 252 320 276 470 262" class="shore"/><text x="398" y="314" class="lb sm">LAKE</text><rect x="318" y="156" width="40" height="12" rx="2" class="stone"/><rect x="318" y="175" width="40" height="12" rx="2" class="stone"/><rect x="318" y="194" width="40" height="12" rx="2" class="stone"/><rect x="318" y="213" width="40" height="12" rx="2" class="stone"/><rect x="318" y="232" width="40" height="12" rx="2" class="stone"/><rect x="318" y="251" width="40" height="12" rx="2" class="stone"/><rect x="326" y="266" width="24" height="64" class="dock"/><g class="plants"><g class="pl forb"><circle cx="249.7" cy="234.2" r="5" class="fb"/><circle cx="249.7" cy="234.2" r="2.1" class="fd"/></g><g class="pl grass"><path d="M442.6 186.6L450.1 187.4M442.6 186.6L446.9 190.7M442.6 186.6L445 192.9M442.6 186.6L438.9 191.8M442.6 186.6L436.5 188.9M442.6 186.6L435.3 182.8M442.6 186.6L438.1 179.5M442.6 186.6L442.6 178.8M442.6 186.6L447.8 183.5" class="gr"/></g><g class="pl forb liat"><circle cx="440.3" cy="179.3" r="2.8" class="ls"/><path d="M443.8 179.3L446 179.3" class="lt"/><path d="M442.8 181.8L444.3 183.4" class="lt"/><path d="M440.3 182.8L440.3 185.1" class="lt"/><path d="M437.8 181.8L436.2 183.4" class="lt"/><path d="M436.8 179.3L434.5 179.3" class="lt"/><path d="M437.8 176.8L436.2 175.3" class="lt"/><path d="M440.3 175.8L440.3 173.6" class="lt"/><path d="M442.8 176.8L444.3 175.3" class="lt"/></g><g class="pl grass"><path d="M257.6 241.2L264 241.5M257.6 241.2L264.7 245.4M257.6 241.2L259.1 249.4M257.6 241.2L254.7 248.5M257.6 241.2L249.6 243M257.6 241.2L251 240.2M257.6 241.2L252.6 235.3M257.6 241.2L258.5 233M257.6 241.2L263.3 235.9" class="gr"/></g><g class="pl grass"><path d="M401.8 182L410.1 182.2M401.8 182L406.8 186.3M401.8 182L403.9 189.5M401.8 182L399 188.7M401.8 182L395.1 184.3M401.8 182L394.5 180.5M401.8 182L399.6 175.9M401.8 182L402.7 173.9M401.8 182L406.8 178" class="gr"/></g><g class="pl forb"><circle cx="24.3" cy="229.3" r="5" class="fb"/><circle cx="24.3" cy="229.3" r="2.1" class="fd"/></g><g class="pl grass"><path d="M173.1 203L180.5 202.3M173.1 203L177.7 207.6M173.1 203L175.9 210.9M173.1 203L169.5 207.4M173.1 203L166 205.4M173.1 203L165.8 200.6M173.1 203L170.7 196.1M173.1 203L173.9 196.9M173.1 203L177.3 198.7" class="gr"/></g><g class="pl grass"><path d="M68.6 179.5L75.6 180.5M68.6 179.5L74.2 185.5M68.6 179.5L68.9 185.3M68.6 179.5L64.8 184M68.6 179.5L60.9 181.4M68.6 179.5L62.4 176.8M68.6 179.5L64.8 175.1M68.6 179.5L70 173.4M68.6 179.5L73.5 175.5" class="gr"/></g><g class="pl forb liat"><circle cx="91.9" cy="187.2" r="2.8" class="ls"/><path d="M95.4 187.2L97.6 187.2" class="lt"/><path d="M94.4 189.6L96 191.2" class="lt"/><path d="M91.9 190.7L91.9 192.9" class="lt"/><path d="M89.4 189.6L87.8 191.2" class="lt"/><path d="M88.4 187.2L86.1 187.2" class="lt"/><path d="M89.4 184.7L87.8 183.1" class="lt"/><path d="M91.9 183.7L91.9 181.4" class="lt"/><path d="M94.4 184.7L96 183.1" class="lt"/></g><g class="pl grass"><path d="M192.8 204.8L199.9 204.9M192.8 204.8L199.3 210M192.8 204.8L193.3 211M192.8 204.8L190.1 210.3M192.8 204.8L187.6 207M192.8 204.8L186.3 201.6M192.8 204.8L188.6 197.9M192.8 204.8L193.6 197.6M192.8 204.8L199 201.2" class="gr"/></g><g class="pl forb"><circle cx="289.7" cy="193.9" r="5" class="fb"/><circle cx="289.7" cy="193.9" r="2.1" class="fd"/></g><g class="pl grass"><path d="M459.2 229.4L465.7 228.9M459.2 229.4L464.4 234.2M459.2 229.4L460.2 235.5M459.2 229.4L455.2 235.9M459.2 229.4L452.5 231.1M459.2 229.4L452.5 227.2M459.2 229.4L455.8 223.4M459.2 229.4L459 223.1M459.2 229.4L466.1 225.6" class="gr"/></g><g class="pl grass"><path d="M225.6 229.2L231.9 228.5M225.6 229.2L231.4 234.1M225.6 229.2L228.1 235.7M225.6 229.2L221 234.8M225.6 229.2L219.8 230.1M225.6 229.2L218.7 225.3M225.6 229.2L221 223.8M225.6 229.2L227.4 223.2M225.6 229.2L232.1 224.4" class="gr"/></g><g class="pl grass"><path d="M45.7 209.6L52.7 208.7M45.7 209.6L51.1 213.3M45.7 209.6L46.9 217.4M45.7 209.6L41.3 214.7M45.7 209.6L39.1 213.6M45.7 209.6L38.3 207.4M45.7 209.6L43.5 204.3M45.7 209.6L47.4 203.4M45.7 209.6L50.4 205.1" class="gr"/></g><g class="pl grass"><path d="M256.9 182.4L263.3 182.4M256.9 182.4L262.3 185.7M256.9 182.4L257.5 188.8M256.9 182.4L254.3 188.5M256.9 182.4L249.4 186.1M256.9 182.4L251.5 179.7M256.9 182.4L253 176.8M256.9 182.4L258.1 175.8M256.9 182.4L262.9 177.5" class="gr"/></g><g class="pl forb"><circle cx="87.8" cy="211.4" r="5" class="fb"/><circle cx="87.8" cy="211.4" r="2.1" class="fd"/></g><g class="pl grass"><path d="M92.4 209.2L100.2 208.6M92.4 209.2L97.8 215.4M92.4 209.2L93.9 216.4M92.4 209.2L89.5 216.2M92.4 209.2L85.8 210.8M92.4 209.2L84.9 207.1M92.4 209.2L89.1 202.1M92.4 209.2L92.9 202.9M92.4 209.2L96.6 204.8" class="gr"/></g><g class="pl grass"><path d="M23.1 171.3L29.9 171.2M23.1 171.3L27.5 176.3M23.1 171.3L25.6 179.1M23.1 171.3L20.8 177.4M23.1 171.3L16.8 172.8M23.1 171.3L16.5 167.3M23.1 171.3L18.6 164.6M23.1 171.3L25.5 164.6M23.1 171.3L27 166.9" class="gr"/></g><g class="pl forb liat"><circle cx="379.9" cy="241.7" r="2.8" class="ls"/><path d="M383.4 241.7L385.6 241.7" class="lt"/><path d="M382.4 244.2L384 245.8" class="lt"/><path d="M379.9 245.2L379.9 247.4" class="lt"/><path d="M377.4 244.2L375.8 245.8" class="lt"/><path d="M376.4 241.7L374.1 241.7" class="lt"/><path d="M377.4 239.2L375.8 237.6" class="lt"/><path d="M379.9 238.2L379.9 235.9" class="lt"/><path d="M382.4 239.2L384 237.6" class="lt"/></g><g class="pl forb"><circle cx="113.8" cy="239.8" r="5" class="fb"/><circle cx="113.8" cy="239.8" r="2.1" class="fd"/></g><g class="pl grass"><path d="M389.3 200.1L395.1 199.6M389.3 200.1L395.7 205.1M389.3 200.1L391.1 206.3M389.3 200.1L386.9 206.9M389.3 200.1L382.8 203.9M389.3 200.1L382.9 197.8M389.3 200.1L385.5 194.9M389.3 200.1L392 192.3M389.3 200.1L394.4 196.6" class="gr"/></g><g class="pl grass"><path d="M111.5 193.4L119.7 194.6M111.5 193.4L117.7 197.5M111.5 193.4L113.1 200.1M111.5 193.4L108.6 200.4M111.5 193.4L103.5 195.3M111.5 193.4L105.1 191.1M111.5 193.4L108.9 188M111.5 193.4L114 186M111.5 193.4L116.2 188.5" class="gr"/></g><g class="pl forb liat"><circle cx="233.9" cy="238.4" r="2.8" class="ls"/><path d="M237.4 238.4L239.6 238.4" class="lt"/><path d="M236.3 240.8L237.9 242.4" class="lt"/><path d="M233.9 241.9L233.9 244.1" class="lt"/><path d="M231.4 240.8L229.8 242.4" class="lt"/><path d="M230.4 238.4L228.1 238.4" class="lt"/><path d="M231.4 235.9L229.8 234.3" class="lt"/><path d="M233.9 234.9L233.9 232.6" class="lt"/><path d="M236.3 235.9L237.9 234.3" class="lt"/></g><g class="pl grass"><path d="M438.5 245.6L445.4 246.5M438.5 245.6L443.7 249.8M438.5 245.6L438.4 252.5M438.5 245.6L434.5 250.2M438.5 245.6L432.6 249.1M438.5 245.6L432.3 244.1M438.5 245.6L434.6 241M438.5 245.6L439.4 239.8M438.5 245.6L443.7 240.4" class="gr"/></g><g class="pl forb"><circle cx="134.4" cy="188.6" r="5" class="fb"/><circle cx="134.4" cy="188.6" r="2.1" class="fd"/></g><g class="pl grass"><path d="M186.5 184.2L194.3 184.4M186.5 184.2L192.7 187.7M186.5 184.2L187.8 192.3M186.5 184.2L182.9 189.5M186.5 184.2L178.8 186.6M186.5 184.2L179.8 180.3M186.5 184.2L182.3 179.1M186.5 184.2L187.6 177.8M186.5 184.2L192.3 180.3" class="gr"/></g><g class="pl grass"><path d="M450.6 160.7L456.4 161.4M450.6 160.7L455.1 164.6M450.6 160.7L452.2 167.9M450.6 160.7L446.8 165.1M450.6 160.7L445.1 163M450.6 160.7L445.1 158.1M450.6 160.7L445.8 154.4M450.6 160.7L450.5 152.6M450.6 160.7L456.5 154.8" class="gr"/></g><g class="pl forb liat"><circle cx="66.7" cy="168.8" r="2.8" class="ls"/><path d="M70.2 168.8L72.5 168.8" class="lt"/><path d="M69.2 171.3L70.8 172.9" class="lt"/><path d="M66.7 172.3L66.7 174.6" class="lt"/><path d="M64.3 171.3L62.7 172.9" class="lt"/><path d="M63.2 168.8L61 168.8" class="lt"/><path d="M64.3 166.4L62.7 164.8" class="lt"/><path d="M66.7 165.3L66.7 163.1" class="lt"/><path d="M69.2 166.4L70.8 164.8" class="lt"/></g><g class="pl grass"><path d="M229.5 188.4L235.9 188.8M229.5 188.4L234 191.8M229.5 188.4L231.3 193.7M229.5 188.4L225.5 195.5M229.5 188.4L223.3 190.6M229.5 188.4L222.1 185.9M229.5 188.4L227.3 183M229.5 188.4L230.9 182.2M229.5 188.4L236.1 184.6" class="gr"/></g><g class="pl grass"><path d="M279.6 221.3L285.4 221.9M279.6 221.3L284.3 224.6M279.6 221.3L282.2 229.1M279.6 221.3L276.4 226.5M279.6 221.3L273.5 224.1M279.6 221.3L271.9 219.8M279.6 221.3L276.5 216.4M279.6 221.3L280.9 214.6M279.6 221.3L284.9 217.7" class="gr"/></g><g class="pl forb"><circle cx="124.9" cy="206.1" r="5" class="fb"/><circle cx="124.9" cy="206.1" r="2.1" class="fd"/></g><g class="pl grass"><path d="M198.1 171.9L206.1 172.7M198.1 171.9L203.1 177.4M198.1 171.9L199.6 179.6M198.1 171.9L195.8 177.3M198.1 171.9L191.8 175.1M198.1 171.9L191.5 170.3M198.1 171.9L195.3 165.1M198.1 171.9L198.4 166M198.1 171.9L201.7 167.4" class="gr"/></g><g class="pl grass"><path d="M135.1 225.5L141.7 226.4M135.1 225.5L141.3 229M135.1 225.5L135.1 231.2M135.1 225.5L130.5 232.6M135.1 225.5L128.5 228.5M135.1 225.5L128.4 222.1M135.1 225.5L130.3 219.3M135.1 225.5L136.6 218.2M135.1 225.5L141.3 220.7" class="gr"/></g><g class="pl forb liat"><circle cx="271.4" cy="244.9" r="2.8" class="ls"/><path d="M274.9 244.9L277.2 244.9" class="lt"/><path d="M273.9 247.4L275.5 249" class="lt"/><path d="M271.4 248.4L271.4 250.7" class="lt"/><path d="M269 247.4L267.4 249" class="lt"/><path d="M267.9 244.9L265.7 244.9" class="lt"/><path d="M269 242.5L267.4 240.9" class="lt"/><path d="M271.4 241.4L271.4 239.2" class="lt"/><path d="M273.9 242.5L275.5 240.9" class="lt"/></g><g class="pl grass"><path d="M68.7 162.2L75.6 161.2M68.7 162.2L74.4 168M68.7 162.2L70.7 167.4M68.7 162.2L65.3 168.8M68.7 162.2L62.8 164.6M68.7 162.2L61.3 160.5M68.7 162.2L64.8 154.9M68.7 162.2L69.4 155.3M68.7 162.2L75.3 158.5" class="gr"/></g><g class="pl grass"><path d="M135 227.1L140.9 226.9M135 227.1L141 230.7M135 227.1L136.6 233.2M135 227.1L131.4 232.2M135 227.1L128.4 229.6M135 227.1L127.2 225.9M135 227.1L131.5 222.1M135 227.1L136.1 221M135 227.1L138.7 222.5" class="gr"/></g><g class="pl forb"><circle cx="37.7" cy="192.6" r="5" class="fb"/><circle cx="37.7" cy="192.6" r="2.1" class="fd"/></g><g class="pl grass"><path d="M163.6 179.3L171.5 178.3M163.6 179.3L169.1 184.2M163.6 179.3L166.6 186.9M163.6 179.3L161.1 186.6M163.6 179.3L157.2 181.2M163.6 179.3L156.8 177.3M163.6 179.3L159.9 172.3M163.6 179.3L163.6 173.5M163.6 179.3L168.7 175.4" class="gr"/></g><g class="pl grass"><path d="M275.2 195.2L283 193.8M275.2 195.2L280.7 198.8M275.2 195.2L275.8 203.4M275.2 195.2L270.1 201.7M275.2 195.2L269.5 197.8M275.2 195.2L267.7 192.6M275.2 195.2L271.9 188.6M275.2 195.2L276.8 189.2M275.2 195.2L280.5 191" class="gr"/></g><g class="pl forb liat"><circle cx="407.4" cy="188.5" r="2.8" class="ls"/><path d="M410.9 188.5L413.2 188.5" class="lt"/><path d="M409.9 191L411.5 192.6" class="lt"/><path d="M407.4 192L407.4 194.2" class="lt"/><path d="M405 191L403.4 192.6" class="lt"/><path d="M403.9 188.5L401.7 188.5" class="lt"/><path d="M405 186L403.4 184.4" class="lt"/><path d="M407.4 185L407.4 182.7" class="lt"/><path d="M409.9 186L411.5 184.4" class="lt"/></g><g class="pl grass"><path d="M259.5 218.2L267.3 218.8M259.5 218.2L263.7 222.5M259.5 218.2L259.5 223.9M259.5 218.2L255.8 223.4M259.5 218.2L253.7 221.4M259.5 218.2L253.4 217M259.5 218.2L256.9 210.8M259.5 218.2L260.4 211.3M259.5 218.2L264.7 214.2" class="gr"/></g><g class="pl grass"><path d="M79.3 200.6L87.5 201.7M79.3 200.6L85.1 205.9M79.3 200.6L80.9 208.2M79.3 200.6L74.4 207.1M79.3 200.6L73 203.8M79.3 200.6L72.2 199.3M79.3 200.6L75.6 194.3M79.3 200.6L80.5 194.1M79.3 200.6L83.6 195.7" class="gr"/></g><g class="pl grass"><path d="M444.8 237.2L451.7 236.5M444.8 237.2L448.7 241.3M444.8 237.2L445.3 243.9M444.8 237.2L441.7 241.8M444.8 237.2L439.3 238.8M444.8 237.2L437.8 235.3M444.8 237.2L441.8 231.3M444.8 237.2L445.4 230.6M444.8 237.2L449.3 232.8" class="gr"/></g><g class="pl grass"><path d="M128.8 205.7L136.7 206.5M128.8 205.7L135.4 210.7M128.8 205.7L130.7 213.4M128.8 205.7L124.2 211.8M128.8 205.7L121.7 207M128.8 205.7L123.3 202.6M128.8 205.7L125.3 199.5M128.8 205.7L129.9 200M128.8 205.7L134 200.4" class="gr"/></g><g class="pl forb liat"><circle cx="181.5" cy="224.6" r="2.8" class="ls"/><path d="M185 224.6L187.3 224.6" class="lt"/><path d="M184 227L185.6 228.6" class="lt"/><path d="M181.5 228.1L181.5 230.3" class="lt"/><path d="M179.1 227L177.5 228.6" class="lt"/><path d="M178 224.6L175.8 224.6" class="lt"/><path d="M179.1 222.1L177.5 220.5" class="lt"/><path d="M181.5 221.1L181.5 218.8" class="lt"/><path d="M184 222.1L185.6 220.5" class="lt"/></g><g class="pl grass"><path d="M78.3 201.1L84.7 202.2M78.3 201.1L85 205M78.3 201.1L79.7 207.1M78.3 201.1L74.2 208.1M78.3 201.1L72.5 203M78.3 201.1L71.6 200M78.3 201.1L73.5 194.3M78.3 201.1L81 193.2M78.3 201.1L83.8 197.8" class="gr"/></g><g class="pl forb"><circle cx="299.6" cy="210.8" r="5" class="fb"/><circle cx="299.6" cy="210.8" r="2.1" class="fd"/></g><g class="pl grass"><path d="M254.3 209.8L260.3 209.1M254.3 209.8L260.8 213.5M254.3 209.8L256.7 217.4M254.3 209.8L250.7 215.2M254.3 209.8L248.5 210.9M254.3 209.8L246.6 208M254.3 209.8L249.8 203M254.3 209.8L255.2 204.3M254.3 209.8L261.5 205.6" class="gr"/></g><g class="pl grass"><path d="M218.9 225.8L224.8 226.2M218.9 225.8L223.8 230.8M218.9 225.8L219.5 231.3M218.9 225.8L216 231.2M218.9 225.8L213.3 226.8M218.9 225.8L212.5 224.7M218.9 225.8L216.5 220.1M218.9 225.8L220.8 218.2M218.9 225.8L224.2 221.7" class="gr"/></g><g class="pl grass"><path d="M137.8 239.5L144.1 238.8M137.8 239.5L143.9 243.3M137.8 239.5L137.8 245.5M137.8 239.5L133.7 246.5M137.8 239.5L131.8 243M137.8 239.5L130.9 237.6M137.8 239.5L135 231.8M137.8 239.5L138.5 233.4M137.8 239.5L144.2 234.3" class="gr"/></g><g class="pl grass"><path d="M126.3 185.1L134.5 184.7M126.3 185.1L131.3 188.6M126.3 185.1L127.8 192M126.3 185.1L123.2 192.2M126.3 185.1L120 188.3M126.3 185.1L118.6 182.7M126.3 185.1L124 178.5M126.3 185.1L127.2 178.4M126.3 185.1L131.1 181.4" class="gr"/></g><g class="pl wet"><path d="M30.9 263.5L27 251.6M30.9 263.5L30.9 250.7M30.9 263.5L34.7 251.6" class="ir"/></g><g class="pl wet"><path d="M179.3 264.2L175.4 252.4M179.3 264.2L179.3 251.4M179.3 264.2L183.1 252.4" class="ir"/></g><g class="pl wet"><path d="M65.7 266.3L61.8 254.5M65.7 266.3L65.7 253.5M65.7 266.3L69.5 254.5" class="ir"/></g><g class="pl wet"><path d="M289.1 270.2L285.3 258.4M289.1 270.2L289.1 257.4M289.1 270.2L293 258.4" class="ir"/></g><g class="pl wet"><path d="M89 262.7L85.2 250.9M89 262.7L89 249.9M89 262.7L92.9 250.9" class="ir"/></g><g class="pl wet"><path d="M211.2 269.4L207.4 257.6M211.2 269.4L211.2 256.6M211.2 269.4L215 257.6" class="ir"/></g><g class="pl wet"><path d="M54.4 266L50.6 254.1M54.4 266L54.4 253.2M54.4 266L58.3 254.1" class="ir"/></g><g class="pl wet"><path d="M107.9 270.4L104.1 258.6M107.9 270.4L107.9 257.6M107.9 270.4L111.8 258.6" class="ir"/></g><g class="pl wet"><path d="M285.1 263.3L281.2 251.4M285.1 263.3L285.1 250.5M285.1 263.3L288.9 251.4" class="ir"/></g><g class="pl wet"><path d="M288.4 262.2L284.5 250.4M288.4 262.2L288.4 249.4M288.4 262.2L292.2 250.4" class="ir"/></g><g class="pl wet"><path d="M90.2 270.2L86.3 258.4M90.2 270.2L90.2 257.4M90.2 270.2L94 258.4" class="ir"/></g><g class="pl wet"><path d="M116.5 270.3L112.7 258.5M116.5 270.3L116.5 257.5M116.5 270.3L120.3 258.5" class="ir"/></g><g class="pl wet"><path d="M181.9 267.1L178 255.3M181.9 267.1L181.9 254.3M181.9 267.1L185.7 255.3" class="ir"/></g><g class="pl wet"><path d="M277.5 268.1L273.7 256.3M277.5 268.1L277.5 255.3M277.5 268.1L281.3 256.3" class="ir"/></g><g class="pl wet"><path d="M110.7 265L106.9 253.2M110.7 265L110.7 252.2M110.7 265L114.5 253.2" class="ir"/></g><g class="pl wet"><path d="M118.1 263.2L114.3 251.4M118.1 263.2L118.1 250.4M118.1 263.2L122 251.4" class="ir"/></g></g><path d="M40 150V262" class="dim"/><rect x="44" y="192" width="116" height="19" class="tagbg"/><text x="48" y="206" class="lb sm" text-anchor="start">25 FT BUFFER</text><rect x="10" y="10" width="460" height="320" class="pline"/><g class="na" transform="translate(446 104) scale(0.7)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g></svg>
+        <figcaption>
+          <span class="no">Plan 4 · Minnetonka</span>
+          <h3 class="h3">Lakeshore buffer with stone steps</h3>
+          <p>A 25-foot band of deep roots between the lawn and the lake, so the bank stops slumping and the geese stop visiting. The family kept enough lawn for a soccer game.</p>
+          <dl><div><dt>Area</dt><dd>2,600 sf</dd></div><div><dt>Plants</dt><dd>1,840</dd></div><div><dt>On site</dt><dd class="tnum">12 days</dd></div><div><dt>Built</dt><dd class="tnum">2024</dd></div></dl>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="consult" aria-labelledby="offer-h">
+  <div class="wrap">
+    <div class="offer-grid">
+      <div class="rv">
+        <span class="kick">What you are booking</span>
+        <h2 class="h2" id="offer-h" style="margin-top:14px">Ninety minutes, a shovel, and straight answers.</h2>
+        <div class="price-tag"><strong class="tnum">$275</strong><span>Credited in full to your design fee if you go ahead within six months.</span></div>
+        <a class="btn" href="#request">Request a date</a>
+        <p class="fine">You pay when we confirm a date, not on this page. If we arrive and the project is not a fit for us, we say so on the spot and refund the fee.</p>
+      </div>
+      <ul class="rv offer-list">
+        <li><b>A walk of the whole property</b><p>Sun hours by season, slope, soil, existing trees worth keeping and the ones that will cause trouble.</p></li>
+        <li><b>Two test holes and a drainage read</b><p>We dig, look at the soil profile and, if you can run a hose, time a simple infiltration test.</p></li>
+        <li><b>A budget conversation, out loud</b><p>Most front-yard conversions we build land between $14,000 and $38,000 installed. We will tell you which end your yard sits at.</p></li>
+        <li><b>Written notes within five business days</b><p>Two pages: what we saw, what we would do, a rough order of cost and a plant list you can use even if you never hire us.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="area" aria-labelledby="area-h">
+  <div class="wrap">
+    <div class="area-grid">
+      <div class="rv"><svg class="areamap" viewBox="0 0 640 520" role="img" aria-labelledby="am-t am-d" xmlns="http://www.w3.org/2000/svg">
+<title id="am-t">Schematic service area map of the Twin Cities</title>
+<desc id="am-d">Not to scale. The Mississippi River runs from the northwest through Minneapolis, then bends east to Saint Paul, where the Minnesota River joins from the southwest. A solid inner ring marks the I-494 and I-694 loop, where consultations carry no travel fee. A dashed outer ring reaches Anoka, Stillwater, Lakeville and Wayzata, with a flat travel fee.</desc>
+<rect width="640" height="520" class="mapbg"/>
+<ellipse cx="318" cy="262" rx="292" ry="236" class="zone2"/>
+<ellipse cx="318" cy="262" rx="196" ry="160" class="zone1"/>
+<path d="M70 40 C150 110 230 140 262 196 C286 238 270 286 300 318 C330 350 380 300 420 300 C470 300 520 360 600 420" class="river"/>
+<path d="M70 470 C150 430 230 400 280 360 C292 350 298 334 300 318" class="river"/>
+<text x="104" y="98" class="lb sm riverlb" transform="rotate(36 104 98)">MISSISSIPPI RIVER</text>
+<text x="126" y="452" class="lb sm riverlb" transform="rotate(-26 126 452)">MINNESOTA RIVER</text>
+<circle cx="250" cy="220" r="5" class="city t1"/>
+<rect x="123.8" y="210" width="120.2" height="19" class="zbg"/><text x="240" y="224" class="lb big" text-anchor="end">MINNEAPOLIS</text>
+<circle cx="404" cy="268" r="5" class="city t1"/>
+<rect x="410" y="258" width="110" height="19" class="zbg"/><text x="414" y="272" class="lb big" text-anchor="start">SAINT PAUL</text>
+<circle cx="214" cy="316" r="3.5" class="city t0"/>
+<rect x="155" y="306" width="53" height="19" class="zbg"/><text x="204" y="320" class="lb sm" text-anchor="end">EDINA</text>
+<circle cx="370" cy="182" r="3.5" class="city t0"/>
+<rect x="376" y="172" width="89" height="19" class="zbg"/><text x="380" y="186" class="lb sm" text-anchor="start">ROSEVILLE</text>
+<circle cx="252" cy="398" r="3.5" class="city t0"/>
+<rect x="258" y="388" width="107" height="19" class="zbg"/><text x="262" y="402" class="lb sm" text-anchor="start">BLOOMINGTON</text>
+<circle cx="150" cy="262" r="3.5" class="city t0"/>
+<rect x="46" y="252" width="98" height="19" class="zbg"/><text x="140" y="266" class="lb sm" text-anchor="end">MINNETONKA</text>
+<circle cx="474" cy="220" r="3.5" class="city t0"/>
+<rect x="480" y="210" width="89" height="19" class="zbg"/><text x="484" y="224" class="lb sm" text-anchor="start">MAPLEWOOD</text>
+<circle cx="590" cy="196" r="3.5" class="city t2"/>
+<rect x="486" y="186" width="98" height="19" class="z2bg"/><text x="580" y="200" class="lb sm" text-anchor="end">STILLWATER</text>
+<circle cx="70" cy="214" r="3.5" class="city t2"/>
+<rect x="76" y="204" width="71" height="19" class="z2bg"/><text x="80" y="218" class="lb sm" text-anchor="start">WAYZATA</text>
+<circle cx="300" cy="470" r="3.5" class="city t2"/>
+<rect x="255.5" y="472" width="89" height="19" class="z2bg"/><text x="300" y="486" class="lb sm" text-anchor="middle">LAKEVILLE</text>
+<circle cx="196" cy="64" r="3.5" class="city t2"/>
+<rect x="202" y="54" width="53" height="19" class="z2bg"/><text x="206" y="68" class="lb sm" text-anchor="start">ANOKA</text>
+<rect x="174.5" y="114" width="287" height="19" class="zbg"/><text x="318" y="128" class="lb sm zl" text-anchor="middle">INSIDE 494 / 694: NO TRAVEL FEE</text>
+<rect x="215" y="32" width="206" height="19" class="z2bg"/><text x="318" y="46" class="lb sm zl" text-anchor="middle">OUTER RING: $60 TRAVEL</text>
+<g class="na" transform="translate(596 52) scale(0.8)"><circle r="16" class="nac"/><path d="M0 -13 L6 8 L0 4 L-6 8Z" class="naf"/><text y="-21" class="lb sm" text-anchor="middle">N</text></g>
+<text x="22" y="506" class="lb sm">SCHEMATIC, NOT TO SCALE</text>
+</svg></div>
+      <div class="rv">
+        <span class="kick">Service area</span>
+        <h2 class="h2" id="area-h" style="margin-top:14px">Close enough to come back.</h2>
+        <p class="lede" style="margin-top:18px;margin-bottom:28px">Establishment means repeat visits for three years, so we keep the map tight. If we cannot get to you in under an hour, we will point you to someone who can.</p>
+        <ul class="tiers">
+          <li><div class="t"><b>Inside the 494 / 694 loop</b><span>No travel fee</span></div><p>Minneapolis, Saint Paul, Edina, Roseville, Bloomington, Richfield, Saint Louis Park, Maplewood, Falcon Heights and neighbors.</p></li>
+          <li><div class="t"><b>Outer ring</b><span class="tnum">$60 travel</span></div><p>Stillwater, Wayzata, Minnetonka west of 494, Lakeville, Anoka, Woodbury and similar.</p></li>
+          <li><div class="t"><b>Beyond that</b><span>Ask first</span></div><p>We take a few cabin and lake projects each year, planned around a single long build week.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="req" id="request" aria-labelledby="req-h">
+  <div class="wrap">
+    <div class="req-grid">
+      <div class="req-aside rv">
+        <span class="kick">Request a consultation</span>
+        <h2 class="h2" id="req-h" style="margin-top:14px">Tell us about the ground.</h2>
+        <p>Five minutes here saves twenty on site. We read every request ourselves and reply within two business days with two or three dates.</p>
+        <p>No payment is taken on this form.</p>
+        <div class="direct">
+          <p class="meta">Rather talk first?</p>
+          <a class="tlink tnum" href="tel:+16125550147">(612) 555-0147</a><br>
+          <a class="tlink" href="mailto:hello@kettleandsedge.example">hello@kettleandsedge.example</a>
+        </div>
+      </div>
+
+      <div>
+        <form class="cf" id="cf" novalidate aria-labelledby="req-h">
+          <div class="summary" id="summary" role="alert" tabindex="-1">
+            <h3>A few things need a look before we can send this.</h3>
+            <ul id="summary-list"></ul>
+          </div>
+          <div class="fgrid">
+            <div class="field" data-f="name">
+              <label for="f-name">Your name</label>
+              <input type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+              <p class="err" id="e-name">Please add your name so we know who to ask for.</p>
+            </div>
+            <div class="field" data-f="email">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" autocomplete="email" required aria-describedby="e-email">
+              <p class="err" id="e-email">That email does not look complete. Check for the @ and the ending.</p>
+            </div>
+            <div class="field" data-f="phone">
+              <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" aria-describedby="h-phone">
+              <p class="hint" id="h-phone">Only if you would rather we call. We do not text marketing.</p>
+            </div>
+            <div class="field" data-f="zip">
+              <label for="f-zip">Property ZIP code</label>
+              <input type="text" id="f-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="5" required aria-describedby="e-zip n-zip">
+              <p class="err" id="e-zip">Please enter a five-digit ZIP code.</p>
+              <p class="note" id="n-zip" aria-live="polite"></p>
+            </div>
+            <fieldset class="field full" data-f="type" aria-describedby="e-type">
+              <legend>What are you hoping for?</legend>
+              <div class="chips">
+                <input type="radio" name="type" id="t1" value="Lawn conversion"><label for="t1">Lawn conversion</label>
+                <input type="radio" name="type" id="t2" value="Rain garden"><label for="t2">Rain garden</label>
+                <input type="radio" name="type" id="t3" value="Boulevard"><label for="t3">Boulevard</label>
+                <input type="radio" name="type" id="t4" value="Shade woodland"><label for="t4">Shade woodland</label>
+                <input type="radio" name="type" id="t5" value="Lakeshore buffer"><label for="t5">Lakeshore buffer</label>
+                <input type="radio" name="type" id="t6" value="Not sure yet"><label for="t6">Not sure yet</label>
+              </div>
+              <p class="err" id="e-type">Pick the closest one. Not sure yet is a fine answer.</p>
+            </fieldset>
+            <div class="field" data-f="size">
+              <label for="f-size">Roughly how much ground?</label>
+              <select id="f-size" name="size" required aria-describedby="e-size">
+                <option value="">Choose one</option>
+                <option>Under 300 sq ft, a bed or a strip</option>
+                <option>300 to 1,000 sq ft, most of a front yard</option>
+                <option>1,000 to 3,000 sq ft, front and side</option>
+                <option>More than 3,000 sq ft</option>
+                <option>No idea, please measure</option>
+              </select>
+              <p class="err" id="e-size">Please choose a size, or pick No idea.</p>
+            </div>
+            <div class="field" data-f="budget">
+              <label for="f-budget">Budget for the build <span class="opt">(optional)</span></label>
+              <select id="f-budget" name="budget" aria-describedby="h-budget">
+                <option value="">Prefer to talk about it</option>
+                <option>Under $10,000</option>
+                <option>$10,000 to $25,000</option>
+                <option>$25,000 to $50,000</option>
+                <option>Over $50,000</option>
+              </select>
+              <p class="hint" id="h-budget">It helps us bring the right ideas, not bigger ones.</p>
+            </div>
+            <div class="field full" data-f="notes">
+              <label for="f-notes">Anything we should know? <span class="opt">(optional)</span></label>
+              <textarea id="f-notes" name="notes" maxlength="1200" aria-describedby="h-notes" placeholder="Wet spot by the garage, a dog who digs, an HOA, a tree you love..."></textarea>
+              <p class="hint" id="h-notes"><span id="n-count" class="tnum">0</span> of 1,200 characters</p>
+            </div>
+          </div>
+          <div class="f-actions">
+            <button class="btn" type="submit" id="f-submit"><span class="spin" aria-hidden="true"></span><span id="f-label">Send request</span></button>
+            <p class="meta">We reply within two business days. Your details stay with us.</p>
+            <label class="demo-toggle" id="demo-toggle" hidden><input type="checkbox" id="f-fail"> Simulate a failed send</label>
+          </div>
+          <div class="failbox" id="failbox" role="alert" tabindex="-1"><b>That did not go through.</b> Nothing you typed was lost. Try again in a minute, or call (612) 555-0147 and we will take it by phone.</div>
+        </form>
+
+        <div class="done" id="done" role="status" tabindex="-1">
+          <span class="kick">Request received</span>
+          <h3 class="h3" id="done-h">Thank you. We will be in touch by <span id="done-day">Tuesday</span>.</h3>
+          <p class="lede">Reference <b class="tnum" id="done-ref">KS-0000</b>. Keep it handy if you call.</p>
+          <dl id="done-dl"></dl>
+          <ol>
+            <li><b>Within two business days:</b> an email from a designer, with two or three dates.</li>
+            <li><b>When you pick one:</b> a payment link for the $275 and a short checklist, mostly about pets and gates.</li>
+            <li><b>On the day:</b> ninety minutes. Wear shoes you do not mind getting muddy.</li>
+          </ol>
+          <button class="btn ghost" type="button" id="f-again">Send another request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="faq-grid">
+      <h2 class="h2 rv" id="faq-h">Questions we hear on every visit.</h2>
+      <div class="faq-list rv">
+        <details><summary>Will it look messy?</summary><p class="a">In year one, a little, and we say so up front. We draw every planting with a clean mown edge, a path or a low border so it reads as intended from the street. Neighbors notice the edge before they notice the plants.</p></details>
+        <details><summary>Is this allowed in my city?</summary><p class="a">Both Minneapolis and Saint Paul allow native plantings with conditions about height near sidewalks and corners. Suburbs vary. We check the rules for your address during the Plan stage and draw to them.</p></details>
+        <details><summary>Can you help with grant programs?</summary><p class="a">When a state or watershed cost-share round is open, we will help you fill in the plan and plant list portions. We do not control those programs or their timing, so we never price a project assuming you will win one.</p></details>
+        <details><summary>What if plants die?</summary><p class="a">Any plug that fails in its first growing season is replaced at no charge on the September visit. After that, losses are usually about the site, and we will tell you why and what we would change.</p></details>
+        <details><summary>Why do you charge for the consultation?</summary><p class="a">Because it is real work, and because it keeps our calendar for people who are serious. You get written notes and a plant list either way, and the fee comes off the design if you go ahead.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><svg viewBox="0 0 34 34" aria-hidden="true"><ellipse cx="17" cy="22" rx="14" ry="8.5" fill="none" stroke="#E4EEE4" stroke-width="1.4"/><ellipse cx="17" cy="22" rx="8.5" ry="4.8" fill="none" stroke="#A9BFAE" stroke-width="1.2" stroke-dasharray="3 2"/><path d="M17 22V5M17 15l-6-8M17 15l6-8M17 19l-9-6M17 19l9-6" fill="none" stroke="#CDB6F2" stroke-width="1.4" stroke-linecap="round"/></svg><span>Kettle <i>&amp;</i> Sedge</span></a>
+        <p style="margin-top:14px;max-width:38ch">Native landscape design-build. Yard and office on Snelling Avenue, Saint Paul. Consultations by appointment.</p>
+      </div>
+      <div><h2>On this page</h2><ul><li><a href="#process">Process</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#work">Work</a></li><li><a href="#area">Service area</a></li></ul></div>
+      <div><h2>Contact</h2><ul><li><a class="tnum" href="tel:+16125550147">(612) 555-0147</a></li><li><a href="mailto:hello@kettleandsedge.example">hello@kettleandsedge.example</a></li><li><a href="#request">Request a consultation</a></li></ul></div>
+    </div>
+    <div class="demo-line">
+      <p>Kettle &amp; Sedge is not a real business. This page is a demonstration built by <a href="../../index.html">Page Studio</a>. Names, projects, prices and the phone number are invented.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* nav rule on scroll */
+  var nav = document.querySelector(".nav");
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  /* mobile section menu */
+  var secbtn = document.querySelector(".secbtn"), secmenu = document.getElementById("secmenu");
+  function closeMenu(focusBtn){ secbtn.setAttribute("aria-expanded","false"); secmenu.hidden = true; if (focusBtn) secbtn.focus(); }
+  secbtn.addEventListener("click", function(){
+    var open = secbtn.getAttribute("aria-expanded") === "true";
+    if (open) { closeMenu(false); } else { secbtn.setAttribute("aria-expanded","true"); secmenu.hidden = false; secmenu.querySelector("a").focus(); }
+  });
+  secmenu.addEventListener("click", function(e){ if (e.target.closest("a")) closeMenu(false); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !secmenu.hidden) closeMenu(true); });
+  document.addEventListener("click", function(e){ if (!secmenu.hidden && !e.target.closest(".secmenu,.secbtn")) closeMenu(false); });
+
+  /* signature: the plan establishes */
+  var board = document.getElementById("board");
+  var readout = document.getElementById("readout");
+  var cov = document.getElementById("cov");
+  var STATES = {
+    "0": {c:15, t:"<b>Planting day.</b> Plugs go in 18 inches apart. It looks like not much. That is correct."},
+    "1": {c:45, t:"<b>Year one: sleep.</b> Roots go down three feet before the tops do much. Two visits from us, a hose from you."},
+    "3": {c:90, t:"<b>Year three: leap.</b> Closed canopy, flowers from June to frost, no mowing. The oak is still a teenager, and will be for decades."}
+  };
+  var radios = board ? board.querySelectorAll('input[name="yr"]') : [];
+  var countTimer = null;
+  function setYear(y, user){
+    var s = STATES[y]; if(!s) return;
+    board.setAttribute("data-year", y);
+    var hero = document.getElementById("hero"); if (hero) hero.setAttribute("data-year", y);
+    readout.innerHTML = s.t;
+    var from = parseInt(cov.textContent, 10) || 0, to = s.c;
+    if (countTimer) cancelAnimationFrame(countTimer);
+    if (reduce) { cov.textContent = to; return; }
+    var t0 = null;
+    var step = function(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 1100), e = 1 - Math.pow(1 - p, 3);
+      cov.textContent = Math.round(from + (to - from) * e);
+      if (p < 1) countTimer = requestAnimationFrame(step);
+    };
+    countTimer = requestAnimationFrame(step);
+    if (user) autoplay = false;
+  }
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("change", function(e){ setYear(e.target.value, true); });
+  }
+  var autoplay = true;
+  if (board) {
+    if (reduce) {
+      document.getElementById("yr3").checked = true; setYear("3");
+    } else if ("IntersectionObserver" in window) {
+      var io0 = new IntersectionObserver(function(en){
+        if (!en[0].isIntersecting) return;
+        io0.disconnect();
+        setTimeout(function(){ if(!autoplay) return; document.getElementById("yr1").checked = true; setYear("1"); }, 1400);
+        setTimeout(function(){ if(!autoplay) return; document.getElementById("yr3").checked = true; setYear("3"); }, 3600);
+      }, {threshold:.4});
+      io0.observe(board);
+    }
+  }
+
+  /* reveals */
+  var rvs = document.querySelectorAll(".rv");
+  if (!reduce && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:.05});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
+
+  /* calendar: today marker and month note */
+  var NOTES = [
+    "Best month to start a design. The yard is asleep and our drafting table is not.",
+    "Design season. Plans started now are ready for the May planting window.",
+    "Last call for spring planting plans. Stems stay standing until April.",
+    "Cutback and first site visits as the frost leaves. Stone work starts mid month.",
+    "Planting window opens mid month, once soil reaches about 50 degrees.",
+    "Peak planting and the first included check-in visit for last year's gardens.",
+    "Too hot to plant well. We build stone and soil and water what is in.",
+    "The second planting window opens in the last two weeks.",
+    "Planting and September check-in visits. Asters and goldenrod carry the color.",
+    "Last plugs go in early. Book a fall consultation while you can still see the yard.",
+    "Book a winter design slot now. Dormant seeding wraps when the snow stays.",
+    "Dormant seed goes down on cold soil. Consultations move to video until April."
+  ];
+  var MN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now = new Date(), m = now.getMonth();
+  document.getElementById("now-k").textContent = "Right now: " + MN[m];
+  document.getElementById("now-p").textContent = NOTES[m];
+  var months = document.querySelectorAll(".cal-months span");
+  if (months[m]) months[m].classList.add("cur");
+  var calEl = document.getElementById("cal"), mark = document.getElementById("cal-now");
+  function placeNow(){
+    var sp = months[m]; if (!sp) return;
+    var r = sp.getBoundingClientRect(), c = calEl.getBoundingClientRect();
+    var days = new Date(now.getFullYear(), m + 1, 0).getDate();
+    var x = r.left - c.left + r.width * ((now.getDate() - .5) / days);
+    mark.style.left = x.toFixed(1) + "px"; mark.style.setProperty("--nt", (sp.parentNode.offsetHeight - 2) + "px"); mark.hidden = false;
+  }
+  placeNow(); window.addEventListener("resize", placeNow);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeNow);
+
+  /* consultation form */
+  var form = document.getElementById("cf");
+  if (!form) return;
+  if (/[?&]demo=1(&|$)/.test(location.search)) document.getElementById("demo-toggle").hidden = false;
+  var summary = document.getElementById("summary"), list = document.getElementById("summary-list");
+  var zipNote = document.getElementById("n-zip");
+  var notes = document.getElementById("f-notes"), ncount = document.getElementById("n-count");
+  var submit = document.getElementById("f-submit"), label = document.getElementById("f-label");
+  var failbox = document.getElementById("failbox"), done = document.getElementById("done");
+  var LABELS = {name:"Your name", email:"Email", zip:"Property ZIP code", type:"What you are hoping for", size:"How much ground"};
+  var IN_PREFIX = ["550","551","553","554","555"];
+
+  function fieldOf(k){ return form.querySelector('[data-f="'+k+'"]'); }
+  function check(k){
+    var ok = true, v;
+    if (k === "name") { v = form.elements["name"].value.trim(); ok = v.length >= 2; }
+    if (k === "email") { v = form.elements["email"].value.trim(); ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+    if (k === "zip") { v = form.elements["zip"].value.trim(); ok = /^\d{5}$/.test(v); }
+    if (k === "type") { ok = !!form.querySelector('input[name="type"]:checked'); }
+    if (k === "size") { ok = !!form.elements["size"].value; }
+    var f = fieldOf(k); f.classList.toggle("bad", !ok);
+    var ctl = k === "type" ? null : f.querySelector("input,select");
+    if (ctl) ctl.setAttribute("aria-invalid", ok ? "false" : "true");
+    return ok;
+  }
+  function zipHint(){
+    var v = form.elements["zip"].value.trim();
+    if (!/^\d{5}$/.test(v)) { zipNote.classList.remove("show"); zipNote.textContent = ""; return; }
+    var inside = IN_PREFIX.indexOf(v.slice(0,3)) > -1;
+    zipNote.textContent = inside ? "That ZIP looks like it is in our area. We will confirm the travel tier when we reply."
+      : "That ZIP may be outside our usual area. Send it anyway: we take a few projects further out each year, and if we cannot help we will suggest someone who can.";
+    zipNote.classList.add("show");
+  }
+  ["name","email","zip","size"].forEach(function(k){
+    var el = form.elements[k];
+    el.addEventListener("blur", function(){ if (el.value) check(k); if (k === "zip") zipHint(); });
+    el.addEventListener("input", function(){ if (fieldOf(k).classList.contains("bad")) check(k); if (k === "zip") zipHint(); });
+  });
+  form.querySelectorAll('input[name="type"]').forEach(function(r){ r.addEventListener("change", function(){ check("type"); }); });
+  notes.addEventListener("input", function(){ ncount.textContent = notes.value.length.toLocaleString(); });
+
+  function busy(on){
+    submit.setAttribute("aria-busy", on ? "true" : "false");
+    submit.disabled = on; label.textContent = on ? "Sending" : "Send request";
+  }
+  function nextBizDay(d){
+    var x = new Date(d), n = 0;
+    while (n < 2) { x.setDate(x.getDate() + 1); if (x.getDay() % 6 !== 0) n++; }
+    return x.toLocaleDateString("en-US", {weekday:"long", month:"long", day:"numeric"});
+  }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    failbox.classList.remove("show");
+    var bad = Object.keys(LABELS).filter(function(k){ return !check(k); });
+    list.innerHTML = "";
+    if (bad.length) {
+      bad.forEach(function(k){
+        var li = document.createElement("li"), a = document.createElement("a");
+        var target = k === "type" ? "t1" : "f-" + k;
+        a.href = "#" + target; a.textContent = LABELS[k];
+        a.addEventListener("click", function(ev){ ev.preventDefault(); document.getElementById(target).focus(); });
+        li.appendChild(a); list.appendChild(li);
+      });
+      summary.classList.add("show"); summary.focus();
+      return;
+    }
+    summary.classList.remove("show");
+    busy(true);
+    var willFail = document.getElementById("f-fail").checked;
+    setTimeout(function(){
+      busy(false);
+      if (willFail) { failbox.classList.add("show"); failbox.focus(); return; }
+      var t = form.querySelector('input[name="type"]:checked').value;
+      document.getElementById("done-ref").textContent = "KS-" + String(now.getMonth()+1).padStart(2,"0") + String(now.getDate()).padStart(2,"0") + "-" + String(Math.floor(1000 + Math.random()*9000));
+      document.getElementById("done-day").textContent = nextBizDay(new Date());
+      var dl = document.getElementById("done-dl"); dl.innerHTML = "";
+      [["Name", form.elements["name"].value.trim()], ["Project", t], ["Ground", form.elements["size"].value], ["ZIP", form.elements["zip"].value.trim()]].forEach(function(p){
+        var dt = document.createElement("dt"), dd = document.createElement("dd");
+        dt.textContent = p[0]; dd.textContent = p[1]; dl.appendChild(dt); dl.appendChild(dd);
+      });
+      form.hidden = true; done.classList.add("show"); done.focus();
+    }, 1200);
+  });
+  document.getElementById("f-again").addEventListener("click", function(){
+    form.reset(); ncount.textContent = "0"; zipHint();
+    form.querySelectorAll(".bad").forEach(function(f){ f.classList.remove("bad"); });
+    form.querySelectorAll("[aria-invalid]").forEach(function(f){ f.setAttribute("aria-invalid","false"); });
+    done.classList.remove("show"); form.hidden = false; form.elements["name"].focus();
+  });
+})();
+</script>
+</body>
+</html>

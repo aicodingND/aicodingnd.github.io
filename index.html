@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Studio &middot; One studio, six registers &middot; Fixed-price websites</title>
+<meta name="description" content="A one-person Northern Virginia design studio. Six live demos, six different worlds. Fixed-price, fixed-scope websites in two to three weeks. The work is the proof.">
+<meta name="theme-color" content="#0E0E0C">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- LAUNCH IDENTITY: the email, base URL, and form endpoint on this site are PLACEHOLDERS
+     (page.studio is registered to a third party; the pages.dev base is the interim host).
+     Do not hand-edit them here. Single source: site-identity.conf at the repo root; fill the
+     SET_ values and run apply-identity.sh to swap every occurrence across index.html,
+     sitemap.xml, robots.txt, and feed.xml in one pass. stage-deploy.sh blocks shipping
+     while the identity is still placeholder. -->
+<link rel="canonical" href="https://aicodingnd.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aicodingnd.github.io/">
+<meta property="og:title" content="Page Studio">
+<meta property="og:description" content="One studio, six registers. Fixed-price websites in two to three weeks. The work is the proof.">
+<meta property="og:image" content="https://aicodingnd.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Page Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Studio">
+<meta name="twitter:description" content="One studio, six registers. Fixed-price websites in two to three weeks.">
+<meta name="twitter:image" content="https://aicodingnd.github.io/og.jpg">
+<link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrainsmono-var.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Page Studio",
+  "url": "https://aicodingnd.github.io/",
+  "image": "https://aicodingnd.github.io/og.jpg",
+  "description": "A one-person Northern Virginia design studio. Fixed-price, fixed-scope websites in two to three weeks.",
+  "founder": { "@type": "Person", "name": "Michael Page" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Vienna", "addressRegion": "VA", "addressCountry": "US" },
+  "areaServed": "Northern Virginia",
+  "priceRange": "$750-$7,500",
+  "makesOffer": [
+    { "@type": "Offer", "name": "The Audit", "price": "750", "priceCurrency": "USD", "description": "A five-page written audit of your current site, delivered within a week." },
+    { "@type": "Offer", "name": "The Landing", "price": "3500", "priceCurrency": "USD", "description": "A single written-for-you landing page, custom design, deployed to your domain in two to three weeks." },
+    { "@type": "Offer", "name": "The Site", "price": "7500", "priceCurrency": "USD", "description": "A small custom site of four or five pages in three to five weeks." }
+  ]
+}
+</script>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+  @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-italic-var.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrainsmono-var.woff2") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
+
+  :root {
+    /* Dark gallery. A near-black wall, bone ink, a four-step grey. The studio wears no color;
+       the only chromatic color on the page is each demo's own pigment swatch. */
+    --canvas: #0E0E0C;       /* warm near-black, not pure #000 */
+    --canvas-2: #121210;     /* hung surfaces, faintly lifted */
+    --panel: #16161270;      /* current-row wash */
+    --bone: #ECE7DC;         /* primary ink, ~15:1 on canvas */
+    --bone-soft: #CFC9BC;    /* headings emphasis / deks, ~12:1 */
+    --grey: #A39E94;         /* secondary text, 7.2:1 AA */
+    --grey-dim: #9A958C;     /* tertiary / captions, ~6.3:1, headroom over AA for the smallest mono */
+    --rule: #232320;         /* faint hairline */
+    --rule-strong: #34332E;  /* section dividers */
+
+    /* Client pigments are NOT declared here. Each demo's paper/ink/pigment lives in exactly
+       two places, both further down: the REG[] array and the inline --dot on its register row.
+       A duplicate list here went stale (it never gained demo 07) and had zero consumers, so it
+       was removed. Swatches and graphics ONLY, never small text. */
+
+    /* One modular scale, ratio 1.2 (minor third) */
+    --step--1: 0.833rem;
+    --step-0: 1rem;
+    --step-1: 1.2rem;
+    --step-2: 1.44rem;
+    --step-3: 1.728rem;
+    --step-4: 2.074rem;
+    --step-5: 2.488rem;
+    --step-6: 2.986rem;
+    --step-7: 3.583rem;
+    --step-8: 4.3rem;
+
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --measure: 34em;
+
+    /* Zoned grain. The wall (body) keeps its coarse tooth; mounted panels (offers, the brief)
+       carry a finer sheet tooth; the specimen gets a neutral tooth that overlays whatever
+       paper each register brings. Stock differs by room, monochrome everywhere. */
+    --sheet-tooth: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='120'%3E%3Cfilter%20id='s'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.15'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200%200%200%200.04%200'/%3E%3C/filter%3E%3Crect%20width='120'%20height='120'%20filter='url(%23s)'/%3E%3C/svg%3E");
+    --paper-tooth: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='120'%3E%3Cfilter%20id='p'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200%200%200%200.5%200'/%3E%3C/filter%3E%3Crect%20width='120'%20height='120'%20filter='url(%23p)'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  /* Gallery-wall tooth: a faint light grain (~3.5% max alpha white specks) over the near-black,
+     so the wall reads as a surface and not a flat fill. Decorative, behind everything, no layout cost. */
+  body { margin: 0; background-color: var(--canvas); background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200%200%200%200.035%200'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23g)'/%3E%3C/svg%3E"); color: var(--bone); font-family: var(--serif); font-optical-sizing: auto; font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: var(--bone); text-decoration: none; transition: color 200ms ease; }
+  a:hover { color: var(--bone-soft); }
+  h1, h2, h3, h4 { margin: 0; font-weight: 480; color: var(--bone); letter-spacing: -0.012em; }
+  h1 { font-size: var(--step-7); line-height: 1.0; letter-spacing: -0.02em; }
+  h2 { font-size: var(--step-5); line-height: 1.08; letter-spacing: -0.015em; }
+  h3 { font-size: var(--step-2); line-height: 1.2; }
+  em { font-style: italic; }
+  h1 em, h2 em { color: var(--bone); font-weight: 400; }
+  p { margin: 0 0 0.9em; max-width: var(--measure); }
+  .wrap { width: min(78rem, calc(100% - 3rem)); margin-inline: auto; }
+  .mono { font-family: var(--mono); }
+
+  /* A11Y */
+  .skip { position: absolute; left: 0.75rem; top: -4rem; z-index: 200; background: var(--bone); color: var(--canvas); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; padding: 0.65rem 1rem; transition: top 160ms ease; }
+  .skip:focus { top: 0.75rem; }
+  :focus-visible { outline: 2px solid var(--bone); outline-offset: 3px; border-radius: 1px; }
+
+  /* MASTHEAD BAR */
+  header.bar { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 1.4rem 0 1.15rem; border-bottom: 1px solid var(--rule-strong); }
+  .mark { font-family: var(--serif); font-size: 1.35rem; font-weight: 560; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.6rem; color: var(--bone); }
+  .mark em { color: var(--bone); font-style: italic; font-weight: 400; }
+  /* Pressmark: a drawn colophon device (dog-eared sheet, set-type rules, a bone initial). The
+     studio's own mark in its own monochrome register, inheriting ink through currentColor. */
+  .mk-device { width: 1.4rem; height: auto; flex: none; overflow: visible; color: var(--bone); }
+  /* The back leaf: a second sheet behind the first, the plural made visible (many registers,
+     one studio). Softer stroke so it reads as behind; the front sheet's canvas fill occludes it. */
+  .mk-device .mk-leaf { fill: var(--rule-strong); stroke: currentColor; stroke-width: 1.4; opacity: 0.55; }
+  .mk-device .mk-sheet { fill: var(--canvas); stroke: currentColor; stroke-width: 1.4; }
+  .mk-device .mk-fold { fill: var(--rule-strong); stroke: currentColor; stroke-width: 1.4; }
+  .mk-device .mk-initial { fill: var(--bone); }
+  .mk-device .mk-rule { stroke: currentColor; stroke-width: 1.1; stroke-linecap: square; opacity: 0.45; }
+  nav.primary ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.9rem; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  nav.primary a { color: var(--grey); position: relative; }
+  nav.primary a:hover { color: var(--bone); }
+
+  /* HERO */
+  section.hero { padding: 4.4rem 0 4.6rem; border-bottom: 1px solid var(--rule); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.32fr) minmax(0, 1fr); gap: 3.8rem; align-items: start; }
+  /* max-width: none opts out of the global p measure, which at this font size caps the line
+     at ~381px and orphans a separator onto line two (found in the 2026-06-09 re-score). */
+  .dateline { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-dim); margin: 0 0 1.7rem; display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: center; max-width: none; }
+  .dateline b { color: var(--bone-soft); font-weight: 600; }
+  .masthead h1 { max-width: 15ch; font-size: var(--step-8); line-height: 0.98; }
+  .dek { font-size: var(--step-1); line-height: 1.45; color: var(--bone-soft); max-width: 30em; margin-top: 1.6rem; }
+  .priceline { font-family: var(--serif); font-size: var(--step-1); color: var(--bone); margin-top: 1.7rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); max-width: none; }
+  .priceline em { color: var(--bone); font-style: italic; }
+  .priceline span { display: block; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; color: var(--grey); margin-top: 0.45rem; text-transform: none; }
+  .hero-cta { margin-top: 1.9rem; display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--bone); color: var(--canvas); padding: 0.92em 1.55em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 200ms ease, transform 200ms ease; }
+  .btn-primary:hover { background: #fff; color: var(--canvas); transform: translateY(-1px); }
+  .btn-ghost { color: var(--bone); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1.5px solid var(--grey); padding-bottom: 4px; position: relative; }
+  .btn-ghost:hover { color: var(--bone); border-bottom-color: var(--bone); }
+
+  /* REGISTER INDEX (signature) */
+  .register { position: relative; }
+  .reg-label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule-strong); margin-bottom: 0; }
+  .reg-label b { color: var(--bone-soft); font-weight: 600; }
+  .specimen { position: relative; }
+  /* The specimen is the one chromatic surface in the studio chrome: it fully re-skins to each
+     demo's own paper, ink, and pigment. The gallery hangs the work; the work brings the color. */
+  .spec-skin { --sk-bg: #F4EFE5; --sk-ink: #1F2C5A; --sk-acc: #B8946A; background: var(--sk-bg); color: var(--sk-ink); padding: 1.6rem 1.5rem 1.5rem; min-height: 14rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.5rem; transition: background 420ms ease, color 420ms ease; position: relative; overflow: hidden; box-shadow: 0 24px 60px -28px rgba(0,0,0,0.8); }
+  .spec-skin:before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px; background: var(--sk-acc); transition: background 420ms ease; }
+  /* Paper tooth on the specimen: overlay blend so the same neutral grain reads as each
+     register's own stock, light on dark papers and dark on light ones. */
+  .spec-skin::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: var(--paper-tooth); mix-blend-mode: overlay; opacity: 0.1; }
+  @media (prefers-reduced-motion: reduce) { .spec-skin, .spec-skin:before { transition: none; } }
+  .spec-folio { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.16em; color: var(--sk-ink); }
+  .spec-genre { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
+  .spec-name { font-family: var(--serif); font-style: italic; font-weight: 460; font-size: var(--step-4); line-height: 1.04; align-self: center; }
+  .spec-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .spec-line { font-family: var(--serif); font-size: 0.92rem; opacity: 0.82; max-width: 22ch; }
+  .spec-go { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sk-ink); border-bottom: 1px solid currentColor; padding-bottom: 2px; white-space: nowrap; opacity: 0.85; }
+  .spec-go:hover { color: var(--sk-ink); opacity: 1; }
+
+  ol.index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  ol.index li { border-bottom: 1px solid var(--rule); }
+  ol.index a { display: grid; grid-template-columns: 1.9rem 0.7rem 1fr auto; align-items: center; gap: 0.7rem; padding: 0.62rem 0.2rem; color: var(--grey); font-family: var(--serif); position: relative; min-height: 44px; transition: color 180ms ease, background 180ms ease; }
+  ol.index a:hover, ol.index a:focus-visible, ol.index a[aria-current="true"] { color: var(--bone); }
+  ol.index a[aria-current="true"] { background: var(--panel); }
+  ol.index .fol { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--grey-dim); }
+  ol.index a[aria-current="true"] .fol { color: var(--bone); }
+  ol.index .dot { width: 11px; height: 11px; background: var(--dot, #999); display: inline-block; box-shadow: 0 0 0 1px rgba(255,255,255,0.14) inset; }
+  ol.index .nm { font-size: 1rem; font-weight: 460; }
+  ol.index .gn { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); }
+  .reg-hint { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; color: var(--grey-dim); margin: 0.9rem 0 0; line-height: 1.5; max-width: none; }
+
+  /* SECTION HEAD (folio device, recurring) */
+  .section-head { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 1.2rem; padding: 4rem 0 1.4rem; border-bottom: 1px solid var(--rule-strong); margin-bottom: 2.6rem; }
+  .section-head .fol-n { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--grey); }
+  .section-head h2 { white-space: nowrap; }
+  .section-head .lede { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); justify-self: end; text-align: right; }
+
+  /* FILTER */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; margin-bottom: 2.2rem; }
+  .filter-chip { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); border: 1px solid var(--rule-strong); background: transparent; padding: 0.4rem 0.8rem; cursor: pointer; transition: color 180ms ease, border-color 180ms ease, background 180ms ease; display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+  .filter-chip:hover { color: var(--bone); border-color: var(--bone); }
+  .filter-chip[aria-pressed="true"] { color: var(--canvas); background: var(--bone); border-color: var(--bone); }
+  .filter-chip .count { font-size: 0.6rem; color: var(--grey-dim); }
+  .filter-chip:hover .count { color: var(--bone); }
+  .filter-chip[aria-pressed="true"] .count { color: rgba(14,14,12,0.6); }
+
+  /* GENRE NOTE: the filter states the operator's position, not just shows/hides */
+  .genre-note { max-width: 56ch; margin: 0 0 2.4rem; transition: opacity 220ms ease; }
+  .genre-note .tag { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.6rem; }
+  /* register dot: the only color in the note, drawn from the chosen demo's pigment; decorative */
+  .genre-note .gn-dot { width: 9px; height: 9px; flex: none; background: var(--gn-dot, transparent); box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset; transition: background 220ms ease; }
+  .genre-note .gn-dot[hidden] { display: none; }
+  .genre-note .body { display: block; font-family: var(--serif); font-style: italic; font-size: var(--step-3); line-height: 1.42; color: var(--bone); }
+  @media (prefers-reduced-motion: reduce) { .genre-note, .genre-note .gn-dot { transition: none; } }
+
+  /* Proof strip: on narrow viewports the hero specimen is off-screen, so a chip tap pulls a small
+     proof of the chosen register - the demo's real stock, ink, and pigment - under the note. */
+  .mini-spec { display: none; }
+  @media (max-width: 880px) {
+    .mini-spec { display: flex; align-items: center; gap: 0.7rem; margin: -1.2rem 0 2.4rem; padding: 0.8rem 0.95rem; min-height: 44px; box-sizing: border-box; background: var(--ms-bg, var(--canvas-2)); color: var(--ms-ink, var(--bone)); border-left: 3px solid var(--ms-acc, var(--grey)); text-decoration: none; }
+    .mini-spec[hidden] { display: none; }
+    .mini-spec .ms-folio { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; opacity: 0.8; flex: none; }
+    .mini-spec .ms-name { font-family: var(--serif); font-size: 1.02rem; font-weight: 560; line-height: 1.25; flex: 1; }
+    .mini-spec .ms-go { font-family: var(--mono); font-size: 0.9rem; flex: none; opacity: 0.85; }
+  }
+
+  /* PORTFOLIO GRID (asymmetric) */
+  .portfolio { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 1.6rem; row-gap: 3.2rem; }
+  .work { display: flex; flex-direction: column; gap: 0.95rem; transition: opacity 300ms ease; }
+  .work[hidden] { display: none; }
+  .work.w7 { grid-column: span 7; }
+  .work.w5 { grid-column: span 5; }
+  .work.w12 { grid-column: 1 / -1; }
+  .work .frame { position: relative; aspect-ratio: 16 / 11; background: var(--canvas-2); border: 1px solid var(--rule); overflow: hidden; cursor: pointer; transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease; display: block; }
+  .work .frame:hover { border-color: var(--grey); transform: translateY(-2px); box-shadow: 0 22px 48px -22px rgba(0,0,0,0.75); }
+  .work .frame:hover .frame-cap { background: var(--bone); color: var(--canvas); }
+  .work .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .work .frame-cap { position: absolute; left: 0.8rem; bottom: 0.8rem; right: 0.8rem; display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bone); background: rgba(14,14,12,0.82); backdrop-filter: blur(2px); padding: 0.4rem 0.7rem; transition: background 200ms ease, color 200ms ease; }
+  .work .label-row { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 0.8rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--rule); }
+  .work .wfol { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--grey); }
+  .work h3 { font-size: var(--step-2); font-weight: 520; }
+  .work h3 em { font-style: italic; color: var(--bone); font-weight: 460; }
+  .work .disc { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-dim); white-space: nowrap; }
+  .work .place { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); margin-top: -0.2rem; }
+  .work .intent { font-family: var(--serif); font-style: italic; font-size: var(--step-1); color: var(--bone); line-height: 1.32; margin: 0.1rem 0 0; }
+  .work p.body { font-size: 0.95rem; color: var(--grey); line-height: 1.55; margin: 0; }
+  .work .meta-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 0.7rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); }
+  .work .visit { color: var(--bone); border-bottom: 1px solid var(--grey); padding-bottom: 2px; position: relative; }
+  .work .visit:hover { color: var(--bone); border-bottom-color: var(--bone); }
+  .work .meta-row { flex-wrap: wrap; row-gap: 0.45rem; }
+  .work .meta-links { display: flex; gap: 1.4rem; align-items: baseline; flex-wrap: wrap; row-gap: 0.45rem; }
+  .work .case-link { color: var(--grey); border-bottom: 1px solid var(--rule-strong); padding-bottom: 2px; position: relative; white-space: nowrap; }
+  .work .case-link:hover { color: var(--bone); border-bottom-color: var(--grey); }
+
+  /* HOW IT WORKS */
+  .how-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 1.6rem; row-gap: 2rem; }
+  .how-step { display: flex; flex-direction: column; gap: 0.55rem; padding-top: 1.1rem; border-top: 1px solid var(--rule-strong); }
+  .how-step:nth-child(2) { transform: translateY(2.2rem); }
+  .how-step:nth-child(3) { transform: translateY(4.4rem); }
+  .how-n { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--grey); }
+  .how-step h3 { font-family: var(--serif); font-style: italic; font-weight: 440; font-size: var(--step-3); line-height: 1.16; margin: 0 0 0.2rem; max-width: 16ch; color: var(--bone); }
+  .how-step p { font-size: 0.96rem; color: var(--grey); line-height: 1.55; margin: 0 0 1rem; max-width: 28em; }
+  .how-sla { margin-top: auto; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); border-top: 1px solid var(--rule); padding-top: 0.6rem; }
+
+  /* FOUNDER */
+  .founder { padding: 4rem 0 0.5rem; }
+  .founder-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: 3.2rem; align-items: start; border-top: 1px solid var(--rule); padding-top: 3rem; }
+  /* The kicker is the section's real heading (h2) kept at kicker scale so the outline gains
+     a Founder entry without the folio system renumbering. */
+  .founder .kicker { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); margin: 0; line-height: 1.4; }
+  .founder .sign { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.4rem; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--bone); }
+  .founder .sign .mk-device { width: 1.5rem; }
+  .founder .stamp { display: block; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-dim); margin-top: 0.5rem; }
+  .founder blockquote { margin: 0; font-family: var(--serif); font-size: var(--step-3); line-height: 1.42; color: var(--bone-soft); max-width: 30em; }
+  .founder blockquote em { color: var(--bone); }
+
+  /* OFFERS */
+  .offers { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 1.6rem; row-gap: 2rem; align-items: stretch; }
+  .offer { border: 1px solid var(--rule-strong); padding: 2rem 1.7rem 1.9rem; background-color: var(--canvas-2); background-image: var(--sheet-tooth); display: flex; flex-direction: column; }
+  .offer-1 { grid-column: 1 / span 4; }
+  .offer-2 { grid-column: 5 / span 4; transform: translateY(-14px); border: 1.5px solid var(--bone-soft); }
+  .offer-3 { grid-column: 9 / span 4; }
+  .offer .tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey); margin: 0 0 0.6rem; display: flex; justify-content: space-between; }
+  .offer-2 .tag .best { color: var(--canvas); background: var(--bone); padding: 0.1rem 0.45rem; letter-spacing: 0.1em; }
+  .offer h3 { font-family: var(--serif); font-style: italic; font-weight: 440; font-size: var(--step-2); margin: 0 0 0.5rem; color: var(--bone); }
+  .offer .price { font-family: var(--serif); font-size: var(--step-6); font-weight: 480; line-height: 1; margin: 0.3rem 0 0.3rem; font-feature-settings: "tnum" 1; letter-spacing: -0.02em; color: var(--bone); }
+  .offer .price .per { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); margin-left: 0.5rem; }
+  .offer .window { font-family: var(--mono); font-size: 0.7rem; color: var(--grey-dim); margin-bottom: 1rem; letter-spacing: 0.04em; }
+  .offer .pitch { font-size: 0.94rem; color: var(--grey); margin: 0 0 1.2rem; line-height: 1.55; }
+  .offer ul { list-style: none; margin: 0 0 1.5rem; padding: 0; flex: 1 1 auto; }
+  .offer ul li { padding: 0.5rem 0; border-top: 1px solid var(--rule); font-size: 0.92rem; color: var(--bone-soft); display: grid; grid-template-columns: 1rem 1fr; gap: 0.5rem; align-items: baseline; }
+  /* marker: a small bone square (no em dash) */
+  .offer ul li:before { content: ""; width: 6px; height: 6px; background: var(--grey); align-self: center; transform: translateY(-1px); }
+  .offer .pick { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone); border-bottom: 1px solid var(--grey); padding-bottom: 3px; align-self: flex-start; position: relative; }
+  .offer-2 .pick { background: var(--bone); color: var(--canvas); border: 1px solid var(--bone); padding: 0.6rem 1rem; }
+  .offer-2 .pick:hover { background: #fff; border-color: #fff; color: var(--canvas); }
+  .offer .pick:hover { color: var(--bone); border-bottom-color: var(--bone); }
+
+  /* INTAKE */
+  .intake-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 3.4rem; align-items: start; }
+  .intake-grid h2 { margin-bottom: 1.1rem; }
+  .intake-grid p { font-size: var(--step-0); color: var(--grey); line-height: 1.55; max-width: 32em; }
+  .intake-grid .small { font-family: var(--mono); font-size: 0.72rem; color: var(--grey-dim); margin-top: 1.4rem; letter-spacing: 0.02em; line-height: 1.55; }
+  form.brief { display: grid; gap: 1.15rem; border: 1px solid var(--rule-strong); padding: 1.9rem; background-color: var(--canvas-2); background-image: var(--sheet-tooth); }
+  form.brief .field { display: grid; gap: 0.35rem; }
+  form.brief label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); }
+  form.brief input, form.brief select, form.brief textarea { font-family: var(--serif); font-size: 1rem; color: var(--bone); background: var(--canvas); border: 1px solid var(--rule-strong); padding: 0.85rem 0.8rem; width: 100%; min-height: 44px; transition: border-color 180ms ease; }
+  form.brief select { color: var(--bone); }
+  form.brief option { color: #111; background: #fff; }
+  form.brief input::placeholder, form.brief textarea::placeholder { color: var(--grey-dim); }
+  form.brief input:focus, form.brief select:focus, form.brief textarea:focus { outline: none; border-color: var(--bone); }
+  form.brief input:focus-visible, form.brief select:focus-visible, form.brief textarea:focus-visible { outline: 2px solid var(--bone); outline-offset: 2px; }
+  form.brief textarea { min-height: 6rem; resize: vertical; line-height: 1.5; }
+  form.brief .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
+  form.brief [aria-invalid="true"] { border-color: var(--bone); box-shadow: 0 0 0 1px var(--bone) inset; }
+  form.brief .err { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; color: var(--bone); min-height: 0; }
+  form.brief .err[hidden] { display: none; }
+  /* Honeypot: humans never see or tab to it; bots that fill it get a quiet fake success. */
+  form.brief .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  form.brief .form-status { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--bone); }
+  form.brief .form-status[hidden] { display: none; }
+  form.brief button { background: var(--bone); color: var(--canvas); padding: 0.92em 1.55em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--bone); cursor: pointer; justify-self: start; transition: background 180ms ease; }
+  form.brief button:hover { background: #fff; border-color: #fff; }
+  form.brief button[disabled] { background: var(--grey-dim); border-color: var(--grey-dim); color: var(--canvas); cursor: default; }
+
+  /* FOOTER */
+  footer.foot { margin-top: 4.5rem; padding: 2.8rem 0 2.2rem; border-top: 1px solid var(--rule-strong); }
+  footer.foot .row { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; align-items: start; }
+  footer.foot .mark-foot { font-family: var(--serif); font-size: 1.4rem; font-weight: 560; margin-bottom: 0.6rem; display: inline-flex; align-items: center; gap: 0.55rem; color: var(--bone); }
+  footer.foot .mk-device { width: 1.55rem; }
+  footer.foot .mark-foot em { font-style: italic; color: var(--bone); font-weight: 400; }
+  footer.foot .tagline { color: var(--grey); font-style: italic; font-family: var(--serif); font-size: 1rem; max-width: 22em; }
+  footer.foot .col-h { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.6rem; }
+  footer.foot ul { list-style: none; margin: 0; padding: 0; }
+  footer.foot li { font-size: 0.92rem; }
+  footer.foot a { color: var(--grey); display: flex; align-items: center; min-height: 28px; }
+  footer.foot a:hover { color: var(--bone); }
+  footer.foot .legal { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; font-family: var(--mono); font-size: 0.7rem; color: var(--grey-dim); letter-spacing: 0.02em; }
+
+  /* REVEAL: visible by default; JS opts in to fade */
+  .reveal { opacity: 1; transform: none; transition: opacity 640ms ease, transform 640ms ease; }
+  .js .reveal { opacity: 0; transform: translateY(8px); }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1 !important; transform: none !important; transition: none; } }
+
+  /* TOUCH TARGETS: out-of-flow hit bands, no layout change. All text-style links get 44px. */
+  nav.primary a, .btn-ghost, .offer .pick, .work .visit, .spec-go, .btn-primary, .brief button { position: relative; }
+  nav.primary a::after, .btn-ghost::after, .offer .pick::after, .spec-go::after, .btn-primary::after, .brief button::after, a.skip::after, .work .visit::after, .work .case-link::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.8rem; }
+    .masthead h1 { max-width: 18ch; font-size: var(--step-7); }
+    .founder-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  }
+  @media (max-width: 880px) {
+    .wrap { width: calc(100% - 2rem); }
+    h1 { font-size: var(--step-6); }
+    .masthead h1 { font-size: var(--step-6); }
+    .portfolio { grid-template-columns: 1fr; }
+    .work.w7, .work.w5, .work.w12 { grid-column: 1 / -1; }
+    .offers { grid-template-columns: 1fr; }
+    .offer-1, .offer-2, .offer-3 { grid-column: 1 / -1; transform: none; }
+    .how-grid { grid-template-columns: 1fr; row-gap: 1.4rem; }
+    .how-step, .how-step:nth-child(2), .how-step:nth-child(3) { transform: none; }
+    .intake-grid { grid-template-columns: 1fr; gap: 2rem; }
+    form.brief .row-2 { grid-template-columns: 1fr; }
+    .section-head { grid-template-columns: auto 1fr; }
+    .section-head h2 { white-space: normal; }
+    .section-head .lede { grid-column: 1 / -1; justify-self: start; text-align: left; }
+    footer.foot .row { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
+    footer.foot .legal { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    header.bar { grid-template-columns: 1fr; row-gap: 0.85rem; padding: 1.15rem 0 0.9rem; }
+    nav.primary { border-top: 1px solid var(--rule); padding-top: 0.8rem; }
+    nav.primary ul { justify-content: space-between; gap: 0.9rem; }
+  }
+  @media (max-width: 440px) {
+    body { font-size: 1.0125rem; }
+    h1 { font-size: var(--step-5); }
+    .masthead h1 { font-size: var(--step-5); }
+    nav.primary ul { gap: 0.9rem; font-size: 0.68rem; }
+    .dateline { font-size: 0.64rem; }
+    footer.foot .row { grid-template-columns: 1fr; }
+  }
+
+  /* PRINT: a written-first studio prints written-first. Black on white, chrome dropped, URLs expanded. */
+  @media print {
+    @page { margin: 1.6cm; }
+    *, *::before, *::after { background: transparent !important; color: #000 !important; box-shadow: none !important; }
+    .skip, nav.primary, .hero-cta, .filter-bar, .mini-spec, .specimen, .reg-hint, form.brief, .work .frame { display: none !important; }
+    body { font-size: 11pt; line-height: 1.45; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    a { text-decoration: underline; }
+    header.bar, .section-head, footer.foot { border-color: #000 !important; }
+    .mk-device .mk-sheet, .mk-device .mk-leaf { fill: #fff !important; }
+    .work .visit::after, .work .case-link::after, footer.foot a[href^="demos"]::after { content: " (" attr(href) ")"; font-family: monospace; font-size: 8.5pt; word-break: break-all; }
+    .portfolio, .offers, .how-grid { display: block !important; }
+    .work, .offer, .how-step { break-inside: avoid; page-break-inside: avoid; transform: none !important; margin-bottom: 0.85rem; }
+    .offer { border: 1px solid #000 !important; }
+    section { page-break-inside: auto; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar wrap">
+  <div class="mark"><svg class="mk-device" viewBox="0 0 26 28" aria-hidden="true" focusable="false"><path class="mk-leaf" d="M8 7 H24 V27 H8 Z"/><path class="mk-sheet" d="M5 4 H17 L21 8 V24 H5 Z"/><path class="mk-fold" d="M17 4 V8 H21 Z"/><rect class="mk-initial" x="8" y="9" width="3.4" height="3.4"/><path class="mk-rule" d="M12.6 10.8 H18 M8 14.2 H18 M8 16.8 H18 M8 19.4 H15.4"/></svg>Page <em>Studio</em></div>
+  <nav class="primary" aria-label="Primary">
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#how">Process</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#intake">Start</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div class="masthead">
+      <!-- Separators trail their segments so a wrap can never start a line with one. -->
+      <p class="dateline"><span><b>Page Studio</b> &middot;</span><span>Vol. I &middot;</span><span>Northern Virginia &middot;</span><span>Books open</span></p>
+      <h1>One studio. <em>Six registers.</em> Each business gets its own voice.</h1>
+      <p class="dek">Not a template. Not a content-management subscription. A page written and built for your business, by one person, in two to three weeks. The work below is the proof: six live demos, six different worlds, including one firm answered twice, in two registers, to show the voice is a choice.</p>
+      <p class="priceline">Projects from <em>$3,500</em>. Fixed price, fixed scope.<span>Audit $750 &middot; Landing $3,500 &middot; Site $7,500</span></p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#intake">Start a project</a>
+        <a class="btn-ghost" href="#work">See the work</a>
+      </div>
+    </div>
+
+    <div class="register" aria-label="The studio's six registers">
+      <div class="reg-label"><span>The Register</span><span><b id="regCount">06</b> live demos</span></div>
+      <div class="specimen">
+        <div class="spec-skin" id="specSkin">
+          <span class="spec-folio" id="specFolio">01</span>
+          <span class="spec-genre" id="specGenre">Private aviation / membership</span>
+          <span class="spec-name" id="specName">Aurelia Private Travel</span>
+          <div class="spec-foot">
+            <span class="spec-line" id="specLine">Sells returned hours, not speed.</span>
+            <a class="spec-go" id="specGo" href="demos/aurelia-air/index.html" target="_blank" rel="noopener">Open the demo &rsaquo;</a>
+          </div>
+        </div>
+      </div>
+      <ol class="index" id="regIndex">
+        <li><a href="#w-aurelia" data-reg="0"><span class="fol">01</span><span class="dot" style="--dot:#C9A86A" aria-hidden="true"></span><span class="nm">Aurelia Private Travel</span><span class="gn">Luxury</span></a></li>
+        <li><a href="#w-ninebrick" data-reg="1"><span class="fol">02</span><span class="dot" style="--dot:#A3391B" aria-hidden="true"></span><span class="nm">Ninebrick</span><span class="gn">Hospitality</span></a></li>
+        <li><a href="#w-haskett" data-reg="2"><span class="fol">03</span><span class="dot" style="--dot:#A2301B" aria-hidden="true"></span><span class="nm">Haskett &amp; Mroz</span><span class="gn">Professional</span></a></li>
+        <li><a href="#w-halftone" data-reg="3"><span class="fol">04</span><span class="dot" style="--dot:#2B4BA8" aria-hidden="true"></span><span class="nm">Halftone Hall</span><span class="gn">Events</span></a></li>
+        <li><a href="#w-kettle" data-reg="4"><span class="fol">05</span><span class="dot" style="--dot:#5B3A8E" aria-hidden="true"></span><span class="nm">Kettle &amp; Sedge</span><span class="gn">Landscape</span></a></li>
+        <li><a href="#w-sixcoulees" data-reg="5"><span class="fol">06</span><span class="dot" style="--dot:#3E6B3B" aria-hidden="true"></span><span class="nm">Six Coulees Land Trust</span><span class="gn">Nonprofit</span></a></li>
+      </ol>
+      <p class="reg-hint">Same studio, six worlds. Hover a row to preview its register; click to read the case below.</p>
+    </div>
+  </div>
+</section>
+<section class="wrap" id="work">
+  <div class="section-head">
+    <span class="fol-n">No. I</span>
+    <h2>Selected work, <em>by genre</em></h2>
+    <span class="lede" id="work-count">6 built &middot; 6 genres</span>
+  </div>
+
+  <div class="filter-bar" role="group" aria-label="Filter portfolio by genre">
+    <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All <span class="count">6</span></button>
+    <button type="button" class="filter-chip" data-filter="luxury" aria-pressed="false">Luxury <span class="count">1</span></button>
+    <button type="button" class="filter-chip" data-filter="hospitality" aria-pressed="false">Hospitality <span class="count">1</span></button>
+    <button type="button" class="filter-chip" data-filter="professional" aria-pressed="false">Professional services <span class="count">1</span></button>
+    <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">Events <span class="count">1</span></button>
+    <button type="button" class="filter-chip" data-filter="landscape" aria-pressed="false">Landscape <span class="count">1</span></button>
+    <button type="button" class="filter-chip" data-filter="nonprofit" aria-pressed="false">Nonprofit <span class="count">1</span></button>
+  </div>
+
+  <p class="genre-note" id="genre-note" aria-live="polite">
+    <span class="tag"><span class="gn-dot" id="genre-note-dot" aria-hidden="true" hidden></span><span id="genre-note-tag">The studio</span></span>
+    <span class="body" id="genre-note-body">Six rooms, one operator. Choose a genre to read how I work it.</span>
+  </p>
+
+  <a class="mini-spec" id="miniSpec" href="demos/aurelia-air/index.html" target="_blank" rel="noopener" hidden>
+    <span class="ms-folio" id="msFolio" aria-hidden="true">01</span>
+    <span class="ms-name" id="msName">Aurelia Private Travel</span>
+    <span class="ms-go" aria-hidden="true">&rsaquo;</span>
+  </a>
+
+  <div class="portfolio">
+
+
+
+
+    <article class="work w7 reveal" id="w-aurelia" data-genres="luxury">
+      <a class="frame" href="demos/aurelia-air/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open Aurelia Private Travel demo in a new tab">
+        <img src="thumbs/aurelia-thumb.jpg" alt="Aurelia Private Travel: a deep-navy night hero with a champagne Aurelia wordmark in a variable serif, a parallax cloudscape, and fine champagne hairlines." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">01</span>
+        <h3>Aurelia <em>Private Travel</em></h3>
+        <span class="disc">Brand + site design</span>
+      </div>
+      <p class="place">Private aviation &middot; membership</p>
+      <p class="intent">A membership page that sells returned hours, not speed.</p>
+      <p class="body">Private-aviation membership in three patterns chosen by how you fly, not what you own. A variable-font wordmark that settles as you scroll, a parallax cloudscape, fine-line aircraft silhouettes drawn to scale, a transatlantic case study, a live flight-time estimate. No stock photos, no exclamation points.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="case-link" href="demos/aurelia-air/case/transatlantic-access.html" target="_blank" rel="noopener">Case: Transatlantic &rsaquo;</a><a class="visit" href="demos/aurelia-air/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+
+
+
+
+    <article class="work w5 reveal" id="w-ninebrick" data-genres="hospitality">
+      <a class="frame" href="demos/ninebrick/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open the Ninebrick demo in a new tab">
+        <img src="thumbs/ninebrick-thumb.jpg" alt="Ninebrick: limewash-plaster page, heavy condensed headline Lit before dawn, cooked all the way down, beside a line-drawn section through the brick oven reading 760 degrees at the floor." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">02</span>
+        <h3>Nine<em>brick</em></h3>
+        <span class="disc">Site design + build</span>
+      </div>
+      <p class="place">Restaurant &middot; Southside, Chattanooga</p>
+      <p class="intent">A menu ordered by the heat of one oven.</p>
+      <p class="body">An invented wood-fired neighborhood restaurant. One fire lit at 5:40 every morning; the menu is set in the order the oven cooks it, each course under its temperature. A live burn curve shows where the oven is right now, and rests it on Mondays. Reservations with every state designed, and a menu that prints on its own.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="visit" href="demos/ninebrick/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+
+    <article class="work w5 reveal" id="w-haskett" data-genres="professional">
+      <a class="frame" href="demos/haskett-mroz/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open the Haskett &amp; Mroz demo in a new tab">
+        <img src="thumbs/haskett-mroz-thumb.jpg" alt="Haskett and Mroz: buff ledger paper, green-black ink, a red-ink double rule under an example fee quote whose total is added from its line items." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">03</span>
+        <h3>Haskett &amp; <em>Mroz</em></h3>
+        <span class="disc">Site design + build</span>
+      </div>
+      <p class="place">Accounting &middot; Walker's Point, Milwaukee</p>
+      <p class="intent">The tax year, ruled like a ledger.</p>
+      <p class="body">An invented five-person CPA firm for owner-run businesses. The year is drawn as a ledger sheet with a red line at today; tell it what you own and it marks only the dates that apply. Fees published as ranges, trust stated as credits and debits, and no review stars it could not stand behind.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="visit" href="demos/haskett-mroz/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+
+    <article class="work w7 reveal" id="w-halftone" data-genres="events">
+      <a class="frame" href="demos/halftone-hall/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open the Halftone Hall demo in a new tab">
+        <img src="thumbs/halftone-thumb.jpg" alt="Halftone Hall: a red and blue two-ink gig-poster wordmark slightly out of register, a halftone dot spotlight, and the next show on the bill." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">04</span>
+        <h3>Halftone <em>Hall</em></h3>
+        <span class="disc">Site design + build</span>
+      </div>
+      <p class="place">Live music &middot; Louisville, Kentucky</p>
+      <p class="intent">Printed in two inks, like the poster on the door.</p>
+      <p class="body">An invented 600-capacity hall in an old newspaper pressroom. The wordmark is printed in two inks that slip into register on load; the calendar filters by month and genre with sold-out stamps and face-value resale; every price shown is the all-in price. Accessible seating drawn as a floor plan, not a footnote.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="visit" href="demos/halftone-hall/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+
+    <article class="work w7 reveal" id="w-kettle" data-genres="landscape">
+      <a class="frame" href="demos/kettle-and-sedge/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open the Kettle &amp; Sedge demo in a new tab">
+        <img src="thumbs/kettle-sedge-thumb.jpg" alt="Kettle and Sedge: a cool green-white page with a drawn front-yard planting plan, violet flowers in year three, and the headline Gardens that get better after we leave." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">05</span>
+        <h3>Kettle &amp; <em>Sedge</em></h3>
+        <span class="disc">Site design + build</span>
+      </div>
+      <p class="place">Native landscape &middot; Twin Cities, Minnesota</p>
+      <p class="intent">A planting plan that grows while you watch.</p>
+      <p class="body">An invented native landscape design-build firm. The hero is a drawn front-yard plan you can step from planting day to year three as the meadow fills in and the blazing star blooms. Honest timelines, a seasonal calendar with a live today line, drawn site plans in place of photographs, and a paid consult that says what it costs.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="visit" href="demos/kettle-and-sedge/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+
+    <article class="work w5 reveal" id="w-sixcoulees" data-genres="nonprofit">
+      <a class="frame" href="demos/six-coulees-land-trust/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" aria-label="Open the Six Coulees Land Trust demo in a new tab">
+        <img src="thumbs/six-coulees-thumb.jpg" alt="Six Coulees Land Trust: a topographic contour map behind a one-sentence mission, with acres, parcels and stream miles summed from the parcel ledger." loading="lazy" width="1280" height="880">
+        <div class="frame-cap"><span>Open the demo</span><span>&rsaquo;</span></div>
+      </a>
+      <div class="label-row">
+        <span class="wfol">06</span>
+        <h3>Six Coulees <em>Land Trust</em></h3>
+        <span class="disc">Site design + build</span>
+      </div>
+      <p class="place">Conservation &middot; Driftless Wisconsin</p>
+      <p class="intent">Every acre added up from one ledger.</p>
+      <p class="body">An invented regional land trust. A contour map of its valley draws every protected parcel, and a slider replays thirty-five years of easements in order. Acres, parcels and stream miles are summed live from one list, so no figure on the page is typed in, and where a dollar goes is drawn as a surveyor's chain of one hundred links.</p>
+      <div class="meta-row"><span>&copy; 2026</span><span class="meta-links"><a class="visit" href="demos/six-coulees-land-trust/index.html" target="_blank" rel="noopener">Visit the demo &rsaquo;</a></span></div>
+    </article>
+  </div>
+</section>
+<section class="wrap" id="how" aria-labelledby="how-h">
+  <div class="section-head">
+    <span class="fol-n">No. II</span>
+    <h2 id="how-h">How it works</h2>
+    <span class="lede">three steps, written-first</span>
+  </div>
+  <ol class="how-grid">
+    <li class="how-step">
+      <span class="how-n">01</span>
+      <h3>Send the brief</h3>
+      <p>Two or three sentences about your business in plain English. The intake form at the bottom of this page takes about ninety seconds. No call, no calendar, no sales script.</p>
+      <span class="how-sla">Within 2 business days</span>
+    </li>
+    <li class="how-step">
+      <span class="how-n">02</span>
+      <h3>Get a fixed-price proposal</h3>
+      <p>A written one-pager: the page or site I would build, the price, the delivery window, the revision policy, what is in scope and what is out. Read it on your own time. Reply yes, reply with edits, or walk.</p>
+      <span class="how-sla">Then a 40% deposit invoice</span>
+    </li>
+    <li class="how-step">
+      <span class="how-n">03</span>
+      <h3>Two to three weeks later, you have a site</h3>
+      <p>Custom design, written-for-you copy, deployed to your domain. Two written revision rounds. If anything is unclear, we stay in writing, so you can answer it when your day allows. Final invoice on launch.</p>
+      <span class="how-sla">Hand-off documentation included</span>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap founder" id="founder" aria-labelledby="founder-h">
+  <div class="founder-grid">
+    <div>
+      <h2 class="kicker" id="founder-h">The operator</h2>
+      <p class="sign"><svg class="mk-device" viewBox="0 0 26 28" aria-hidden="true" focusable="false"><path class="mk-leaf" d="M8 7 H24 V27 H8 Z"/><path class="mk-sheet" d="M5 4 H17 L21 8 V24 H5 Z"/><path class="mk-fold" d="M17 4 V8 H21 Z"/><rect class="mk-initial" x="8" y="9" width="3.4" height="3.4"/><path class="mk-rule" d="M12.6 10.8 H18 M8 14.2 H18 M8 16.8 H18 M8 19.4 H15.4"/></svg>Michael Page</p>
+      <span class="stamp">Page Studio &middot; NoVA &copy;26 &middot; One operator</span>
+    </div>
+    <blockquote>One person writes and builds every page here, start to finish: me, Michael Page. No account managers, no offshore team, no template farm. You talk to the person doing the work. <em>If your project is not a fit for how I work, I will say so plainly and point you to someone better suited.</em> The six demos above are the whole argument: six different worlds, each built end to end to sound like itself. Eleven are invented businesses. Two are the same real Hudson Valley firm answered twice, in two registers, because the voice a page speaks in is a decision somebody makes, not a default it inherits.</blockquote>
+  </div>
+</section>
+
+<section class="wrap" id="offers">
+  <div class="section-head">
+    <span class="fol-n">No. III</span>
+    <h2>What you can buy</h2>
+    <span class="lede">three things, one number each</span>
+  </div>
+  <div class="offers">
+    <article class="offer offer-1" aria-labelledby="o-audit">
+      <p class="tag"><span>The Audit</span></p>
+      <h3 id="o-audit">A written read of your current site</h3>
+      <p class="price">$750<span class="per">flat</span></p>
+      <p class="window">Delivered within a week</p>
+      <p class="pitch">A five-page written audit of what is working, what is hurting you, and what to fix first. Useful on its own. Credited toward a project, if you go forward.</p>
+      <ul>
+        <li>Live walk-through, recorded</li>
+        <li>Five-page written report</li>
+        <li>One-call follow-up, optional</li>
+      </ul>
+      <a class="pick" href="#intake">Book the audit</a>
+    </article>
+
+    <article class="offer offer-2" aria-labelledby="o-landing">
+      <p class="tag"><span>The Landing</span><span class="best">Most picked</span></p>
+      <h3 id="o-landing">A page that does the selling</h3>
+      <p class="price">$3,500<span class="per">fixed</span></p>
+      <p class="window">2 to 3 weeks</p>
+      <p class="pitch">A single, written-for-you page. Hero, sections that earn their place, working intake, deployed to your hosting. Two rounds of revisions.</p>
+      <ul>
+        <li>Written copy, your voice</li>
+        <li>Custom design, not a template</li>
+        <li>Mobile to 1440px</li>
+        <li>Deployed to your domain</li>
+        <li>Two written revision rounds</li>
+      </ul>
+      <a class="pick" href="#intake">Start a landing</a>
+    </article>
+
+    <article class="offer offer-3" aria-labelledby="o-multi">
+      <p class="tag"><span>The Site</span></p>
+      <h3 id="o-multi">A small site, four or five pages</h3>
+      <p class="price">$7,500<span class="per">fixed</span></p>
+      <p class="window">3 to 5 weeks</p>
+      <p class="pitch">For when one page is not enough. Home, about, services, contact, and one more page of your choosing. Same care, same restraint, more rooms.</p>
+      <ul>
+        <li>Four or five custom pages</li>
+        <li>Shared design system</li>
+        <li>Simple content updates by you</li>
+        <li>Two written revision rounds</li>
+        <li>Hand-off documentation</li>
+      </ul>
+      <a class="pick" href="#intake">Start a site</a>
+    </article>
+  </div>
+</section>
+
+<section class="wrap" id="intake">
+  <div class="section-head">
+    <span class="fol-n">No. IV</span>
+    <h2>Start a project</h2>
+    <span class="lede">the first conversation is written</span>
+  </div>
+  <div class="intake-grid">
+    <div>
+      <p>Tell me about your business in plain English. Within two business days I will reply with a scope, a price, and a delivery window. If we are a fit, a deposit invoice follows. If we are not, I will tell you who is.</p>
+      <p class="small">No calls until we both want them. The first conversation is written.</p>
+    </div>
+
+    <form class="brief reveal" action="mailto:aicoding47@gmail.com" method="post" enctype="text/plain" novalidate>
+      <!-- TODO: replace mailto fallback with a proper endpoint (Formspark, Basin, or a Stripe-backed intake) -->
+      <div class="row-2">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name" aria-describedby="err-name"><small class="err" id="err-name" hidden></small></div>
+        <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" required autocomplete="email" aria-describedby="err-email"><small class="err" id="err-email" hidden></small></div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="genre">Genre</label>
+          <select id="genre" name="genre">
+            <option>I am not sure yet</option>
+            <option>Editorial or school</option>
+            <option>Specialty retail</option>
+            <option>SaaS or product</option>
+            <option>Trades or construction</option>
+            <option>Luxury or hospitality</option>
+            <option>Real estate</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Budget</label>
+          <select id="budget" name="budget">
+            <option>Audit only ($750)</option>
+            <option>Landing ($3,500)</option>
+            <option>Small site ($7,500)</option>
+            <option>Larger, let us talk</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="note">What is the project?</label>
+        <textarea id="note" name="note" placeholder="Two or three sentences. Your business, what the site needs to do, anything urgent." required aria-describedby="err-note"></textarea>
+        <small class="err" id="err-note" hidden></small>
+      </div>
+      <div class="field hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="form-status" id="formStatus" role="status" hidden></p>
+      <button type="submit">Send the brief</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot wrap">
+  <div class="row">
+    <div>
+      <div class="mark-foot"><svg class="mk-device" viewBox="0 0 26 28" aria-hidden="true" focusable="false"><path class="mk-leaf" d="M8 7 H24 V27 H8 Z"/><path class="mk-sheet" d="M5 4 H17 L21 8 V24 H5 Z"/><path class="mk-fold" d="M17 4 V8 H21 Z"/><rect class="mk-initial" x="8" y="9" width="3.4" height="3.4"/><path class="mk-rule" d="M12.6 10.8 H18 M8 14.2 H18 M8 16.8 H18 M8 19.4 H15.4"/></svg>Page <em>Studio</em></div>
+      <p class="tagline">One studio, six registers. A real website for businesses that want their own voice.</p>
+      <p class="mono" style="color: var(--grey-dim); font-size: 0.72rem; margin-top: 1rem;">Vienna, Virginia &middot; Books open</p>
+    </div>
+    <div>
+      <div class="col-h">Work</div>
+      <ul>
+        <li><a href="demos/aurelia-air/index.html" target="_blank" rel="noopener">Aurelia Private Travel</a></li>
+        <li><a href="demos/ninebrick/index.html" target="_blank" rel="noopener">Ninebrick</a></li>
+        <li><a href="demos/haskett-mroz/index.html" target="_blank" rel="noopener">Haskett &amp; Mroz</a></li>
+        <li><a href="demos/halftone-hall/index.html" target="_blank" rel="noopener">Halftone Hall</a></li>
+        <li><a href="demos/kettle-and-sedge/index.html" target="_blank" rel="noopener">Kettle &amp; Sedge</a></li>
+        <li><a href="demos/six-coulees-land-trust/index.html" target="_blank" rel="noopener">Six Coulees Land Trust</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-h">Offers</div>
+      <ul>
+        <li><a href="#offers">The Audit</a></li>
+        <li><a href="#offers">The Landing</a></li>
+        <li><a href="#offers">The Site</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-h">Reach</div>
+      <ul>
+        <li><a href="mailto:aicoding47@gmail.com">aicoding47@gmail.com</a></li>
+        <li><a href="#intake">Start a brief</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <span>&copy; 2026 Page Studio. All rights reserved.</span>
+    <span>One operator &middot; Fixed price &middot; Fixed scope</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Reveal */
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('js');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      setTimeout(function () {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      }, 2000);
+    }
+
+    /* Genre filter: counts computed live so any card swap self-counts */
+    var chips = document.querySelectorAll('.filter-chip');
+    var works = document.querySelectorAll('.work');
+    chips.forEach(function (chip) {
+      var f = chip.getAttribute('data-filter');
+      var n = (f === 'all') ? works.length
+        : document.querySelectorAll('.work[data-genres~="' + f + '"]').length;
+      var badge = chip.querySelector('.count');
+      if (badge) badge.textContent = n;
+    });
+    var summary = document.getElementById('work-count');
+    if (summary) {
+      var built = works.length;
+      var genres = document.querySelectorAll('.filter-chip:not([data-filter="all"])').length;
+      summary.textContent = built + ' built · ' + genres + ' genres';
+    }
+    /* The hero's register tally is derived from the same DOM as the cards, so the two can
+       never disagree. The static "13" in the markup is only the no-JS fallback. */
+    var regCountEl = document.getElementById('regCount');
+    var regRowCount = document.querySelectorAll('#regIndex li').length;
+    if (regCountEl && regRowCount) {
+      regCountEl.textContent = regRowCount < 10 ? '0' + regRowCount : String(regRowCount);
+    }
+
+    /* The filter states a position: one written-first line per genre (opinion, not data) */
+    var notes = {
+      all: ['The studio', 'Six rooms, one operator. Choose a genre to read how I work it.'],
+      editorial: ['Editorial', 'A school earns the first email with restraint. Manuscript before marketing, no clipart.'],
+      retail: ['Specialty retail', "Specialty retail sells the room's quiet. The page should hold it, not crowd it."],
+      saas: ['SaaS', 'A product page is a proof, not a pitch. Show the thing actually working.'],
+      trades: ['Trades', 'Trades need the phone to ring. Photographs of real work beat stock every time.'],
+      luxury: ['Luxury', 'Luxury is restraint with a budget. One precise gesture says more than ten loud ones.'],
+      realestate: ['Real estate', 'Post-NAR, real estate is written-first too. An honest hand-drawn map over a stock skyline.'],
+      heritage: ['Heritage build', 'A heritage builder sells continuity. The page should read drafted, never decorated.'],
+      motion: ['Motion', 'Motion has to be the subject, not the decoration. Turn the thing the shop is proud of.'],
+      hospitality: ['Hospitality', "A restaurant sells the next table. Put the reservation one tap away and let the kitchen's own logic set the menu."],
+      professional: ['Professional services', "Professional services sell certainty. Publish the fee, show the calendar, and claim nothing a client cannot check."],
+      events: ['Events', "A venue sells tonight. The calendar is the homepage, and the price you see is the price you pay."],
+      landscape: ['Landscape', "Landscape work is sold on patience. Show the yard in year three, and say plainly how long it takes to get there."],
+      nonprofit: ['Nonprofit', "A nonprofit sells trust. Count everything in the open, and let the visitor check the arithmetic."]
+    };
+    var noteEl = document.getElementById('genre-note');
+    var noteTag = document.getElementById('genre-note-tag');
+    var noteBody = document.getElementById('genre-note-body');
+    var setNote = function (f) {
+      var pair = notes[f] || notes.all;
+      if (!noteEl || !noteTag || !noteBody) return;
+      if (prefersReduced) {
+        noteTag.textContent = pair[0];
+        noteBody.textContent = pair[1];
+        return;
+      }
+      noteEl.style.opacity = '0';
+      setTimeout(function () {
+        noteTag.textContent = pair[0];
+        noteBody.textContent = pair[1];
+        noteEl.style.opacity = '1';
+      }, 150);
+    };
+
+    /* Fusion: a genre selection also drives the hero specimen skin and tints the note's
+       register dot, so the filter, the note, and the Register Index read as one system. */
+    var noteDot = document.getElementById('genre-note-dot');
+    var miniSpec = document.getElementById('miniSpec');
+    var msFolio = document.getElementById('msFolio');
+    var msName = document.getElementById('msName');
+    var genreToReg = { luxury: 0, hospitality: 1, professional: 2, events: 3, landscape: 4, nonprofit: 5 };
+    var syncSpecimen = function (f) {
+      var i = (f === 'all') ? 0 : genreToReg[f];
+      if (typeof i !== 'number') return;
+      if (typeof apply === 'function') apply(i);
+      var r = (typeof REG !== 'undefined') ? REG[i] : null;
+      if (noteDot) {
+        if (f === 'all') {
+          noteDot.hidden = true;
+          noteDot.style.removeProperty('--gn-dot');
+        } else if (r) {
+          noteDot.hidden = false;
+          noteDot.style.setProperty('--gn-dot', r.acc);
+        }
+      }
+      if (miniSpec && msFolio && msName) {
+        if (f === 'all' || !r) {
+          miniSpec.hidden = true;
+        } else {
+          msFolio.textContent = r.folio;
+          msName.textContent = r.name;
+          miniSpec.setAttribute('href', r.href);
+          miniSpec.style.setProperty('--ms-bg', r.bg);
+          miniSpec.style.setProperty('--ms-ink', r.ink);
+          miniSpec.style.setProperty('--ms-acc', r.acc);
+          miniSpec.hidden = false;
+        }
+      }
+    };
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        var f = chip.getAttribute('data-filter');
+        setNote(f);
+        syncSpecimen(f);
+        works.forEach(function (w) {
+          var genres = (w.getAttribute('data-genres') || '').split(/\s+/);
+          w.hidden = !(f === 'all' || genres.indexOf(f) !== -1);
+        });
+      });
+    });
+
+    /* Register Index: re-skins the specimen to each demo's real palette.
+       SYNC CONTRACT: each entry mirrors one .work card in #work (same order). When a card's
+       name, genre, place, intent line, or demo href changes, change it here too; bg/ink/acc
+       must stay the demo's real paper, ink, and pigment. The static .spec-skin markup in the
+       hero is the no-JS fallback for entry 0 and must match REG[0]. */
+    var REG = [
+      { bg: '#0B1A2F', ink: '#E6E8EC', acc: '#C9A86A', folio: '01', genre: 'Private aviation / membership', name: 'Aurelia Private Travel', line: 'Sells returned hours, not speed.', place: 'Membership', href: 'demos/aurelia-air/index.html' },
+      { bg: '#EEE6D8', ink: '#221D19', acc: '#A3391B', folio: '02', genre: 'Hospitality / wood-fired restaurant', name: 'Ninebrick', line: 'A menu ordered by the heat of one oven.', place: 'Chattanooga, Tennessee', href: 'demos/ninebrick/index.html' },
+      { bg: '#F2EEE2', ink: '#18231E', acc: '#A2301B', folio: '03', genre: 'Professional services / CPA firm', name: 'Haskett & Mroz', line: 'The tax year, ruled like a ledger.', place: 'Milwaukee, Wisconsin', href: 'demos/haskett-mroz/index.html' },
+      { bg: '#F2ECDF', ink: '#1A1916', acc: '#2B4BA8', folio: '04', genre: 'Events / live music hall', name: 'Halftone Hall', line: 'Printed in two inks, like the poster on the door.', place: 'Louisville, Kentucky', href: 'demos/halftone-hall/index.html' },
+      { bg: '#EDF2EC', ink: '#14261B', acc: '#5B3A8E', folio: '05', genre: 'Home services / native landscape', name: 'Kettle & Sedge', line: 'A planting plan that grows while you watch.', place: 'Minneapolis and Saint Paul', href: 'demos/kettle-and-sedge/index.html' },
+      { bg: '#EEF0E6', ink: '#1C251F', acc: '#3E6B3B', folio: '06', genre: 'Nonprofit / land trust', name: 'Six Coulees Land Trust', line: 'Every acre added up from one ledger.', place: 'Driftless Wisconsin', href: 'demos/six-coulees-land-trust/index.html' }
+    ];
+    var skin = document.getElementById('specSkin');
+    var rows = Array.prototype.slice.call(document.querySelectorAll('#regIndex a'));
+    if (skin && rows.length) {
+      var els = {
+        folio: document.getElementById('specFolio'),
+        genre: document.getElementById('specGenre'),
+        name: document.getElementById('specName'),
+        line: document.getElementById('specLine'),
+        go: document.getElementById('specGo')
+      };
+      var apply = function (i) {
+        var r = REG[i]; if (!r) return;
+        skin.style.setProperty('--sk-bg', r.bg);
+        skin.style.setProperty('--sk-ink', r.ink);
+        skin.style.setProperty('--sk-acc', r.acc);
+        els.folio.textContent = r.folio;
+        els.genre.textContent = r.genre;
+        els.name.textContent = r.name;
+        els.line.textContent = r.line;
+        els.go.setAttribute('href', r.href);
+        rows.forEach(function (row, j) { row.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+      };
+      var coarse = window.matchMedia('(hover: none)');
+      rows.forEach(function (row, i) {
+        var preview = function () { apply(i); };
+        row.addEventListener('mouseenter', preview);
+        row.addEventListener('focus', preview);
+        row.addEventListener('click', function (e) {
+          if (!coarse.matches) return;
+          e.preventDefault();
+          apply(i);
+          try { skin.scrollIntoView({ block: 'nearest', behavior: prefersReduced ? 'auto' : 'smooth' }); }
+          catch (_) { skin.scrollIntoView(); }
+        });
+      });
+      apply(0);
+      var hint = document.querySelector('.reg-hint');
+      if (hint && coarse.matches) {
+        hint.textContent = 'Tap a row to preview its register; the preview links straight to the live demo.';
+      }
+    }
+
+    /* Intake: per-field validation. Native validation is off (novalidate) so the studio's own
+       written-first error lines show instead of the browser bubbles. The mailto action stays as
+       the fallback transport; a valid submit is allowed through, an invalid one is held with focus
+       on the first bad field. */
+    var form = document.querySelector('form.brief');
+    if (form) {
+      /* Transport: paste a form-service URL here (Formspree / Basin / Web3Forms) and valid
+         submits post inline with a written success state. Left empty, the mailto action on
+         the form remains the transport, exactly as before. */
+      var ENDPOINT = 'https://formsubmit.co/ajax/aicoding47@gmail.com';
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var fields = [
+        { el: form.querySelector('#name'), err: form.querySelector('#err-name'),
+          test: function (v) { return v.trim().length > 0; }, msg: 'Your name, so I know who I am writing back to.' },
+        { el: form.querySelector('#email'), err: form.querySelector('#err-email'),
+          test: function (v) { return emailRe.test(v.trim()); }, msg: 'A valid email, so the reply reaches you.' },
+        { el: form.querySelector('#note'), err: form.querySelector('#err-note'),
+          test: function (v) { return v.trim().length > 0; }, msg: 'One or two lines on the project is all I need to start.' }
+      ];
+      var status = document.getElementById('formStatus');
+      var showErr = function (f, show) {
+        if (!f.el || !f.err) return;
+        if (show) {
+          f.err.textContent = f.msg;
+          f.err.hidden = false;
+          f.el.setAttribute('aria-invalid', 'true');
+        } else {
+          f.err.hidden = true;
+          f.err.textContent = '';
+          f.el.removeAttribute('aria-invalid');
+        }
+      };
+      fields.forEach(function (f) {
+        if (!f.el) return;
+        f.el.addEventListener('input', function () {
+          if (f.el.getAttribute('aria-invalid') === 'true' && f.test(f.el.value)) showErr(f, false);
+        });
+      });
+      form.addEventListener('submit', function (e) {
+        var hp = form.querySelector('#website');
+        if (hp && hp.value) {
+          e.preventDefault();
+          if (status) {
+            status.hidden = false;
+            status.textContent = 'Received. I read every brief myself; expect a written reply within two business days.';
+          }
+          form.reset();
+          return;
+        }
+        var firstBad = null;
+        fields.forEach(function (f) {
+          if (!f.el) return;
+          var ok = f.test(f.el.value);
+          showErr(f, !ok);
+          if (!ok && !firstBad) firstBad = f.el;
+        });
+        if (firstBad) {
+          e.preventDefault();
+          if (status) {
+            status.hidden = false;
+            status.textContent = 'A few fields need a second. The marked lines below tell you which.';
+          }
+          firstBad.focus();
+        } else if (ENDPOINT) {
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          if (btn) btn.disabled = true;
+          if (status) { status.hidden = false; status.textContent = 'Sending the brief.'; }
+          var fd = new FormData(form);
+          fd.append('_subject', 'New brief via Page Studio');
+          fd.append('_template', 'table');
+          fetch(ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd })
+            .then(function (res) {
+              if (!res.ok) throw new Error('send failed: ' + res.status);
+              return res.json().catch(function () { return {}; });
+            })
+            .then(function (j) {
+              if (j && typeof j.success !== 'undefined' && String(j.success) !== 'true') throw new Error('service declined: ' + (j.message || ''));
+              form.reset();
+              if (status) status.textContent = 'Received. I read every brief myself; expect a written reply within two business days.';
+            })
+            .catch(function () {
+              if (status) status.textContent = 'The send did not go through. Write me directly: aicoding47@gmail.com.';
+            })
+            .then(function () { if (btn) btn.disabled = false; });
+        } else if (status) {
+          status.hidden = false;
+          status.textContent = 'Opening your mail client with the brief. If nothing happens, write aicoding47@gmail.com.';
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

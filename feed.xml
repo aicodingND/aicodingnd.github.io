@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Page Studio &#183; Selected work</title>
+    <link>https://aicodingnd.github.io/</link>
+    <description>A one-person Northern Virginia design studio. Fixed-price, fixed-scope websites. New demos as they ship.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Jun 2026 22:00:00 -0400</lastBuildDate>
+
+    <item>
+      <title>Six Coulees Land Trust</title>
+      <link>https://aicodingnd.github.io/demos/six-coulees-land-trust/index.html</link>
+      <guid isPermaLink="false">page-studio-six-coulees-land-trust</guid>
+      <category>Nonprofit</category>
+      <pubDate>Sat, 14 Nov 2026 23:00:00 -0500</pubDate>
+      <description>An invented land trust: a contour map that replays thirty-five years of protected parcels, with every figure summed live from one ledger.</description>
+    </item>
+    <item>
+      <title>Kettle &amp; Sedge</title>
+      <link>https://aicodingnd.github.io/demos/kettle-and-sedge/index.html</link>
+      <guid isPermaLink="false">page-studio-kettle-and-sedge</guid>
+      <category>Landscape</category>
+      <pubDate>Sat, 14 Nov 2026 23:00:00 -0500</pubDate>
+      <description>An invented native landscape firm whose hero is a planting plan you can step from planting day to year three.</description>
+    </item>
+    <item>
+      <title>Halftone Hall</title>
+      <link>https://aicodingnd.github.io/demos/halftone-hall/index.html</link>
+      <guid isPermaLink="false">page-studio-halftone-hall</guid>
+      <category>Events</category>
+      <pubDate>Sat, 14 Nov 2026 23:00:00 -0500</pubDate>
+      <description>An invented 600-capacity music hall: a two-ink poster wordmark, a filterable show calendar with all-in prices, and accessible seating drawn as a floor plan.</description>
+    </item>
+    <item>
+      <title>Haskett &amp; Mroz, CPAs &amp; Advisors</title>
+      <link>https://aicodingnd.github.io/demos/haskett-mroz/index.html</link>
+      <guid isPermaLink="false">page-studio-haskett-mroz</guid>
+      <category>Professional services</category>
+      <pubDate>Sat, 14 Nov 2026 23:00:00 -0500</pubDate>
+      <description>An invented CPA firm with the tax year drawn as a ledger sheet that marks only the dates that apply to you, and published fee ranges.</description>
+    </item>
+    <item>
+      <title>Ninebrick</title>
+      <link>https://aicodingnd.github.io/demos/ninebrick/index.html</link>
+      <guid isPermaLink="false">page-studio-ninebrick</guid>
+      <category>Hospitality</category>
+      <pubDate>Sat, 14 Nov 2026 23:00:00 -0500</pubDate>
+      <description>An invented wood-fired restaurant whose menu is set in the order one oven cooks it, with a live burn curve that rests on Mondays.</description>
+    </item>
+    <item>
+      <title>Aurelia Private Travel</title>
+      <link>https://aicodingnd.github.io/demos/aurelia-air/index.html</link>
+      <guid isPermaLink="false">page-studio-aurelia-air</guid>
+      <category>Luxury</category>
+      <pubDate>Thu, 05 Jun 2026 22:00:00 -0400</pubDate>
+      <description>A private-aviation membership sold in three patterns chosen by how you fly, not what you own. A variable-font wordmark that settles as you scroll, a parallax cloudscape, fine-line aircraft silhouettes drawn to scale, a transatlantic standing-pattern case study, and a live flight-time estimate. No stock photos, no exclamation points.</description>
+    </item>
+  </channel>
+</rss>

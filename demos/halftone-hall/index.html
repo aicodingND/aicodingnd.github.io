@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halftone Hall · Live music on East Market Street, Louisville</title>
+<meta name="description" content="Halftone Hall is a 600-capacity music hall in the old Ledger pressroom on East Market Street, Louisville. Show calendar, all-in ticket prices, venue policies, accessible seating and private event rentals.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Halftone Hall · Six hundred people, one room, loud on purpose">
+<meta property="og:description" content="A 600-capacity music hall in the old Ledger pressroom, Louisville. All-in ticket prices. The number you see is the number you pay.">
+<meta property="og:image" content="og.svg">
+<meta name="theme-color" content="#F2ECDF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23F2ECDF'/><circle cx='14' cy='15' r='9' fill='%232B4BA8'/><circle cx='18' cy='17' r='9' fill='%23D8432A' style='mix-blend-mode:multiply'/></svg>">
+<link rel="preload" href="fonts/big-shoulders-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className+=" js";</script>
+<style>
+/* ============ FONTS (self-hosted variable, latin subset) ============ */
+@font-face{font-family:"Big Shoulders";font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/big-shoulders-var.woff2") format("woff2")}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url("fonts/instrument-sans-var.woff2") format("woff2")}
+@font-face{font-family:"Poster Fallback";src:local("Arial Narrow"),local("Helvetica Neue Condensed Bold"),local("Arial");size-adjust:88%;ascent-override:100%;descent-override:22%}
+
+/* ============ TOKENS ============ */
+:root{
+  --paper:#F2ECDF;        /* uncoated poster stock */
+  --paper-2:#E9E1D0;      /* second sheet, a shade heavier */
+  --ink:#1A1916;          /* press black, warm */
+  --muted:#5C574D;        /* small secondary text on paper, 6.1:1 */
+  --red:#D8432A;          /* poster red: display type and art only (3.75:1, large only) */
+  --red-text:#B0331C;     /* red for small text and buttons on paper, 5.35:1 */
+  --red-night:#FF7A5C;    /* red text on ink, 6.9:1 */
+  --blue:#2B4BA8;         /* second plate, art and display */
+  --night-muted:#B8B1A3;  /* secondary text on ink, 8.2:1 */
+  --rule:rgba(26,25,22,.22);
+  --rule-strong:#1A1916;
+  --poster:"Big Shoulders","Poster Fallback","Arial Narrow",sans-serif;
+  --body:"Instrument Sans",-apple-system,system-ui,"Helvetica Neue",Arial,sans-serif;
+  --s-1:.875rem; --s0:1rem; --s1:1.125rem; --s2:1.375rem; --s3:1.75rem; --s4:2.5rem; --s5:3.5rem;
+  --gut:clamp(1.25rem,4vw,3.5rem);
+  --max:90rem;
+  --rx:-22px; --ry:-14px; /* plate offset before the press pulls it in */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:var(--s0);line-height:1.55;font-stretch:100%;font-variant-numeric:tabular-nums;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+/* paper tooth: a very fine fiber, no image file */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;background-image:radial-gradient(rgba(26,25,22,.07) .5px,transparent .6px);background-size:3px 3px}
+main,header,footer{position:relative;z-index:1}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3{margin:0;font-family:var(--poster);font-weight:800;line-height:.9;letter-spacing:-.005em;text-transform:uppercase}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:var(--gut);top:-4rem;z-index:50;background:var(--ink);color:var(--paper);padding:.75rem 1rem;font-weight:600;text-decoration:none}
+.skip:focus{top:.75rem}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.7rem 1.25rem;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font:600 var(--s0)/1 var(--body);letter-spacing:.01em;text-decoration:none;cursor:pointer;border-radius:0;transition:transform .15s ease,background-color .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--red)}
+.btn:active{transform:none;box-shadow:none}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ============ HEADER ============ */
+.top{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.mark{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:800 1.5rem/1 var(--poster);text-transform:uppercase;letter-spacing:.01em;min-height:44px}
+.mark svg{width:28px;height:28px;flex:none}
+.nav{display:flex;align-items:center;gap:.25rem;margin:0;padding:0;list-style:none}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .75rem;font-weight:600;font-size:var(--s-1);text-decoration:none;letter-spacing:.02em;text-transform:uppercase}
+.nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--red)}
+.nav .btn{min-height:44px;padding:.5rem 1rem;margin-left:.5rem;color:var(--paper)}
+.nav .btn:hover{text-decoration:none}
+.menu-btn{display:none;align-items:center;gap:.5rem;min-height:44px;padding:0 .9rem;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 var(--s-1)/1 var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.menu-btn svg{transition:transform .2s ease}
+.menu-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.menu{list-style:none;margin:0;padding:.25rem var(--gut) 1rem;border-top:1px solid var(--rule);background:var(--paper)}
+.menu[hidden]{display:none}
+.menu a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--rule);font:800 1.75rem/1 var(--poster);text-transform:uppercase;text-decoration:none}
+.menu a span{font:600 var(--s-1)/1 var(--body);color:var(--muted);text-transform:none}
+
+/* ============ HERO: the press sheet ============ */
+.hero{padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(3rem,6vw,5.5rem);border-bottom:2px solid var(--ink)}
+.slug{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1.5rem;margin:0 0 clamp(.75rem,2vw,1.5rem);padding-bottom:.6rem;border-bottom:1px solid var(--rule);font-size:var(--s-1);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slug span:last-child{color:var(--ink)}
+.sheet{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2rem);align-items:start}
+.press{grid-column:1/-1;grid-row:1/3;position:relative;z-index:2;font-size:clamp(5.4rem,16.6vw,15rem);font-weight:900;line-height:.9;letter-spacing:-.01em;margin-left:-.035em}
+.plates{position:relative;display:block}
+.plate{display:block}
+.plate span{display:block}
+.plate-b{color:var(--blue)}
+.plate-r{position:absolute;inset:0;color:var(--red);transform:translate3d(var(--rx),var(--ry),0);will-change:transform}
+.js .plate-r{transition:transform 1.4s cubic-bezier(.2,.9,.2,1)}
+.js .press.pulled .plate-r{--rx:-5px;--ry:-4px}
+.registration{position:absolute;right:0;top:.06em;width:clamp(22px,2.4vw,34px);height:auto;color:var(--ink)}
+
+.spot{grid-column:9/-1;grid-row:1/3;align-self:center;position:relative;z-index:1;pointer-events:none}
+.spot svg{width:100%;height:auto}
+.next{grid-column:8/-1;grid-row:3;align-self:start;position:relative;z-index:2;background:var(--paper);border:2px solid var(--ink);padding:1.1rem 1.25rem 1.2rem;margin-top:clamp(1.25rem,2.5vw,2rem);box-shadow:8px 8px 0 var(--ink)}
+.next-k{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin:0 0 .6rem;font-size:var(--s-1);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.next-k b{color:var(--red-text)}
+.next-act{font:800 clamp(2.25rem,3.6vw,3.25rem)/.9 var(--poster);text-transform:uppercase;margin:0 0 .35rem}
+.next-sup{margin:0 0 1rem;color:var(--muted)}
+.next-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+.next-row p{margin:0;font-size:var(--s-1);font-weight:600}
+.lede{grid-column:1/7;grid-row:3;padding-top:clamp(1.25rem,2.5vw,2rem);max-width:36rem}
+.lede p{font-size:clamp(var(--s1),1.5vw,var(--s2));line-height:1.45}
+.lede .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+
+/* ============ SECTION HEADS ============ */
+.sec{padding:clamp(3.5rem,7vw,6.5rem) 0}
+.head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2rem);align-items:end;margin-bottom:clamp(1.75rem,3vw,2.75rem)}
+.head h2{grid-column:1/8;font-size:clamp(3.25rem,8vw,7.5rem)}
+.head .k{grid-column:1/-1;margin:0 0 .75rem;font-size:var(--s-1);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red-text)}
+.head .aside{grid-column:9/-1;margin:0;color:var(--muted);max-width:28rem}
+.head-pull{display:block;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.head-pull h2{font-size:clamp(3.25rem,8vw,7.5rem)}
+.pull{margin:1.25rem 0 0;max-width:46rem;font:700 clamp(1.5rem,2.6vw,2.25rem)/1.15 var(--poster);text-transform:uppercase;letter-spacing:.01em}
+.pull span{color:var(--red-text)}
+.head-wide{display:block;margin-bottom:clamp(2rem,4vw,3rem);padding-bottom:1.25rem;border-bottom:2px solid var(--paper)}
+.head-wide h2{font-size:clamp(3.25rem,10.5vw,10rem);white-space:nowrap}
+.rooms .lead{font-size:var(--s1);margin-bottom:2rem;max-width:34rem}
+
+/* ============ CALENDAR ============ */
+.filters{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;align-items:flex-end;padding:1rem 0 1.25rem;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.fgroup{border:0;margin:0;padding:0;min-width:0}
+.fgroup legend{padding:0;margin-bottom:.5rem;font-size:var(--s-1);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:.5rem .8rem;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 var(--s-1)/1 var(--body);letter-spacing:.02em;cursor:pointer;border-radius:0;transition:background-color .15s ease,color .15s ease}
+.chip:hover{background:var(--paper-2)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip .n{font-weight:400;font-variant-numeric:tabular-nums;opacity:.85}
+.chip.zero{color:var(--muted);border-color:var(--rule)}
+.chip.zero .n{opacity:1}
+.count{margin:0 0 0 auto;font-weight:600;font-size:var(--s-1);letter-spacing:.04em;text-transform:uppercase;align-self:center}
+.bill{list-style:none;margin:0;padding:0}
+.show{display:grid;grid-template-columns:7.5rem minmax(0,1fr) 13rem 12.5rem;gap:1.25rem clamp(1rem,2.5vw,2.5rem);align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+.date{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:.5rem;line-height:1;text-transform:uppercase}
+.date .d{grid-row:1/3;font:800 3.75rem/.8 var(--poster)}
+.date .dow{align-self:end;font-weight:700;font-size:var(--s-1);letter-spacing:.06em}
+.date .m{font-size:var(--s-1);font-weight:600;letter-spacing:.06em;color:var(--muted)}
+.act h3{font-size:clamp(2.25rem,4vw,3.6rem);font-weight:800;text-wrap:balance;transition:text-shadow .35s cubic-bezier(.2,.9,.2,1)}
+.show:hover .act h3,.show:focus-within .act h3{text-shadow:4px 3px 0 rgba(43,75,168,.55)}
+.act .sup{margin:.35rem 0 0;font-weight:600}
+.act .blurb{margin:.35rem 0 0;color:var(--muted);max-width:40rem}
+.meta{margin:0;padding:0;list-style:none;font-size:var(--s-1);line-height:1.5}
+.meta li{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dotted var(--rule);padding:.2rem 0}
+.meta li span:first-child{color:var(--muted)}
+.meta li span:last-child{font-weight:600;text-align:right}
+.buy{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;text-align:right}
+.buy .btn{width:100%}
+.state{font-size:var(--s-1);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.state-low{color:var(--red-text);display:inline-flex;align-items:center;gap:.4rem}
+.state-low::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--red-text)}
+.sold{font:800 1.75rem/1 var(--poster);letter-spacing:.04em;text-transform:uppercase;color:var(--red-text)}
+.sold s{color:var(--muted);font:600 var(--s0)/1 var(--body);letter-spacing:0;margin-left:.4rem;text-decoration-thickness:2px}
+.meta-line{display:none}
+.note{margin:0;font-size:var(--s-1);color:var(--muted);max-width:13rem}
+.show.is-sold .act h3{color:var(--muted)}
+.empty{padding:3rem 0;border-bottom:1px solid var(--rule)}
+.empty p{font-size:var(--s1);max-width:32rem}
+.fees{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;margin-top:1.25rem;font-size:var(--s-1);color:var(--muted)}
+.fees strong{color:var(--ink)}
+
+/* ============ VISIT ============ */
+.visit{background:var(--paper-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.rules{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2rem);row-gap:2.5rem}
+.rulelist{grid-column:1/6;margin:0}
+.rule{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;padding:1.1rem 0;border-top:2px solid var(--ink)}
+.rule:last-child{border-bottom:2px solid var(--ink)}
+.rule dt{font:800 1.6rem/1 var(--poster);text-transform:uppercase}
+.rule dd{margin:0}
+.rule dd p:last-child{margin-bottom:0}
+.access{grid-column:7/-1}
+.access h3{font-size:clamp(2.25rem,4vw,3.25rem);margin-bottom:1rem}
+.plan{margin:0;background:var(--paper);border:2px solid var(--ink);padding:clamp(.75rem,2vw,1.25rem)}
+.plan svg{width:100%;height:auto}
+.plan figcaption{margin-top:.75rem;font-size:var(--s-1);color:var(--muted)}
+.legend{list-style:none;margin:1.25rem 0 0;padding:0;counter-reset:k;display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.5rem}
+.legend li{counter-increment:k;display:grid;grid-template-columns:1.75rem 1fr;gap:.6rem;font-size:var(--s-1);line-height:1.45}
+.legend li::before{content:counter(k);display:grid;place-items:center;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--ink);color:var(--paper);font-weight:700;font-size:.8rem}
+.legend b{display:block}
+.access-more{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+.access-more p{margin-bottom:.6rem}
+
+/* ============ RENT (night section) ============ */
+.rent{background:var(--ink);color:var(--paper)}
+.rent .head .k{color:var(--red-night)}
+.rent .head .aside{color:var(--night-muted)}
+.rent :focus-visible{outline-color:var(--paper)}
+.rentgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2rem);row-gap:2.5rem}
+.rooms{grid-column:1/6}
+.rooms table{width:100%;border-collapse:collapse;font-size:var(--s-1)}
+.rooms caption{text-align:left;font:800 1.6rem/1 var(--poster);text-transform:uppercase;margin-bottom:.75rem}
+.rooms th,.rooms td{padding:.8rem .5rem .8rem 0;text-align:left;border-bottom:1px solid rgba(242,236,223,.25);vertical-align:top}
+.rooms thead th{font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--night-muted);border-bottom:2px solid var(--paper)}
+.rooms tbody th{font-weight:700}
+.rooms tbody th small{display:block;font-weight:400;color:var(--night-muted);font-size:var(--s-1)}
+.rooms td{white-space:nowrap}
+.rooms .fine{margin-top:1rem;color:var(--night-muted);font-size:var(--s-1)}
+.inc{margin:2rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem}
+.inc li{padding-left:1.25rem;position:relative}
+.inc li::before{content:"";position:absolute;left:0;top:.6em;width:.5rem;height:.5rem;background:var(--red-night)}
+.form{grid-column:7/-1;border:2px solid var(--paper);padding:clamp(1.25rem,3vw,2.25rem)}
+.form h3{font-size:clamp(2rem,3.5vw,2.75rem);margin-bottom:.5rem}
+.form .intro{color:var(--night-muted);margin-bottom:1.5rem}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.25rem}
+.field{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-size:var(--s-1);font-weight:600;letter-spacing:.03em}
+.field .opt{font-weight:400;color:var(--night-muted)}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:.7rem .8rem;background:transparent;color:var(--paper);border:0;border-bottom:2px solid rgba(242,236,223,.55);border-radius:0;font:400 var(--s0)/1.3 var(--body);color-scheme:dark}
+.field select option{background:var(--ink);color:var(--paper)}
+.field ::placeholder{color:var(--night-muted);opacity:1}
+.field textarea{min-height:7rem;resize:vertical;border:2px solid rgba(242,236,223,.55)}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--paper)}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--paper);outline-offset:2px}
+.field [aria-invalid="true"]{border-color:var(--red-night)}
+.err{min-height:1.35em;line-height:1.35;margin:0;font-size:var(--s-1);color:var(--red-night);font-weight:600}
+fieldset.field{border:0;padding:0;margin:0}
+.rooms-pick{display:flex;flex-wrap:wrap;gap:.5rem}
+.rooms-pick label{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border:1px solid rgba(242,236,223,.55);border-radius:0;cursor:pointer;font-weight:600}
+.rooms-pick input{position:absolute;opacity:0;width:1px;height:1px}
+.rooms-pick input:checked+span{color:var(--ink)}
+.rooms-pick label:has(input:checked){background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.rooms-pick label:has(input:focus-visible){outline:3px solid var(--paper);outline-offset:3px}
+.form .submit{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:1.75rem}
+.form .submit p{margin:0;font-size:var(--s-1);color:var(--night-muted);max-width:22rem}
+.rent .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.rent .btn:hover{box-shadow:3px 3px 0 var(--red-night)}
+.sent{display:none}
+.sent.on{display:block}
+.sent h3{font-size:clamp(2rem,3.5vw,2.75rem);margin-bottom:.75rem}
+.sent p{color:var(--night-muted)}
+.sent dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1.25rem;margin:1.25rem 0 1.5rem;font-size:var(--s-1)}
+.sent dt{color:var(--night-muted)}
+.sent dd{margin:0;font-weight:600}
+
+/* ============ FOOTER ============ */
+.foot{padding:3rem 0 2.5rem;border-top:2px solid var(--ink)}
+.footgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2rem);row-gap:1.5rem;font-size:var(--s-1)}
+.footgrid .big{grid-column:1/6;font:800 clamp(2.5rem,5vw,4rem)/.85 var(--poster);text-transform:uppercase;margin:0}
+.footgrid .col{grid-column:span 2}
+.footgrid .col h2{font:700 var(--s-1)/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.footgrid .col p{margin:0 0 .25rem}
+.footgrid .col a{display:inline-flex;align-items:center;min-height:44px}
+.demo{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;font-size:var(--s-1);color:var(--muted)}
+.demo p{margin:0}
+.demo a{color:var(--ink);font-weight:600;display:inline-flex;align-items:center;min-height:44px}
+
+/* ============ TICKET DIALOG ============ */
+dialog.tix{width:min(36rem,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);padding:0;border:2px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:auto}
+dialog.tix::backdrop{background:rgba(26,25,22,.62)}
+.tix-in{padding:1.5rem 1.5rem 1.75rem}
+.tix-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.tix-top .k{margin:0 0 .4rem;font-size:var(--s-1);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red-text)}
+.tix-top h2{font-size:clamp(2.25rem,7vw,3rem)}
+.tix-top .when{margin:.5rem 0 0;font-weight:600}
+.x{flex:none;width:44px;height:44px;display:grid;place-items:center;border:2px solid var(--ink);background:transparent;cursor:pointer;color:var(--ink)}
+.x:hover{background:var(--ink);color:var(--paper)}
+.types{border:0;padding:0;margin:0 0 1.25rem}
+.types legend,.qty-l{font-size:var(--s-1);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;padding:0}
+.type{display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:center;padding:.8rem .9rem;border:2px solid var(--rule);margin-bottom:.5rem;cursor:pointer;min-height:56px}
+.type:has(input:checked){border-color:var(--ink);background:var(--paper-2)}
+.type input{width:20px;height:20px;margin:0;accent-color:var(--ink)}
+.type b{display:block}
+.type small{display:block;color:var(--muted);font-size:var(--s-1);line-height:1.4}
+.type .p{font-weight:700}
+.qty{display:flex;align-items:center;gap:0;margin-bottom:1.25rem}
+.qty button{width:48px;height:48px;border:2px solid var(--ink);background:transparent;font:700 1.25rem/1 var(--body);color:var(--ink);cursor:pointer}
+.qty button:hover:not([disabled]){background:var(--ink);color:var(--paper)}
+.qty button[disabled]{opacity:.4;cursor:not-allowed}
+.qty output{min-width:4rem;height:48px;display:grid;place-items:center;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);font:800 1.75rem/1 var(--poster)}
+.qty .cap{margin-left:1rem;font-size:var(--s-1);color:var(--muted)}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-top:2px solid var(--ink);margin-bottom:1rem}
+.total span{font-weight:600}
+.total strong{font:800 2.25rem/1 var(--poster)}
+.total small{display:block;font-size:var(--s-1);color:var(--muted);font-weight:400}
+.tix .btn{width:100%}
+.stub{border:2px solid var(--ink);margin:1rem 0 1.25rem;display:grid;grid-template-columns:1fr auto}
+.stub > div{padding:1rem}
+.stub .tear{border-left:2px dashed var(--ink);display:grid;place-items:center;padding:1rem .9rem;text-align:center;font:800 1.25rem/1 var(--poster);text-transform:uppercase}
+.stub dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;margin:0;font-size:var(--s-1)}
+.stub dt{color:var(--muted)}
+.stub dd{margin:0;font-weight:600}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .show{grid-template-columns:6.5rem minmax(0,1fr) 12rem;}
+  .show .meta{grid-column:2/3}
+  .show .buy{grid-column:3/4;grid-row:1/3}
+}
+@media (max-width:900px){
+  .head h2{grid-column:1/-1}
+  .head .aside{grid-column:1/-1;margin-top:1rem}
+  .spot{grid-column:8/-1;grid-row:1/3}
+  .next{grid-column:1/-1;grid-row:3}
+  .lede{grid-column:1/-1;grid-row:4}
+  .head-wide h2{white-space:normal}
+  .rulelist,.access,.rooms,.form{grid-column:1/-1}
+  .footgrid .big{grid-column:1/-1}
+  .footgrid .col{grid-column:span 4}
+}
+@media (max-width:640px){
+  .nav li:not(:nth-last-child(-n+2)){display:none}
+  .nav{gap:.5rem}
+  .nav .btn{margin-left:0}
+  .menu-btn{display:inline-flex}
+  .top .wrap{gap:1rem}
+  .nav{gap:.6rem}
+  .mark{font-size:1.25rem;white-space:nowrap;gap:.5rem}
+  .mark-hall{display:none}
+  .mark svg{width:22px;height:22px}
+  .menu-btn{padding:0 .7rem}
+  .nav .btn{padding:.5rem .8rem}
+  .slug span:nth-child(2){display:none}
+  .press{grid-row:1;font-size:25.5vw}
+  .registration{display:none}
+  .spot{grid-column:7/-1;grid-row:1;align-self:end;margin:0 -.5rem -1.75rem 0}
+  .next{grid-column:1/-1;grid-row:2;margin-top:2rem;box-shadow:6px 6px 0 var(--ink)}
+  .lede{grid-row:3}
+  .lede .actions .btn{flex:1 1 auto}
+  .filters{gap:1rem}
+  .count{margin:0;width:100%}
+  .show{grid-template-columns:4.25rem minmax(0,1fr);gap:.75rem 1rem;padding:1.25rem 0}
+  .date{grid-template-columns:1fr;grid-template-rows:auto;row-gap:.2rem}
+  .date .d{grid-row:auto;font-size:2.75rem}
+  .act h3{font-size:2.25rem}
+  .show{gap:.6rem 1rem;padding:1.1rem 0}
+  .show .meta{display:none}
+  .meta-line{display:block;margin:.3rem 0 0;font-size:var(--s-1);font-weight:600}
+  .act .blurb{font-size:var(--s-1);line-height:1.45}
+  .show .buy{grid-column:2/-1;grid-row:auto}
+  .buy{flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:.75rem;text-align:left}
+  .buy .btn{width:auto;flex:none;margin-left:auto}
+  .buy .note{display:none}
+  .sold{font-size:1.5rem}
+  .rule{grid-template-columns:1fr;gap:.4rem}
+  .legend{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .footgrid .col{grid-column:1/-1}
+  .rooms td{white-space:normal}
+}
+
+/* ============ MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .plate-r,.js .press.pulled .plate-r{--rx:-5px;--ry:-4px;transform:translate3d(-5px,-4px,0)}
+  .btn:hover{transform:none}
+}
+
+/* ============ PRINT: the bill as a handbill ============ */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  body::before,.top,.menu,.spot,.filters,.meta-line,.buy .btn,.form,.lede .actions,.next .btn,dialog,.skip,.fees,.plan,.legend{display:none!important}
+  .hero{padding:0 0 8mm;border-bottom:2px solid #000}
+  .press{font-size:52pt}
+  .plate-r{display:none}
+  .plate-b{color:#000}
+  .next{box-shadow:none;margin:0;border:1px solid #000;grid-column:1/-1;grid-row:auto}
+  .lede{grid-column:1/-1;grid-row:auto}
+  .sheet,.head,.rules,.rentgrid,.footgrid{display:block}
+  .sec{padding:8mm 0}
+  .head h2{font-size:28pt}
+  .show{grid-template-columns:22mm 1fr 45mm 30mm;padding:3mm 0;break-inside:avoid;gap:3mm}
+  .act h3{font-size:16pt;text-shadow:none!important}
+  .date .d{font-size:20pt}
+  .visit,.rent{background:#fff;color:#000;border:0}
+  .rent *{color:#000!important;border-color:#000!important}
+  .rooms,.access{margin-top:6mm}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the show calendar</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Halftone Hall, back to top">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="12" cy="13" r="9" fill="#2B4BA8"/><circle cx="16" cy="15" r="9" fill="#D8432A" style="mix-blend-mode:multiply"/></svg>
+      Halftone<span class="mark-hall"> Hall</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="#shows">Shows</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#rent">Rent the hall</a></li>
+        <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Sections <svg width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></li>
+        <li><a class="btn" href="#shows">Tickets</a></li>
+      </ul>
+    </nav>
+  </div>
+  <ul class="menu" id="menu" hidden>
+    <li><a href="#shows">On the bill <span id="menu-count">Calendar</span></a></li>
+    <li><a href="#visit">Before you come <span>Doors, ages, bags</span></a></li>
+    <li><a href="#access">Accessible seating <span>Floor plan</span></a></li>
+    <li><a href="#rent">Rent the pressroom <span>Rooms, rates</span></a></li>
+  </ul>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="slug"><span>1418 East Market Street · Louisville, Kentucky</span><span>Pressroom built 1911 · Music since 2014</span><span>Capacity 600</span></p>
+      <div class="sheet">
+        <h1 class="press" id="hero-title">
+          <span class="sr-only">Halftone Hall</span>
+          <span class="plates" aria-hidden="true">
+            <span class="plate plate-b"><span>Halftone</span><span>Hall</span></span>
+            <span class="plate plate-r"><span>Halftone</span><span>Hall</span></span>
+          </span>
+          <svg class="registration" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M17 0v34M0 17h34" stroke="currentColor" stroke-width="1.6"/></svg>
+        </h1>
+
+        <div class="spot" aria-hidden="true"><svg id="spot" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid meet"></svg></div>
+
+        <aside class="next" aria-labelledby="next-title">
+          <p class="next-k"><span>Next on the bill</span><b id="next-when"></b></p>
+          <h2 class="next-act" id="next-title"></h2>
+          <p class="next-sup" id="next-sup"></p>
+          <div class="next-row">
+            <p id="next-meta"></p>
+            <button class="btn" type="button" id="next-buy">Get tickets</button>
+          </div>
+        </aside>
+
+        <div class="lede">
+          <p>Six hundred people, one room, loud on purpose. We book the bands you will brag about seeing here before they played the arena, in the old Ledger pressroom where the floor still has the bolt holes from the presses. Every price on this page is all-in.</p>
+          <div class="actions">
+            <a class="btn" href="#shows">See the calendar</a>
+            <a class="btn btn-ghost" href="#rent">Rent the hall</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="shows" aria-labelledby="shows-title">
+    <div class="wrap" id="main" tabindex="-1">
+      <div class="head">
+        <p class="k">Winter 2026 to 2027</p>
+        <h2 id="shows-title">On the bill</h2>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter shows">
+        <fieldset class="fgroup">
+          <legend>Month</legend>
+          <div class="chips" id="f-month"></div>
+        </fieldset>
+        <fieldset class="fgroup">
+          <legend>Genre</legend>
+          <div class="chips" id="f-genre"></div>
+        </fieldset>
+        <p class="count" id="count" aria-live="polite"></p>
+      </div>
+
+      <ol class="bill" id="bill"></ol>
+      <noscript><p class="empty">The calendar needs JavaScript to list shows. Call the box office at (502) 555-0144 and we will read it to you.</p></noscript>
+
+      <div class="fees">
+        <p><strong>All-in pricing.</strong> The number on the button is the number on your card statement.</p>
+        <p><strong>Sold out?</strong> Face-value resale opens on this page 72 hours before doors. No markups, ever.</p>
+        <p><strong>Box office</strong> at the Market Street door opens at 5 pm on show days, cash and card.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="head-pull">
+        <h2 id="visit-title">Before you come</h2>
+        <p class="pull">Bring a small bag, an ID if you want a drink, and earplugs. <span>Forgot them? Free at both bars.</span></p>
+      </div>
+
+      <div class="rules">
+        <dl class="rulelist">
+          <div class="rule">
+            <dt>Doors</dt>
+            <dd><p>Doors at 7 pm, first band at 8 pm, headliner usually by 9:30 pm. Late shows are marked on the bill. We aim to have the house lights up by 11:30 pm on weeknights so you can catch the last bus.</p></dd>
+          </div>
+          <div class="rule">
+            <dt>Ages</dt>
+            <dd><p>All ages unless a show says 18+ or 21+. Under 16 needs a parent or guardian in the building. Bar wristbands at the door with a valid photo ID; no wristband, no drink, no exceptions.</p></dd>
+          </div>
+          <div class="rule">
+            <dt>Bags</dt>
+            <dd><p>Clear bags up to 12 by 6 by 12 inches, or a small clutch up to 4.5 by 6.5 inches. No backpacks, no camera bags, no professional cameras with detachable lenses. Phones are fine. Coat check is $3, November through March.</p></dd>
+          </div>
+          <div class="rule">
+            <dt>Ears</dt>
+            <dd><p>Free foam earplugs at both bars and the merch table. We keep the floor mix at a level our own sound crew can stand for four nights a week.</p></dd>
+          </div>
+          <div class="rule">
+            <dt>Getting here</dt>
+            <dd><p>Two pay lots on Market Street within a block, free street parking after 6 pm, and a covered bike rack for 20 by the side door. Rideshare drop-off is the loading zone on Shelby Street.</p></dd>
+          </div>
+        </dl>
+
+        <div class="access" id="access">
+          <h3>Accessible seating</h3>
+          <figure class="plan">
+            <svg viewBox="0 0 640 430" role="img" aria-labelledby="plan-t plan-d">
+              <title id="plan-t">Floor plan of Halftone Hall</title>
+              <desc id="plan-d">The stage is at the north wall. The main floor fills the middle. A raised accessible platform sits on the house left side, halfway back, with a clear sightline over the floor. The step-free entrance on Market Street opens at the south west corner. The bar runs along the east wall, accessible restrooms and the lift to the balcony are at the south east corner, and the balcony overhangs the back third of the room.</desc>
+              <rect x="10" y="10" width="620" height="410" fill="none" stroke="#1A1916" stroke-width="4"/>
+              <!-- balcony overhang -->
+              <rect x="22" y="282" width="596" height="126" fill="none" stroke="#1A1916" stroke-width="2" stroke-dasharray="8 6"/>
+              <!-- stage -->
+              <rect x="150" y="22" width="340" height="78" fill="#1A1916"/>
+              <text x="320" y="68" text-anchor="middle" fill="#F2ECDF" font-family="Big Shoulders, Arial Narrow, sans-serif" font-weight="800" font-size="26" letter-spacing="2">STAGE</text>
+              <!-- floor halftone -->
+              <pattern id="flr" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="2.2" fill="#2B4BA8" opacity=".35"/></pattern>
+              <rect x="150" y="118" width="340" height="270" fill="url(#flr)"/>
+              <!-- accessible platform -->
+              <rect x="32" y="150" width="100" height="104" fill="#D8432A"/>
+              <!-- bar -->
+              <rect x="560" y="120" width="56" height="150" fill="none" stroke="#1A1916" stroke-width="3"/>
+              <!-- restrooms + lift -->
+              <rect x="510" y="330" width="106" height="78" fill="none" stroke="#1A1916" stroke-width="3"/>
+              <line x1="563" y1="330" x2="563" y2="408" stroke="#1A1916" stroke-width="2"/>
+              <!-- entrance + ramp -->
+              <path d="M22 420 L22 404 M118 420 L118 404" stroke="#1A1916" stroke-width="3"/>
+              <path d="M30 412 L110 412" stroke="#D8432A" stroke-width="6"/>
+              <!-- sightline from platform to stage -->
+              <path d="M132 190 L180 100" stroke="#1A1916" stroke-width="2" stroke-dasharray="3 5"/>
+              <!-- numbered markers -->
+              <g font-family="Instrument Sans, Arial, sans-serif" font-weight="700" font-size="15" text-anchor="middle">
+                <circle cx="320" cy="250" r="15" fill="#1A1916"/><text x="320" y="255" fill="#F2ECDF">1</text>
+                <circle cx="82" cy="202" r="15" fill="#1A1916"/><text x="82" y="207" fill="#F2ECDF">2</text>
+                <circle cx="70" cy="380" r="15" fill="#1A1916"/><text x="70" y="385" fill="#F2ECDF">3</text>
+                <circle cx="588" cy="195" r="15" fill="#1A1916"/><text x="588" y="200" fill="#F2ECDF">4</text>
+                <circle cx="536" cy="369" r="15" fill="#1A1916"/><text x="536" y="374" fill="#F2ECDF">5</text>
+                <circle cx="590" cy="369" r="15" fill="#1A1916"/><text x="590" y="374" fill="#F2ECDF">6</text>
+                <circle cx="320" cy="345" r="15" fill="#1A1916"/><text x="320" y="350" fill="#F2ECDF">7</text>
+              </g>
+            </svg>
+            <figcaption>Drawn to rough scale. North is the stage.</figcaption>
+          </figure>
+          <ol class="legend">
+            <li><span><b>Main floor</b>Standing, 480. Flat concrete, no steps from the door to the rail.</span></li>
+            <li><span><b>Accessible platform</b>Raised 18 inches on house left, halfway back, so you see over the crowd. 12 wheelchair spaces, each with a fixed companion seat beside it.</span></li>
+            <li><span><b>Step-free entrance</b>Market Street door, ramped at 1 in 14, 36 inch clear opening, staffed from doors to close.</span></li>
+            <li><span><b>Bar</b>A lowered 34 inch section at the south end, and table service to the platform if you flag any staffer.</span></li>
+            <li><span><b>Accessible restrooms</b>Two single-user, all-gender rooms with grab bars, on both levels.</span></li>
+            <li><span><b>Lift to balcony</b>Fits a standard wheelchair plus one companion. Balcony has 4 wheelchair spaces on the front rail.</span></li>
+            <li><span><b>Balcony above</b>120, standing rail plus 40 stools. Covers the back third of the room.</span></li>
+          </ol>
+          <div class="access-more">
+            <p><strong>How to book it.</strong> Choose "Accessible platform" when you buy tickets. It costs the same as general admission and includes one companion ticket at no charge. You do not need to show proof of anything.</p>
+            <p><strong>Need something else?</strong> ASL interpretation, a reserved seat on the floor near an exit, or a sensory-friendly quiet spot during the set: email access@halftonehall.com or call the box office. ASL needs 14 days notice so we can book a pair of interpreters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec rent" id="rent" aria-labelledby="rent-title">
+    <div class="wrap">
+      <div class="head-wide">
+        <h2 id="rent-title">Rent the pressroom</h2>
+      </div>
+      <div class="rentgrid">
+        <div class="rooms">
+          <p class="lead">Album releases, company holiday parties, wedding receptions, a film premiere, a 40th birthday with a real band. Our own crew runs sound and lights for every rental, so the room sounds like it does on a Saturday.</p>
+          <table>
+            <caption>Rooms and rates</caption>
+            <thead><tr><th scope="col">Room</th><th scope="col">Standing</th><th scope="col">Seated</th><th scope="col">From</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">The full hall<small>Floor, balcony, both bars</small></th><td>600</td><td>280</td><td>$2,400</td></tr>
+              <tr><th scope="row">The balcony<small>Private bar, overlooks the stage</small></th><td>120</td><td>64</td><td>$950</td></tr>
+              <tr><th scope="row">The Ledger Bar<small>Street-front lounge, own entrance</small></th><td>90</td><td>48</td><td>$650</td></tr>
+            </tbody>
+          </table>
+          <p class="fine">"From" is a Monday to Thursday rate for five hours. Fridays and Saturdays are quoted per date because they compete with shows. Bar minimums apply and we put them in writing in the first reply.</p>
+          <ul class="inc">
+            <li>House sound engineer and lighting tech</li>
+            <li>The 32 foot stage, backline amps and a drum kit</li>
+            <li>Load-in from the Shelby Street dock, no stairs</li>
+            <li>Security and door staff sized to your headcount</li>
+          </ul>
+        </div>
+
+        <div class="form">
+          <form id="inq" novalidate>
+            <h3>Ask about a date</h3>
+            <p class="intro">Tell us roughly what you have in mind. Our events manager answers within two business days with availability and a written quote.</p>
+            <div class="fgrid">
+              <div class="field">
+                <label for="i-name">Your name</label>
+                <input id="i-name" name="name" autocomplete="name" required aria-describedby="e-name">
+                <p class="err" id="e-name"></p>
+              </div>
+              <div class="field">
+                <label for="i-email">Email</label>
+                <input id="i-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+                <p class="err" id="e-email"></p>
+              </div>
+              <div class="field">
+                <label for="i-type">Kind of event</label>
+                <select id="i-type" name="type" required aria-describedby="e-type">
+                  <option value="">Choose one</option>
+                  <option>Company party</option>
+                  <option>Album or product release</option>
+                  <option>Wedding or reception</option>
+                  <option>Private concert</option>
+                  <option>Screening or talk</option>
+                  <option>Something else</option>
+                </select>
+                <p class="err" id="e-type"></p>
+              </div>
+              <div class="field">
+                <label for="i-date">Preferred date</label>
+                <input id="i-date" name="date" type="date" required aria-describedby="e-date">
+                <p class="err" id="e-date"></p>
+              </div>
+              <div class="field">
+                <label for="i-count">Guests, roughly</label>
+                <input id="i-count" name="count" type="number" inputmode="numeric" min="10" max="600" required aria-describedby="e-count">
+                <p class="err" id="e-count"></p>
+              </div>
+              <div class="field">
+                <label for="i-org">Company or group <span class="opt">(optional)</span></label>
+                <input id="i-org" name="org" autocomplete="organization">
+              </div>
+              <fieldset class="field full">
+                <legend>Which room</legend>
+                <div class="rooms-pick">
+                  <label><input type="radio" name="room" value="The full hall" checked><span>The full hall</span></label>
+                  <label><input type="radio" name="room" value="The balcony"><span>The balcony</span></label>
+                  <label><input type="radio" name="room" value="The Ledger Bar"><span>The Ledger Bar</span></label>
+                  <label><input type="radio" name="room" value="Not sure yet"><span>Not sure yet</span></label>
+                </div>
+              </fieldset>
+              <div class="field full">
+                <label for="i-notes">Anything we should know <span class="opt">(optional)</span></label>
+                <textarea id="i-notes" name="notes" placeholder="A live band, a DJ, catering, a hard stop time"></textarea>
+              </div>
+            </div>
+            <div class="submit">
+              <button class="btn" type="submit">Send the inquiry</button>
+              <p>We reply within two business days, from events@halftonehall.com.</p>
+            </div>
+          </form>
+          <div class="sent" id="sent" role="status" tabindex="-1">
+            <h3>Penciled in</h3>
+            <p>Thanks. Our events manager will reply within two business days with availability and a written quote. Here is what you sent:</p>
+            <dl id="sent-dl"></dl>
+            <button class="btn" type="button" id="again">Ask about another date</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="footgrid">
+      <p class="big">Halftone<br>Hall</p>
+      <div class="col">
+        <h2>Find us</h2>
+        <p>1418 East Market Street<br>Louisville, KY 40206</p>
+      </div>
+      <div class="col">
+        <h2>Box office</h2>
+        <p>Show days from 5 pm<br>(502) 555-0144</p>
+      </div>
+      <div class="col">
+        <h2>Write</h2>
+        <p><a href="mailto:hello@halftonehall.com">hello@halftonehall.com</a></p>
+        <p><a href="mailto:events@halftonehall.com">events@halftonehall.com</a></p>
+      </div>
+    </div>
+    <div class="demo">
+      <p>Halftone Hall is a fictional venue. This page is a demonstration built by Page Studio, not a real business; no tickets are sold and no forms are sent.</p>
+      <a href="../../index.html">Back to Page Studio</a>
+    </div>
+  </div>
+</footer>
+
+<dialog class="tix" id="tix" aria-labelledby="tix-title">
+  <div class="tix-in" id="tix-in"></div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- the bill ---------- */
+  var GENRES = {rock:"Rock & Punk", roots:"Roots & Folk", soul:"Soul & Jazz", electronic:"Electronic", hiphop:"Hip-hop"};
+  var SHOWS = [
+    {id:"paper-moths", date:"2026-11-20", act:"The Paper Moths", sup:"with Gully Weather", g:"rock", doors:"7 pm", show:"8 pm", ages:"All ages", price:24, state:"low",
+     blurb:"Four-piece from Dayton with a second album full of songs about leaving Dayton. Big choruses, bigger guitars."},
+    {id:"dolores", date:"2026-11-21", act:"Dolores Overdrive", sup:"with Sweatband Theory", g:"rock", doors:"7 pm", show:"8 pm", ages:"18+", price:20, state:"sold",
+     blurb:"Twenty-two minute sets, zero ballads. Sold out in a week, which tells you something."},
+    {id:"hollow-rail", date:"2026-11-25", act:"Hollow Rail String Band", sup:"Thanksgiving eve, two sets", g:"roots", doors:"7 pm", show:"8 pm", ages:"All ages", price:18, state:"on",
+     blurb:"Banjo, fiddle, upright bass and a dobro player who should be famous. Bring the cousins you actually like."},
+    {id:"marisol", date:"2026-12-04", act:"Marisol Vane", sup:"Seated show, floor tables and balcony", g:"soul", doors:"6:30 pm", show:"8 pm", ages:"21+", price:38, state:"on", seated:true,
+     blurb:"A voice that makes a 600 person room go quiet, backed by a five piece band. Tables on the floor for this one."},
+    {id:"kitchen-radio", date:"2026-12-05", act:"Kitchen Radio", sup:"with The Understudies", g:"rock", doors:"7 pm", show:"8 pm", ages:"All ages", price:26, state:"on",
+     blurb:"Jangly, warm, a little sad in the good way. Their record release show here in 2024 is still the loudest singalong we have heard."},
+    {id:"static-garden", date:"2026-12-10", act:"Static Garden", sup:"live set, with DJ Low Tide", g:"electronic", doors:"8 pm", show:"9 pm", ages:"18+", price:22, state:"low", late:true,
+     blurb:"Modular synths, a live drummer and the full light rig. Late show, the floor stays open until 1 am."},
+    {id:"big-ruth", date:"2026-12-12", act:"Big Ruth & the Gravel Kings", sup:"with Dale Ferriday", g:"roots", doors:"7 pm", show:"8 pm", ages:"All ages", price:30, state:"sold",
+     blurb:"Honky-tonk with a horn section. The second Louisville date in two years, and it sold out on day one again."},
+    {id:"brassfire", date:"2026-12-31", act:"Brassfire Social Club", sup:"New Year's Eve, a toast at midnight", g:"soul", doors:"8 pm", show:"9:30 pm", ages:"21+", price:55, state:"low", late:true,
+     blurb:"Eleven musicians, three sets, every soul and funk song you forgot you knew all the words to. Ticket includes the midnight toast."},
+    {id:"tender-hooks", date:"2027-01-15", act:"Tender Hooks", sup:"with The Dents", g:"rock", doors:"7 pm", show:"8 pm", ages:"All ages", price:16, state:"on",
+     blurb:"Fast, funny, short songs from four people who met at the record store two blocks from here."},
+    {id:"okra", date:"2027-01-23", act:"Okra Johnson & the Night Shift", sup:"with Lil Pennyroyal", g:"hiphop", doors:"7 pm", show:"8:30 pm", ages:"18+", price:28, state:"on",
+     blurb:"Louisville rapper, full live band, and a horn line borrowed from Brassfire. Hometown show for the new record."},
+    {id:"wren", date:"2027-01-29", act:"Wren Halloway", sup:"Seated show, solo and acoustic", g:"roots", doors:"7 pm", show:"8 pm", ages:"All ages", price:25, state:"soon", onsale:"Dec 4, 10 am", seated:true,
+     blurb:"Just a guitar, a piano and the songs. Chairs on the floor, the bar stays open, phones in pockets please."}
+  ];
+  var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var MONTHS_L = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var DOW_L = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  SHOWS.forEach(function(s){
+    var p = s.date.split("-").map(Number);
+    s.d = new Date(p[0], p[1]-1, p[2]);
+    s.mkey = p[0] + "-" + p[1];
+  });
+  function longDate(s){ return DOW_L[s.d.getDay()] + ", " + MONTHS_L[s.d.getMonth()] + " " + s.d.getDate() + ", " + s.d.getFullYear(); }
+  function shortDate(s){ return DOW[s.d.getDay()] + " " + MONTHS[s.d.getMonth()] + " " + s.d.getDate(); }
+  function money(n){ return "$" + n.toFixed(n % 1 ? 2 : 0); }
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+  /* filters: built from the data, so a chip never points at an empty month */
+  var state = {month:"all", genre:"all"};
+  var monthKeys = [], seen = {};
+  SHOWS.forEach(function(s){ if(!seen[s.mkey]){ seen[s.mkey]=1; monthKeys.push({k:s.mkey, label:MONTHS_L[s.d.getMonth()]}); } });
+  var genreKeys = Object.keys(GENRES).filter(function(g){ return SHOWS.some(function(s){return s.g===g;}); });
+
+  function chip(group, value, label){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip";
+    b.setAttribute("data-group", group); b.setAttribute("data-value", value);
+    b.innerHTML = esc(label) + ' <span class="n" aria-hidden="true"></span><span class="sr-only"></span>';
+    b.setAttribute("aria-pressed", state[group] === value ? "true" : "false");
+    b.addEventListener("click", function(){ state[group] = value; render(); });
+    return b;
+  }
+  var fm = document.getElementById("f-month"), fg = document.getElementById("f-genre");
+  fm.appendChild(chip("month","all","All"));
+  monthKeys.forEach(function(m){ fm.appendChild(chip("month", m.k, m.label)); });
+  fg.appendChild(chip("genre","all","All"));
+  genreKeys.forEach(function(g){ fg.appendChild(chip("genre", g, GENRES[g])); });
+
+  var bill = document.getElementById("bill"), count = document.getElementById("count");
+  function row(s){
+    var buy;
+    if (s.state === "sold") {
+      buy = '<span class="sold">Sold out<s aria-label="was ' + money(s.price) + '">' + money(s.price) + '</s></span><p class="note">Face-value resale opens here 72 hours before doors.</p>';
+    } else if (s.state === "soon") {
+      buy = '<span class="state">On sale ' + esc(s.onsale) + '</span><p class="note">Announced. Tickets ' + money(s.price) + ' all-in.</p>';
+    } else {
+      buy = (s.state === "low" ? '<span class="state state-low">Few left</span>' : '') +
+        '<button class="btn" type="button" data-buy="' + s.id + '" aria-label="Tickets for ' + esc(s.act) + ', ' + money(s.price) + ' all-in">Tickets ' + money(s.price) + '</button>';
+    }
+    return '<li class="show' + (s.state === "sold" ? " is-sold" : "") + '">' +
+      '<p class="date"><span class="d">' + s.d.getDate() + '</span><span class="dow">' + DOW[s.d.getDay()] + '</span><span class="m">' + MONTHS[s.d.getMonth()] + '</span><span class="sr-only">, ' + longDate(s) + '</span></p>' +
+      '<div class="act"><h3>' + esc(s.act) + '</h3><p class="sup">' + esc(s.sup) + '</p><p class="meta-line">Doors ' + s.doors.replace(" pm","") + ' · Show ' + s.show.replace(" pm","") + (s.late ? " late" : "") + ' · ' + s.ages + '</p><p class="blurb">' + esc(s.blurb) + '</p></div>' +
+      '<ul class="meta"><li><span>Doors</span><span>' + s.doors + '</span></li><li><span>Show</span><span>' + s.show + (s.late ? " (late)" : "") + '</span></li><li><span>Ages</span><span>' + s.ages + '</span></li><li><span>Genre</span><span>' + esc(GENRES[s.g]) + '</span></li></ul>' +
+      '<div class="buy">' + buy + '</div></li>';
+  }
+  function render(){
+    var list = SHOWS.filter(function(s){
+      return (state.month === "all" || s.mkey === state.month) && (state.genre === "all" || s.g === state.genre);
+    });
+    if (!list.length) {
+      bill.innerHTML = '<li class="empty"><p>Nothing on the bill for that combination yet. New shows go up most Tuesdays at 10 am.</p><button class="btn btn-ghost" type="button" id="reset">Show every date</button></li>';
+      document.getElementById("reset").addEventListener("click", function(){
+        state.month = "all"; state.genre = "all";
+        render();
+      });
+    } else {
+      bill.innerHTML = list.map(row).join("");
+    }
+    /* chip counts respect the other filter, so a visitor sees an empty combination coming */
+    document.querySelectorAll(".chip").forEach(function(c){
+      var g = c.getAttribute("data-group"), v = c.getAttribute("data-value"), other = g === "month" ? "genre" : "month";
+      var n = SHOWS.filter(function(s){
+        var mine = v === "all" || (g === "month" ? s.mkey === v : s.g === v);
+        var theirs = state[other] === "all" || (other === "month" ? s.mkey === state.month : s.g === state.genre);
+        return mine && theirs;
+      }).length;
+      c.querySelector(".n").textContent = n;
+      c.querySelector(".sr-only").textContent = ", " + n + (n === 1 ? " show" : " shows");
+      c.classList.toggle("zero", n === 0);
+      c.setAttribute("aria-pressed", state[g] === v ? "true" : "false");
+    });
+    var sold = list.filter(function(s){return s.state==="sold";}).length;
+    count.textContent = list.length + (list.length === 1 ? " show" : " shows") + (sold ? ", " + sold + " sold out" : "");
+  }
+  render();
+  bill.addEventListener("click", function(e){
+    var b = e.target.closest("[data-buy]");
+    if (b) openTix(b.getAttribute("data-buy"), b);
+  });
+
+  /* ---------- next on the bill (first show that is not sold out) ---------- */
+  var nxt = SHOWS.filter(function(s){ return s.state !== "sold" && s.state !== "soon"; })[0];
+  document.getElementById("next-when").textContent = shortDate(nxt);
+  document.getElementById("next-title").textContent = nxt.act;
+  document.getElementById("next-sup").textContent = nxt.sup + ". " + (nxt.state === "low" ? "Few tickets left." : "Tickets on sale.");
+  document.getElementById("next-meta").textContent = "Doors " + nxt.doors + " · " + money(nxt.price) + " all-in";
+  var nb = document.getElementById("next-buy");
+  nb.addEventListener("click", function(){ openTix(nxt.id, nb); });
+
+  /* ---------- compact section menu (phones) ---------- */
+  var mb = document.querySelector(".menu-btn"), menu = document.getElementById("menu");
+  document.getElementById("menu-count").textContent = SHOWS.length + " dates";
+  function setMenu(open){ mb.setAttribute("aria-expanded", open ? "true" : "false"); menu.hidden = !open; }
+  mb.addEventListener("click", function(){ setMenu(menu.hidden); });
+  menu.addEventListener("click", function(e){ if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !menu.hidden){ setMenu(false); mb.focus(); } });
+  window.matchMedia("(min-width:641px)").addEventListener("change", function(e){ if (e.matches) setMenu(false); });
+
+  /* ---------- mock ticket flow ---------- */
+  var dlg = document.getElementById("tix"), tin = document.getElementById("tix-in"), opener = null;
+  function types(s){
+    if (s.seated) return [
+      {k:"floor", name:"Floor table seat", note:"Shared tables of four, first come within your section", add:0},
+      {k:"balc", name:"Balcony seat", note:"Front rail stools, up the stairs or the lift", add:-4},
+      {k:"acc", name:"Accessible platform", note:"Wheelchair space plus one companion seat, free", add:0, companion:true}
+    ];
+    return [
+      {k:"ga", name:"General admission", note:"Standing on the main floor", add:0},
+      {k:"balc", name:"Balcony rail", note:"Standing rail and 40 stools, own bar", add:6},
+      {k:"acc", name:"Accessible platform", note:"Raised, wheelchair space plus one companion ticket, free", add:0, companion:true}
+    ];
+  }
+  function openTix(id, from){
+    var s = SHOWS.filter(function(x){return x.id===id;})[0];
+    if (!s) return;
+    opener = from || null;
+    var max = s.state === "low" ? 4 : 6, q = 2, t = types(s), pick = t[0].k;
+    function price(){ var ty = t.filter(function(x){return x.k===pick;})[0]; return s.price + ty.add; }
+    function step1(){
+      tin.innerHTML =
+        '<div class="tix-top"><div><p class="k">' + (s.state === "low" ? "Few left · " : "") + 'All-in prices</p><h2 id="tix-title">' + esc(s.act) + '</h2><p class="when">' + longDate(s) + ' · Doors ' + s.doors + ' · ' + s.ages + '</p></div>' +
+        '<button class="x" type="button" data-close aria-label="Close ticket window"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2.4"/></svg></button></div>' +
+        '<fieldset class="types"><legend>Ticket type</legend>' + t.map(function(ty){
+          return '<label class="type"><input type="radio" name="tt" value="' + ty.k + '"' + (ty.k===pick?" checked":"") + '><span><b>' + ty.name + '</b><small>' + ty.note + '</small></span><span class="p">' + money(s.price + ty.add) + '</span></label>';
+        }).join("") + '</fieldset>' +
+        '<p class="qty-l" id="qty-l">How many</p>' +
+        '<div class="qty" role="group" aria-labelledby="qty-l"><button type="button" data-q="-1" aria-label="One fewer ticket">&minus;</button><output id="qv" aria-live="polite">' + q + '</output><button type="button" data-q="1" aria-label="One more ticket">+</button><span class="cap">Limit ' + max + ' per order</span></div>' +
+        '<div class="total"><span>Total<small id="tsub"></small></span><strong id="tv"></strong></div>' +
+        '<button class="btn" type="button" id="hold">Hold these tickets</button>';
+      sync();
+    }
+    function sync(){
+      var ty = t.filter(function(x){return x.k===pick;})[0];
+      tin.querySelector("#qv").textContent = q;
+      tin.querySelector("#tv").textContent = money(price() * q);
+      tin.querySelector("#tsub").textContent = q + " × " + money(price()) + ", fees and tax included" + (ty.companion ? ", plus " + q + " companion seat" + (q>1?"s":"") + " at $0" : "");
+      tin.querySelector('[data-q="-1"]').disabled = q <= 1;
+      tin.querySelector('[data-q="1"]').disabled = q >= max;
+    }
+    function step2(){
+      var ty = t.filter(function(x){return x.k===pick;})[0];
+      tin.innerHTML =
+        '<div class="tix-top"><div><p class="k">Held for 10 minutes</p><h2 id="tix-title" tabindex="-1">Your tickets, almost</h2></div>' +
+        '<button class="x" type="button" data-close aria-label="Close ticket window"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2.4"/></svg></button></div>' +
+        '<div class="stub"><div><dl><dt>Show</dt><dd>' + esc(s.act) + '</dd><dt>Date</dt><dd>' + longDate(s) + '</dd><dt>Doors</dt><dd>' + s.doors + '</dd><dt>Tickets</dt><dd>' + q + ' × ' + ty.name + (ty.companion ? " + " + q + " companion" : "") + '</dd><dt>Total</dt><dd>' + money(price()*q) + ' all-in</dd></dl></div><div class="tear">Adm<br>' + q + '</div></div>' +
+        '<p>Next is the card form. The total above is the total you pay; it does not change on the way there. Nothing is charged until you confirm.</p>' +
+        '<button class="btn" type="button" data-close>Done</button>';
+      tin.querySelector("#tix-title").focus();
+    }
+    tin.onclick = function(e){
+      var qb = e.target.closest("[data-q]");
+      if (qb && !qb.disabled){ q = Math.max(1, Math.min(max, q + Number(qb.getAttribute("data-q")))); sync(); return; }
+      if (e.target.closest("#hold")){ step2(); return; }
+      if (e.target.closest("[data-close]")) dlg.close();
+    };
+    tin.onchange = function(e){ if (e.target.name === "tt"){ pick = e.target.value; sync(); } };
+    step1();
+    dlg.showModal();
+  }
+  dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", function(){ if (opener && document.contains(opener)) opener.focus(); });
+
+  /* ---------- rental inquiry ---------- */
+  var form = document.getElementById("inq"), sent = document.getElementById("sent");
+  var di = document.getElementById("i-date");
+  var today = new Date(); today.setDate(today.getDate() + 14);
+  di.min = today.toISOString().slice(0,10);
+  var MSG = {
+    name:"Tell us who to reply to.",
+    email:"We need an email address that looks like name@example.com.",
+    type:"Pick the closest kind of event. Something else is fine.",
+    date:"Choose a date at least two weeks out.",
+    count:"Between 10 and 600 guests, a rough number is fine."
+  };
+  function check(el){
+    var e = document.getElementById("e-" + el.name);
+    if (!e) return true;
+    var ok = el.checkValidity();
+    el.setAttribute("aria-invalid", ok ? "false" : "true");
+    e.textContent = ok ? "" : MSG[el.name];
+    return ok;
+  }
+  form.addEventListener("blur", function(e){ if (e.target.matches("[required]") && e.target.value) check(e.target); }, true);
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var bad = null;
+    form.querySelectorAll("[required]").forEach(function(el){ if (!check(el) && !bad) bad = el; });
+    if (bad) { bad.focus(); return; }
+    var fd = new FormData(form), dl = document.getElementById("sent-dl");
+    var rows = [["Name", fd.get("name")],["Event", fd.get("type")],["Date", fd.get("date")],["Guests", fd.get("count")],["Room", fd.get("room")]];
+    dl.innerHTML = rows.map(function(r){ return "<dt>" + r[0] + "</dt><dd>" + esc(r[1]) + "</dd>"; }).join("");
+    form.hidden = true; sent.classList.add("on"); sent.focus();
+  });
+  document.getElementById("again").addEventListener("click", function(){
+    form.reset(); form.querySelectorAll("[aria-invalid]").forEach(function(el){ el.removeAttribute("aria-invalid"); });
+    form.hidden = false; sent.classList.remove("on"); document.getElementById("i-name").focus();
+  });
+
+  /* ---------- the signature: two plates pulled into register ---------- */
+  /* Halftone spotlight: two screens at 15 and 75 degrees, dot radius from tone, overprinted. */
+  var svg = document.getElementById("spot"), NS = "http://www.w3.org/2000/svg";
+  function screen(color, angle, cx, cy, R, cell, opacity){
+    var g = document.createElementNS(NS, "g");
+    g.setAttribute("fill", color);
+    g.setAttribute("style", "mix-blend-mode:multiply");
+    if (opacity) g.setAttribute("opacity", opacity);
+    var a = angle * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a), n = Math.ceil(900 / cell), out = [];
+    for (var i = -n; i <= n; i++) for (var j = -n; j <= n; j++) {
+      var x = 300 + (i * ca - j * sa) * cell, y = 260 + (i * sa + j * ca) * cell;
+      if (x < -10 || x > 610 || y < -10 || y > 530) continue;
+      var dx = (x - cx) / R, dy = (y - cy) / (R * 0.92), d = Math.sqrt(dx*dx + dy*dy);
+      var tone = Math.max(0, 1 - d); tone = Math.pow(tone, 0.8);
+      var r = cell * 0.56 * Math.sqrt(tone);
+      if (r > 0.6) out.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r.toFixed(2) + '"/>');
+    }
+    g.innerHTML = out.join("");
+    svg.appendChild(g);
+  }
+  screen("#2B4BA8", 15, 330, 250, 255, 15);
+  screen("#D8432A", 75, 300, 280, 205, 15, ".9");
+
+  var press = document.querySelector(".press");
+  if (reduce) {
+    press.classList.add("pulled");
+  } else {
+    /* the press pulls the red plate into register shortly after load */
+    requestAnimationFrame(function(){ setTimeout(function(){ press.classList.add("pulled"); }, 450); });
+    /* then the pointer nudges it, a hand on the squeegee: never more than 5px */
+    if (window.matchMedia("(pointer:fine)").matches) {
+      var hero = document.querySelector(".hero"), plateR = document.querySelector(".plate-r"), raf = 0, tx = -5, ty = -4;
+      hero.addEventListener("pointermove", function(e){
+        var r = hero.getBoundingClientRect();
+        tx = -5 + ((e.clientX - r.left) / r.width - 0.5) * 8;
+        ty = -4 + ((e.clientY - r.top) / r.height - 0.5) * 5;
+        if (!raf) raf = requestAnimationFrame(function(){ raf = 0; plateR.style.transform = "translate3d(" + tx.toFixed(2) + "px," + ty.toFixed(2) + "px,0)"; });
+      });
+      hero.addEventListener("pointerleave", function(){ plateR.style.transform = ""; });
+    }
+  }
+})();
+</script>
+</body>
+</html>

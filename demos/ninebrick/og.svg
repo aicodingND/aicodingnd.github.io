@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1C1815"/>
+  <g stroke="#EEE6D8" stroke-opacity=".14"><path d="M80 470H1120M80 380H1120M80 290H1120M80 200H1120"/></g>
+  <path d="M80 520 C130 470 150 230 190 215 S300 300 350 330 S460 390 520 395 S560 260 600 255 S760 260 820 300 S900 440 1000 470 S1100 495 1120 500" fill="none" stroke="#F08A52" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="190" cy="215" r="14" fill="#F08A52"/>
+  <text x="80" y="120" font-family="Bricolage Grotesque, Arial Narrow, sans-serif" font-weight="760" font-size="104" letter-spacing="-3" fill="#EEE6D8">Ninebrick</text>
+  <text x="84" y="170" font-family="Literata, Georgia, serif" font-style="italic" font-size="34" fill="#B9AD9D">Lit before dawn. Cooked all the way down.</text>
+  <text x="80" y="585" font-family="Bricolage Grotesque, Arial Narrow, sans-serif" font-weight="600" font-size="24" letter-spacing="3" fill="#F08A52">WOOD-FIRED KITCHEN · CHATTANOOGA · A PAGE STUDIO DEMONSTRATION</text>
+</svg>

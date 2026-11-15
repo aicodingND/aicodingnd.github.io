@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Aurelia Private Travel. Private jet membership and access.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B1020"/>
+      <stop offset="0.55" stop-color="#10162B"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.6">
+      <stop offset="0" stop-color="#E3CE9F" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#E3CE9F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cloud" cx="0.22" cy="0.85" r="0.5">
+      <stop offset="0" stop-color="#19203A" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#19203A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="haze" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.886  0 0 0 0 0.808  0 0 0 0 0.624  0 0 0 0.32 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="320" width="1200" height="310" fill="url(#cloud)"/>
+  <rect x="0" y="300" width="1200" height="330" filter="url(#haze)" opacity="0.5"/>
+
+  <!-- starfield -->
+  <g fill="#F3EFE6">
+    <circle cx="160" cy="120" r="1.4" opacity="0.5"/>
+    <circle cx="420" cy="86" r="1.1" opacity="0.4"/>
+    <circle cx="760" cy="150" r="1.3" opacity="0.45"/>
+    <circle cx="980" cy="96" r="1.6" opacity="0.55" fill="#E3CE9F"/>
+    <circle cx="1080" cy="200" r="1.1" opacity="0.4"/>
+    <circle cx="280" cy="220" r="1.1" opacity="0.35"/>
+    <circle cx="620" cy="70" r="1.2" opacity="0.4"/>
+  </g>
+
+  <!-- hairline frame -->
+  <rect x="56" y="56" width="1088" height="518" fill="none" stroke="#C9A35E" stroke-opacity="0.32" stroke-width="1"/>
+
+  <!-- top meta -->
+  <text x="92" y="118" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" letter-spacing="5" fill="#D8B978" font-weight="500">PRIVATE AVIATION &#183; BY MEMBERSHIP</text>
+
+  <!-- wordmark -->
+  <text x="88" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="208" letter-spacing="-4" fill="#F3EFE6"><tspan fill="#E3CE9F">A</tspan>urelia</text>
+  <text x="96" y="416" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="40" fill="#8B93AC">Private Travel &#8201;&#183;&#8201; the quiet hours are yours</text>
+
+  <!-- fine-line aircraft, champagne hairline -->
+  <g transform="translate(150 488)" fill="none" stroke="#C9A35E" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 14 C70 6 180 0 320 0 L520 0 C560 -1 590 -4 612 -10 C636 -16 648 -4 636 8 C612 18 560 22 500 23 L180 26 C100 27 40 24 12 18 C-4 14 -8 16 0 14 Z"/>
+    <path d="M330 2 L246 -44 C240 -48 246 -50 254 -48 L420 0"/>
+    <path d="M330 4 L246 64 C240 68 246 70 254 68 L420 24" stroke="#E3CE9F" stroke-opacity="0.6" stroke-width="1.1"/>
+    <path d="M612 -10 L636 -48 C638 -52 632 -54 628 -50 L606 -16"/>
+  </g>
+  <circle cx="158" cy="502" r="3.4" fill="#C9A35E"/>
+
+  <!-- credential strip -->
+  <text x="92" y="556" font-family="Helvetica Neue, Arial, sans-serif" font-size="21" letter-spacing="3" fill="#8B93AC">PART 135 &#183; ARG/US PLATINUM &#183; WYVERN WINGMAN &#183; 24/7 FLIGHT TEAM</text>
+
+  <!-- corner mark -->
+  <text x="1108" y="556" text-anchor="end" font-family="Helvetica Neue, Arial, sans-serif" font-size="21" letter-spacing="3" fill="#D8B978">aureliaprivate.com</text>
+</svg>
